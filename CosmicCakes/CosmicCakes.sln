@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CosmicCakesWebApp", "CosmicCakes\CosmicCakesWebApp.csproj", "{1127E7A1-28D1-433C-A8F0-43E5478AD827}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CosmicCakes.Tests", "CosmicCakes.Tests\CosmicCakes.Tests.csproj", "{A16114A4-D4F7-4BCA-A7AD-F96024AD5F8D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CosmicCakes.DAL", "CosmicCakes.DAL\CosmicCakes.DAL.csproj", "{B6E31A68-D01F-4051-AB2B-ACFA8313021B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1127E7A1-28D1-433C-A8F0-43E5478AD827}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1127E7A1-28D1-433C-A8F0-43E5478AD827}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1127E7A1-28D1-433C-A8F0-43E5478AD827}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1127E7A1-28D1-433C-A8F0-43E5478AD827}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A16114A4-D4F7-4BCA-A7AD-F96024AD5F8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A16114A4-D4F7-4BCA-A7AD-F96024AD5F8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A16114A4-D4F7-4BCA-A7AD-F96024AD5F8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A16114A4-D4F7-4BCA-A7AD-F96024AD5F8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6E31A68-D01F-4051-AB2B-ACFA8313021B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6E31A68-D01F-4051-AB2B-ACFA8313021B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6E31A68-D01F-4051-AB2B-ACFA8313021B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6E31A68-D01F-4051-AB2B-ACFA8313021B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
