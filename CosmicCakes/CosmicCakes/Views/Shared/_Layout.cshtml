@@ -3,40 +3,48 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>Cosmic Cakes</title>
     @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    @*@Scripts.Render("~/bundles/modernizr")*@
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-            </div>
+    <div class="container">
+        <div class="row centerd-content">
+            <div class="col-md-12 centerd-content"><a href="@Url.Action("Index", "Home")"><img class="img-responsive img-thumbnail" src="~/Content/Images/Logo.jpg" /></a></div>
         </div>
     </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
+    <div class="container main-head-menu">
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand"  data-target="#mainNavbar" style="float:left;">Cosmic Cakes</a>
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse" id="mainNavbar">
+                        <div class="row">
+                            <ul class="nav navbar-nav" style="float:none; display:inline-block;">
+                                <li class="col-xs-2 col-md-2" id="goHome"> <a href="@Url.Action("Index","Cake")">Cakes</a></li>
+                                <li class="col-xs-2 col-md-2" id="goCrawling"><a href="@Url.Action("Index","Cupcake")">Cupcakes</a></li>
+                                <li class="col-xs-2 col-md-2" id="checkData"><a href="@Url.Action("Index","Cookie")">Cookies</a></li>
+                                <li class="col-xs-2 col-md-2" id="checkData"><a href="@Url.Action("Index","Price")">Price</a></li>
+                                <li class="col-xs-2 col-md-2" id="checkData"><a href="@Url.Action("Index","Blog")">Blog</a></li>
+                                <li class="col-xs-2 col-md-2" id="checkData"><a href="@Url.Action("Index","Contact")">Contacts</a></li>
+                            </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
     </div>
+        <div class="container">
+                @RenderBody()
+        </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
 </body>
 </html>

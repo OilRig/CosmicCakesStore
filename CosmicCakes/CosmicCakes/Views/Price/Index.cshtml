@@ -1,0 +1,45 @@
+﻿@model CosmicCakes.Models.CreateCakeModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    List<SelectListItem> bisquitList = new List<SelectListItem>();
+    List<SelectListItem> berriesList = new List<SelectListItem>();
+    List<SelectListItem> fillingList = new List<SelectListItem>();
+    foreach (var item in Model.Bisquit)
+    {
+        bisquitList.Add(new SelectListItem { Text = item.ToString() });
+    }
+    foreach (var item in Model.Filling)
+    {
+        fillingList.Add(new SelectListItem { Text = item.ToString() });
+    }
+    foreach (var item in Model.Berries)
+    {
+        berriesList.Add(new SelectListItem { Text = item.ToString() });
+    }
+
+}
+
+<div class="alert alert-success alert-dismissable fade in">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+    Здесь Вы можете выбрать ингридиенты и  посчитать стоимость тортика
+</div>
+@using (Html.BeginForm("Calculate", "Price", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="row">
+        <div class="col-md-12">
+            @Html.DropDownListFor(md=>md.Bisquit,bisquitList)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            @Html.DropDownListFor(md => md.Filling, fillingList)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            @Html.CheckBoxFor(md => md.Berries, berriesList)
+        </div>
+    </div>
+}
+

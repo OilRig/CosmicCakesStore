@@ -121,14 +121,30 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PriceController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CreateCakeModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\img_10_307x30.jpg" />
+    <Content Include="Content\Images\img_11_307x30.jpg" />
+    <Content Include="Content\Images\img_12_307x30.jpg" />
+    <Content Include="Content\Images\img_13_307x30.jpg" />
+    <Content Include="Content\Images\img_1_307x307.jpg" />
+    <Content Include="Content\Images\img_2_307x307.jpg" />
+    <Content Include="Content\Images\img_3_307x307.jpg" />
+    <Content Include="Content\Images\img_4_307x307.jpg" />
+    <Content Include="Content\Images\img_5_307x30.jpg" />
+    <Content Include="Content\Images\img_6_307x30.jpg" />
+    <Content Include="Content\Images\img_7_307x30.jpg" />
+    <Content Include="Content\Images\img_8_307x30.jpg" />
+    <Content Include="Content\Images\img_9_307x30.jpg" />
+    <Content Include="Content\Images\Logo.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -161,10 +177,10 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Price\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

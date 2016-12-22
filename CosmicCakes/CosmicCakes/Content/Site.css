@@ -22,3 +22,14 @@ select,
 textarea {
     max-width: 280px;
 }
+.centerd-content {
+    text-align:center;
+    align-content:center;
+    float:none;
+}
+.main-head-menu {
+    font-family:Castellar;
+}
+.margined-right-item {
+    margin-right:10px;
+}
