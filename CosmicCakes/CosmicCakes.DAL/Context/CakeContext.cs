@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using CosmicCakes.DAL.Entities;
+using System.Data.Entity;
 
 namespace CosmicCakes.DAL
 {
@@ -13,6 +14,14 @@ namespace CosmicCakes.DAL
         {
             base.OnModelCreating(modelBuilder);
         }
+
+        public DbSet<Bisquit> Bisquits { get; set; }
+        public DbSet<Filling> Fillings { get; set; }
+        public DbSet<Berry> Berries { get; set; }
+        public DbSet<Decoration> Decorations { get; set; }
+        public DbSet<Order> Orders { get; set; }
+
+
 
 
     }
