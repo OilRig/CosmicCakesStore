@@ -2,21 +2,6 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    List<SelectListItem> bisquitList = new List<SelectListItem>();
-    List<SelectListItem> berriesList = new List<SelectListItem>();
-    List<SelectListItem> fillingList = new List<SelectListItem>();
-    foreach (var item in Model.Bisquit)
-    {
-        bisquitList.Add(new SelectListItem { Text = item.ToString() });
-    }
-    foreach (var item in Model.Filling)
-    {
-        fillingList.Add(new SelectListItem { Text = item.ToString() });
-    }
-    foreach (var item in Model.Berries)
-    {
-        berriesList.Add(new SelectListItem { Text = item.ToString() });
-    }
 
 }
 
@@ -27,19 +12,102 @@
 @using (Html.BeginForm("Calculate", "Price", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     <div class="row">
-        <div class="col-md-12">
-            @Html.DropDownListFor(md=>md.Bisquit,bisquitList)
+        <div class="col-md-offset-4 col-xs-2 col-md-2 col-lg-2 col-sm-2">
+            <label class="alert-info">Укажите вес тортика:</label>
+        </div>
+        <div class="col-xs-6 col-md-6 col-lg-6 col-sm-6">
+            @Html.EditorFor(md => md.Weight, new { htmlAttributes = new { @class = "form-control" } })
         </div>
     </div>
+    <br />
     <div class="row">
-        <div class="col-md-12">
-            @Html.DropDownListFor(md => md.Filling, fillingList)
+        <div class="col-md-offset-4 col-xs-2 col-md-2 col-lg-2 col-sm-2">
+            <label>Выберите бисквит:</label>
+        </div>
+        <div class="col-xs-6 col-md-6 col-lg-6 col-sm-6">
+            <div class="dropdown">
+                <select id="bisquit" class="form-control" data-toggle="tooltip" title="Если вы хотите разные бисквиты - пишите в дополнение" data-placement="bottom">
+                    @foreach (var item in Model.Bisquit)
+                    {
+                        <option>@item</option>
+                    }
+                </select>
+            </div>
         </div>
     </div>
+    <br />
     <div class="row">
-        <div class="col-md-12">
-            @*@Html.CheckBoxFor(md => md.Berries, berriesList)*@
+        <div class="col-md-offset-4 col-xs-2 col-md-2 col-lg-2 col-sm-2">
+            <label>Выберите начинку:</label>
+        </div>
+        <div class="col-xs-6 col-md-6 col-lg-6 col-sm-6">
+            <select id="fillings" class="form-control" data-toggle="tooltip" title="В дополнии можно указать и несколько начинок" data-placement="bottom">
+                @foreach (var item in Model.Filling)
+                {
+                    <option>@item</option>
+                }
+            </select>
+
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-md-offset-4 col-xs-2 col-md-2 col-lg-2 col-sm-2">
+            <label>Выберите ягоды:</label>
+        </div>
+        <div class="col-xs-6 col-md-6 col-lg-6 col-sm-6">
+            <div class="button-group">
+                
+                <div class="checkbox">
+                    <ul style="list-style:none;">
+                        @foreach (var item in Model.Berries)
+                        {
+                            <li><input type="checkbox" />&nbsp;@item</li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-md-offset-4 col-xs-2 col-md-2 col-lg-2 col-sm-2">
+            <label>Выберите вид декора:</label>
+        </div>
+        <div class="col-xs-6 col-md-6 col-lg-6 col-sm-6">
+            <select class="form-control">
+                @foreach (var item in Model.Decorations)
+                {
+                    <option>@item</option>
+                }
+            </select>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-md-offset-6 col-sm-offset-6 col-lg-offset-6 col-xs-6 col-md-6 col-lg-6 col-sm-6">
+            <textarea class="form-control" rows="5" placeholder="Дополнения к тортику"></textarea>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-md-offset-6 col-xs-3 col-sm-3 col-md-3 col-lg-3">
+            <button id="calculate" type="button" class="btn btn-primary" data-toggle="tooltip" title="Приблизительная стоимость, ведь Вы можете что-то добавить">Примерная стоимость</button>
+        </div>
+        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+            <input type="submit" class="btn btn-primary" value="Отправить заказ" /> 
         </div>
     </div>
 }
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            $('#fillings','#bisquit','#calculate').tooltip(
+                {
+                    'delay': { show: 100, hide: 100 }
+                }
+                );
+        });
+    })(jQuery);
+</script>
 

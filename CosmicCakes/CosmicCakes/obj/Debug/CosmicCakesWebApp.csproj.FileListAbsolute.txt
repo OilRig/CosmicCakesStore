@@ -38,3 +38,7 @@ G:\Source\CosmicCakes\CosmicCakesStore\CosmicCakes\CosmicCakes\bin\Newtonsoft.Js
 G:\Source\CosmicCakes\CosmicCakesStore\CosmicCakes\CosmicCakes\obj\Debug\CosmicCakesWebApp.csprojResolveAssemblyReference.cache
 G:\Source\CosmicCakes\CosmicCakesStore\CosmicCakes\CosmicCakes\obj\Debug\CosmicCakes.dll
 G:\Source\CosmicCakes\CosmicCakesStore\CosmicCakes\CosmicCakes\obj\Debug\CosmicCakes.pdb
+G:\Source\CosmicCakes\CosmicCakesStore\CosmicCakes\CosmicCakes\bin\EntityFramework.dll
+G:\Source\CosmicCakes\CosmicCakesStore\CosmicCakes\CosmicCakes\bin\EntityFramework.SqlServer.dll
+G:\Source\CosmicCakes\CosmicCakesStore\CosmicCakes\CosmicCakes\bin\EntityFramework.xml
+G:\Source\CosmicCakes\CosmicCakesStore\CosmicCakes\CosmicCakes\bin\EntityFramework.SqlServer.xml
