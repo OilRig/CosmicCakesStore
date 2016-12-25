@@ -1,13 +1,16 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 
 namespace CosmicCakes.DAL.Entities
 {
-    public class Bisquit
+    [Table("Cream")]
+    public class Cream
     {
         public int Id { get; set; }
 
         [Required]
-        [StringLength(50)]
+        [StringLength(100)]
         public string Type { get; set; }
     }
 }

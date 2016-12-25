@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CosmicCakes.Tests", "Cosmic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CosmicCakes.DAL", "CosmicCakes.DAL\CosmicCakes.DAL.csproj", "{B6E31A68-D01F-4051-AB2B-ACFA8313021B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CosmicCakes.Ninject", "CosmicCakes.Ninject\CosmicCakes.Ninject.csproj", "{C049EA35-23FD-47A0-92B3-207398871FE9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{B6E31A68-D01F-4051-AB2B-ACFA8313021B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B6E31A68-D01F-4051-AB2B-ACFA8313021B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B6E31A68-D01F-4051-AB2B-ACFA8313021B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C049EA35-23FD-47A0-92B3-207398871FE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C049EA35-23FD-47A0-92B3-207398871FE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C049EA35-23FD-47A0-92B3-207398871FE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C049EA35-23FD-47A0-92B3-207398871FE9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,22 +1,24 @@
-﻿@model CosmicCakes.Models.CreateCakeModel
+﻿@model CosmicCakes.Models.CreateCakePageModel
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 
 }
 
+
 <div class="alert alert-success alert-dismissable fade in">
     <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
     Здесь Вы можете выбрать ингридиенты и  посчитать стоимость тортика
 </div>
-@using (Html.BeginForm("Calculate", "Price", FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("Order", "Price", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     <div class="row">
         <div class="col-md-offset-4 col-xs-2 col-md-2 col-lg-2 col-sm-2">
-            <label class="alert-info">Укажите вес тортика:</label>
+            <label>Вес тортика (кг):</label>
         </div>
         <div class="col-xs-6 col-md-6 col-lg-6 col-sm-6">
-            @Html.EditorFor(md => md.Weight, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(md => md.Weight, new {  htmlAttributes = new { @class = "form-control",@title = "Укажите вес тортика" } })
+            @Html.ValidationMessageFor(md=>md.Weight)
         </div>
     </div>
     <br />
@@ -26,7 +28,7 @@
         </div>
         <div class="col-xs-6 col-md-6 col-lg-6 col-sm-6">
             <div class="dropdown">
-                <select id="bisquit" class="form-control" data-toggle="tooltip" title="Если вы хотите разные бисквиты - пишите в дополнение" data-placement="bottom">
+                <select id="bisquit" class="form-control" data-toggle="tooltip" title="Если вы хотите разные бисквиты - пишите в дополнение">
                     @foreach (var item in Model.Bisquit)
                     {
                         <option>@item</option>
@@ -41,7 +43,7 @@
             <label>Выберите начинку:</label>
         </div>
         <div class="col-xs-6 col-md-6 col-lg-6 col-sm-6">
-            <select id="fillings" class="form-control" data-toggle="tooltip" title="В дополнии можно указать и несколько начинок" data-placement="bottom">
+            <select id="fillings" class="form-control" data-toggle="tooltip" title="В дополнии можно указать и несколько начинок">
                 @foreach (var item in Model.Filling)
                 {
                     <option>@item</option>
@@ -91,23 +93,23 @@
     </div>
     <br />
     <div class="row">
-        <div class="col-md-offset-6 col-xs-3 col-sm-3 col-md-3 col-lg-3">
+        <div class="col-md-offset-6 col-xs-2 col-sm-2 col-md-2 col-lg-2">
             <button id="calculate" type="button" class="btn btn-primary" data-toggle="tooltip" title="Приблизительная стоимость, ведь Вы можете что-то добавить">Примерная стоимость</button>
         </div>
-        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
             <input type="submit" class="btn btn-primary" value="Отправить заказ" /> 
         </div>
     </div>
 }
 <script>
     (function ($) {
+        //var options = { title: '<img src="/Content/Images/img_2_307x307.jpg" width = 100px height = 100px />', placement: "right", html: true };
+        var options = { placement: "right"};
         $(document).ready(function () {
-            $('#fillings','#bisquit','#calculate').tooltip(
-                {
-                    'delay': { show: 100, hide: 100 }
-                }
-                );
+            $('[data-toggle="tooltip"]').tooltip(options);
+            $("#checkPrice").addClass("active");
         });
     })(jQuery);
 </script>
+
 

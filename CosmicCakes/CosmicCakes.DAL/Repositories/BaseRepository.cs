@@ -1,10 +1,12 @@
 ﻿using CosmicCakes.DAL.Interfaces;
 using System;
+using System.Collections;
 using System.Data.Entity;
+using System.Linq;
 
 namespace CosmicCakes.DAL.Repositories
 {
-    class BaseRepository<T> : IRepository<T> where T : class
+    public class BaseRepository<T> : IRepository<T> where T : class
     {
         protected DbContext GetContext(string connectionString = null)
         {
@@ -35,6 +37,23 @@ namespace CosmicCakes.DAL.Repositories
                 {
                     context.Set<T>().Remove(entity);
                     context.SaveChanges();
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+        }
+
+        public IEnumerable GetAll()
+        {
+            using (var context = GetContext())
+            {
+                try
+                {
+                    var query = context.Set<T>().AsNoTracking().ToList();
+
+                    return query.AsEnumerable();
                 }
                 catch (Exception)
                 {

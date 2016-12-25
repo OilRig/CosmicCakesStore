@@ -42,3 +42,15 @@ G:\Source\CosmicCakes\CosmicCakesStore\CosmicCakes\CosmicCakes\bin\EntityFramewo
 G:\Source\CosmicCakes\CosmicCakesStore\CosmicCakes\CosmicCakes\bin\EntityFramework.SqlServer.dll
 G:\Source\CosmicCakes\CosmicCakesStore\CosmicCakes\CosmicCakes\bin\EntityFramework.xml
 G:\Source\CosmicCakes\CosmicCakesStore\CosmicCakes\CosmicCakes\bin\EntityFramework.SqlServer.xml
+G:\Source\CosmicCakes\CosmicCakesStore\CosmicCakes\CosmicCakes\bin\CosmicCakes.DAL.dll
+G:\Source\CosmicCakes\CosmicCakesStore\CosmicCakes\CosmicCakes\bin\Ninject.dll
+G:\Source\CosmicCakes\CosmicCakesStore\CosmicCakes\CosmicCakes\bin\Ninject.Web.Common.dll
+G:\Source\CosmicCakes\CosmicCakesStore\CosmicCakes\CosmicCakes\bin\Ninject.Web.Mvc.dll
+G:\Source\CosmicCakes\CosmicCakesStore\CosmicCakes\CosmicCakes\bin\WebActivatorEx.dll
+G:\Source\CosmicCakes\CosmicCakesStore\CosmicCakes\CosmicCakes\bin\CosmicCakes.DAL.pdb
+G:\Source\CosmicCakes\CosmicCakesStore\CosmicCakes\CosmicCakes\bin\Ninject.xml
+G:\Source\CosmicCakes\CosmicCakesStore\CosmicCakes\CosmicCakes\bin\Ninject.Web.Common.xml
+G:\Source\CosmicCakes\CosmicCakesStore\CosmicCakes\CosmicCakes\bin\Ninject.Web.Mvc.xml
+G:\Source\CosmicCakes\CosmicCakesStore\CosmicCakes\CosmicCakes\bin\NLog.config
+G:\Source\CosmicCakes\CosmicCakesStore\CosmicCakes\CosmicCakes\bin\NLog.dll
+G:\Source\CosmicCakes\CosmicCakesStore\CosmicCakes\CosmicCakes\bin\NLog.xml

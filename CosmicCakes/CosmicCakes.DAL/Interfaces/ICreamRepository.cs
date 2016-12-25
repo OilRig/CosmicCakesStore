@@ -2,9 +2,7 @@
 
 namespace CosmicCakes.DAL.Interfaces
 {
-    public interface IBerryRepository : IRepository<Berry>
+    public interface ICreamRepository : IRepository<Cream>
     {
-
-
     }
 }

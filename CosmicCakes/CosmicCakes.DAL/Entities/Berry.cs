@@ -1,12 +1,13 @@
-﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
 
 namespace CosmicCakes.DAL.Entities
 {
     public class Berry
     {
-        [Key]
-        public int BerryId { get; set; }
+        public int Id { get; set; }
+
+        [Required]
+        [StringLength(50)]
         public string Name { get; set; }
-        public double Price { get; set; }
     }
 }
