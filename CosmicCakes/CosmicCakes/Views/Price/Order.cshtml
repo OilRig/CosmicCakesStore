@@ -7,10 +7,57 @@
 
 <div class="row">
     <div class="col-md-offset-3 col-xs-6 col-md-6 col-lg-6 col-sm-6">
-        <label>Осталось чуть-чуть</label>
+        <label>Ваш заказ:</label>
     </div>
 </div>
+<br />
 <div class="row">
-    @Html.TextBoxFor(md=>md.CakeWeight, new { @disabled = "disabled", @class = "form-control", @value = Model.CakeWeight, @name = "CakeWeight" })
+    <div class="col-md-offset-4 col-xs-2 col-md-2 col-lg-2 col-sm-2">
+        <label>Вес:</label>
+    </div>
+    <div class="col-xs-6 col-md-6 col-lg-6 col-sm-6">
+        <label id="CakeWeight" name="CakeWeight">@Model.CakeWeight кг</label>
+    </div>
 </div>
+<br />
+<div class="row">
+    <div class="col-md-offset-4 col-xs-2 col-md-2 col-lg-2 col-sm-2">
+        <label>Бисквит:</label>
+    </div>
+    <div class="col-xs-6 col-md-6 col-lg-6 col-sm-6">
+        <label id="BisquitType" name="BisquitType">@Model.BisquitType</label>
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="col-md-offset-4 col-xs-2 col-md-2 col-lg-2 col-sm-2"><label>Начинка:</label></div>
+    <div class="col-xs-6 col-md-6 col-lg-6 col-sm-6">
+        <label id="FillingType" name="FillingType">@Model.FillingType</label>
+    </div>
+</div>
+<br />
+<div class="row">
+
+    <div class="col-md-offset-4 col-xs-2 col-md-2 col-lg-2 col-sm-2"><label>Ягоды:</label></div>
+    <div class="col-xs-6 col-md-6 col-lg-6 col-sm-6">
+        <ul>
+            @foreach (var item in Model.Berries)
+            {
+
+                <li><label name="Berries">@item</label></li>
+
+            }
+        </ul>
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="col-md-offset-6 col-xs-2 col-sm-2 col-md-2 col-lg-2">
+        <input class="form-control" type="tel" name="CustomerPhoneNumber" placeholder="Номер телефона" />
+    </div>
+    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+        <input class="form-control" type="text" name="CustomerName" placeholder="Ваше имя" />
+    </div>
+</div>
+
 
