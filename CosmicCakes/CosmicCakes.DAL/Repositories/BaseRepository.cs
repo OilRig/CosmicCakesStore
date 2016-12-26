@@ -1,8 +1,6 @@
 ﻿using CosmicCakes.DAL.Interfaces;
 using System;
-using System.Collections;
 using System.Data.Entity;
-using System.Linq;
 
 namespace CosmicCakes.DAL.Repositories
 {
@@ -45,21 +43,6 @@ namespace CosmicCakes.DAL.Repositories
             }
         }
 
-        public IEnumerable GetAll()
-        {
-            using (var context = GetContext())
-            {
-                try
-                {
-                    var query = context.Set<T>().AsNoTracking().ToList();
 
-                    return query.AsEnumerable();
-                }
-                catch (Exception)
-                {
-                    throw;
-                }
-            }
-        }
     }
 }

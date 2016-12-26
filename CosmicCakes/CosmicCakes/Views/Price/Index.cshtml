@@ -17,8 +17,8 @@
             <label>Вес тортика (кг):</label>
         </div>
         <div class="col-xs-6 col-md-6 col-lg-6 col-sm-6">
-            @Html.EditorFor(md => md.Weight, new {  htmlAttributes = new { @class = "form-control",@title = "Укажите вес тортика" } })
-            @Html.ValidationMessageFor(md=>md.Weight)
+            @Html.EditorFor(md => md.CakeWeight, new {  htmlAttributes = new { @class = "form-control",@title = "Укажите вес тортика",@name = "CakeWeight" } })
+            @Html.ValidationMessageFor(md=>md.CakeWeight)
         </div>
     </div>
     <br />
@@ -28,7 +28,7 @@
         </div>
         <div class="col-xs-6 col-md-6 col-lg-6 col-sm-6">
             <div class="dropdown">
-                <select id="bisquit" class="form-control" data-toggle="tooltip" title="Если вы хотите разные бисквиты - пишите в дополнение">
+                <select id="bisquit" class="form-control" data-toggle="tooltip" title="Если вы хотите разные бисквиты - пишите в дополнение" name="BisquitType">
                     @foreach (var item in Model.Bisquit)
                     {
                         <option>@item</option>
@@ -43,7 +43,7 @@
             <label>Выберите начинку:</label>
         </div>
         <div class="col-xs-6 col-md-6 col-lg-6 col-sm-6">
-            <select id="fillings" class="form-control" data-toggle="tooltip" title="В дополнии можно указать и несколько начинок">
+            <select id="fillings" class="form-control" data-toggle="tooltip" title="В дополнии можно указать и несколько начинок" name="FillingType">
                 @foreach (var item in Model.Filling)
                 {
                     <option>@item</option>
@@ -64,7 +64,7 @@
                     <ul style="list-style:none;">
                         @foreach (var item in Model.Berries)
                         {
-                            <li><input type="checkbox" />&nbsp;@item</li>
+                            <li><input type="checkbox" name="SelectedBerries" value="@item" />&nbsp;@item</li>
                         }
                     </ul>
                 </div>
@@ -72,7 +72,7 @@
         </div>
     </div>
     <br />
-    <div class="row">
+    @*<div class="row">
         <div class="col-md-offset-4 col-xs-2 col-md-2 col-lg-2 col-sm-2">
             <label>Выберите вид декора:</label>
         </div>
@@ -85,10 +85,19 @@
             </select>
         </div>
     </div>
-    <br />
+    <br />*@
     <div class="row">
         <div class="col-md-offset-6 col-sm-offset-6 col-lg-offset-6 col-xs-6 col-md-6 col-lg-6 col-sm-6">
-            <textarea class="form-control" rows="5" placeholder="Дополнения к тортику"></textarea>
+            <textarea class="form-control" rows="5" placeholder="Дополнения к тортику" name="Comments"></textarea>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-md-offset-6 col-xs-2 col-sm-2 col-md-2 col-lg-2">
+            <input class="form-control" type="tel" name="CustomerPhoneNumber" placeholder="Номер телефона" />
+        </div>
+        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+            <input class="form-control" type="text" name="CustomerName" placeholder="Ваше имя" />
         </div>
     </div>
     <br />
@@ -100,6 +109,7 @@
             <input type="submit" class="btn btn-primary" value="Отправить заказ" /> 
         </div>
     </div>
+    
 }
 <script>
     (function ($) {

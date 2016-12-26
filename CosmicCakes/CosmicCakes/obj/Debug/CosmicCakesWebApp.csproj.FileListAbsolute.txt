@@ -54,3 +54,5 @@ G:\Source\CosmicCakes\CosmicCakesStore\CosmicCakes\CosmicCakes\bin\Ninject.Web.M
 G:\Source\CosmicCakes\CosmicCakesStore\CosmicCakes\CosmicCakes\bin\NLog.config
 G:\Source\CosmicCakes\CosmicCakesStore\CosmicCakes\CosmicCakes\bin\NLog.dll
 G:\Source\CosmicCakes\CosmicCakesStore\CosmicCakes\CosmicCakes\bin\NLog.xml
+G:\Source\CosmicCakes\CosmicCakesStore\CosmicCakes\CosmicCakes\bin\CosmicCakes.Ninject.dll
+G:\Source\CosmicCakes\CosmicCakesStore\CosmicCakes\CosmicCakes\bin\CosmicCakes.Ninject.pdb
