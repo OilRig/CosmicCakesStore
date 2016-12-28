@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace CosmicCakes.DAL.Entities
@@ -11,6 +12,9 @@ namespace CosmicCakes.DAL.Entities
         public string CustomerName { get; set; }
         [StringLength(20)]
         public string CustomerPhoneNumber { get; set; }
+        public DateTime OrderDate { get; set; }
+
+        public string ExpireDate { get; set; }
         [Range(1.5, 100)]
         public double CakeWeight { get; set; }
         public string BisquitType { get; set; }

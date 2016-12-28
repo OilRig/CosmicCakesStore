@@ -1,11 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace CosmicCakes.Models
 {
     public class OrderModel
     {
-        [Required(ErrorMessage = "Как жа Вас зовут?")]
+        [Required(ErrorMessage = "Как же Вас зовут?")]
         public string CustomerName { get; set; }
         [Required(ErrorMessage = "И даже телефончик не оставите?")]
         public string CustomerPhoneNumber { get; set; }
@@ -16,7 +17,7 @@ namespace CosmicCakes.Models
         public string FillingType { get; set; }
         public string Comments { get; set; }
         public ICollection<string> Berries { get; set; }
-
+        public DateTime ExpireDate { get; set; }
         public OrderModel()
         {
             Berries = new List<string>();

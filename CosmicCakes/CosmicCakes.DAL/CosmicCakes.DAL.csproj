@@ -65,6 +65,7 @@
     <Compile Include="Interfaces\IBisquitRepository.cs" />
     <Compile Include="Interfaces\ICreamRepository.cs" />
     <Compile Include="Interfaces\IFillingRepository.cs" />
+    <Compile Include="Interfaces\IOrderRepository.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Migrations\201612260636084_InitialCreate.cs" />
     <Compile Include="Migrations\201612260636084_InitialCreate.Designer.cs">
@@ -78,6 +79,14 @@
     <Compile Include="Migrations\201612260822461_AddedCommentFieldToOrderEntity.Designer.cs">
       <DependentUpon>201612260822461_AddedCommentFieldToOrderEntity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201612261941380_ChangesOnOrder.cs" />
+    <Compile Include="Migrations\201612261941380_ChangesOnOrder.Designer.cs">
+      <DependentUpon>201612261941380_ChangesOnOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612261947444_ChangesOnOrder2.cs" />
+    <Compile Include="Migrations\201612261947444_ChangesOnOrder2.Designer.cs">
+      <DependentUpon>201612261947444_ChangesOnOrder2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\BaseRepository.cs" />
@@ -86,6 +95,7 @@
     <Compile Include="Repositories\ContextRepository.cs" />
     <Compile Include="Repositories\CreamRepository.cs" />
     <Compile Include="Repositories\FillingRepository.cs" />
+    <Compile Include="Repositories\OrderRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201612260636084_InitialCreate.resx">
@@ -96,6 +106,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201612260822461_AddedCommentFieldToOrderEntity.resx">
       <DependentUpon>201612260822461_AddedCommentFieldToOrderEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612261941380_ChangesOnOrder.resx">
+      <DependentUpon>201612261941380_ChangesOnOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612261947444_ChangesOnOrder2.resx">
+      <DependentUpon>201612261947444_ChangesOnOrder2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

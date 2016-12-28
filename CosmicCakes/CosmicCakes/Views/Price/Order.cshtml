@@ -5,59 +5,92 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@using (Html.BeginForm("ConfirmOrder", "Price", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
 <div class="row">
     <div class="col-md-offset-3 col-xs-6 col-md-6 col-lg-6 col-sm-6">
         <label>Ваш заказ:</label>
     </div>
 </div>
 <br />
+    <div class="row">
+        <div class="col-md-offset-4 col-xs-1 col-md-1 col-lg-1 col-sm-1">
+            <label>Дата, на которую нужен тортик:</label>
+        </div>
+        <div class="col-xs-6 col-md-6 col-lg-6 col-sm-6">
+            @Html.TextBoxFor(md => md.ExpireDate, new { @class = "form-control", @name = "ExpireDate" })
+        </div>
+    </div>
+    <br />
 <div class="row">
-    <div class="col-md-offset-4 col-xs-2 col-md-2 col-lg-2 col-sm-2">
+    <div class="col-md-offset-4 col-xs-1 col-md-1 col-lg-1 col-sm-1">
         <label>Вес:</label>
     </div>
     <div class="col-xs-6 col-md-6 col-lg-6 col-sm-6">
-        <label id="CakeWeight" name="CakeWeight">@Model.CakeWeight кг</label>
+        @Html.TextBoxFor(md=>md.CakeWeight,new {@class = "form-control", @name = "CakeWeight" })
     </div>
 </div>
 <br />
 <div class="row">
-    <div class="col-md-offset-4 col-xs-2 col-md-2 col-lg-2 col-sm-2">
+    <div class="col-md-offset-4 col-xs-1 col-md-1 col-lg-1 col-sm-1">
         <label>Бисквит:</label>
     </div>
     <div class="col-xs-6 col-md-6 col-lg-6 col-sm-6">
-        <label id="BisquitType" name="BisquitType">@Model.BisquitType</label>
+        @Html.TextBoxFor(md=>md.BisquitType,new { @class = "form-control", @name = "BisquitType" })
     </div>
 </div>
 <br />
 <div class="row">
-    <div class="col-md-offset-4 col-xs-2 col-md-2 col-lg-2 col-sm-2"><label>Начинка:</label></div>
+    <div class="col-md-offset-4 col-xs-1 col-md-1 col-lg-1 col-sm-1"><label>Начинка:</label></div>
     <div class="col-xs-6 col-md-6 col-lg-6 col-sm-6">
-        <label id="FillingType" name="FillingType">@Model.FillingType</label>
+        @Html.TextBoxFor(md => md.FillingType, new { @class = "form-control", @name = "FillingType" })
     </div>
 </div>
 <br />
 <div class="row">
 
-    <div class="col-md-offset-4 col-xs-2 col-md-2 col-lg-2 col-sm-2"><label>Ягоды:</label></div>
+    <div class="col-md-offset-4 col-xs-1 col-md-1 col-lg-1 col-sm-1"><label>Ягоды:</label></div>
     <div class="col-xs-6 col-md-6 col-lg-6 col-sm-6">
-        <ul>
-            @foreach (var item in Model.Berries)
-            {
+        <div class="button-group">
 
-                <li><label name="Berries">@item</label></li>
+            <div class="checkbox">
+                <ul style="list-style:none;">
+                    @foreach (var item in Model.Berries)
+                    {
+                        <li><input type="checkbox" name="Berries" value="@item" checked/>&nbsp;@item</li>
+                    }
+                </ul>
+            </div>
+        </div>
 
-            }
-        </ul>
     </div>
 </div>
 <br />
 <div class="row">
-    <div class="col-md-offset-6 col-xs-2 col-sm-2 col-md-2 col-lg-2">
+    <div class="col-md-offset-4 col-xs-1 col-md-1 col-lg-1 col-sm-1"><label>Ваши пожелания:</label></div>
+    <div class="col-xs-6 col-md-6 col-lg-6 col-sm-6">
+        <textarea class="form-control" rows="5"  name="Comments">@Model.Comments</textarea>
+    </div>
+</div>
+    <br />
+<div class="row">
+    <div class="col-md-offset-4 col-xs-2 col-sm-2 col-md-2 col-lg-2">
         <input class="form-control" type="tel" name="CustomerPhoneNumber" placeholder="Номер телефона" />
     </div>
-    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-        <input class="form-control" type="text" name="CustomerName" placeholder="Ваше имя" />
     </div>
-</div>
+    <br />
+    <div class="row">
+        <div class="col-md-offset-4 col-xs-2 col-sm-2 col-md-2 col-lg-2">
+            <input class="form-control" type="text" name="CustomerName" placeholder="Ваше имя" />
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-md-offset-4 col-xs-2 col-sm-2 col-md-2 col-lg-2">
+            <button type="submit" class="btn btn-primary">Подтвердить</button>
+        </div>
+    </div>
+    
+}
 
 

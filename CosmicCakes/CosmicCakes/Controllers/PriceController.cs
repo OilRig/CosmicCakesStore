@@ -1,5 +1,7 @@
-﻿using CosmicCakes.DAL.Interfaces;
+﻿using CosmicCakes.DAL.Entities;
+using CosmicCakes.DAL.Interfaces;
 using CosmicCakes.Models;
+using System;
 using System.Web.Mvc;
 
 namespace CosmicCakes.Controllers
@@ -10,6 +12,7 @@ namespace CosmicCakes.Controllers
         private readonly IFillingRepository _fillingRepository;
         private readonly IBerryRepository _berryRepository;
         private readonly ICreamRepository _creamRepository;
+        private readonly IOrderRepository _orderRepository;
         private CreateCakePageModel CreatePageContent()
         {
             var priceModel = new CreateCakePageModel();
@@ -38,12 +41,13 @@ namespace CosmicCakes.Controllers
             return orderModel;
         }
         public PriceController(ICreamRepository creamRepo, IBisquitRepository bisquitRepo,
-            IFillingRepository fillingRepo, IBerryRepository berryRepo)
+            IFillingRepository fillingRepo, IBerryRepository berryRepo, IOrderRepository orderRepo)
         {
             _bisquitRepository = bisquitRepo;
             _berryRepository = berryRepo;
             _creamRepository = creamRepo;
             _fillingRepository = fillingRepo;
+            _orderRepository = orderRepo;
         }
         // GET: Price
         public ActionResult Index()
@@ -57,12 +61,31 @@ namespace CosmicCakes.Controllers
 
             if (ModelState.IsValid)
             {
+
                 return View(MakeOrder(model));
             }
             else
             {
-                return Content("Fail");
+                return View("Index", CreatePageContent());
             }
+
+        }
+
+        [HttpPost]
+        public ActionResult ConfirmOrder(OrderModel model)
+        {
+            var order = new Order();
+            order.Berries = model.Berries;
+            order.BisquitType = model.BisquitType;
+            order.CakeWeight = model.CakeWeight;
+            order.Comments = model.Comments;
+            order.CustomerName = model.CustomerName;
+            order.CustomerPhoneNumber = model.CustomerPhoneNumber;
+            order.ExpireDate = model.ExpireDate.ToShortDateString();
+            order.FillingType = model.FillingType;
+            order.OrderDate = DateTime.Now;
+            _orderRepository.Add(order);
+            return View();
 
         }
     }

@@ -6,7 +6,7 @@ namespace CosmicCakes.Models
     public class CreateCakePageModel
     {
         [Required(ErrorMessage = "Не указан вес тортика")]
-        [Range(1.5, 100, ErrorMessage = "Минимальный вес - 1,5кг")]
+        [Range(1.5, 30, ErrorMessage = "Минимальный вес - 1,5кг, а максимальный 30кг")]
         public double CakeWeight { get; set; }
         public IList<string> Bisquit { get; set; }
         public IList<string> Berries { get; set; }
