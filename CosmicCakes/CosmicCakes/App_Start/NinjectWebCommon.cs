@@ -1,12 +1,12 @@
-[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(CosmicCakes.App_Start.NinjectWebCommon), "Start")]
-[assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(CosmicCakes.App_Start.NinjectWebCommon), "Stop")]
+[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(CosmicCakesWebApp.App_Start.NinjectWebCommon), "Start")]
+[assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(CosmicCakesWebApp.App_Start.NinjectWebCommon), "Stop")]
 
-namespace CosmicCakes.App_Start
+namespace CosmicCakesWebApp.App_Start
 {
+    using CosmicCakes.Ninject;
     using global::Ninject;
     using global::Ninject.Web.Common;
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
-    using Ninject;
     using System;
     using System.Web;
     public static class NinjectWebCommon

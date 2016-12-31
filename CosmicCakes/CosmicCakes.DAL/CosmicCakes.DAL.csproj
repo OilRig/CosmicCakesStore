@@ -83,9 +83,13 @@
     <Compile Include="Migrations\201612261941380_ChangesOnOrder.Designer.cs">
       <DependentUpon>201612261941380_ChangesOnOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201612261947444_ChangesOnOrder2.cs" />
-    <Compile Include="Migrations\201612261947444_ChangesOnOrder2.Designer.cs">
-      <DependentUpon>201612261947444_ChangesOnOrder2.cs</DependentUpon>
+    <Compile Include="Migrations\201612311431449_NoOrderDateExpireForNow.cs" />
+    <Compile Include="Migrations\201612311431449_NoOrderDateExpireForNow.Designer.cs">
+      <DependentUpon>201612311431449_NoOrderDateExpireForNow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612311500044_OrderExpireDateV2.cs" />
+    <Compile Include="Migrations\201612311500044_OrderExpireDateV2.Designer.cs">
+      <DependentUpon>201612311500044_OrderExpireDateV2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -110,8 +114,11 @@
     <EmbeddedResource Include="Migrations\201612261941380_ChangesOnOrder.resx">
       <DependentUpon>201612261941380_ChangesOnOrder.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201612261947444_ChangesOnOrder2.resx">
-      <DependentUpon>201612261947444_ChangesOnOrder2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201612311431449_NoOrderDateExpireForNow.resx">
+      <DependentUpon>201612311431449_NoOrderDateExpireForNow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612311500044_OrderExpireDateV2.resx">
+      <DependentUpon>201612311500044_OrderExpireDateV2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

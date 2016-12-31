@@ -7,13 +7,13 @@ namespace CosmicCakes.DAL.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class ChangesOnOrder2 : IMigrationMetadata
+    public sealed partial class OrderExpireDateV2 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(ChangesOnOrder2));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(OrderExpireDateV2));
         
         string IMigrationMetadata.Id
         {
-            get { return "201612261947444_ChangesOnOrder2"; }
+            get { return "201612311500044_OrderExpireDateV2"; }
         }
         
         string IMigrationMetadata.Source

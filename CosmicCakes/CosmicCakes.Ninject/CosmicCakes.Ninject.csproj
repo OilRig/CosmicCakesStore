@@ -68,7 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CosmicCakes.DAL\CosmicCakes.DAL.csproj">
-      <Project>{B6E31A68-D01F-4051-AB2B-ACFA8313021B}</Project>
+      <Project>{b6e31a68-d01f-4051-ab2b-acfa8313021b}</Project>
       <Name>CosmicCakes.DAL</Name>
     </ProjectReference>
   </ItemGroup>

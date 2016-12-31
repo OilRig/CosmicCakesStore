@@ -1,10 +1,10 @@
 ﻿using CosmicCakes.DAL.Entities;
 using CosmicCakes.DAL.Interfaces;
-using CosmicCakes.Models;
+using CosmicCakesWebApp.Models;
 using System;
 using System.Web.Mvc;
 
-namespace CosmicCakes.Controllers
+namespace CosmicCakesWebApp.Controllers
 {
     public class PriceController : Controller
     {
@@ -13,23 +13,33 @@ namespace CosmicCakes.Controllers
         private readonly IBerryRepository _berryRepository;
         private readonly ICreamRepository _creamRepository;
         private readonly IOrderRepository _orderRepository;
-        private CreateCakePageModel CreatePageContent()
+        public PriceController(ICreamRepository creamRepo, IBisquitRepository bisquitRepo,
+           IFillingRepository fillingRepo, IBerryRepository berryRepo, IOrderRepository orderRepo)
         {
-            var priceModel = new CreateCakePageModel();
+            _bisquitRepository = bisquitRepo;
+            _berryRepository = berryRepo;
+            _creamRepository = creamRepo;
+            _fillingRepository = fillingRepo;
+            _orderRepository = orderRepo;
+        }
+        public CreateCakePageModel CreatePageContent()
+        {
+            var cakePageModel = new CreateCakePageModel();
             var berries = _berryRepository.GetAll();
             var fillings = _fillingRepository.GetAll();
             var creams = _creamRepository.GetAll();
             var bisquits = _bisquitRepository.GetAll();
             foreach (var item in berries)
-                priceModel.Berries.Add(item);
+                cakePageModel.Berries.Add(item);
             foreach (var item in fillings)
-                priceModel.Filling.Add(item);
+                cakePageModel.Filling.Add(item);
             foreach (var item in creams)
-                priceModel.Cream.Add(item);
+                cakePageModel.Cream.Add(item);
             foreach (var item in bisquits)
-                priceModel.Bisquit.Add(item);
-            return priceModel;
+                cakePageModel.Bisquit.Add(item);
+            return cakePageModel;
         }
+
         private OrderModel MakeOrder(CreateCakePageModel model)
         {
             var orderModel = new OrderModel();
@@ -40,19 +50,11 @@ namespace CosmicCakes.Controllers
             orderModel.Berries = model.SelectedBerries;
             return orderModel;
         }
-        public PriceController(ICreamRepository creamRepo, IBisquitRepository bisquitRepo,
-            IFillingRepository fillingRepo, IBerryRepository berryRepo, IOrderRepository orderRepo)
-        {
-            _bisquitRepository = bisquitRepo;
-            _berryRepository = berryRepo;
-            _creamRepository = creamRepo;
-            _fillingRepository = fillingRepo;
-            _orderRepository = orderRepo;
-        }
+
         // GET: Price
         public ActionResult Index()
         {
-            return View(CreatePageContent());
+            return View(CreatePageContent()); //
         }
 
         [HttpPost]
@@ -67,6 +69,7 @@ namespace CosmicCakes.Controllers
             else
             {
                 return View("Index", CreatePageContent());
+                //return View("Index");
             }
 
         }
@@ -81,11 +84,11 @@ namespace CosmicCakes.Controllers
             order.Comments = model.Comments;
             order.CustomerName = model.CustomerName;
             order.CustomerPhoneNumber = model.CustomerPhoneNumber;
-            order.ExpireDate = model.ExpireDate.ToShortDateString();
+            order.ExpireDate = model.ExpireDate;
             order.FillingType = model.FillingType;
             order.OrderDate = DateTime.Now;
             _orderRepository.Add(order);
-            return View();
+            return Content("Done");
 
         }
     }

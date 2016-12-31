@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Web.Mvc;
+﻿using CosmicCakesWebApp.Controllers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using CosmicCakes;
-using CosmicCakes.Controllers;
+using System.Web.Mvc;
 
-namespace CosmicCakes.Tests.Controllers
+namespace CosmicCakesWebApp.Tests.Controllers
 {
     [TestClass]
     public class HomeControllerTest

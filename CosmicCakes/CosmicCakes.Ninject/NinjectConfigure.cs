@@ -2,6 +2,8 @@
 using CosmicCakes.DAL.Repositories;
 using Ninject.Modules;
 
+
+
 namespace CosmicCakes.Ninject
 {
     public class NinjectConfigure : NinjectModule

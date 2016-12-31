@@ -14,7 +14,7 @@ namespace CosmicCakes.DAL.Entities
         public string CustomerPhoneNumber { get; set; }
         public DateTime OrderDate { get; set; }
 
-        public string ExpireDate { get; set; }
+        public DateTime ExpireDate { get; set; }
         [Range(1.5, 100)]
         public double CakeWeight { get; set; }
         public string BisquitType { get; set; }

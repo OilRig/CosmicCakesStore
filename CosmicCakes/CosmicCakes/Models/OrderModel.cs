@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace CosmicCakes.Models
+namespace CosmicCakesWebApp.Models
 {
     public class OrderModel
     {
