@@ -18,7 +18,8 @@
             <label>Дата, на которую нужен тортик:</label>
         </div>
         <div class="col-xs-6 col-md-6 col-lg-6 col-sm-6">
-            @Html.TextBoxFor(md => md.ExpireDate, new { @class = "form-control", @name = "ExpireDate" })
+            <input type="text" class="form-control" name="ExpireDate" id="datepicker" />
+            @*@Html.EditorFor(md => md.ExpireDate, new { @class = "form-control", @name = "ExpireDate",@id= "datepicker" })*@
         </div>
     </div>
     <br />
@@ -92,5 +93,10 @@
     </div>
     
 }
+<script>
+  $( function() {
+    $( "#datepicker" ).datepicker();
+  } );
+</script>
 
 

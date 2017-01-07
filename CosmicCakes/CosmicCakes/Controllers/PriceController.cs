@@ -50,6 +50,20 @@ namespace CosmicCakesWebApp.Controllers
             orderModel.Berries = model.SelectedBerries;
             return orderModel;
         }
+        private void SaveOrder(OrderModel model)
+        {
+            var order = new Order();
+            order.Berries = model.Berries;
+            order.BisquitType = model.BisquitType;
+            order.CakeWeight = model.CakeWeight;
+            order.Comments = model.Comments;
+            order.CustomerName = model.CustomerName;
+            order.CustomerPhoneNumber = model.CustomerPhoneNumber;
+            order.ExpireDate = model.ExpireDate;
+            order.FillingType = model.FillingType;
+            order.OrderDate = DateTime.Now;
+            _orderRepository.Add(order);
+        }
 
         // GET: Price
         public ActionResult Index()
@@ -77,18 +91,8 @@ namespace CosmicCakesWebApp.Controllers
         [HttpPost]
         public ActionResult ConfirmOrder(OrderModel model)
         {
-            var order = new Order();
-            order.Berries = model.Berries;
-            order.BisquitType = model.BisquitType;
-            order.CakeWeight = model.CakeWeight;
-            order.Comments = model.Comments;
-            order.CustomerName = model.CustomerName;
-            order.CustomerPhoneNumber = model.CustomerPhoneNumber;
-            order.ExpireDate = model.ExpireDate;
-            order.FillingType = model.FillingType;
-            order.OrderDate = DateTime.Now;
-            _orderRepository.Add(order);
-            return Content("Done");
+            SaveOrder(model);
+            return View();
 
         }
     }
