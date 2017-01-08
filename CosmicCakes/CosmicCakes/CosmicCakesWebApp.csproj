@@ -149,6 +149,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PriceController.cs" />
     <Compile Include="Global.asax.cs">
@@ -161,6 +162,8 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\avatar.jpg" />
+    <Content Include="Content\Images\fotka.jpg" />
     <Content Include="Content\Images\img_10_307x30.jpg" />
     <Content Include="Content\Images\img_11_307x30.jpg" />
     <Content Include="Content\Images\img_12_307x30.jpg" />
@@ -225,6 +228,7 @@
     <Content Include="Views\Price\Index.cshtml" />
     <Content Include="Views\Price\Order.cshtml" />
     <Content Include="Views\Price\ConfirmOrder.cshtml" />
+    <Content Include="Views\About\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

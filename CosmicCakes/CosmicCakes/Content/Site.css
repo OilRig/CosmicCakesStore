@@ -33,3 +33,6 @@ textarea {
 .margined-right-item {
     margin-right:55px;
 }
+#comments {
+    resize:both;
+}

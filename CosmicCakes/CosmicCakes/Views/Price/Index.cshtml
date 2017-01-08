@@ -13,7 +13,7 @@
 @using (Html.BeginForm("Order", "Price", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     <div class="row">
-        <div class="col-md-offset-4 col-xs-2 col-md-2 col-lg-2 col-sm-2">
+        <div class="col-xs-4 col-md-4 col-lg-4 col-sm-4">
             <label>Вес тортика (кг):</label>
         </div>
         <div class="col-xs-6 col-md-6 col-lg-6 col-sm-6">
@@ -23,7 +23,7 @@
     </div>
     <br />
     <div class="row">
-        <div class="col-md-offset-4 col-xs-2 col-md-2 col-lg-2 col-sm-2">
+        <div class="col-xs-4 col-md-4 col-lg-4 col-sm-4">
             <label>Выберите бисквит:</label>
         </div>
         <div class="col-xs-6 col-md-6 col-lg-6 col-sm-6">
@@ -39,7 +39,7 @@
     </div>
     <br />
     <div class="row">
-        <div class="col-md-offset-4 col-xs-2 col-md-2 col-lg-2 col-sm-2">
+        <div class="col-xs-4 col-md-4 col-lg-4 col-sm-4">
             <label>Выберите начинку:</label>
         </div>
         <div class="col-xs-6 col-md-6 col-lg-6 col-sm-6">
@@ -54,7 +54,7 @@
     </div>
     <br />
     <div class="row">
-        <div class="col-md-offset-4 col-xs-2 col-md-2 col-lg-2 col-sm-2">
+        <div class="col-xs-4 col-md-4 col-lg-4 col-sm-4">
             <label>Выберите ягоды:</label>
         </div>
         <div class="col-xs-6 col-md-6 col-lg-6 col-sm-6">
@@ -87,18 +87,18 @@
     </div>
     <br />*@
     <div class="row">
-        <div class="col-md-offset-6 col-sm-offset-6 col-lg-offset-6 col-xs-6 col-md-6 col-lg-6 col-sm-6">
-            <textarea class="form-control" rows="5" placeholder="Дополнения к тортику" name="Comments"></textarea>
+        <div class="col-xs-12 col-md-12 col-lg-12 col-sm-12">
+            <textarea id="comments" class="form-control" rows="5" cols="400" placeholder="Дополнения к тортику" name="Comments"></textarea>
         </div>
     </div>
     <br />
     
     <br />
     <div class="row">
-        <div class="col-md-offset-6 col-xs-2 col-sm-2 col-md-2 col-lg-2">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
             <button id="calculate" type="button" class="btn btn-primary" data-toggle="tooltip" title="Приблизительная стоимость, ведь Вы можете что-то добавить">Примерная стоимость</button>
         </div>
-        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
             <input type="submit" class="btn btn-primary" value="Отправить заказ" /> 
         </div>
     </div>
