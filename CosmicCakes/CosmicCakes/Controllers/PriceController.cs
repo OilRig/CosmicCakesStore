@@ -2,7 +2,10 @@
 using CosmicCakes.DAL.Interfaces;
 using CosmicCakesWebApp.Models;
 using System;
+using System.Net;
+using System.Net.Mail;
 using System.Web.Mvc;
+
 
 namespace CosmicCakesWebApp.Controllers
 {
@@ -64,6 +67,26 @@ namespace CosmicCakesWebApp.Controllers
             order.OrderDate = DateTime.Now;
             _orderRepository.Add(order);
         }
+        public void SendOrder(string order)
+        {
+            MailAddress from = new MailAddress("CosmicakesOrder@no-reply", "Order");
+
+            MailAddress to = new MailAddress("cosmicakesofficial@gmail.com");
+
+            MailMessage m = new MailMessage(from, to);
+            // тема письма
+            m.Subject = "Заказ";
+            // текст письма
+            m.Body = order;
+            // письмо представляет код html
+            m.IsBodyHtml = false;
+            // адрес smtp-сервера и порт, с которого будем отправлять письмо
+            SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
+            // логин и пароль
+            smtp.Credentials = new NetworkCredential("cosmicakesofficial@gmail.com", "gbczgjgf2345");
+            smtp.EnableSsl = true;
+            smtp.Send(m);
+        }
 
         // GET: Price
         public ActionResult Index()
@@ -92,6 +115,7 @@ namespace CosmicCakesWebApp.Controllers
         {
             model.ExpireDate = model.ExpireDate.ToUniversalTime();
             SaveOrder(model);
+            SendOrder(model.ToString());
             return RedirectToRoute("GoHome");
 
         }

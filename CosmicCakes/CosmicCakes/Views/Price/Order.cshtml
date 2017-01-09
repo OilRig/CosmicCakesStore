@@ -102,8 +102,8 @@
             $.ajax({
                 url: "Price/ConfirmOrder",
                 type: "POST",
-                data: $("#orderForm").serialize(),
-                success:alert("Заказ принят! Скоро свяжемся!")
+                data: $("#orderForm").serialize()
+                //success:alert("Заказ принят! Скоро свяжемся!")
             });
         })
     });

@@ -23,5 +23,13 @@ namespace CosmicCakesWebApp.Models
         {
             Berries = new List<string>();
         }
+        public override string ToString()
+        {
+            var berries = "";
+            foreach (var berry in Berries)
+                berries += berry + ",";
+            return string.Format(" Заказ от: {0} \n Телефон: {1} \n Дата: {2} \n Вес: {3} \n Бисквит: {4} \n Начинка: {5} \n Ягоды: {6} \n Комментарий: {7}", CustomerName,
+                CustomerPhoneNumber, ExpireDate.ToShortDateString(), CakeWeight, BisquitType, FillingType, berries, Comments);
+        }
     }
 }

@@ -57,6 +57,10 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Nemiro.OAuth, Version=1.12.461.2615, Culture=neutral, PublicKeyToken=cb06320e362d440b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nemiro.OAuth.1.12\lib\net461\Nemiro.OAuth.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
       <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
       <Private>True</Private>
@@ -163,7 +167,9 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Images\avatar.jpg" />
+    <Content Include="Content\Images\E-Mail.png" />
     <Content Include="Content\Images\fotka.jpg" />
+    <Content Include="Content\Images\i.jpg" />
     <Content Include="Content\Images\img_10_307x30.jpg" />
     <Content Include="Content\Images\img_11_307x30.jpg" />
     <Content Include="Content\Images\img_12_307x30.jpg" />
@@ -177,7 +183,9 @@
     <Content Include="Content\Images\img_7_307x30.jpg" />
     <Content Include="Content\Images\img_8_307x30.jpg" />
     <Content Include="Content\Images\img_9_307x30.jpg" />
+    <Content Include="Content\Images\instagram-icon-free-download.jpg" />
     <Content Include="Content\Images\Logo.jpg" />
+    <Content Include="Content\Images\tel.jpg" />
     <Content Include="Content\jquery-ui.css" />
     <Content Include="Content\jquery-ui.min.css" />
     <Content Include="Content\jquery-ui.structure.css" />
