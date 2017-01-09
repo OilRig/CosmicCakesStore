@@ -5,98 +5,106 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@using (Html.BeginForm("ConfirmOrder", "Price", FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("ConfirmOrder", "Price", FormMethod.Post, new { enctype = "multipart/form-data",@id="orderForm" }))
 {
-<div class="row">
-    <div class="col-md-offset-3 col-xs-6 col-md-6 col-lg-6 col-sm-6">
-        <label>Ваш заказ:</label>
-    </div>
-</div>
-<br />
+
     <div class="row">
-        <div class="col-md-offset-4 col-xs-1 col-md-1 col-lg-1 col-sm-1">
+        <div class="col-xs-6 col-md-6 col-lg-6 col-sm-6">
+            <label>Ваш заказ:</label>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-xs-1 col-md-1 col-lg-1 col-sm-1">
             <label>Дата, на которую нужен тортик:</label>
         </div>
         <div class="col-xs-6 col-md-6 col-lg-6 col-sm-6">
             <input type="text" class="form-control" name="ExpireDate" id="datepicker" />
-            @*@Html.EditorFor(md => md.ExpireDate, new { @class = "form-control", @name = "ExpireDate",@id= "datepicker" })*@
         </div>
-    </div>
-    <br />
-<div class="row">
-    <div class="col-md-offset-4 col-xs-1 col-md-1 col-lg-1 col-sm-1">
-        <label>Вес:</label>
-    </div>
-    <div class="col-xs-6 col-md-6 col-lg-6 col-sm-6">
-        @Html.TextBoxFor(md=>md.CakeWeight,new {@class = "form-control", @name = "CakeWeight" })
-    </div>
-</div>
-<br />
-<div class="row">
-    <div class="col-md-offset-4 col-xs-1 col-md-1 col-lg-1 col-sm-1">
-        <label>Бисквит:</label>
-    </div>
-    <div class="col-xs-6 col-md-6 col-lg-6 col-sm-6">
-        @Html.TextBoxFor(md=>md.BisquitType,new { @class = "form-control", @name = "BisquitType" })
-    </div>
-</div>
-<br />
-<div class="row">
-    <div class="col-md-offset-4 col-xs-1 col-md-1 col-lg-1 col-sm-1"><label>Начинка:</label></div>
-    <div class="col-xs-6 col-md-6 col-lg-6 col-sm-6">
-        @Html.TextBoxFor(md => md.FillingType, new { @class = "form-control", @name = "FillingType" })
-    </div>
-</div>
-<br />
-<div class="row">
-
-    <div class="col-md-offset-4 col-xs-1 col-md-1 col-lg-1 col-sm-1"><label>Ягоды:</label></div>
-    <div class="col-xs-6 col-md-6 col-lg-6 col-sm-6">
-        <div class="button-group">
-
-            <div class="checkbox">
-                <ul style="list-style:none;">
-                    @foreach (var item in Model.Berries)
-                    {
-                        <li><input type="checkbox" name="Berries" value="@item" checked/>&nbsp;@item</li>
-                    }
-                </ul>
-            </div>
-        </div>
-
-    </div>
-</div>
-<br />
-<div class="row">
-    <div class="col-md-offset-4 col-xs-1 col-md-1 col-lg-1 col-sm-1"><label>Ваши пожелания:</label></div>
-    <div class="col-xs-6 col-md-6 col-lg-6 col-sm-6">
-        <textarea class="form-control" rows="5"  name="Comments">@Model.Comments</textarea>
-    </div>
-</div>
-    <br />
-<div class="row">
-    <div class="col-md-offset-4 col-xs-2 col-sm-2 col-md-2 col-lg-2">
-        <input class="form-control" type="tel" name="CustomerPhoneNumber" placeholder="Номер телефона" />
-    </div>
     </div>
     <br />
     <div class="row">
-        <div class="col-md-offset-4 col-xs-2 col-sm-2 col-md-2 col-lg-2">
+        <div class="col-xs-1 col-md-1 col-lg-1 col-sm-1">
+            <label>Вес:</label>
+        </div>
+        <div class="col-xs-6 col-md-6 col-lg-6 col-sm-6">
+            @Html.TextBoxFor(md => md.CakeWeight, new { @class = "form-control", @name = "CakeWeight" })
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-xs-1 col-md-1 col-lg-1 col-sm-1">
+            <label>Бисквит:</label>
+        </div>
+        <div class="col-xs-6 col-md-6 col-lg-6 col-sm-6">
+            @Html.TextBoxFor(md => md.BisquitType, new { @class = "form-control", @name = "BisquitType" })
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-xs-1 col-md-1 col-lg-1 col-sm-1"><label>Начинка:</label></div>
+        <div class="col-xs-6 col-md-6 col-lg-6 col-sm-6">
+            @Html.TextBoxFor(md => md.FillingType, new { @class = "form-control", @name = "FillingType" })
+        </div>
+    </div>
+    <br />
+    <div class="row">
+
+        <div class="col-xs-1 col-md-1 col-lg-1 col-sm-1"><label>Ягоды:</label></div>
+        <div class="col-xs-6 col-md-6 col-lg-6 col-sm-6">
+            <div class="button-group">
+
+                <div class="checkbox">
+                    <ul style="list-style:none;">
+                        @foreach (var item in Model.Berries)
+                        {
+                            <li><input type="checkbox" name="Berries" value="@item" checked />&nbsp;@item</li>
+                        }
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-xs-1 col-md-1 col-lg-1 col-sm-1"><label>Ваши пожелания:</label></div>
+        <div class="col-xs-6 col-md-6 col-lg-6 col-sm-6">
+            <textarea class="form-control" rows="5" name="Comments">@Model.Comments</textarea>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+            <input class="form-control" type="tel" name="CustomerPhoneNumber" placeholder="Номер телефона" />
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
             <input class="form-control" type="text" name="CustomerName" placeholder="Ваше имя" />
         </div>
     </div>
     <br />
     <div class="row">
-        <div class="col-md-offset-4 col-xs-2 col-sm-2 col-md-2 col-lg-2">
-            <button type="submit" class="btn btn-primary">Подтвердить</button>
+        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+            <button id="confirm" class="btn btn-primary">Заказать</button>
         </div>
     </div>
+
     
 }
 <script>
-  $( function() {
-    $( "#datepicker" ).datepicker();
-  } );
+    $(function () {
+        $("#datepicker").datepicker();
+        $("#confirm").click(function()
+        {
+            $.ajax({
+                url: "Price/ConfirmOrder",
+                type: "POST",
+                data: $("#orderForm").serialize(),
+                success:alert("Заказ принят! Скоро свяжемся!")
+            });
+        })
+    });
 </script>
-
-

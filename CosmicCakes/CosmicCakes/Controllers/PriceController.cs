@@ -83,7 +83,6 @@ namespace CosmicCakesWebApp.Controllers
             else
             {
                 return View("Index", CreatePageContent());
-                //return View("Index");
             }
 
         }
@@ -91,8 +90,9 @@ namespace CosmicCakesWebApp.Controllers
         [HttpPost]
         public ActionResult ConfirmOrder(OrderModel model)
         {
+            model.ExpireDate = model.ExpireDate.ToUniversalTime();
             SaveOrder(model);
-            return View();
+            return RedirectToRoute("GoHome");
 
         }
     }

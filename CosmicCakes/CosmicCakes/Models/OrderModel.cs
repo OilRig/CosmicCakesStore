@@ -17,6 +17,7 @@ namespace CosmicCakesWebApp.Models
         public string FillingType { get; set; }
         public string Comments { get; set; }
         public ICollection<string> Berries { get; set; }
+        [Required(ErrorMessage = "Кажется,Вы не указали дату для тортика")]
         public DateTime ExpireDate { get; set; }
         public OrderModel()
         {
