@@ -56,7 +56,7 @@ namespace CosmicCakesWebApp.Controllers
         private void SaveOrder(OrderModel model)
         {
             var order = new Order();
-            order.Berries = model.Berries;
+            foreach (var berry in model.Berries) order.Berries.Add(berry);
             order.BisquitType = model.BisquitType;
             order.CakeWeight = model.CakeWeight;
             order.Comments = model.Comments;
@@ -69,20 +69,19 @@ namespace CosmicCakesWebApp.Controllers
         }
         public void SendOrder(string order)
         {
-            MailAddress from = new MailAddress("CosmicakesOrder@no-reply", "Order");
+            MailAddress from = new MailAddress("cosmicakesofficial@gmail.com", "Order");
 
-            MailAddress to = new MailAddress("cosmicakesofficial@gmail.com");
+            MailAddress to = new MailAddress("golubevanora1@gmail.com");
 
             MailMessage m = new MailMessage(from, to);
-            // тема письма
+
             m.Subject = "Заказ";
-            // текст письма
+
             m.Body = order;
-            // письмо представляет код html
-            m.IsBodyHtml = false;
-            // адрес smtp-сервера и порт, с которого будем отправлять письмо
+
+
             SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
-            // логин и пароль
+
             smtp.Credentials = new NetworkCredential("cosmicakesofficial@gmail.com", "gbczgjgf2345");
             smtp.EnableSsl = true;
             smtp.Send(m);
@@ -97,10 +96,8 @@ namespace CosmicCakesWebApp.Controllers
         [HttpPost]
         public ActionResult Order(CreateCakePageModel model)
         {
-
             if (ModelState.IsValid)
             {
-
                 return View(MakeOrder(model));
             }
             else
@@ -113,10 +110,15 @@ namespace CosmicCakesWebApp.Controllers
         [HttpPost]
         public ActionResult ConfirmOrder(OrderModel model)
         {
-            model.ExpireDate = model.ExpireDate.ToUniversalTime();
-            SaveOrder(model);
-            SendOrder(model.ToString());
-            return RedirectToRoute("GoHome");
+            if (ModelState.IsValid)
+            {
+                model.ExpireDate = model.ExpireDate.ToUniversalTime();
+                SaveOrder(model);
+                SendOrder(model.ToString());
+                return RedirectToRoute("GoHome");
+            }
+            else return View("Order", model);
+
 
         }
     }

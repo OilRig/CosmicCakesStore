@@ -15,11 +15,15 @@ namespace CosmicCakes.DAL.Entities
         public DateTime OrderDate { get; set; }
 
         public DateTime ExpireDate { get; set; }
-        [Range(1.5, 100)]
+        [Range(1.5, 12)]
         public double CakeWeight { get; set; }
         public string BisquitType { get; set; }
         public string FillingType { get; set; }
         public string Comments { get; set; }
         public ICollection<string> Berries { get; set; }
+        public Order()
+        {
+            Berries = new List<string>();
+        }
     }
 }
