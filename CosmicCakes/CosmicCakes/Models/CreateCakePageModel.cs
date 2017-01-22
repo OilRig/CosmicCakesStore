@@ -11,8 +11,9 @@ namespace CosmicCakesWebApp.Models
         public IList<string> Bisquit { get; set; }
         public IList<string> Berries { get; set; }
         public IList<string> Filling { get; set; }
-        //public IList<string> Decorations { get; set; }
+        public IList<string> CreamDecorations { get; set; }
         public IList<string> Cream { get; set; }
+        public IList<string> AdditionalDecorations { get; set; }
         public string BisquitType { get; set; }
         public string FillingType { get; set; }
         public string Comments { get; set; }
@@ -24,13 +25,12 @@ namespace CosmicCakesWebApp.Models
             Berries = new List<string>();
 
             SelectedBerries = new List<string>();
+            AdditionalDecorations = new List<string>();
 
             Filling = new List<string>();
 
-            //Decorations = new List<string>
-            //{
-            //    "Горка красных ягод","Горка черных ягод","Цветы","Другое(укажите в дополнении)"
-            //};
+            CreamDecorations = new List<string>();
+
             Cream = new List<string>();
 
             CakeWeight = 1.5;

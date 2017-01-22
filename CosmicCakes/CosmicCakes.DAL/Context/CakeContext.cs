@@ -17,10 +17,7 @@ namespace CosmicCakes.DAL
         public virtual DbSet<Cream> Cream { get; set; }
         public virtual DbSet<Filling> Fillings { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
-
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            base.OnModelCreating(modelBuilder);
-        }
+        public virtual DbSet<CreamDecorarion> CreamDecorarions { get; set; }
+        public virtual DbSet<AdditionalDecoration> AdditionalDecorations { get; set; }
     }
 }

@@ -43,6 +43,21 @@ namespace CosmicCakes.DAL.Repositories
             }
         }
 
-
+        //public IEnumerable<T> GetAll()
+        //{
+        //    using (var context = GetContext())
+        //    {
+        //        try
+        //        {
+        //            var allItemsQuery = context.Set<T>().ToList();
+        //            return allItemsQuery;
+        //        }
+        //        catch (Exception e)
+        //        {
+        //            Console.WriteLine(e);
+        //            throw;
+        //        }
+        //    }
+        //}
     }
 }

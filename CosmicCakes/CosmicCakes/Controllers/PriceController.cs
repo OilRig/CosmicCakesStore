@@ -16,14 +16,19 @@ namespace CosmicCakesWebApp.Controllers
         private readonly IBerryRepository _berryRepository;
         private readonly ICreamRepository _creamRepository;
         private readonly IOrderRepository _orderRepository;
+        private readonly ICreamDecorationsRepository _creamDecorationRepository;
+        private readonly IAdditionalDecorationRepository _additionalDecorationRepository;
         public PriceController(ICreamRepository creamRepo, IBisquitRepository bisquitRepo,
-           IFillingRepository fillingRepo, IBerryRepository berryRepo, IOrderRepository orderRepo)
+           IFillingRepository fillingRepo, IBerryRepository berryRepo, IOrderRepository orderRepo,
+           ICreamDecorationsRepository creamDecorRepo, IAdditionalDecorationRepository additionalDecorationRepository)
         {
             _bisquitRepository = bisquitRepo;
             _berryRepository = berryRepo;
             _creamRepository = creamRepo;
             _fillingRepository = fillingRepo;
             _orderRepository = orderRepo;
+            _creamDecorationRepository = creamDecorRepo;
+            _additionalDecorationRepository = additionalDecorationRepository;
         }
         public CreateCakePageModel CreatePageContent()
         {
@@ -32,6 +37,8 @@ namespace CosmicCakesWebApp.Controllers
             var fillings = _fillingRepository.GetAll();
             var creams = _creamRepository.GetAll();
             var bisquits = _bisquitRepository.GetAll();
+            var creamDecors = _creamDecorationRepository.GetAll();
+            var additionalDecors = _additionalDecorationRepository.GetAll();
             foreach (var item in berries)
                 cakePageModel.Berries.Add(item);
             foreach (var item in fillings)
@@ -40,23 +47,30 @@ namespace CosmicCakesWebApp.Controllers
                 cakePageModel.Cream.Add(item);
             foreach (var item in bisquits)
                 cakePageModel.Bisquit.Add(item);
+            foreach (var item in creamDecors)
+                cakePageModel.CreamDecorations.Add(item);
+            foreach (var item in additionalDecors)
+                cakePageModel.AdditionalDecorations.Add(item.Name);
             return cakePageModel;
         }
 
         private OrderModel MakeOrder(CreateCakePageModel model)
         {
-            var orderModel = new OrderModel();
-            orderModel.BisquitType = model.BisquitType;
-            orderModel.CakeWeight = model.CakeWeight;
-            orderModel.Comments = model.Comments;
-            orderModel.FillingType = model.FillingType;
-            orderModel.Berries = model.SelectedBerries;
+            var orderModel = new OrderModel
+            {
+                BisquitType = model.BisquitType,
+                CakeWeight = model.CakeWeight,
+                Comments = model.Comments,
+                FillingType = model.FillingType,
+                Berries = model.SelectedBerries
+            };
+
             return orderModel;
         }
         private void SaveOrder(OrderModel model)
         {
             var order = new Order();
-            foreach (var berry in model.Berries) order.Berries.Add(berry);
+            foreach (var berry in model.Berries) order.Berries += berry + ",";
             order.BisquitType = model.BisquitType;
             order.CakeWeight = model.CakeWeight;
             order.Comments = model.Comments;
@@ -69,18 +83,18 @@ namespace CosmicCakesWebApp.Controllers
         }
         public void SendOrder(string order)
         {
-            MailAddress from = new MailAddress("cosmicakesofficial@gmail.com", "Order");
+            var from = new MailAddress("cosmicakesofficial@gmail.com", "Order");
 
-            MailAddress to = new MailAddress("golubevanora1@gmail.com");
+            var to = new MailAddress("golubevanora1@gmail.com");
 
-            MailMessage m = new MailMessage(from, to);
+            var m = new MailMessage(from, to);
 
             m.Subject = "Заказ";
 
             m.Body = order;
 
 
-            SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
+            var smtp = new SmtpClient("smtp.gmail.com", 587);
 
             smtp.Credentials = new NetworkCredential("cosmicakesofficial@gmail.com", "gbczgjgf2345");
             smtp.EnableSsl = true;
@@ -90,7 +104,7 @@ namespace CosmicCakesWebApp.Controllers
         // GET: Price
         public ActionResult Index()
         {
-            return View(CreatePageContent()); //
+            return View(CreatePageContent());
         }
 
         [HttpPost]

@@ -1,16 +1,15 @@
 ﻿
 using CosmicCakes.DAL;
 using CosmicCakes.DAL.Migrations;
-using Nemiro.OAuth;
-using Nemiro.OAuth.Clients;
 using System.Data.Entity;
+using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 
 namespace CosmicCakesWebApp
 {
-    public class MvcApplication : System.Web.HttpApplication
+    public class MvcApplication : HttpApplication
     {
         protected void Application_Start()
         {
@@ -19,8 +18,14 @@ namespace CosmicCakesWebApp
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<CakeContext, Configuration>("Cakes"));
-            OAuthManager.RegisterClient(
-                new GoogleClient("324r678", "catonrail"));
+
+        }
+
+        protected void Application_Error()
+        {
+            var exception = Server.GetLastError();
+            
+
         }
     }
 }

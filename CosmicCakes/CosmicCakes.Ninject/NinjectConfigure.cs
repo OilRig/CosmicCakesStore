@@ -16,7 +16,8 @@ namespace CosmicCakes.Ninject
             Bind<ICreamRepository>().To<CreamRepository>();
             Bind<IFillingRepository>().To<FillingRepository>();
             Bind<IOrderRepository>().To<OrderRepository>();
-
+            Bind<ICreamDecorationsRepository>().To<CreamDecorationsRepository>();
+            Bind<IAdditionalDecorationRepository>().To<AdditionalDecorationRepository>();
             //Loggers
             //Bind<IAppLogger>().To<NlogLogger>();
         }

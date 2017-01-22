@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CosmicCakes.DAL.Entities
 {
@@ -20,10 +20,7 @@ namespace CosmicCakes.DAL.Entities
         public string BisquitType { get; set; }
         public string FillingType { get; set; }
         public string Comments { get; set; }
-        public ICollection<string> Berries { get; set; }
-        public Order()
-        {
-            Berries = new List<string>();
-        }
+        public string Berries { get; set; }
+
     }
 }
