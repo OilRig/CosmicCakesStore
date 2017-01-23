@@ -36,4 +36,7 @@ textarea {
 img.margined-right-item {
     margin-right:15px;
 }
+.hundred-widthed-item {
+    width: 100%;
+}
 
