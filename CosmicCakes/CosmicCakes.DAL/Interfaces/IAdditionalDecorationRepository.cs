@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace CosmicCakes.DAL.Interfaces
 {
-    public interface IAdditionalDecorationRepository
+    public interface IAdditionalDecorationRepository : IRepository<AdditionalDecoration>
     {
         IEnumerable<AdditionalDecoration> GetAll();
     }

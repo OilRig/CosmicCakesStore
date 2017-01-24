@@ -12,6 +12,7 @@ namespace CosmicCakes.DAL
 
         }
 
+        //custom order section
         public virtual DbSet<Berry> Berries { get; set; }
         public virtual DbSet<Bisquit> Bisquits { get; set; }
         public virtual DbSet<Cream> Cream { get; set; }
@@ -19,5 +20,9 @@ namespace CosmicCakes.DAL
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<CreamDecorarion> CreamDecorarions { get; set; }
         public virtual DbSet<AdditionalDecoration> AdditionalDecorations { get; set; }
+
+        //ready cake section
+        public virtual DbSet<SimpleReadyCake> SimpleReadyCakes { get; set; }
+
     }
 }
