@@ -15,8 +15,7 @@ namespace CosmicCakes.DAL.Repositories
                 try
                 {
                     var cakes = context.Set<SimpleReadyCake>()
-                    .AsNoTracking()
-                    .AsEnumerable();
+                        .ToList();
                     return cakes;
                 }
                 catch (Exception)
@@ -24,6 +23,15 @@ namespace CosmicCakes.DAL.Repositories
                     throw;
                 }
 
+            }
+        }
+
+        public SimpleReadyCake GetCakeById(int id)
+        {
+            using (var context = GetCakeContext())
+            {
+                var cake = context.Set<SimpleReadyCake>().FirstOrDefault(c => c.Id == id);
+                return cake;
             }
         }
     }

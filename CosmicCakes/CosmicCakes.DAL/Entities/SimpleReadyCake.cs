@@ -12,7 +12,6 @@ namespace CosmicCakes.DAL.Entities
         [Required]
         public string Description { get; set; }
         [Required]
-        [Range(1.5, 3)]
         public double MinWeight { get; set; }
         public int KgPrice { get; set; }
         public bool IsLevelable { get; set; }

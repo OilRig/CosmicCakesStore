@@ -15,8 +15,7 @@ namespace CosmicCakes.DAL.Repositories
                 try
                 {
                     var allAdditionalDecors = context.Set<AdditionalDecoration>()
-                        .AsNoTracking()
-                        .AsEnumerable();
+                        .ToList();
                     return allAdditionalDecors;
                 }
                 catch (Exception e)

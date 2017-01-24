@@ -39,7 +39,8 @@ img.margined-right-item {
 .hundred-widthed-item {
     max-width: 100%;
 }
-.active {
-    background-color: #f4f4f4;
+.centered-text {
+    text-align: center;
+    padding: 130px;
 }
 

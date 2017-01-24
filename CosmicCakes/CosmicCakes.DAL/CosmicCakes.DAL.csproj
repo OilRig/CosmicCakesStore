@@ -125,6 +125,10 @@
     <Compile Include="Migrations\201701241856047_NoseparateleveledCakes.Designer.cs">
       <DependentUpon>201701241856047_NoseparateleveledCakes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201701241931300_NoWeightRangeForSimpleCakes.cs" />
+    <Compile Include="Migrations\201701241931300_NoWeightRangeForSimpleCakes.Designer.cs">
+      <DependentUpon>201701241931300_NoWeightRangeForSimpleCakes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\AdditionalDecorationsRepository.cs" />
@@ -178,6 +182,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201701241856047_NoseparateleveledCakes.resx">
       <DependentUpon>201701241856047_NoseparateleveledCakes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701241931300_NoWeightRangeForSimpleCakes.resx">
+      <DependentUpon>201701241931300_NoWeightRangeForSimpleCakes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
