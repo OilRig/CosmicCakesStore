@@ -6,6 +6,7 @@
         public string Name { get; set; }
         public string Description { get; set; }
         public double MinWeight { get; set; }
+        public int MinPrice { get; set; }
         public int KgPrice { get; set; }
     }
 }

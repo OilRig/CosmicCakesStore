@@ -26,7 +26,8 @@ namespace CosmicCakes.Controllers
                     Description = cake.Description,
                     Name = cake.Name,
                     KgPrice = cake.KgPrice,
-                    MinWeight = cake.MinWeight
+                    MinWeight = cake.MinWeight,
+                    MinPrice = cake.MinPrice
                 });
             }
             return View(_existingCakes);

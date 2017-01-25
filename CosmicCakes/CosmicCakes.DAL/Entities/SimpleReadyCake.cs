@@ -13,6 +13,8 @@ namespace CosmicCakes.DAL.Entities
         public string Description { get; set; }
         [Required]
         public double MinWeight { get; set; }
+        [Required]
+        public int MinPrice { get; set; }
         public int KgPrice { get; set; }
         public bool IsLevelable { get; set; }
     }

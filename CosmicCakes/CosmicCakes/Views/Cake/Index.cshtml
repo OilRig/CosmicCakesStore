@@ -1,7 +1,7 @@
 ﻿@model List<CosmicCakes.Models.CakesStartPageModel>
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_LayoutWithNoMargins.cshtml";
     var sectionCounter = 0;
 }
 
@@ -23,6 +23,8 @@
                <a href="#" data-cakeid="@cake.Id">@cake.Name</a>
                 <br />
                 @cake.Description
+                <br/>
+                От @cake.MinPrice р.
             </div>
         </div>
     }
@@ -33,6 +35,8 @@
                 <a href="#" data-cakeid="@cake.Id">@cake.Name</a>
                 <br/>
                 @cake.Description
+                <br />
+                От @cake.MinPrice р.
             </div>
 
             <div class="col-md-6" style="padding-left: 0;">

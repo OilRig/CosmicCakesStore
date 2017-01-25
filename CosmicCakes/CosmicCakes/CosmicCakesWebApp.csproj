@@ -165,6 +165,7 @@
     <Compile Include="Models\CakesStartPageModel.cs" />
     <Compile Include="Models\CreateCakePageModel.cs" />
     <Compile Include="Models\OrderModel.cs" />
+    <Compile Include="Models\ReadyCakeModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -241,6 +242,7 @@
     <Content Include="Views\Price\Order.cshtml" />
     <Content Include="Views\About\Index.cshtml" />
     <Content Include="Views\Cake\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutWithNoMargins.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
