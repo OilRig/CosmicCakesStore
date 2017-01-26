@@ -20,7 +20,7 @@
                 </div>
             </div>
             <div class="col-md-6 centered-text">
-               <a id="showCake" href="#" data-cakeid="@cake.Id">@cake.Name</a>
+               <a id="showCake"  data-cakeid="@cake.Id">@cake.Name</a>
                 <br />
                 @cake.Description
                 <br/>
@@ -32,7 +32,7 @@
     {
         <div class="row">
             <div class="col-md-6 centered-text">
-                <a id="showCake" href="#" data-cakeid="@cake.Id">@cake.Name</a>
+                <a id="showCake"  data-cakeid="@cake.Id">@cake.Name</a>
                 <br/>
                 @cake.Description
                 <br />
@@ -55,14 +55,9 @@
 <script>
     (function($) {
         $('#cakes').addClass("active");
-        $('#showCake').click(function() {
-            
-                $.ajax({
-                    url:@Url.Action("CakeInfo","Cake"),
-                    method:"POST",
-                    
-
-                });
+        $('a#showCake').click(function () {
+            var cakeId = $(this).data("cakeid");
+            window.location.href = "/Cake/CakeInfo/" + cakeId;
             });
         })
     (jQuery);

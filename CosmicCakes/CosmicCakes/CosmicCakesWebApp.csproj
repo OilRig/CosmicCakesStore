@@ -243,6 +243,7 @@
     <Content Include="Views\About\Index.cshtml" />
     <Content Include="Views\Cake\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutWithNoMargins.cshtml" />
+    <Content Include="Views\Cake\CakeInfo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

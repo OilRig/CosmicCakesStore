@@ -1,0 +1,16 @@
+﻿@model CosmicCakes.DAL.Entities.SimpleReadyCake
+@{
+    ViewBag.Title = "CakeInfo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-6"></div>
+    <div class="col-md-6">
+        <h2>@Model.Name</h2>
+        <h2>@Model.Description</h2>
+        <h2>От @Model.MinPrice р.</h2>
+    </div>
+</div>
+
+

@@ -33,6 +33,7 @@ namespace CosmicCakes.Controllers
             return View(_existingCakes);
         }
 
+        [HttpGet]
         public ActionResult CakeInfo(int id)
         {
             var cake = _simpleCakeRepository.GetCakeById(id);
