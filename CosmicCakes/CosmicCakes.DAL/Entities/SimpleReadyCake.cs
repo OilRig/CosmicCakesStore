@@ -15,6 +15,8 @@ namespace CosmicCakes.DAL.Entities
         public double MinWeight { get; set; }
         [Required]
         public int MinPrice { get; set; }
+        [Required]
+        public int MaxWeight { get; set; }
         public int KgPrice { get; set; }
         public bool IsLevelable { get; set; }
     }

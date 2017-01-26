@@ -133,6 +133,10 @@
     <Compile Include="Migrations\201701251252142_MinPriceForCake.Designer.cs">
       <DependentUpon>201701251252142_MinPriceForCake.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201701261817156_MaxWeightAdded.cs" />
+    <Compile Include="Migrations\201701261817156_MaxWeightAdded.Designer.cs">
+      <DependentUpon>201701261817156_MaxWeightAdded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\AdditionalDecorationsRepository.cs" />
@@ -192,6 +196,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201701251252142_MinPriceForCake.resx">
       <DependentUpon>201701251252142_MinPriceForCake.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701261817156_MaxWeightAdded.resx">
+      <DependentUpon>201701261817156_MaxWeightAdded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
