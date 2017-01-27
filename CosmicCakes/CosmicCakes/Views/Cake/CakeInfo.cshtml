@@ -4,40 +4,72 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="row">
-    <div class="col-md-6">
-        <img src="/Content/Images/img_9_307x30.jpg" class="hundred-widthed-item"/>
-    </div>
-    <div class="col-md-6">
-        <h3 align="center">@Model.Name</h3>
-        <h3>@Model.Description</h3>
-        <p style="color: gray">От @Model.MinPrice р.</p> 
+<div class="row century-gothic-text">
 
-        <br/>
-
-        <ul>
-            <li>@Model.KgPrice р/кг</li>
-            <li>Минимальный вес: @Model.MinWeight кг</li>
-            <li>Максимальный вес: @Model.MaxWeight кг</li>
-        </ul>
-        
-        <br/>
-        
-        В стоимость входит:
-        <ul>
-            <li>Это</li>
-            <li>Это</li>
-            <li>И это</li>
-        </ul>
-        
-        <br/>
-        
-        Каждый торт упакован в красивую коробку и украшен лентой.
-        Также вы можете выбрать топпер на торт - табличку с пожеланиями, отличная замена шоколадной надписи на торте, смотрится более эффектно (:
-        Обратите внимание, что мы можем изменить какой-нибудь вид ягод в оформлении в связи с отсутствием ее в магазине (или в связи с ненадлежащим качеством)
-        Пожалуйста, предупреждайте по поводу пищевой аллергии на продукты.
-    </div>
+<div class="col-md-6">
+    <img src="/Content/Images/img_9_307x30.jpg" class="img-responsive hundred-widthed-item"/>
 </div>
+
+<div class="col-md-6 cake-info-font-size">
+    <div class="centered-text-heading">@Model.Name</div>
+    <br />
+    <div>@Model.Description</div>
+
+    <p style="color: gray; font-size: 20pt;">от @Model.MinPrice р.</p>
+
+    <ul>
+        <li>@Model.KgPrice р/кг</li>
+        <li>минимальный вес: @Model.MinWeight кг</li>
+        <li>
+            максимальный вес: @Model.MaxWeight кг
+            @if (Model.IsLevelable)
+            {
+                <p style="font-size:small">(т.е. 1 ярус, но у вас всегда есть возможность заказать 2 или даже 3 яруса) </p>
+            }
+        </li>
+    </ul>
+    <strong>В стоимость входит:</strong>
+    <ul>
+        <li>Любой бисквит и начинка в нижний ярус</li>
+        <li>Любой бисквит и начинка в верхний ярус</li>
+        <li>Шоколадные или карамельные подтеки - на ваш выбор</li>
+        <li>Покрытие белым или цветным кремом  - на ваш выбор (укажите в комментариях к заказу цвет крема; белый крем по умолчанию)</li>
+        <li>Венок Венок / полумесяц / горка (+500р.)  из ягод (клубника, голубика, ежевика, красная смородина, малина, кумкват)</li>
+        <li>При оформлении венком - шоколадная надпись (укажите в комментариях к заказу)</li>
+    </ul>
+</div>
+</div>
+<br/>
+    <div class="row">
+        <div class="col-md-6" style="display: inline;">
+            <div class="row">
+                <div class="col-md-3"><img src="/Content/Images/img_9_307x30.jpg" class="img-responsive hundred-widthed-item-changer" height="104" width="104" /></div>
+                <div class="col-md-3"><img src="/Content/Images/img_9_307x30.jpg" class="img-responsive hundred-widthed-item-changer" height="104" width="104" /></div>
+                <div class="col-md-3"><img src="/Content/Images/img_9_307x30.jpg" class="img-responsive hundred-widthed-item-changer" height="104" width="104" /></div>
+                <div class="col-md-3"><img src="/Content/Images/img_9_307x30.jpg" class="img-responsive hundred-widthed-item-changer" height="104" width="104" /></div>
+            </div>
+        </div>
+        
+        <div class="col-md-6">
+            <div class="justified-text century-gothic-text">
+                Дополнительно двухъярусный торт можно украсить живыми цветами. Они предают невероятную легкость и красоту каждому торту, особенно на свадебное торжество.  (укажите в комментариях, все согласуем по телефону)
+                Не волнуйтесь, все стебли, соприкасающиеся с тортом, изолируют и дезинфицируют.
+            </div>
+        </div>
+    </div>
+       <br/>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="justified-text century-gothic-text">
+                Каждый торт упакован в красивую коробку и украшен лентой.
+                Также вы можете выбрать топпер на торт - табличку с пожеланиями, отличная замена шоколадной надписи на торте, смотрится более эффектно (:<br />
+                Обратите внимание, что мы можем изменить какой-нибудь вид ягод в оформлении в связи с отсутствием ее в магазине (или в связи с ненадлежащим качеством).<br />
+                <strong>Пожалуйста, предупреждайте по поводу пищевой аллергии на продукты.</strong>
+            </div>
+        </div>
+        </div>
+   
+
 
 
 

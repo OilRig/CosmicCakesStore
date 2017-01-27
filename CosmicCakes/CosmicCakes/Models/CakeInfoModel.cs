@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace CosmicCakes.Models
 {
-    public class ReadyCakeModel
+    public class CakeInfoModel
     {
+
     }
 }
