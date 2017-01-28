@@ -238,8 +238,6 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Price\Index.cshtml" />
-    <Content Include="Views\Price\Order.cshtml" />
     <Content Include="Views\About\Index.cshtml" />
     <Content Include="Views\Cake\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutWithNoMargins.cshtml" />
