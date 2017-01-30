@@ -171,7 +171,27 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\2016-03-30 16.44.12.JPG" />
+    <Content Include="Content\Images\2016-08-13 16.41.43 %281%29.jpg" />
+    <Content Include="Content\Images\2017-01-11 17.28.40.jpg" />
     <Content Include="Content\Images\avatar.jpg" />
+    <Content Include="Content\Images\CosmicCake\StartPage\csm_cake_start_1.jpg" />
+    <Content Include="Content\Images\CosmicCake\StartPage\csm_cake_start_5.jpg" />
+    <Content Include="Content\Images\CosmicCake\StartPage\csm_cake_start_4.jpg" />
+    <Content Include="Content\Images\CosmicCake\StartPage\csm_cake_start_3.jpg" />
+    <Content Include="Content\Images\CosmicCake\StartPage\csm_cake_start_2.jpg" />
+    <Content Include="Content\Images\CrownCake\Individual\2016-04-20 19.50.20.JPG" />
+    <Content Include="Content\Images\CrownCake\Individual\2016-04-23 18.47.26.JPG" />
+    <Content Include="Content\Images\CrownCake\Individual\2016-08-13 16.41.43.JPG" />
+    <Content Include="Content\Images\CrownCake\Individual\2016-09-13 09.26.52.jpg" />
+    <Content Include="Content\Images\CrownCake\Individual\2016-10-08 09.15.20.JPG" />
+    <Content Include="Content\Images\CrownCake\Individual\2016-12-15 09.29.26.JPG" />
+    <Content Include="Content\Images\CrownCake\StartPage\cr_cake_start_1.jpg" />
+    <Content Include="Content\Images\CrownCake\StartPage\cr_cake_start_6.jpg" />
+    <Content Include="Content\Images\CrownCake\StartPage\cr_cake_start_5.jpg" />
+    <Content Include="Content\Images\CrownCake\StartPage\cr_cake_start_4.jpg" />
+    <Content Include="Content\Images\CrownCake\StartPage\cr_cake_start_3.jpg" />
+    <Content Include="Content\Images\CrownCake\StartPage\cr_cake_start_2.jpg" />
     <Content Include="Content\Images\E-Mail.png" />
     <Content Include="Content\Images\fotka.jpg" />
     <Content Include="Content\Images\i.jpg" />
@@ -245,6 +265,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\Images\CosmicCake\Individual\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

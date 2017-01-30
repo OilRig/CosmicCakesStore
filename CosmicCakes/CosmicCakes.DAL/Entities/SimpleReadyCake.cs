@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace CosmicCakes.DAL.Entities
 {
@@ -19,5 +20,6 @@ namespace CosmicCakes.DAL.Entities
         public int MaxWeight { get; set; }
         public int KgPrice { get; set; }
         public bool IsLevelable { get; set; }
+        public virtual ICollection<SimpleCakeImage> Images { get; set; }
     }
 }

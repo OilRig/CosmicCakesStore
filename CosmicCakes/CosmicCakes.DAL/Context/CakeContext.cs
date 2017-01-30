@@ -23,6 +23,8 @@ namespace CosmicCakes.DAL
 
         //ready cake section
         public virtual DbSet<SimpleReadyCake> SimpleReadyCakes { get; set; }
+        //Images section
+        public virtual DbSet<SimpleCakeImage> SimpleCakeImages { get; set; }
 
     }
 }
