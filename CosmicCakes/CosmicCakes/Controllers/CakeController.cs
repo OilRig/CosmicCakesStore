@@ -1,7 +1,6 @@
 ﻿using CosmicCakes.DAL.Interfaces;
 using CosmicCakes.Models;
 using System.Collections.Generic;
-using System.Linq;
 using System.Web.Mvc;
 
 namespace CosmicCakes.Controllers
@@ -20,30 +19,20 @@ namespace CosmicCakes.Controllers
         // GET: Cake
         public ActionResult Index()
         {
-            var cakes = _simpleCakeRepository.GetAllCakes().First(c => c.Id == 1);
-            _existingCakes.Add(new CakesStartPageModel
+            var cakes = _simpleCakeRepository.GetExistingCakes();
+            foreach (var cake in cakes)
             {
-                Id = cakes.Id,
-                Description = cakes.Description,
-                Name = cakes.Name,
-                KgPrice = cakes.KgPrice,
-                MinWeight = cakes.MinWeight,
-                MinPrice = cakes.MinPrice,
-                ImagePaths = _imageRepository.GetAllImagePathsByCakeId(cakes.Id)
-            });
-            //foreach (var cake in cakes)
-            //{
-            //    _existingCakes.Add(new CakesStartPageModel
-            //    {
-            //        Id = cake.Id,
-            //        Description = cake.Description,
-            //        Name = cake.Name,
-            //        KgPrice = cake.KgPrice,
-            //        MinWeight = cake.MinWeight,
-            //        MinPrice = cake.MinPrice,
-            //        ImagePaths = _imageRepository.GetAllImagePathsByCakeId(cake.Id)
-            //    });
-            //}
+                _existingCakes.Add(new CakesStartPageModel
+                {
+                    Id = cake.Id,
+                    Description = cake.Description,
+                    Name = cake.Name,
+                    KgPrice = cake.KgPrice,
+                    MinWeight = cake.MinWeight,
+                    MinPrice = cake.MinPrice,
+                    ImagePaths = _imageRepository.GetAllImagePathsByCakeId(cake.Id)
+                });
+            }
             return View(_existingCakes);
         }
 

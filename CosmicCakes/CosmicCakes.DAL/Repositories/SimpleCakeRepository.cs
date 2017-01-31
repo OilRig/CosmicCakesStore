@@ -34,5 +34,16 @@ namespace CosmicCakes.DAL.Repositories
                 return cake;
             }
         }
+
+        public IEnumerable<SimpleReadyCake> GetExistingCakes()
+        {
+            using (var context = GetCakeContext())
+            {
+                var cakes = from c in context.SimpleReadyCakes
+                            where c.Id == 1 || c.Id == 3 || c.Id == 3 || c.Id == 5 || c.Id == 9
+                            select c;
+                return cakes;
+            }
+        }
     }
 }

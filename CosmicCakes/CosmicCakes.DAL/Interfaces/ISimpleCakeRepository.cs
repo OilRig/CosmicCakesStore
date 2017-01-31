@@ -7,5 +7,6 @@ namespace CosmicCakes.DAL.Interfaces
     {
         IEnumerable<SimpleReadyCake> GetAllCakes();
         SimpleReadyCake GetCakeById(int id);
+        IEnumerable<SimpleReadyCake> GetExistingCakes();
     }
 }
