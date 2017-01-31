@@ -2,6 +2,7 @@
 using CosmicCakes.DAL.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 
 namespace CosmicCakes.DAL.Repositories
@@ -39,10 +40,10 @@ namespace CosmicCakes.DAL.Repositories
         {
             using (var context = GetCakeContext())
             {
-                var cakes = from c in context.SimpleReadyCakes
-                            where c.Id == 1 || c.Id == 3 || c.Id == 3 || c.Id == 5 || c.Id == 9
-                            select c;
-                return cakes;
+                var cakes = (from c in context.SimpleReadyCakes
+                             where c.Id == 1 || c.Id == 2 || c.Id == 3 || c.Id == 5 || c.Id == 9
+                             select c).AsNoTracking();
+                return cakes.ToList();
             }
         }
     }

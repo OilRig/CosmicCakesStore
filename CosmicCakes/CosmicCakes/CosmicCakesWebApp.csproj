@@ -174,8 +174,8 @@
     <Content Include="Content\Images\2016-03-30 16.44.12.JPG" />
     <Content Include="Content\Images\2016-08-13 16.41.43 %281%29.jpg" />
     <Content Include="Content\Images\2017-01-11 17.28.40.jpg" />
-    <Content Include="Content\Images\AquarelCake\StartPage\aq_cake_start_1.jpg" />
     <Content Include="Content\Images\AquarelCake\StartPage\aq_cake_start_3.jpg" />
+    <Content Include="Content\Images\AquarelCake\StartPage\aq_cake_start_1.jpg" />
     <Content Include="Content\Images\AquarelCake\StartPage\aq_cake_start_4.jpg" />
     <Content Include="Content\Images\AquarelCake\StartPage\aq_cake_start_2.jpg" />
     <Content Include="Content\Images\avatar.jpg" />
@@ -183,8 +183,6 @@
     <Content Include="Content\Images\CrownCake\StartPage\cr_cake_start_2.jpg" />
     <Content Include="Content\Images\CrownCake\StartPage\cr_cake_start_3.jpg" />
     <Content Include="Content\Images\CrownCake\StartPage\cr_cake_start_4.jpg" />
-    <Content Include="Content\Images\CrownCake\StartPage\cr_cake_start_5.jpg" />
-    <Content Include="Content\Images\CrownCake\StartPage\cr_cake_start_6.jpg" />
     <Content Include="Content\Images\Cupcakes\StartPage\csm_cake_start_1.jpg" />
     <Content Include="Content\Images\Cupcakes\StartPage\csm_cake_start_2.jpg" />
     <Content Include="Content\Images\Cupcakes\StartPage\csm_cake_start_3.jpg" />

@@ -77,11 +77,36 @@ img.margined-right-item {
     margin-bottom: -99999px;
     padding-bottom: 99999px;
 }
-.box {
-    background-size: 110%;
-}
 .fader img {
     display: none;
+}
+.cake-name {
+    font-size: 36px;
+}
+div.centered-text > span {
+     line-height:300px; 
+}
+div.centered-text > div#text-container {
+    vertical-align:middle; 
+    display:inline-block; 
+}
+div#text-container  a {
+     text-decoration: none;
+    cursor: pointer;
+    color: black;
+    font-family:'Marianna Regular';
+}
+div#text-container  a:hover {
+    text-decoration: none;
+    cursor: pointer;
+    color: #595959;
+    font-family:'Marianna Regular';
+}
+div#text-container div#briefCake {
+    color: grey;
+}
+div#briefCake>p.price {
+    font-size: 19px;
 }
 
 
