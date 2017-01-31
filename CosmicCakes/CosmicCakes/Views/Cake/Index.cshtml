@@ -29,7 +29,7 @@
                     <div id="briefCake">
                         @cake.Description
                         <br />
-                       <p class="price"> от @cake.MinPrice р.</p>
+                        <p class="price"> от @cake.MinPrice р.</p>
                     </div>
                 </div>
             </div>
@@ -46,7 +46,7 @@
                     <div id="briefCake">
                         @cake.Description
                         <br />
-                        от @cake.MinPrice р.
+                        <p class="price"> от @cake.MinPrice р.</p>
                     </div>
                 </div>
             </div>
@@ -83,15 +83,15 @@
         $(document).ready(function () {
 
             $('div#cakeImagesSetEven').mouseover(function () {
-                $(this).next().animate({ backgroundColor: '#ededed' }, 'slow')
-                   
+                $(this).next().animate({ backgroundColor: '#ededed' }, 'slow');
+
             }).mouseout(function () {
                 $(this).next().animate({ backgroundColor: 'white' }, 'slow');
             });
-
+          
             $('div#cakeImagesSetOdd').mouseover(function () {
-                $(this).prev().animate({ backgroundColor: '#ededed' }, 'slow')
-                    
+                $(this).prev().animate({ backgroundColor: '#ededed' }, 'slow');
+
             }).mouseout(function () {
                 $(this).prev().animate({ backgroundColor: 'white' }, 'slow');
             });

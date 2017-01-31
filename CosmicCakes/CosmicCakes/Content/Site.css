@@ -94,13 +94,16 @@ div#text-container  a {
      text-decoration: none;
     cursor: pointer;
     color: black;
-    font-family:'Marianna Regular';
+    font-family:'Corinthia';
+    font-size: 70pt;
 }
 div#text-container  a:hover {
     text-decoration: none;
     cursor: pointer;
     color: #595959;
-    font-family:'Marianna Regular';
+    font-family:'Corinthia';
+    font-size: 70pt;
+
 }
 div#text-container div#briefCake {
     color: grey;
