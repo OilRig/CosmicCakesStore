@@ -31,17 +31,6 @@ namespace CosmicCakes.Controllers
                 MinPrice = cakes.MinPrice,
                 ImagePaths = _imageRepository.GetAllImagePathsByCakeId(cakes.Id)
             });
-            var cakes2 = _simpleCakeRepository.GetAllCakes().First(c => c.Id == 3);
-            _existingCakes.Add(new CakesStartPageModel
-            {
-                Id = cakes2.Id,
-                Description = cakes2.Description,
-                Name = cakes2.Name,
-                KgPrice = cakes2.KgPrice,
-                MinWeight = cakes2.MinWeight,
-                MinPrice = cakes2.MinPrice,
-                ImagePaths = _imageRepository.GetAllImagePathsByCakeId(cakes2.Id)
-            });
             //foreach (var cake in cakes)
             //{
             //    _existingCakes.Add(new CakesStartPageModel
