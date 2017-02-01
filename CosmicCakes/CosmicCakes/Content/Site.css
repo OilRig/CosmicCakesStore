@@ -100,16 +100,33 @@ div#text-container  a {
 div#text-container  a:hover {
     text-decoration: none;
     cursor: pointer;
-    color: #595959;
+    /*color: #595959;*/
     font-family:'Corinthia';
     font-size: 70pt;
 
 }
-div#text-container div#briefCake {
+div#briefCake {
     color: grey;
 }
 div#briefCake>p.price {
     font-size: 19px;
+}
+div.cakeInfoSet:hover {
+   
+    transition: 1s;
+    color: white !important;
+    background-image: url('/Content/Images/rpoan.jpg');
+    
+}
+div.cakeInfoSet  a {
+    transition: 1s;
+    color: white !important;
+    
+}
+div.cakeInfoSet div#briefCake {
+    transition: 1s;
+    font-size: 17px;
+    color: white !important;
 }
 
 

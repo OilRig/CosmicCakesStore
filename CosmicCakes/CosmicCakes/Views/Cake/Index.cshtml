@@ -82,18 +82,11 @@
     (function ($) {
         $(document).ready(function () {
 
-            $('div#cakeImagesSetEven').mouseover(function () {
-                $(this).next().animate({ backgroundColor: '#ededed' }, 'slow');
+            $('a#showCake').hover(function () {
+                $(this).parent().parent().addClass("cakeInfoSet");
 
             }).mouseout(function () {
-                $(this).next().animate({ backgroundColor: 'white' }, 'slow');
-            });
-          
-            $('div#cakeImagesSetOdd').mouseover(function () {
-                $(this).prev().animate({ backgroundColor: '#ededed' }, 'slow');
-
-            }).mouseout(function () {
-                $(this).prev().animate({ backgroundColor: 'white' }, 'slow');
+                $(this).parent().parent().removeClass("cakeInfoSet");
             });
         });
     })(jQuery);
@@ -101,7 +94,7 @@
 <script>
     (function ($) {
         $(document).ready(function () {
-            //
+            // change images
         });
     })(jQuery);
 </script>
