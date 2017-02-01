@@ -56,6 +56,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\AdditionalDecoration.cs" />
+    <Compile Include="Entities\CakePriceIncludement.cs" />
     <Compile Include="Entities\CreamDecorarion.cs" />
     <Compile Include="Entities\Berry.cs" />
     <Compile Include="Entities\Bisquit.cs" />

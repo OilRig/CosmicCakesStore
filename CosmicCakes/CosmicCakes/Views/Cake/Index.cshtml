@@ -22,16 +22,18 @@
                 </div>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 centered-text" id="cakeInfoSet" style="height: 100%;">
+                
                 <span></span>
                 <div id="text-container">
                     <a id="showCake" class="cake-name century-gothic-text" data-cakeid="@cake.Id">@cake.Name</a>
                     <br/>
                     <div id="briefCake">
                         @cake.Description
-                        <br />
+                        <br/>
                         <p class="price"> от @cake.MinPrice р.</p>
                     </div>
                 </div>
+                <div class="childBackground"></div>
             </div>
         </div>
     }
@@ -83,9 +85,11 @@
         $(document).ready(function () {
 
             $('a#showCake').hover(function () {
+                $(this).parent().parent().find('div.childBackground').fadeTo(200, 1);
                 $(this).parent().parent().addClass("cakeInfoSet");
 
             }).mouseout(function () {
+                $(this).parent().parent().find('div.childBackground').fadeTo(100, 0);
                 $(this).parent().parent().removeClass("cakeInfoSet");
             });
         });

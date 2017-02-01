@@ -74,8 +74,9 @@ img.margined-right-item {
     border: black 1px solid;
 }
 [class*="col-"] {
-    margin-bottom: -99999px;
-    padding-bottom: 99999px;
+    margin-bottom: -600px;
+    padding-bottom: 600px;
+
 }
 .fader img {
     display: none;
@@ -115,7 +116,7 @@ div.cakeInfoSet:hover {
    
     transition: 1s;
     color: white !important;
-    background-image: url('/Content/Images/rpoan.jpg');
+    z-index: 1;
     
 }
 div.cakeInfoSet  a {
@@ -128,5 +129,18 @@ div.cakeInfoSet div#briefCake {
     font-size: 17px;
     color: white !important;
 }
+.childBackground {
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(/Content/Images/rpoan.jpg);
+    transition: 1s;
+    opacity: 0;
+}
+
+
 
 
