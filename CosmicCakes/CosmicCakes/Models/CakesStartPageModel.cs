@@ -11,5 +11,6 @@ namespace CosmicCakes.Models
         public int MinPrice { get; set; }
         public int KgPrice { get; set; }
         public IEnumerable<string> ImagePaths { get; set; }
+        public string BackgroundImagePath { get; set; }
     }
 }

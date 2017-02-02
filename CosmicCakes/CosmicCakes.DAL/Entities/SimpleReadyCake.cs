@@ -21,5 +21,8 @@ namespace CosmicCakes.DAL.Entities
         public int KgPrice { get; set; }
         public bool IsLevelable { get; set; }
         public virtual ICollection<SimpleCakeImage> Images { get; set; }
+        [Required]
+        [StringLength(255)]
+        public string BackgroundImagePath { get; set; }
     }
 }

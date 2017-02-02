@@ -30,6 +30,7 @@ namespace CosmicCakes.Controllers
                     KgPrice = cake.KgPrice,
                     MinWeight = cake.MinWeight,
                     MinPrice = cake.MinPrice,
+                    BackgroundImagePath = cake.BackgroundImagePath,
                     ImagePaths = _imageRepository.GetAllImagePathsByCakeId(cake.Id)
                 });
             }

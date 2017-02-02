@@ -22,6 +22,7 @@ select,
 textarea {
     max-width: 280px;
 }
+
 .centerd-content {
     text-align:center;
     align-content:center;
@@ -74,8 +75,8 @@ img.margined-right-item {
     border: black 1px solid;
 }
 [class*="col-"] {
-    margin-bottom: -600px;
-    padding-bottom: 600px;
+    margin-bottom: -300px;
+    padding-bottom: 300px;
 
 }
 .fader img {
@@ -129,15 +130,20 @@ div.cakeInfoSet div#briefCake {
     font-size: 17px;
     color: white !important;
 }
+.cakeInfoSetSimple {
+    transition: 1s;
+}
 .childBackground {
+    background: no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
     z-index: -1;
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url(/Content/Images/rpoan.jpg);
-    transition: 1s;
     opacity: 0;
 }
 

@@ -179,6 +179,13 @@
     <Content Include="Content\Images\AquarelCake\StartPage\aq_cake_start_4.jpg" />
     <Content Include="Content\Images\AquarelCake\StartPage\aq_cake_start_2.jpg" />
     <Content Include="Content\Images\avatar.jpg" />
+    <Content Include="Content\Images\Backgrounds\aquarel.jpg" />
+    <Content Include="Content\Images\Backgrounds\doubleleveled.jpg" />
+    <Content Include="Content\Images\Backgrounds\gingerbread.jpg" />
+    <Content Include="Content\Images\Backgrounds\cosmic.jpg" />
+    <Content Include="Content\Images\Backgrounds\flower.jpg" />
+    <Content Include="Content\Images\Backgrounds\berryhill.jpg" />
+    <Content Include="Content\Images\Backgrounds\crown.jpg" />
     <Content Include="Content\Images\CrownCake\StartPage\cr_cake_start_1.jpg" />
     <Content Include="Content\Images\CrownCake\StartPage\cr_cake_start_2.jpg" />
     <Content Include="Content\Images\CrownCake\StartPage\cr_cake_start_3.jpg" />
