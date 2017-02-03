@@ -32,7 +32,7 @@ textarea {
     font-family:Castellar;
 }
 .margined-right-item {
-    margin-right:100px;
+    padding-left:75px;
 }
 img.margined-right-item {
     margin-right:15px;
