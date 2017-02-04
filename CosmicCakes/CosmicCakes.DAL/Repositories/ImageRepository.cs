@@ -18,5 +18,29 @@ namespace CosmicCakes.DAL.Repositories
                 return imagePaths.ToList();
             }
         }
+
+        public IEnumerable<string> GetCakeIndividualSquareImagesByCakeId(int cakeId)
+        {
+            using (var context = GetCakeContext())
+            {
+                var imagePaths = (from p in context.CakeIndividualSquareImages
+                                  where p.CakeId == cakeId
+                                  select p.Path).AsNoTracking();
+                return imagePaths.ToList();
+            }
+        }
+
+        public IEnumerable<string> GetCakeIndividualRectangleImagesByCakeId(int cakeId)
+        {
+            using (var context = GetCakeContext())
+            {
+                var imagePaths = (from p in context.CakeIndividualRectangleImages
+                                  where p.CakeId == cakeId
+                                  select p.Path).AsNoTracking();
+                return imagePaths.ToList();
+            }
+        }
+
+
     }
 }

@@ -17,6 +17,7 @@ namespace CosmicCakes.Controllers
             _existingCakes = new List<CakesStartPageModel>();
         }
         // GET: Cake
+        [HttpGet]
         public ActionResult Index()
         {
             var cakes = _simpleCakeRepository.GetExistingCakes();
@@ -41,7 +42,19 @@ namespace CosmicCakes.Controllers
         public ActionResult CakeInfo(int id)
         {
             var cake = _simpleCakeRepository.GetCakeById(id);
-            return View(cake);
+            var infoModel = new CakeInfoModel
+            {
+                Name = cake.Name,
+                KgPrice = cake.KgPrice,
+                MinWeight = cake.MinWeight,
+                MinPrice = cake.MinPrice,
+                Description = cake.Description,
+                IsLevelable = cake.IsLevelable,
+                MaxWeight = cake.MaxWeight,
+                IndividualSquareImagesPaths = _imageRepository.GetCakeIndividualSquareImagesByCakeId(cake.Id),
+                IndividualRectangleImagesPaths = _imageRepository.GetCakeIndividualRectangleImagesByCakeId(cake.Id)
+            };
+            return View(infoModel);
         }
     }
 }

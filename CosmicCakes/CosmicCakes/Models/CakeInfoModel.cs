@@ -1,13 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace CosmicCakes.Models
 {
     public class CakeInfoModel
     {
-
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public double MinWeight { get; set; }
+        public int MinPrice { get; set; }
+        public int MaxWeight { get; set; }
+        public int KgPrice { get; set; }
+        public bool IsLevelable { get; set; }
+        public IEnumerable<string> IndividualSquareImagesPaths { get; set; }
+        public IEnumerable<string> IndividualRectangleImagesPaths { get; set; }
     }
 }

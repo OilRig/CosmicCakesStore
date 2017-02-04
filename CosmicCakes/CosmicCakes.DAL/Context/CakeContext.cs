@@ -25,6 +25,8 @@ namespace CosmicCakes.DAL
         public virtual DbSet<SimpleReadyCake> SimpleReadyCakes { get; set; }
         //Images section
         public virtual DbSet<SimpleCakeImage> SimpleCakeImages { get; set; }
+        public virtual DbSet<CakeIndividualSquareImage> CakeIndividualSquareImages { get; set; }
+        public virtual DbSet<CakeIndividualRectangleImage> CakeIndividualRectangleImages { get; set; }
 
     }
 }

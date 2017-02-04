@@ -186,6 +186,18 @@
     <Content Include="Content\Images\Backgrounds\flower.jpg" />
     <Content Include="Content\Images\Backgrounds\berryhill.jpg" />
     <Content Include="Content\Images\Backgrounds\crown.jpg" />
+    <Content Include="Content\Images\CrownCake\Individual\Rectangle\cr_cake_rect_1.jpg" />
+    <Content Include="Content\Images\CrownCake\Individual\Rectangle\cr_cake_rect_2.jpg" />
+    <Content Include="Content\Images\CrownCake\Individual\Rectangle\cr_cake_rect_3.jpg" />
+    <Content Include="Content\Images\CrownCake\Individual\Rectangle\cr_cake_rect_4.jpg" />
+    <Content Include="Content\Images\CrownCake\Individual\Rectangle\cr_cake_rect_5.jpg" />
+    <Content Include="Content\Images\CrownCake\Individual\Rectangle\cr_cake_rect_6.jpg" />
+    <Content Include="Content\Images\CrownCake\Individual\Square\cr_cake_sq_1.jpg" />
+    <Content Include="Content\Images\CrownCake\Individual\Square\cr_cake_sq_2.jpg" />
+    <Content Include="Content\Images\CrownCake\Individual\Square\cr_cake_sq_3.jpg" />
+    <Content Include="Content\Images\CrownCake\Individual\Square\cr_cake_sq_4.jpg" />
+    <Content Include="Content\Images\CrownCake\Individual\Square\cr_cake_sq_5.jpg" />
+    <Content Include="Content\Images\CrownCake\Individual\Square\cr_cake_sq_6.jpg" />
     <Content Include="Content\Images\CrownCake\StartPage\cr_cake_start_1.jpg" />
     <Content Include="Content\Images\CrownCake\StartPage\cr_cake_start_2.jpg" />
     <Content Include="Content\Images\CrownCake\StartPage\cr_cake_start_3.jpg" />
@@ -208,12 +220,6 @@
     <Content Include="Content\Images\CosmicCake\StartPage\csm_cake_start_4.jpg" />
     <Content Include="Content\Images\CosmicCake\StartPage\csm_cake_start_3.jpg" />
     <Content Include="Content\Images\CosmicCake\StartPage\csm_cake_start_2.jpg" />
-    <Content Include="Content\Images\CrownCake\Individual\2016-04-20 19.50.20.JPG" />
-    <Content Include="Content\Images\CrownCake\Individual\2016-04-23 18.47.26.JPG" />
-    <Content Include="Content\Images\CrownCake\Individual\2016-08-13 16.41.43.JPG" />
-    <Content Include="Content\Images\CrownCake\Individual\2016-09-13 09.26.52.jpg" />
-    <Content Include="Content\Images\CrownCake\Individual\2016-10-08 09.15.20.JPG" />
-    <Content Include="Content\Images\CrownCake\Individual\2016-12-15 09.29.26.JPG" />
     <Content Include="Content\Images\E-Mail.png" />
     <Content Include="Content\Images\fotka.jpg" />
     <Content Include="Content\Images\i.jpg" />
@@ -289,8 +295,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\Images\AquarelCake\Individual\MainPage\" />
-    <Folder Include="Content\Images\AquarelCake\Individual\Preview\" />
+    <Folder Include="Content\Images\AquarelCake\Individual\" />
     <Folder Include="Content\Images\CosmicCake\Individual\MainPage\" />
     <Folder Include="Content\Images\CosmicCake\Individual\Preview\" />
     <Folder Include="Content\Images\Cupcakes\Individual\MainPage\" />
