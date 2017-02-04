@@ -174,6 +174,18 @@
     <Content Include="Content\Images\2016-03-30 16.44.12.JPG" />
     <Content Include="Content\Images\2016-08-13 16.41.43 %281%29.jpg" />
     <Content Include="Content\Images\2017-01-11 17.28.40.jpg" />
+    <Content Include="Content\Images\AquarelCake\Individual\Rectangle\aq_cake_rect_1.jpg" />
+    <Content Include="Content\Images\AquarelCake\Individual\Rectangle\aq_cake_rect_2.jpg" />
+    <Content Include="Content\Images\AquarelCake\Individual\Rectangle\aq_cake_rect_3.jpg" />
+    <Content Include="Content\Images\AquarelCake\Individual\Rectangle\aq_cake_rect_4.jpg" />
+    <Content Include="Content\Images\AquarelCake\Individual\Rectangle\aq_cake_rect_5.jpg" />
+    <Content Include="Content\Images\AquarelCake\Individual\Rectangle\aq_cake_rect_6.jpg" />
+    <Content Include="Content\Images\AquarelCake\Individual\Square\aq_cake_sq_1.jpg" />
+    <Content Include="Content\Images\AquarelCake\Individual\Square\aq_cake_sq_2.jpg" />
+    <Content Include="Content\Images\AquarelCake\Individual\Square\aq_cake_sq_3.jpg" />
+    <Content Include="Content\Images\AquarelCake\Individual\Square\aq_cake_sq_4.jpg" />
+    <Content Include="Content\Images\AquarelCake\Individual\Square\aq_cake_sq_5.jpg" />
+    <Content Include="Content\Images\AquarelCake\Individual\Square\aq_cake_sq_6.jpg" />
     <Content Include="Content\Images\AquarelCake\StartPage\aq_cake_start_3.jpg" />
     <Content Include="Content\Images\AquarelCake\StartPage\aq_cake_start_1.jpg" />
     <Content Include="Content\Images\AquarelCake\StartPage\aq_cake_start_4.jpg" />
@@ -295,7 +307,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\Images\AquarelCake\Individual\" />
     <Folder Include="Content\Images\CosmicCake\Individual\MainPage\" />
     <Folder Include="Content\Images\CosmicCake\Individual\Preview\" />
     <Folder Include="Content\Images\Cupcakes\Individual\MainPage\" />
