@@ -8,14 +8,14 @@ namespace CosmicCakes.DAL.Repositories
 {
     public class FillingRepository : ContextRepository<Filling>, IFillingRepository
     {
-        public IEnumerable<string> GetAll()
+        public IEnumerable<Filling> GetAll()
         {
             using (var context = GetCakeContext())
             {
                 try
                 {
                     var query = from f in context.Fillings
-                                select f.Type;
+                                select f;
                     return query.ToList();
                 }
                 catch (Exception)

@@ -5,6 +5,6 @@ namespace CosmicCakes.DAL.Interfaces
 {
     public interface IFillingRepository : IRepository<Filling>
     {
-        IEnumerable<string> GetAll();
+        IEnumerable<Filling> GetAll();
     }
 }

@@ -1,0 +1,52 @@
+﻿@model CosmicCakes.Models.CakePartsModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-4 centered-text">
+        <div id="partName">Бисквиты</div>
+        <ul class="list-group" style="display: none;">
+            @foreach (var bisq in Model.Bisquits)
+            {
+                <li class="list-group-item">@bisq.Type</li>
+            }
+        </ul>
+    </div>
+    
+    <div class="col-md-4 centered-text">
+        <div id="partName">Начинки</div>
+        <ul class="list-group" style="display: none;">
+            @foreach (var filling in Model.Fillings)
+            {
+                <li class="list-group-item">@filling.Type</li>
+            }
+        </ul>
+    </div>
+    
+    <div class="col-md-4 centered-text">
+        <div id="partName">Крем</div>
+        <ul class="list-group" style="display: none;">
+            @foreach (var cream in Model.Creams)
+            {
+                <li class="list-group-item">@cream.Type</li>
+            }
+        </ul>
+    </div>
+</div>
+<script>
+    (function ($) {
+        $.fn.partsAccordion = function () {
+            $(document).ready(function () {
+                $("div#partName").hover(function () {
+                    $(this).next("ul").slideToggle(duration = 100)
+                        .siblings("ul:visible").slideDown(duration = 100);
+                });
+            });
+        }
+    })(jQuery);
+    $(document).partsAccordion();
+</script>
+
+

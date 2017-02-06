@@ -5,6 +5,6 @@ namespace CosmicCakes.DAL.Interfaces
 {
     public interface ICreamRepository : IRepository<Cream>
     {
-        IEnumerable<string> GetAll();
+        IEnumerable<Cream> GetAll();
     }
 }
