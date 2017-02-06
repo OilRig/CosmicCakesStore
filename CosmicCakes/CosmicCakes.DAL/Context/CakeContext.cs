@@ -13,13 +13,10 @@ namespace CosmicCakes.DAL
         }
 
         //custom order section
-        public virtual DbSet<Berry> Berries { get; set; }
         public virtual DbSet<Bisquit> Bisquits { get; set; }
         public virtual DbSet<Cream> Cream { get; set; }
         public virtual DbSet<Filling> Fillings { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
-        public virtual DbSet<CreamDecorarion> CreamDecorarions { get; set; }
-        public virtual DbSet<AdditionalDecoration> AdditionalDecorations { get; set; }
 
         //ready cake section
         public virtual DbSet<SimpleReadyCake> SimpleReadyCakes { get; set; }
@@ -29,7 +26,8 @@ namespace CosmicCakes.DAL
         public virtual DbSet<CakeIndividualRectangleImage> CakeIndividualRectangleImages { get; set; }
 
         //priceIncludements section
-        public virtual DbSet<PriceIncludement> SimpleCakePriceIncludements { get; set; }
+        public virtual DbSet<CommonPriceIncludement> CommonCakePriceIncludements { get; set; }
+        public virtual DbSet<IndividualPriceIncludement> IndividualCakePriceIncludements { get; set; }
 
     }
 }

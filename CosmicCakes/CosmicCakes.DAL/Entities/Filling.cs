@@ -10,5 +10,7 @@ namespace CosmicCakes.DAL.Entities
         [Required]
         [StringLength(255)]
         public string Type { get; set; }
+        [Required]
+        public string Description { get; set; }
     }
 }

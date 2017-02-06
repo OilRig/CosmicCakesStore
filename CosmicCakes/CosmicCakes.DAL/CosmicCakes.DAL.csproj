@@ -64,8 +64,9 @@
     <Compile Include="Entities\Cream.cs" />
     <Compile Include="Entities\DoubleLeveledCake.cs" />
     <Compile Include="Entities\Filling.cs" />
+    <Compile Include="Entities\IndividualPriceIncludement.cs" />
     <Compile Include="Entities\Order.cs" />
-    <Compile Include="Entities\PriceIncludement.cs" />
+    <Compile Include="Entities\CommonPriceIncludement.cs" />
     <Compile Include="Entities\SimpleCakeImage.cs" />
     <Compile Include="Entities\SimpleReadyCake.cs" />
     <Compile Include="Interfaces\IAdditionalDecorationRepository.cs" />
@@ -181,6 +182,34 @@
     <Compile Include="Migrations\201702051043136_CakeIncludements.Designer.cs">
       <DependentUpon>201702051043136_CakeIncludements.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702051723239_SomeIssuesAndImprovements.cs" />
+    <Compile Include="Migrations\201702051723239_SomeIssuesAndImprovements.Designer.cs">
+      <DependentUpon>201702051723239_SomeIssuesAndImprovements.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702051725274_PriceIncludements.cs" />
+    <Compile Include="Migrations\201702051725274_PriceIncludements.Designer.cs">
+      <DependentUpon>201702051725274_PriceIncludements.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702051728295_NoFKForCommonIncludement.cs" />
+    <Compile Include="Migrations\201702051728295_NoFKForCommonIncludement.Designer.cs">
+      <DependentUpon>201702051728295_NoFKForCommonIncludement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702062006028_BiaqDesc.cs" />
+    <Compile Include="Migrations\201702062006028_BiaqDesc.Designer.cs">
+      <DependentUpon>201702062006028_BiaqDesc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702062014253_FillingDesc.cs" />
+    <Compile Include="Migrations\201702062014253_FillingDesc.Designer.cs">
+      <DependentUpon>201702062014253_FillingDesc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702062019555_CreamDesc.cs" />
+    <Compile Include="Migrations\201702062019555_CreamDesc.Designer.cs">
+      <DependentUpon>201702062019555_CreamDesc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702062024430_CleaningDB.cs" />
+    <Compile Include="Migrations\201702062024430_CleaningDB.Designer.cs">
+      <DependentUpon>201702062024430_CleaningDB.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\AdditionalDecorationsRepository.cs" />
@@ -274,6 +303,27 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201702051043136_CakeIncludements.resx">
       <DependentUpon>201702051043136_CakeIncludements.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702051723239_SomeIssuesAndImprovements.resx">
+      <DependentUpon>201702051723239_SomeIssuesAndImprovements.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702051725274_PriceIncludements.resx">
+      <DependentUpon>201702051725274_PriceIncludements.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702051728295_NoFKForCommonIncludement.resx">
+      <DependentUpon>201702051728295_NoFKForCommonIncludement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702062006028_BiaqDesc.resx">
+      <DependentUpon>201702062006028_BiaqDesc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702062014253_FillingDesc.resx">
+      <DependentUpon>201702062014253_FillingDesc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702062019555_CreamDesc.resx">
+      <DependentUpon>201702062019555_CreamDesc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702062024430_CleaningDB.resx">
+      <DependentUpon>201702062024430_CleaningDB.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

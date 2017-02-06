@@ -4,6 +4,7 @@ namespace CosmicCakes.DAL
 
     public class CreamDecorarion
     {
+        [Key]
         public int Id { get; set; }
 
         [Required]

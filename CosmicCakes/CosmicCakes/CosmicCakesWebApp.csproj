@@ -157,6 +157,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\CakeController.cs" />
+    <Compile Include="Controllers\CakePartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PriceController.cs" />
     <Compile Include="Global.asax.cs">
@@ -318,6 +319,7 @@
     <Folder Include="Content\Images\GingerBreadCake\Individual\MainPage\" />
     <Folder Include="Content\Images\GingerBreadCake\Individual\Preview\" />
     <Folder Include="Content\Images\GingerBreadCake\StartPage\" />
+    <Folder Include="Views\CakePart\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

@@ -1,9 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CosmicCakes.DAL.Entities
 {
     public class CakeIndividualSquareImage
     {
+        [Key]
         public int Id { get; set; }
         public string Path { get; set; }
         [ForeignKey("SimpleReadyCake")]
@@ -12,6 +14,7 @@ namespace CosmicCakes.DAL.Entities
     }
     public class CakeIndividualRectangleImage
     {
+        [Key]
         public int Id { get; set; }
         public string Path { get; set; }
         [ForeignKey("SimpleReadyCake")]

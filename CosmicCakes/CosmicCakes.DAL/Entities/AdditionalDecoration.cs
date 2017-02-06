@@ -4,6 +4,7 @@ namespace CosmicCakes.DAL.Entities
 
     public class AdditionalDecoration
     {
+        [Key]
         public int Id { get; set; }
 
         [Required]

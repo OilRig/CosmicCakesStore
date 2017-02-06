@@ -4,6 +4,7 @@ namespace CosmicCakes.DAL.Entities
 {
     public class Berry
     {
+        [Key]
         public int Id { get; set; }
 
         [Required]

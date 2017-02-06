@@ -1,9 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CosmicCakes.DAL.Entities
 {
-    public class PriceIncludement
+    public class IndividualPriceIncludement
     {
+        [Key]
         public int Id { get; set; }
         public string IncludementInfo { get; set; }
 
