@@ -6,47 +6,67 @@
 
 <div class="row">
     <div class="col-md-4 centered-text">
-        <div id="partName">Бисквиты</div>
-        <ul class="list-group" style="display: none;">
+        <div><p class="century-gothic-text">Бисквиты</p></div>
+        <ul class="ui-accordion">
             @foreach (var bisq in Model.Bisquits)
             {
-                <li class="list-group-item">@bisq.Type</li>
+                <li class="list-group">
+                    <h3>@bisq.Type </h3>
+                    <div style="display: none;">@bisq.Description</div>
+                </li>
+
             }
         </ul>
     </div>
-    
+
     <div class="col-md-4 centered-text">
-        <div id="partName">Начинки</div>
-        <ul class="list-group" style="display: none;">
+        <div><p class="century-gothic-text">Начинки</p></div>
+        <ul class="ui-accordion">
             @foreach (var filling in Model.Fillings)
             {
-                <li class="list-group-item">@filling.Type</li>
+                <li class="list-group">
+                    <h3>@filling.Type </h3>
+                    <div style="display: none;">@filling.Description</div>
+                </li>
             }
         </ul>
     </div>
-    
+
     <div class="col-md-4 centered-text">
-        <div id="partName">Крем</div>
-        <ul class="list-group" style="display: none;">
+        <div><p class="century-gothic-text">Крем</p></div>
+        <ul class="ui-accordion">
             @foreach (var cream in Model.Creams)
             {
-                <li class="list-group-item">@cream.Type</li>
+                <li class="list-group">
+                    <h3>@cream.Type </h3>
+                    <div style="display: none;">@cream.Description</div>
+                </li>
             }
         </ul>
     </div>
 </div>
 <script>
     (function ($) {
-        $.fn.partsAccordion = function () {
             $(document).ready(function () {
-                $("div#partName").hover(function () {
-                    $(this).next("ul").slideToggle(duration = 100)
-                        .siblings("ul:visible").slideDown(duration = 100);
+                //$(".list-group-item").click(function () {
+                //    $(this).next("ul").slideToggle(duration = 100);
+                //});
+                $("ul.ui-accordion").accordion({
+                    active:false,
+                    animate: 400,
+                    collapsible: true,
+                    heightStyle: "content",
+                    icons: { "header": "ui-icon-plus", "activeHeader": "ui-icon-minus" }
+                });
+                var cssOptions = {
+                    'backgrond-color': 'red',
+                    'cursor': "pointer"
+            };
+                $("li.list-group-item").mouseover(function () {
+                    $(this).css(cssOptions);
                 });
             });
-        }
     })(jQuery);
-    $(document).partsAccordion();
 </script>
 
 
