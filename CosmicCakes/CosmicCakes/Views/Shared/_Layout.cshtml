@@ -45,31 +45,36 @@
             </div>
         </nav>
     </div>
-<div class="container">
-    @RenderBody()
-    <footer>
-        <div class="row">
-            <div class="col-md-12 centered-text">
-                <ul>
-                    <li class="margined-right-item" id="cakes"> <a href="@Url.Action("Index","Cake")">ТОРТЫ</a></li>
-                    <li class="margined-right-item" id="goCrawling"><a href="@Url.Action("Index","Cupcake")">КАПКЕЙКИ</a></li>
-                    <li class="margined-right-item" id="checkPrice"><a href="@Url.Action("Index","CakePart")">БИСКВИТЫ И НАЧИНКИ</a></li>
-                    <li class="margined-right-item" id="checkPrice"><a href="@Url.Action("Index","Price")">КАК ЗАКАЗАТЬ</a></li>
-                    <li class="margined-right-item" id="checkData"><a href="@Url.Action("Index","Blog")">БЛОГ</a></li>
-                    <li class="margined-right-item" id="checkData"><a href="@Url.Action("Index","About")">ОБО МНЕ</a></li>
-                </ul>
+    <div class="container">
+        @RenderBody()
+        <br /><hr />
+        <footer>
+            
+            <div class="row centered-text">
+                <div class="col-md-12 centered-text">
+                    <ul style="padding-left: 0;">
+                        <li style="display: inline; padding-left: 10px;"><a href="#"><img src="/Content/Images/instagram-icon-free-download.jpg" height="30" width="30"/></a></li>
+                        <li style="display: inline; padding-left: 10px;"><a href="#"><img src="/Content/Images/tel.jpg"  height="30" width="30"/></a></li>
+                        <li style="display: inline; padding-left: 10px;"><a href="#"><img src="/Content/Images/i.jpg" height="30" width="30"/></a></li>
+                    </ul>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12 centerd-content" style="display: inline;">
-                <a href="#"><img src="/Content/Images/instagram-icon-free-download.jpg"/></a>
-                <a href="#"><img src="/Content/Images/instagram-icon-free-download.jpg" /></a>
-                <a href="#"><img src="/Content/Images/instagram-icon-free-download.jpg" /></a>
+
+            <div class="row">
+                <div class="col-md-12 centered-text">
+                    <ul style="padding-left: 0;" id="footerLinks">
+                        <li style="display: inline; padding-left: 10px;"> <a href="@Url.Action("Index", "Cake")">ТОРТЫ</a></li>
+                        <li style="display: inline; padding-left: 10px;"><a href="@Url.Action("Index", "Cupcake")">КАПКЕЙКИ</a></li>
+                        <li style="display: inline; padding-left: 10px;"><a href="@Url.Action("Index", "CakePart")">БИСКВИТЫ И НАЧИНКИ</a></li>
+                        <li style="display: inline; padding-left: 10px;"><a href="@Url.Action("Index", "Price")">КАК ЗАКАЗАТЬ</a></li>
+                        <li style="display: inline; padding-left: 10px;"><a href="@Url.Action("Index", "Blog")">БЛОГ</a></li>
+                        <li style="display: inline; padding-left: 10px;"><a href="@Url.Action("Index", "About")">ОБО МНЕ</a></li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </footer>
-</div>
-   
+        </footer>
+    </div>
+
 
 
 </body>

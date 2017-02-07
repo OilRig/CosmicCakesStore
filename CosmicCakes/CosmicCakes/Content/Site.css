@@ -151,6 +151,11 @@ div.cakeInfoSet div#briefCake {
     min-height:100%;
     opacity: 0;
 }
+#footerLinks a {
+    text-decoration: underline black;
+    color: black;
+    font-size: smaller;
+}
 
 
 
