@@ -1,5 +1,5 @@
 ﻿body {
-    padding-top: 50px;
+    /*padding-top: 50px;*/
     padding-bottom: 20px;
 }
 
@@ -53,9 +53,10 @@ img.margined-right-item {
 .centered-text {
     text-align: center;
 }
-.corinthia-text-start-page {
-    font-family:'Corinthia';
-    font-size: 46px;
+.ubuntu-text-start-page {
+    font-family:Ubuntu Condensed;
+    font-size:14px;
+    letter-spacing: 3px;
 }
 .century-gothic-text {
     font-family: "Century Gothic";

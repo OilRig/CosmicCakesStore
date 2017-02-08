@@ -210,6 +210,14 @@
     <Compile Include="Migrations\201702062024430_CleaningDB.Designer.cs">
       <DependentUpon>201702062024430_CleaningDB.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702081253527_FixIncl.cs" />
+    <Compile Include="Migrations\201702081253527_FixIncl.Designer.cs">
+      <DependentUpon>201702081253527_FixIncl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702081254371_FixInclAddTable.cs" />
+    <Compile Include="Migrations\201702081254371_FixInclAddTable.Designer.cs">
+      <DependentUpon>201702081254371_FixInclAddTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\AdditionalDecorationsRepository.cs" />
@@ -324,6 +332,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201702062024430_CleaningDB.resx">
       <DependentUpon>201702062024430_CleaningDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702081253527_FixIncl.resx">
+      <DependentUpon>201702081253527_FixIncl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702081254371_FixInclAddTable.resx">
+      <DependentUpon>201702081254371_FixInclAddTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
