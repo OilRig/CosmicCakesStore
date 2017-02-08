@@ -32,7 +32,7 @@ textarea {
     font-family:Castellar;
 }
 .margined-right-item {
-    padding-left:60px;
+    padding-left:50px;
 }
 img.margined-right-item {
     margin-right:15px;
@@ -52,11 +52,35 @@ img.margined-right-item {
 }
 .centered-text {
     text-align: center;
+    vertical-align: center;
+}
+.ubuntu-text {
+    font-family: "Ubuntu Condensed";
+}
+.ubuntu-navbar-text {
+     font-family: "Ubuntu Condensed";
+    font-weight: lighter;
+    letter-spacing: 3px;
 }
 .ubuntu-text-start-page {
-    font-family:Ubuntu Condensed;
+    font-family:"Ubuntu Condensed" !important;
     font-size:14px;
     letter-spacing: 3px;
+}
+.ubuntu-big-text {
+     font-family:"Ubuntu Condensed" !important;
+    font-size:24px;
+    letter-spacing: 3px;
+}
+p.ubuntu-big-text {
+     font-family:"Ubuntu Condensed" !important;
+    font-size:20px;
+    letter-spacing: 3px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin: 0;
+    word-spacing: 40px;
+    letter-spacing: 10px !important;
 }
 .century-gothic-text {
     font-family: "Century Gothic";
@@ -157,7 +181,12 @@ div.cakeInfoSet div#briefCake {
     color: black;
     font-size: smaller;
 }
-
+hr.style-one {
+    border: 0;
+    height: 1px;
+    background: #333;
+    background-image: linear-gradient(to right, #ccc, #333, #ccc);
+}
 
 
 
