@@ -254,6 +254,8 @@
     <Content Include="Content\Images\Logo.jpg" />
     <Content Include="Content\Images\rpoan.jpg" />
     <Content Include="Content\Images\StartPage\start_page_1.gif" />
+    <Content Include="Content\Images\StartPage\start_page_cupcake_1.jpg" />
+    <Content Include="Content\Images\StartPage\start_page_cake_1.jpg" />
     <Content Include="Content\Images\tel.jpg" />
     <Content Include="Content\jquery-ui.css" />
     <Content Include="Content\jquery-ui.min.css" />
@@ -275,6 +277,7 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\instafeed.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />

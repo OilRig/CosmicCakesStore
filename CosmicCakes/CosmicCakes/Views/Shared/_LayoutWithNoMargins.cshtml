@@ -15,11 +15,10 @@
     <div class="container">
         <div class="row centerd-content">
             <div class="col-md-12 centerd-content"><a href="@Url.Action("Index", "Home")"><img class="img-responsive img-thumbnail" src="~/Content/Images/Logo.jpg" /></a></div>
-            <br/>
         </div>
         <script src="~/Scripts/bootstrap.js"></script>
     </div>
-    <div class="container main-head-menu">
+    <div class="container main-head-menu" style="margin-top: 50px;">
         <nav class="navbar navbar-default">
             <div class="container">
                 <div class="navbar-header">
@@ -33,22 +32,20 @@
                 <div class="collapse navbar-collapse" style="float:none;" id="mainNavbar">
                     @*<div class="row">*@
                     <ul class="nav navbar-nav">
-                        <li class="margined-right-item" id="cakes"> <a href="@Url.Action("Index","Cake")">ТОРТЫ</a></li>
-                        <li class="margined-right-item" id="goCrawling"><a href="@Url.Action("Index","Cupcake")">КАПКЕЙКИ</a></li>
-                        <li class="margined-right-item" id="checkPrice"><a href="@Url.Action("Index","CakePart")">БИСКВИТЫ И НАЧИНКИ</a></li>
-                        <li class="margined-right-item" id="checkPrice"><a href="@Url.Action("Index","Price")">КАК ЗАКАЗАТЬ</a></li>
-                        <li class="margined-right-item" id="checkData"><a href="@Url.Action("Index","Blog")">БЛОГ</a></li>
-                        <li class="margined-right-item" id="checkData"><a href="@Url.Action("Index","About")">ОБО МНЕ</a></li>
+                        <li class="margined-right-item ubuntu-navbar-text" id="cakes"> <a href="@Url.Action("Index","Cake")">ТОРТЫ</a></li>
+                        <li class="margined-right-item ubuntu-navbar-text" id="goCrawling"><a href="@Url.Action("Index","Cupcake")">КАПКЕЙКИ</a></li>
+                        <li class="margined-right-item ubuntu-navbar-text" id="checkPrice"><a href="@Url.Action("Index","CakePart")">БИСКВИТЫ И НАЧИНКИ</a></li>
+                        <li class="margined-right-item ubuntu-navbar-text" id="checkPrice"><a href="@Url.Action("Index","Price")">КАК ЗАКАЗАТЬ</a></li>
+                        <li class="margined-right-item ubuntu-navbar-text" id="checkData"><a href="@Url.Action("Index","Blog")">БЛОГ</a></li>
+                        <li class="margined-right-item ubuntu-navbar-text" id="checkData"><a href="@Url.Action("Index","About")">ОБО МНЕ</a></li>
                     </ul>
                     @*</div>*@
                 </div>
             </div>
         </nav>
     </div>
-    
         @RenderBody()
-<br /><hr />
-    <div class="container">
+        <br /><hr />
         <footer>
 
             <div class="row centered-text">
@@ -74,6 +71,8 @@
                 </div>
             </div>
         </footer>
-    </div>
+
+
+
 </body>
 </html>
