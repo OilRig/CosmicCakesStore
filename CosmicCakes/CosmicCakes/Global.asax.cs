@@ -24,7 +24,29 @@ namespace CosmicCakesWebApp
         protected void Application_Error()
         {
             var exception = Server.GetLastError();
-            
+
+            var httpException = exception as HttpException;
+
+            if (httpException != null)
+            {
+                string action;
+
+                switch (httpException.GetHttpCode())
+                {
+                    case 404:
+                        action = "PageNotFound";
+                        break;
+                    case 500:
+                        action = "Error500";
+                        break;
+                    default:
+                        action = "General";
+                        break;
+                }
+
+                Response.Redirect(string.Format("~/Home/{0}", action));
+            }
+
 
         }
     }

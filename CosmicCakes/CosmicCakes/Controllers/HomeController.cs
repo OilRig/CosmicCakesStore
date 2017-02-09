@@ -22,5 +22,12 @@ namespace CosmicCakesWebApp.Controllers
 
             return View();
         }
+
+        public ActionResult PageNotFound()
+        {
+            ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
     }
 }

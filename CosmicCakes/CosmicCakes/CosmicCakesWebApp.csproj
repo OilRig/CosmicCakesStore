@@ -310,6 +310,7 @@
     <Content Include="Views\Shared\_LayoutWithNoMargins.cshtml" />
     <Content Include="Views\Cake\CakeInfo.cshtml" />
     <Content Include="Views\CakePart\Index.cshtml" />
+    <Content Include="Views\Home\PageNotFound.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
