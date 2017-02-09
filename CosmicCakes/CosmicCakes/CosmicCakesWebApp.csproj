@@ -265,6 +265,7 @@
     <Content Include="Content\jquery-ui.theme.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\ubuntu-condensed-v7-latin-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\BerryChecker.js" />
@@ -273,6 +274,9 @@
     <Content Include="NLog.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="fonts\ubuntu-condensed-v7-latin-regular.eot" />
+    <Content Include="fonts\ubuntu-condensed-v7-latin-regular.woff" />
+    <Content Include="fonts\ubuntu-condensed-v7-latin-regular.woff2" />
     <None Include="NLog.xsd">
       <SubType>Designer</SubType>
     </None>
