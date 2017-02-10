@@ -100,23 +100,24 @@
     (function ($) {
         $(document).ready(function () {
             var timedImagesForwardEven = setInterval(function () {
-                $('div#cakeImagesSetEven').next('img').fadeOut(1000,
+                $('img#cakeImageFirst').fadeOut(1000,
                     function () {
-                        var frstImgNexSrc = $(this).next('img').attr('src');
+                        //var currSrc = $(this).attr('src');
+                        var frstImgNexSrc = $(this).next('img#cakeImageSecond').attr('src');
+                        //$(this).next('img#cakeImageSecond').attr('src', currSrc);
                         $(this).attr("src", frstImgNexSrc);
                         $(this).fadeIn(1000);
-
                     });
             }, 7000);
-            var timedImagesForwadrEveSecond = setInterval(function() {
-                $('div#cakeImagesSetEven').next('img').next().fadeOut(1000,
-                   function () {
-                       var frstImgNexSrc = $(this).next('img').attr('src');
-                       $(this).attr("src", frstImgNexSrc);
-                       $(this).fadeIn(1000);
+            //var timedImagesBackEven = setInterval(function() {
+            //    $('div#cakeImagesSetEven').next('img').next().fadeOut(1000,
+            //       function () {
+            //           var scdImgNexSrc = $(this).prev('img').attr('src');
+            //           $(this).attr("src", scdImgNexSrc);
+            //           $(this).fadeIn(1000);
 
-                   });
-            },14000);
+            //       });
+            //},14000);
         });
     })(jQuery);
 </script>
