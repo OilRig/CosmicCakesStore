@@ -98,22 +98,25 @@
 </script>
 <script>
     (function ($) {
-        //$(document).ready(function () {
-        //    var timedImagesForward = setInterval(function () {
-        //        var firstImgSrc = 
-        //        $('div#cakeImagesSetEven').next('img').fadeOut(1000, function () {
-        //            $('img#cakeImageFirst').attr("src",secondSrc);
-        //            $('img#cakeImageFirst').fadeIn(1000);
-        //        });
+        $(document).ready(function () {
+            var timedImagesForwardEven = setInterval(function () {
+                $('div#cakeImagesSetEven').next('img').fadeOut(1000,
+                    function () {
+                        var frstImgNexSrc = $(this).next('img').attr('src');
+                        $(this).attr("src", frstImgNexSrc);
+                        $(this).fadeIn(1000);
 
-        //    }, 7000);
-        //    var timedImagesBack = setInterval(function () {
-        //        $('img#cakeImageFirst').fadeOut(1000, function () {
-        //            $('img#cakeImageFirst').attr("src", firstSrc);
-        //            $('img#cakeImageFirst').fadeIn(1000);
-        //        });
+                    });
+            }, 7000);
+            var timedImagesForwadrEveSecond = setInterval(function() {
+                $('div#cakeImagesSetEven').next('img').next().fadeOut(1000,
+                   function () {
+                       var frstImgNexSrc = $(this).next('img').attr('src');
+                       $(this).attr("src", frstImgNexSrc);
+                       $(this).fadeIn(1000);
 
-        //    },14000);
-        //});
+                   });
+            },14000);
+        });
     })(jQuery);
 </script>
