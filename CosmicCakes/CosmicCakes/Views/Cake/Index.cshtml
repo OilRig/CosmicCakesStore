@@ -17,8 +17,8 @@
                     <img id="cakeImageSecond" src="@cake.ImagePaths.ElementAt(1)" class="img-responsive" />
                 </div>
                 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 changing-images-set" style="padding-left: 0; padding-right: 0;">
-                    <img id="cakeImageFirst" src="@cake.ImagePaths.ElementAt(2)" class="img-responsive" style="display: block;" />
-                    <img id="cakeImageSecond" src="@cake.ImagePaths.ElementAt(3)"class="img-responsive" />
+                    <img id="cakeImageThird" src="@cake.ImagePaths.ElementAt(2)" class="img-responsive" style="display: block;" />
+                    <img id="cakeImageFourth" src="@cake.ImagePaths.ElementAt(3)"class="img-responsive" />
                 </div>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 centered-text" id="cakeInfoSet">
@@ -60,8 +60,8 @@
                     <img id="cakeImageSecond" src="@cake.ImagePaths.ElementAt(1)" height="300" class="img-responsive"/>
                 </div>
                 <div id="changingImagesSet" class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="padding-left: 0; padding-right: 0;">
-                    <img id="cakeImageFirst" src="@cake.ImagePaths.ElementAt(2)" class="img-responsive" style="display: block;"/>
-                    <img id="cakeImageSecond" src="@cake.ImagePaths.ElementAt(3)" class="img-responsive"/>
+                    <img id="cakeImageThird" src="@cake.ImagePaths.ElementAt(2)" class="img-responsive" style="display: block;"/>
+                    <img id="cakeImageFouth" src="@cake.ImagePaths.ElementAt(3)" class="img-responsive"/>
                 </div>
             </div>
         </div>
@@ -100,24 +100,45 @@
     (function ($) {
         $(document).ready(function () {
             var timedImagesForwardEven = setInterval(function () {
-                $('img#cakeImageFirst').fadeOut(1000,
+                $('img#cakeImageFirst:even').fadeOut(1500,
                     function () {
-                        //var currSrc = $(this).attr('src');
+                        var currSrc = $(this).attr('src');
                         var frstImgNexSrc = $(this).next('img#cakeImageSecond').attr('src');
-                        //$(this).next('img#cakeImageSecond').attr('src', currSrc);
+                        $(this).next('img#cakeImageSecond').attr('src', currSrc);
                         $(this).attr("src", frstImgNexSrc);
                         $(this).fadeIn(1000);
                     });
             }, 7000);
-            //var timedImagesBackEven = setInterval(function() {
-            //    $('div#cakeImagesSetEven').next('img').next().fadeOut(1000,
-            //       function () {
-            //           var scdImgNexSrc = $(this).prev('img').attr('src');
-            //           $(this).attr("src", scdImgNexSrc);
-            //           $(this).fadeIn(1000);
-
-            //       });
-            //},14000);
+            var timedImagesForwardOdd = setInterval(function() {
+                $('img#cakeImageFirst:odd').fadeOut(1500,
+                    function () {
+                        var currSrc = $(this).attr('src');
+                        var frstImgNexSrc = $(this).next('img#cakeImageSecond').attr('src');
+                        $(this).next('img#cakeImageSecond').attr('src', currSrc);
+                        $(this).attr("src", frstImgNexSrc);
+                        $(this).fadeIn(1000);
+                    });
+            }, 8000);
+            var timedImagesForwardThirdForwardOdd = setInterval(function () {
+                $('img#cakeImageThird:even').fadeOut(1500,
+                    function () {
+                        var currSrc = $(this).attr('src');
+                        var frstImgNexSrc = $(this).next('img#cakeImageSecond').attr('src');
+                        $(this).next('img#cakeImageSecond').attr('src', currSrc);
+                        $(this).attr("src", frstImgNexSrc);
+                        $(this).fadeIn(1000);
+                    });
+            }, 9000);
+            var timedImagesThirdForwardOdd = setInterval(function () {
+                $('img#cakeImageThird:odd').fadeOut(1500,
+                    function () {
+                        var currSrc = $(this).attr('src');
+                        var frstImgNexSrc = $(this).next('img#cakeImageSecond').attr('src');
+                        $(this).next('img#cakeImageSecond').attr('src', currSrc);
+                        $(this).attr("src", frstImgNexSrc);
+                        $(this).fadeIn(1000);
+                    });
+            }, 10000);
         });
     })(jQuery);
 </script>
