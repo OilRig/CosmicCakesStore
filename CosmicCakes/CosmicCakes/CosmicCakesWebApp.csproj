@@ -192,6 +192,7 @@
     <Content Include="Content\Images\AquarelCake\StartPage\aq_cake_start_1.jpg" />
     <Content Include="Content\Images\AquarelCake\StartPage\aq_cake_start_4.jpg" />
     <Content Include="Content\Images\AquarelCake\StartPage\aq_cake_start_2.jpg" />
+    <Content Include="Content\Images\arrow-big-up-512.png" />
     <Content Include="Content\Images\avatar.jpg" />
     <Content Include="Content\Images\Backgrounds\aquarel.jpg" />
     <Content Include="Content\Images\Backgrounds\doubleleveled.jpg" />

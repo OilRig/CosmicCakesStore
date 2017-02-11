@@ -61,7 +61,7 @@
                 </div>
                 <div id="changingImagesSet" class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="padding-left: 0; padding-right: 0;">
                     <img id="cakeImageThird" src="@cake.ImagePaths.ElementAt(2)" class="img-responsive" style="display: block;"/>
-                    <img id="cakeImageFouth" src="@cake.ImagePaths.ElementAt(3)" class="img-responsive"/>
+                    <img id="cakeImageFourth" src="@cake.ImagePaths.ElementAt(3)" class="img-responsive"/>
                 </div>
             </div>
         </div>
@@ -118,27 +118,27 @@
                         $(this).attr("src", frstImgNexSrc);
                         $(this).fadeIn(1000);
                     });
-            }, 8000);
-            var timedImagesForwardThirdForwardOdd = setInterval(function () {
+            }, 13000);
+            var timedImagesForwardThirdForwardEven = setInterval(function () {
                 $('img#cakeImageThird:even').fadeOut(1500,
                     function () {
                         var currSrc = $(this).attr('src');
-                        var frstImgNexSrc = $(this).next('img#cakeImageSecond').attr('src');
-                        $(this).next('img#cakeImageSecond').attr('src', currSrc);
+                        var frstImgNexSrc = $(this).next('img#cakeImageFourth').attr('src');
+                        $(this).next('img#cakeImageFourth').attr('src', currSrc);
                         $(this).attr("src", frstImgNexSrc);
                         $(this).fadeIn(1000);
                     });
-            }, 9000);
+            }, 18000);
             var timedImagesThirdForwardOdd = setInterval(function () {
                 $('img#cakeImageThird:odd').fadeOut(1500,
                     function () {
                         var currSrc = $(this).attr('src');
-                        var frstImgNexSrc = $(this).next('img#cakeImageSecond').attr('src');
-                        $(this).next('img#cakeImageSecond').attr('src', currSrc);
+                        var frstImgNexSrc = $(this).next('img#cakeImageFourth').attr('src');
+                        $(this).next('img#cakeImageFourth').attr('src', currSrc);
                         $(this).attr("src", frstImgNexSrc);
                         $(this).fadeIn(1000);
                     });
-            }, 10000);
+            }, 27000);
         });
     })(jQuery);
 </script>
