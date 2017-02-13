@@ -44,7 +44,7 @@ namespace CosmicCakes.DAL.Repositories
                 var cakes = (from c in context.SimpleReadyCakes
                              where c.Id == 1 || c.Id == 2 || c.Id == 3 || c.Id == 5 || c.Id == 9
                              select c).AsNoTracking().ToList();
-                return cakes);
+                return cakes;
             }
         }
     }
