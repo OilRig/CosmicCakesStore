@@ -14,8 +14,8 @@ namespace CosmicCakes.DAL.Repositories
             {
                 var imagePaths = (from p in context.SimpleCakeImages
                                   where p.CakeId == cakeId
-                                  select p.Path).AsNoTracking();
-                return imagePaths.ToList();
+                                  select p.Path).AsNoTracking().ToList();
+                return imagePaths;
             }
         }
 
@@ -25,8 +25,8 @@ namespace CosmicCakes.DAL.Repositories
             {
                 var imagePaths = (from p in context.CakeIndividualSquareImages
                                   where p.CakeId == cakeId
-                                  select p.Path).AsNoTracking();
-                return imagePaths.ToList();
+                                  select p.Path).AsNoTracking().ToList();
+                return imagePaths;
             }
         }
 
@@ -36,8 +36,8 @@ namespace CosmicCakes.DAL.Repositories
             {
                 var imagePaths = (from p in context.CakeIndividualRectangleImages
                                   where p.CakeId == cakeId
-                                  select p.Path).AsNoTracking();
-                return imagePaths.ToList();
+                                  select p.Path).AsNoTracking().ToList();
+                return imagePaths;
             }
         }
 

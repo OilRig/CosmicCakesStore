@@ -158,6 +158,7 @@
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\CakeController.cs" />
     <Compile Include="Controllers\CakePartController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PriceController.cs" />
     <Compile Include="Global.asax.cs">
@@ -315,7 +316,7 @@
     <Content Include="Views\Shared\_LayoutWithNoMargins.cshtml" />
     <Content Include="Views\Cake\CakeInfo.cshtml" />
     <Content Include="Views\CakePart\Index.cshtml" />
-    <Content Include="Views\Home\PageNotFound.cshtml" />
+    <Content Include="Views\Error\PageNotFound.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

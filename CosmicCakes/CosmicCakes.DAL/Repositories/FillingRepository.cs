@@ -2,6 +2,7 @@
 using CosmicCakes.DAL.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 
 namespace CosmicCakes.DAL.Repositories
@@ -14,9 +15,9 @@ namespace CosmicCakes.DAL.Repositories
             {
                 try
                 {
-                    var query = from f in context.Fillings
-                                select f;
-                    return query.ToList();
+                    var query = (from f in context.Fillings
+                                select f).AsNoTracking().ToList();
+                    return query;
                 }
                 catch (Exception)
                 {

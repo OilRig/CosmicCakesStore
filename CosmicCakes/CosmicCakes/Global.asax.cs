@@ -44,7 +44,7 @@ namespace CosmicCakesWebApp
                         break;
                 }
 
-                Response.Redirect(string.Format("~/Home/{0}", action));
+                Response.Redirect(string.Format("~/Error/{0}", action));
             }
 
 
