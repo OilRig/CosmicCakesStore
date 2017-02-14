@@ -62,16 +62,13 @@ img.margined-right-item {
 }
 
 @font-face {
-  font-family: 'Ubuntu Condensed';
-  font-style: normal;
-  font-weight: 400;
-  src: url('../fonts/ubuntu-condensed-v7-latin-regular.eot'); /* IE9 Compat Modes */
-  src: local('Ubuntu Condensed'), local('UbuntuCondensed-Regular'),
-       url('../fonts/ubuntu-condensed-v7-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('../fonts/ubuntu-condensed-v7-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
-       url('../fonts/ubuntu-condensed-v7-latin-regular.woff') format('woff'), /* Modern Browsers */
-       url('../fonts/ubuntu-condensed-v7-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('../fonts/ubuntu-condensed-v7-latin-regular.svg#UbuntuCondensed') format('svg'); /* Legacy iOS */
+  font-family: Ubuntu Condensed;
+  src: local('Ubuntu Condensed'), 
+       /*url(/fonts/ubuntu-condensed-v7-latin-regular.eot) format('embedded-opentype'), 
+       url(fonts/ubuntu-condensed-v7-latin-regular.woff2) format('woff2'), 
+       url(/fonts/ubuntu-condensed-v7-latin-regular.woff) format('woff'),*/ 
+       url(/fonts/Ubuntu-C.ttf) format('truetype')
+       /*url(/fonts/ubuntu-condensed-v7-latin-regular.svg) format('svg');*/ 
 }
 .ubuntu-text {
     font-family: "Ubuntu Condensed";

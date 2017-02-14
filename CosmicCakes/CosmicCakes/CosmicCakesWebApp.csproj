@@ -279,6 +279,7 @@
     <Content Include="fonts\ubuntu-condensed-v7-latin-regular.eot" />
     <Content Include="fonts\ubuntu-condensed-v7-latin-regular.woff" />
     <Content Include="fonts\ubuntu-condensed-v7-latin-regular.woff2" />
+    <Content Include="fonts\Ubuntu-C.ttf" />
     <None Include="NLog.xsd">
       <SubType>Designer</SubType>
     </None>
