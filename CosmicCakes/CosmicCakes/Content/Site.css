@@ -95,7 +95,6 @@ img.margined-right-item {
 p.ubuntu-big-text {
     font-family: "Ubuntu Condensed" !important;
     font-size: 20px;
-    letter-spacing: 3px;
     padding-top: 10px;
     padding-bottom: 10px;
     margin: 0;
@@ -243,6 +242,4 @@ hr.style-one {
 .parallax-layer {
     position: relative;
 }
-.flying-item {
-    
-}
+

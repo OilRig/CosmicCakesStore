@@ -6,12 +6,13 @@
 
 <div class="row">
     <div class="col-md-4 centered-text">
-        <div><p class="century-gothic-text">Бисквиты</p></div>
+        <div><p class="ubuntu-big-text">Бисквиты</p></div>
+        <hr class="style-one"/>
         <ul class="ui-accordion">
             @foreach (var bisq in Model.Bisquits)
             {
-                <li class="list-group flying-item">
-                    <h3>@bisq.Type </h3>
+                <li class="list-group">
+                   <h3> @bisq.Type</h3>
                     <div style="display: none;">@bisq.Description</div>
                 </li>
 
@@ -20,11 +21,12 @@
     </div>
 
     <div class="col-md-4 centered-text">
-        <div><p class="century-gothic-text">Начинки</p></div>
+        <div><p class="ubuntu-big-text">Начинки</p></div>
+        <hr class="style-one" />
         <ul class="ui-accordion">
             @foreach (var filling in Model.Fillings)
             {
-                <li class="list-group flying-item">
+                <li class="list-group">
                     <h3>@filling.Type </h3>
                     <div style="display: none;">@filling.Description</div>
                 </li>
@@ -33,11 +35,12 @@
     </div>
 
     <div class="col-md-4 centered-text">
-        <div><p class="century-gothic-text">Крем</p></div>
+        <div><p class="ubuntu-big-text">Крем</p></div>
+        <hr class="style-one" />
         <ul class="ui-accordion">
             @foreach (var cream in Model.Creams)
             {
-                <li class="list-group flying-item">
+                <li class="list-group">
                     <h3>@cream.Type </h3>
                     <div style="display: none;">@cream.Description</div>
                 </li>
@@ -47,26 +50,22 @@
 </div>
 <script>
     (function ($) {
-            $(document).ready(function () {
-                //$(".list-group-item").click(function () {
-                //    $(this).next("ul").slideToggle(duration = 100);
-                //});
-                $("ul.ui-accordion").accordion({
-                    active:false,
-                    animate: 400,
-                    collapsible: true,
-                    heightStyle: "content",
-                    icons: { "header": "ui-icon-plus", "activeHeader": "ui-icon-minus" }
-                });
-                var cssOptions = {
-                    'backgrond-color': 'red',
-                    'cursor': "pointer"
-            };
-                $("li.list-group-item").mouseover(function () {
-                    $(this).css(cssOptions);
-                });
-                $('li.flying-item').
-            });
+        $(document).ready(function () {
+            $('#cakeParts').addClass("active");
+        });
+    })
+        (jQuery);
+</script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            $("ul.ui-accordion").accordion({
+                active: false,
+                animate: 400,
+                collapsible: true,
+                icons: false
+        });
+        });
     })(jQuery);
 </script>
 
