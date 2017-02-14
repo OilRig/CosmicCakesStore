@@ -11,8 +11,6 @@ namespace CosmicCakes.Controllers
         // GET: Error
         public ActionResult PageNotFound()
         {
-            ViewBag.Message = "Your contact page.";
-
             return View();
         }
     }
