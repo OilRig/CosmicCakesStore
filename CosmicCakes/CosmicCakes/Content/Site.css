@@ -84,6 +84,14 @@ img.margined-right-item {
     font-family: "Ubuntu Condensed" !important;
     font-size: 14px;
     letter-spacing: 3px;
+    color: black;
+}
+a.ubuntu-text-start-page:hover {
+    color: #9e9e9e;
+    font-family: "Ubuntu Condensed" !important;
+    font-size: 14px;
+    letter-spacing: 4px;
+    text-decoration: none;
 }
 
 .ubuntu-big-text {
@@ -219,9 +227,12 @@ div.cakeInfoSet:hover div#briefCake > p.price {
     min-height: 100%;
     opacity: 0;
 }
-
+.grey-footer {
+    background-color: #f7f7f7;
+   box-shadow: 0 500px 0 500px #f7f7f7;
+}
 #footerLinks a {
-    text-decoration: underline black;
+    text-decoration: black;
     color: black;
     font-size: smaller;
 }
@@ -231,6 +242,11 @@ hr.style-one {
     height: 1px;
     background: #333;
     background-image: linear-gradient(to right, #ccc, #333, #ccc);
+}
+hr.style-two {
+     border: 0;
+    height: 1px;
+    margin: 0;
 }
 .changing-images-set {
     

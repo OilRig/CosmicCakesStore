@@ -202,6 +202,16 @@
     <Content Include="Content\Images\Backgrounds\flower.jpg" />
     <Content Include="Content\Images\Backgrounds\berryhill.jpg" />
     <Content Include="Content\Images\Backgrounds\crown.jpg" />
+    <Content Include="Content\Images\CosmicCake\Individual\Rectangle\csm_cake_rect_1.jpg" />
+    <Content Include="Content\Images\CosmicCake\Individual\Rectangle\csm_cake_rect_5.jpg" />
+    <Content Include="Content\Images\CosmicCake\Individual\Rectangle\csm_cake_rect_4.jpg" />
+    <Content Include="Content\Images\CosmicCake\Individual\Rectangle\csm_cake_rect_3.jpg" />
+    <Content Include="Content\Images\CosmicCake\Individual\Rectangle\csm_cake_rect_2.jpg" />
+    <Content Include="Content\Images\CosmicCake\Individual\Square\csm_cake_sq_1.jpg" />
+    <Content Include="Content\Images\CosmicCake\Individual\Square\csm_cake_sq_5.jpg" />
+    <Content Include="Content\Images\CosmicCake\Individual\Square\csm_cake_sq_4.jpg" />
+    <Content Include="Content\Images\CosmicCake\Individual\Square\csm_cake_sq_3.jpg" />
+    <Content Include="Content\Images\CosmicCake\Individual\Square\csm_cake_sq_2.jpg" />
     <Content Include="Content\Images\CrownCake\Individual\Rectangle\cr_cake_rect_1.jpg" />
     <Content Include="Content\Images\CrownCake\Individual\Rectangle\cr_cake_rect_2.jpg" />
     <Content Include="Content\Images\CrownCake\Individual\Rectangle\cr_cake_rect_3.jpg" />
@@ -223,10 +233,34 @@
     <Content Include="Content\Images\Cupcakes\StartPage\csm_cake_start_3.jpg" />
     <Content Include="Content\Images\Cupcakes\StartPage\csm_cake_start_4.jpg" />
     <Content Include="Content\Images\Cupcakes\StartPage\csm_cake_start_5.jpg" />
+    <Content Include="Content\Images\DoubleLeveledCake\Individual\Rectangle\dl_cake_rect_6.jpg" />
+    <Content Include="Content\Images\DoubleLeveledCake\Individual\Rectangle\dl_cake_rect_5.jpg" />
+    <Content Include="Content\Images\DoubleLeveledCake\Individual\Rectangle\dl_cake_rect_4.jpg" />
+    <Content Include="Content\Images\DoubleLeveledCake\Individual\Rectangle\dl_cake_rect_3.jpg" />
+    <Content Include="Content\Images\DoubleLeveledCake\Individual\Rectangle\dl_cake_rect_2.jpg" />
+    <Content Include="Content\Images\DoubleLeveledCake\Individual\Square\dl_cake_sq_6.jpg" />
+    <Content Include="Content\Images\DoubleLeveledCake\Individual\Square\dl_cake_sq_5.jpg" />
+    <Content Include="Content\Images\DoubleLeveledCake\Individual\Square\dl_cake_sq_4.jpg" />
+    <Content Include="Content\Images\DoubleLeveledCake\Individual\Square\dl_cake_sq_3.jpg" />
+    <Content Include="Content\Images\DoubleLeveledCake\Individual\Square\dl_cake_sq_2.jpg" />
+    <Content Include="Content\Images\DoubleLeveledCake\Individual\Rectangle\dl_cake_rect_1.jpg" />
+    <Content Include="Content\Images\DoubleLeveledCake\Individual\Square\dl_cake_sq_1.jpg" />
     <Content Include="Content\Images\DoubleLeveledCake\StartPage\dl_cake_start_1.jpg" />
     <Content Include="Content\Images\DoubleLeveledCake\StartPage\dl_cake_start_2.jpg" />
     <Content Include="Content\Images\DoubleLeveledCake\StartPage\dl_cake_start_3.jpg" />
     <Content Include="Content\Images\DoubleLeveledCake\StartPage\dl_cake_start_4.jpg" />
+    <Content Include="Content\Images\FlowerCake\Individual\Rectangle\fl_cake_rect_2.jpg" />
+    <Content Include="Content\Images\FlowerCake\Individual\Square\fl_cake_sq_2.jpg" />
+    <Content Include="Content\Images\FlowerCake\Individual\Rectangle\fl_cake_rect_6.jpg" />
+    <Content Include="Content\Images\FlowerCake\Individual\Rectangle\fl_cake_rect_5.jpg" />
+    <Content Include="Content\Images\FlowerCake\Individual\Rectangle\fl_cake_rect_4.jpg" />
+    <Content Include="Content\Images\FlowerCake\Individual\Rectangle\fl_cake_rect_3.jpg" />
+    <Content Include="Content\Images\FlowerCake\Individual\Rectangle\fl_cake_rect_1.jpg" />
+    <Content Include="Content\Images\FlowerCake\Individual\Square\fl_cake_sq_6.jpg" />
+    <Content Include="Content\Images\FlowerCake\Individual\Square\fl_cake_sq_1.jpg" />
+    <Content Include="Content\Images\FlowerCake\Individual\Square\fl_cake_sq_5.jpg" />
+    <Content Include="Content\Images\FlowerCake\Individual\Square\fl_cake_sq_4.jpg" />
+    <Content Include="Content\Images\FlowerCake\Individual\Square\fl_cake_sq_3.jpg" />
     <Content Include="Content\Images\FlowerCake\StartPage\fl_cake_start_1.jpg" />
     <Content Include="Content\Images\FlowerCake\StartPage\fl_cake_start_2.jpg" />
     <Content Include="Content\Images\FlowerCake\StartPage\fl_cake_start_3.jpg" />
@@ -255,9 +289,12 @@
     <Content Include="Content\Images\instagram-icon-free-download.jpg" />
     <Content Include="Content\Images\Logo.jpg" />
     <Content Include="Content\Images\rpoan.jpg" />
-    <Content Include="Content\Images\StartPage\start_page_1.gif" />
-    <Content Include="Content\Images\StartPage\start_page_cupcake_1.jpg" />
+    <Content Include="Content\Images\StartPage\start_page_cake_2.jpg" />
+    <Content Include="Content\Images\StartPage\start_page_cake_2frst.jpg" />
     <Content Include="Content\Images\StartPage\start_page_cake_1.jpg" />
+    <Content Include="Content\Images\StartPage\start_page_cake_4.jpg" />
+    <Content Include="Content\Images\StartPage\start_page_cake_3.jpg" />
+    <Content Include="Content\Images\StartPage\start_page_cake_2scnd.jpg" />
     <Content Include="Content\Images\tel.jpg" />
     <Content Include="Content\jquery-ui.css" />
     <Content Include="Content\jquery-ui.min.css" />
@@ -323,16 +360,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\Images\CosmicCake\Individual\MainPage\" />
-    <Folder Include="Content\Images\CosmicCake\Individual\Preview\" />
-    <Folder Include="Content\Images\Cupcakes\Individual\MainPage\" />
-    <Folder Include="Content\Images\Cupcakes\Individual\Preview\" />
-    <Folder Include="Content\Images\DoubleLeveledCake\Individual\MainPage\" />
-    <Folder Include="Content\Images\DoubleLeveledCake\Individual\Preview\" />
-    <Folder Include="Content\Images\FlowerCake\Individual\MainPage\" />
-    <Folder Include="Content\Images\FlowerCake\Individual\Preview\" />
-    <Folder Include="Content\Images\GingerBreadCake\Individual\MainPage\" />
-    <Folder Include="Content\Images\GingerBreadCake\Individual\Preview\" />
+    <Folder Include="Content\Images\Cupcakes\Individual\Rectangle\" />
+    <Folder Include="Content\Images\Cupcakes\Individual\Square\" />
+    <Folder Include="Content\Images\GingerBreadCake\Individual\" />
     <Folder Include="Content\Images\GingerBreadCake\StartPage\" />
   </ItemGroup>
   <ItemGroup>
