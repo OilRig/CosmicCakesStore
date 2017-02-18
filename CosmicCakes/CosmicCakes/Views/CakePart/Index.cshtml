@@ -12,7 +12,7 @@
             @foreach (var bisq in Model.Bisquits)
             {
                 <li class="list-group">
-                   <h3> @bisq.Type</h3>
+                   <h3 style="font-family: 'Century Gothic'; letter-spacing: 3px;"> @bisq.Type</h3>
                     <div style="display: none;">@bisq.Description</div>
                 </li>
 
@@ -27,7 +27,7 @@
             @foreach (var filling in Model.Fillings)
             {
                 <li class="list-group">
-                    <h3>@filling.Type </h3>
+                    <h3 style="font-family: 'Century Gothic'; letter-spacing: 3px;">@filling.Type </h3>
                     <div style="display: none;">@filling.Description</div>
                 </li>
             }
@@ -41,7 +41,7 @@
             @foreach (var cream in Model.Creams)
             {
                 <li class="list-group">
-                    <h3>@cream.Type </h3>
+                    <h3 style="font-family: 'Century Gothic'; letter-spacing: 3px;">@cream.Type </h3>
                     <div style="display: none;">@cream.Description</div>
                 </li>
             }
