@@ -70,6 +70,15 @@ img.margined-right-item {
        url(/fonts/Ubuntu-C.ttf) format('truetype')
        /*url(/fonts/ubuntu-condensed-v7-latin-regular.svg) format('svg');*/ 
 }
+@font-face {
+     font-family: Billabong;
+  src: local('Billabong'), 
+       /*url(/fonts/ubuntu-condensed-v7-latin-regular.eot) format('embedded-opentype'), 
+       url(fonts/ubuntu-condensed-v7-latin-regular.woff2) format('woff2'), 
+       url(/fonts/ubuntu-condensed-v7-latin-regular.woff) format('woff'),*/ 
+       url(/fonts/Billabong.ttf) format('truetype')
+       /*url(/fonts/ubuntu-condensed-v7-latin-regular.svg) format('svg');*/ 
+}
 .ubuntu-text {
     font-family: "Ubuntu Condensed";
 }
@@ -230,6 +239,7 @@ div.cakeInfoSet:hover div#briefCake > p.price {
 .grey-footer {
     background-color: #f7f7f7;
    box-shadow: 0 500px 0 500px #f7f7f7;
+    min-height: 250px;
 }
 #footerLinks a {
     text-decoration: black;
@@ -257,5 +267,41 @@ hr.style-two {
 }
 .parallax-layer {
     position: relative;
+}
+.contacts-layout {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    letter-spacing: 4px;
+    word-spacing: 5px;
+    float: right;
+    padding-right: 20px;
+}
+.contacts-layout-number {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+    padding-left: 98px;
+    float: right;
+    padding-right: 20px;
+}
+.contacts-layout-number-footer {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+.instagram-logo {
+    font-family: 'Billabong';
+    font-size: 50px;
+}
+.instagram-nickname {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    text-decoration: none;
+    color: black;
+    letter-spacing: 8px;
+
+    color: grey;
 }
 
