@@ -26,7 +26,6 @@ namespace CosmicCakes.DAL
         public virtual DbSet<CakeIndividualRectangleImage> CakeIndividualRectangleImages { get; set; }
 
         //priceIncludements section
-        public virtual DbSet<CommonPriceIncludement> CommonCakePriceIncludements { get; set; }
         public virtual DbSet<IndividualPriceIncludement> IndividualCakePriceIncludements { get; set; }
 
     }

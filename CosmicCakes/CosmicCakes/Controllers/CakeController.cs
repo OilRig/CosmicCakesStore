@@ -9,11 +9,14 @@ namespace CosmicCakes.Controllers
     {
         private readonly ISimpleCakeRepository _simpleCakeRepository;
         private readonly IImageRepository _imageRepository;
+        private readonly IPriceIncludementRepository _priceIncludementRepository;
         private readonly List<CakesStartPageModel> _existingCakes;
-        public CakeController(ISimpleCakeRepository simpleCakeRepository, IImageRepository imageRepository)
+        public CakeController(ISimpleCakeRepository simpleCakeRepository, IImageRepository imageRepository,
+            IPriceIncludementRepository priceIncludementRepository)
         {
             _simpleCakeRepository = simpleCakeRepository;
             _imageRepository = imageRepository;
+            _priceIncludementRepository = priceIncludementRepository;
             _existingCakes = new List<CakesStartPageModel>();
         }
         // GET: Cake
@@ -52,7 +55,8 @@ namespace CosmicCakes.Controllers
                 IsLevelable = cake.IsLevelable,
                 MaxWeight = cake.MaxWeight,
                 IndividualSquareImagesPaths = _imageRepository.GetCakeIndividualSquareImagesByCakeId(cake.Id),
-                IndividualRectangleImagesPaths = _imageRepository.GetCakeIndividualRectangleImagesByCakeId(cake.Id)
+                IndividualRectangleImagesPaths = _imageRepository.GetCakeIndividualRectangleImagesByCakeId(cake.Id),
+                PriceIncludements = _priceIncludementRepository.GetAllPriceIncludementsById(id)
             };
             return View(infoModel);
         }

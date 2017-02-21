@@ -71,6 +71,7 @@
     <Compile Include="Interfaces\IFillingRepository.cs" />
     <Compile Include="Interfaces\IImageRepository.cs" />
     <Compile Include="Interfaces\IOrderRepository.cs" />
+    <Compile Include="Interfaces\IPriceIncludementRepository.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Interfaces\ISimpleCakeRepository.cs" />
     <Compile Include="Migrations\201612260636084_InitialCreate.cs" />
@@ -213,6 +214,10 @@
     <Compile Include="Migrations\201702081254371_FixInclAddTable.Designer.cs">
       <DependentUpon>201702081254371_FixInclAddTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702212030338_iNCLUDEMENTS.cs" />
+    <Compile Include="Migrations\201702212030338_iNCLUDEMENTS.Designer.cs">
+      <DependentUpon>201702212030338_iNCLUDEMENTS.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\BaseRepository.cs" />
@@ -222,6 +227,7 @@
     <Compile Include="Repositories\FillingRepository.cs" />
     <Compile Include="Repositories\ImageRepository.cs" />
     <Compile Include="Repositories\OrderRepository.cs" />
+    <Compile Include="Repositories\PriceIncludementsRepository.cs" />
     <Compile Include="Repositories\SimpleCakeRepository.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -329,6 +335,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201702081254371_FixInclAddTable.resx">
       <DependentUpon>201702081254371_FixInclAddTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702212030338_iNCLUDEMENTS.resx">
+      <DependentUpon>201702212030338_iNCLUDEMENTS.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

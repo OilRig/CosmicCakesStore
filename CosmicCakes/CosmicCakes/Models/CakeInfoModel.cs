@@ -13,5 +13,6 @@ namespace CosmicCakes.Models
         public bool IsLevelable { get; set; }
         public IEnumerable<string> IndividualSquareImagesPaths { get; set; }
         public IEnumerable<string> IndividualRectangleImagesPaths { get; set; }
+        public IEnumerable<string> PriceIncludements { get; set; }
     }
 }
