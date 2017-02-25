@@ -271,12 +271,14 @@
     <Content Include="Content\Images\Icons\vk-icon.png" />
     <Content Include="Content\Images\Icons\wassap-logo-button.png" />
     <Content Include="Content\Images\Logo.jpg" />
+    <Content Include="Content\Images\StartPage\start_page_cake_2_2.jpg" />
     <Content Include="Content\Images\StartPage\start_page_cake_2.jpg" />
     <Content Include="Content\Images\StartPage\start_page_cake_2frst.jpg" />
     <Content Include="Content\Images\StartPage\start_page_cake_1.jpg" />
     <Content Include="Content\Images\StartPage\start_page_cake_4.jpg" />
     <Content Include="Content\Images\StartPage\start_page_cake_3.jpg" />
     <Content Include="Content\Images\StartPage\start_page_cake_2scnd.jpg" />
+    <Content Include="Content\Images\StartPage\start_page_welcome_img.jpg" />
     <Content Include="Content\jquery-ui.css" />
     <Content Include="Content\jquery-ui.min.css" />
     <Content Include="Content\jquery-ui.structure.css" />

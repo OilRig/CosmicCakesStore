@@ -238,6 +238,7 @@ div.cakeInfoSet:hover div#briefCake > p.price {
     background-color: #f7f7f7;
    box-shadow: 0 500px 0 500px #f7f7f7;
     min-height: 250px;
+    margin-top:60px;
 }
 #footerLinks a {
     text-decoration: black;
