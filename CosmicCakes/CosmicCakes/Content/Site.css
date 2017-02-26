@@ -62,23 +62,25 @@ img.margined-right-item {
 }
 
 @font-face {
-  font-family: Ubuntu Condensed;
-  src: local('Ubuntu Condensed'), 
-       /*url(/fonts/ubuntu-condensed-v7-latin-regular.eot) format('embedded-opentype'), 
+    font-family: Ubuntu Condensed;
+    src: local('Ubuntu Condensed'),
+    /*url(/fonts/ubuntu-condensed-v7-latin-regular.eot) format('embedded-opentype'), 
        url(fonts/ubuntu-condensed-v7-latin-regular.woff2) format('woff2'), 
-       url(/fonts/ubuntu-condensed-v7-latin-regular.woff) format('woff'),*/ 
-       url(/fonts/Ubuntu-C.ttf) format('truetype')
-       /*url(/fonts/ubuntu-condensed-v7-latin-regular.svg) format('svg');*/ 
+       url(/fonts/ubuntu-condensed-v7-latin-regular.woff) format('woff'),*/
+    url(/fonts/Ubuntu-C.ttf) format('truetype');
+    /*url(/fonts/ubuntu-condensed-v7-latin-regular.svg) format('svg');*/
 }
+
 @font-face {
-     font-family: Billabong;
-  src: local('Billabong'), 
-       /*url(/fonts/ubuntu-condensed-v7-latin-regular.eot) format('embedded-opentype'), 
+    font-family: Billabong;
+    src: local('Billabong'),
+    /*url(/fonts/ubuntu-condensed-v7-latin-regular.eot) format('embedded-opentype'), 
        url(fonts/ubuntu-condensed-v7-latin-regular.woff2) format('woff2'), 
-       url(/fonts/ubuntu-condensed-v7-latin-regular.woff) format('woff'),*/ 
-       url(/fonts/Billabong.ttf) format('truetype')
-       /*url(/fonts/ubuntu-condensed-v7-latin-regular.svg) format('svg');*/ 
+       url(/fonts/ubuntu-condensed-v7-latin-regular.woff) format('woff'),*/
+    url(/fonts/Billabong.ttf) format('truetype');
+    /*url(/fonts/ubuntu-condensed-v7-latin-regular.svg) format('svg');*/
 }
+
 .ubuntu-text {
     font-family: "Ubuntu Condensed";
 }
@@ -95,6 +97,7 @@ img.margined-right-item {
     letter-spacing: 3px;
     color: black;
 }
+
 a.ubuntu-text-start-page:hover {
     color: #9e9e9e;
     font-family: "Ubuntu Condensed" !important;
@@ -152,7 +155,7 @@ p.ubuntu-big-text {
 }
 
 .cake-name {
-    font-size: 36px;
+    font-size: 16px;
 }
 
 div.centered-text > span {
@@ -165,39 +168,41 @@ div.centered-text > div#text-container {
 }
 
 div#text-container a {
+        transition:2s;
     text-decoration: none;
     cursor: pointer;
     color: black;
     font-family: 'Corinthia';
-    font-size: 70pt;
+    font-size: 50pt;
 }
 
-    div#text-container a:hover {
-        text-decoration: none;
-        cursor: pointer;
-        /*color: #595959;*/
-        font-size: 70pt;
-    }
+div#text-container a:hover {
+        transition:2s;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 50pt;
+}
 
 div#briefCake {
+    transition:2s;
+    font-family: "Ubuntu Condensed";
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+
+div#briefCake > p.price {
+    transition:2s;
+    color: grey;
     font-family: "Ubuntu Condensed";
     font-size: 18px;
     letter-spacing: 1px;
 }
-
-    div#briefCake > p.price {
-        color: grey;
-        font-family: "Ubuntu Condensed";
-        font-size: 18px;
-        letter-spacing: 1px;
-    }
 
 div.cakeInfoSet:hover {
     transition: 1s;
     color: white !important;
     z-index: 1;
 }
-
 div.cakeInfoSet a {
     transition: 1s;
     color: white !important;
@@ -234,12 +239,14 @@ div.cakeInfoSet:hover div#briefCake > p.price {
     min-height: 100%;
     opacity: 0;
 }
+
 .grey-footer {
     background-color: #f7f7f7;
-   box-shadow: 0 500px 0 500px #f7f7f7;
+    box-shadow: 0 500px 0 500px #f7f7f7;
     min-height: 250px;
-    margin-top:60px;
+    margin-top: 60px;
 }
+
 #footerLinks a {
     text-decoration: black;
     color: black;
@@ -252,21 +259,25 @@ hr.style-one {
     background: #333;
     background-image: linear-gradient(to right, #ccc, #333, #ccc);
 }
+
 hr.style-two {
-     border: 0;
+    border: 0;
     height: 1px;
     margin: 0;
 }
+
 .changing-images-set {
-    
 }
+
 .parallax-viewport {
-    position: absolute;     /* relative, absolute, fixed */
+    position: absolute; /* relative, absolute, fixed */
     overflow: hidden;
 }
+
 .parallax-layer {
     position: relative;
 }
+
 .contacts-layout {
     font-family: 'Open Sans', sans-serif;
     font-size: 12px;
@@ -275,6 +286,7 @@ hr.style-two {
     float: right;
     padding-right: 20px;
 }
+
 .contacts-layout-number {
     font-family: 'Open Sans', sans-serif;
     font-size: 12px;
@@ -283,15 +295,18 @@ hr.style-two {
     float: right;
     padding-right: 20px;
 }
+
 .contacts-layout-number-footer {
     font-family: 'Open Sans', sans-serif;
     font-size: 14px;
     letter-spacing: 2px;
 }
+
 .instagram-logo {
     font-family: 'Billabong';
     font-size: 50px;
 }
+
 .instagram-nickname {
     margin-top: 10px;
     margin-bottom: 10px;
@@ -302,10 +317,11 @@ hr.style-two {
     letter-spacing: 8px;
     color: grey;
 }
+
 * {
-  border-radius: 0 !important;
-}
-.welcome-text {
-    font-family: 'Open Sans' ,sans-serif;
+    border-radius: 0 !important;
 }
 
+.welcome-text {
+    font-family: 'Open Sans',sans-serif;
+}

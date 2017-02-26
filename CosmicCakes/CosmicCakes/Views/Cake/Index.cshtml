@@ -10,7 +10,7 @@
     if (sectionCounter % 2 == 0)
     {
         <div class="row">
-            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 fader" style="padding-right: 0;" id="cakeImagesSetEven">
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 fader" style="padding-right: 0;padding-left:0;" id="cakeImagesSetEven">
                 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 changing-images-set" style="padding-right: 0;padding-left: 0;">
                     <img id="cakeImageFirst" src="@cake.ImagePaths.ElementAt(0)" class="img-responsive" style="display: block;" />
                     <img id="cakeImageSecond" src="@cake.ImagePaths.ElementAt(1)" class="img-responsive" />
@@ -20,9 +20,8 @@
                     <img id="cakeImageFourth" src="@cake.ImagePaths.ElementAt(3)"class="img-responsive" />
                 </div>
             </div>
-            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 centered-text" id="cakeInfoSet">
-                <span></span>
-                <div id="text-container">
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 centered-text" id="cakeInfoSet" style="padding-right:0;padding-left:0;">
+                <div id="text-container" style="margin-top:50px;">
                     <a id="showCake" class="cake-name century-gothic-text" data-cakeid="@cake.Id">@cake.Name</a>
                     <br/>
                     <div id="briefCake">
@@ -39,9 +38,8 @@
     {
         <div class="row">
             
-            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 centered-text">
-                <span></span>
-                <div id="text-container">
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 centered-text" style="padding-right:0;">
+                <div id="text-container" style="margin-top:50px;">
                     <a id="showCake" class="cake-name century-gothic-text" data-cakeid="@cake.Id">@cake.Name</a>
                     <br/>
                     <div id="briefCake">
@@ -53,7 +51,7 @@
                 <div class="childBackground" style="background-image: url(@cake.BackgroundImagePath)"></div>
             </div>
 
-            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 fader" style="padding-left: 0;" id="cakeImagesSetOdd">
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 fader" style="padding-left: 0;padding-right:0;" id="cakeImagesSetOdd">
                 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="padding-right: 0; padding-left: 0;">
                     <img id="cakeImageFirst" src="@cake.ImagePaths.ElementAt(0)" class="img-responsive" style="display: block;"/>
                     <img id="cakeImageSecond" src="@cake.ImagePaths.ElementAt(1)" height="300" class="img-responsive"/>
@@ -89,7 +87,7 @@
                 $(this).parent().parent().addClass("cakeInfoSet");
 
             }).mouseout(function () {
-                $(this).parent().parent().find('div.childBackground').fadeTo(100, 0);
+                $(this).parent().parent().find('div.childBackground').fadeTo('fast', 0);
                 $(this).parent().parent().removeClass("cakeInfoSet");
             });
         });
