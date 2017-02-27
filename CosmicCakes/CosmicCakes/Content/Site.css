@@ -62,14 +62,25 @@ img.margined-right-item {
 }
 
 @font-face {
-  font-family: Ubuntu Condensed;
-  src: local('Ubuntu Condensed'), 
-       /*url(/fonts/ubuntu-condensed-v7-latin-regular.eot) format('embedded-opentype'), 
+    font-family: Ubuntu Condensed;
+    src: local('Ubuntu Condensed'),
+    /*url(/fonts/ubuntu-condensed-v7-latin-regular.eot) format('embedded-opentype'), 
        url(fonts/ubuntu-condensed-v7-latin-regular.woff2) format('woff2'), 
-       url(/fonts/ubuntu-condensed-v7-latin-regular.woff) format('woff'),*/ 
-       url(/fonts/Ubuntu-C.ttf) format('truetype')
-       /*url(/fonts/ubuntu-condensed-v7-latin-regular.svg) format('svg');*/ 
+       url(/fonts/ubuntu-condensed-v7-latin-regular.woff) format('woff'),*/
+    url(/fonts/Ubuntu-C.ttf) format('truetype');
+    /*url(/fonts/ubuntu-condensed-v7-latin-regular.svg) format('svg');*/
 }
+
+@font-face {
+    font-family: Billabong;
+    src: local('Billabong'),
+    /*url(/fonts/ubuntu-condensed-v7-latin-regular.eot) format('embedded-opentype'), 
+       url(fonts/ubuntu-condensed-v7-latin-regular.woff2) format('woff2'), 
+       url(/fonts/ubuntu-condensed-v7-latin-regular.woff) format('woff'),*/
+    url(/fonts/Billabong.ttf) format('truetype');
+    /*url(/fonts/ubuntu-condensed-v7-latin-regular.svg) format('svg');*/
+}
+
 .ubuntu-text {
     font-family: "Ubuntu Condensed";
 }
@@ -84,6 +95,15 @@ img.margined-right-item {
     font-family: "Ubuntu Condensed" !important;
     font-size: 14px;
     letter-spacing: 3px;
+    color: black;
+}
+
+a.ubuntu-text-start-page:hover {
+    color: #9e9e9e;
+    font-family: "Ubuntu Condensed" !important;
+    font-size: 14px;
+    letter-spacing: 4px;
+    text-decoration: none;
 }
 
 .ubuntu-big-text {
@@ -95,12 +115,9 @@ img.margined-right-item {
 p.ubuntu-big-text {
     font-family: "Ubuntu Condensed" !important;
     font-size: 20px;
-    letter-spacing: 3px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    margin: 0;
     word-spacing: 40px;
     letter-spacing: 10px !important;
+    margin-bottom: 15px;
 }
 
 .century-gothic-text {
@@ -138,7 +155,7 @@ p.ubuntu-big-text {
 }
 
 .cake-name {
-    font-size: 36px;
+    font-size: 16px;
 }
 
 div.centered-text > span {
@@ -151,39 +168,41 @@ div.centered-text > div#text-container {
 }
 
 div#text-container a {
+        transition:2s;
     text-decoration: none;
     cursor: pointer;
     color: black;
     font-family: 'Corinthia';
-    font-size: 70pt;
+    font-size: 50pt;
 }
 
-    div#text-container a:hover {
-        text-decoration: none;
-        cursor: pointer;
-        /*color: #595959;*/
-        font-size: 70pt;
-    }
+div#text-container a:hover {
+        transition:2s;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 50pt;
+}
 
 div#briefCake {
+    transition:2s;
+    font-family: "Ubuntu Condensed";
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+
+div#briefCake > p.price {
+    transition:2s;
+    color: grey;
     font-family: "Ubuntu Condensed";
     font-size: 18px;
     letter-spacing: 1px;
 }
-
-    div#briefCake > p.price {
-        color: grey;
-        font-family: "Ubuntu Condensed";
-        font-size: 18px;
-        letter-spacing: 1px;
-    }
 
 div.cakeInfoSet:hover {
     transition: 1s;
     color: white !important;
     z-index: 1;
 }
-
 div.cakeInfoSet a {
     transition: 1s;
     color: white !important;
@@ -221,8 +240,15 @@ div.cakeInfoSet:hover div#briefCake > p.price {
     opacity: 0;
 }
 
+.grey-footer {
+    background-color: #f7f7f7;
+    box-shadow: 0 500px 0 500px #f7f7f7;
+    min-height: 250px;
+    margin-top: 60px;
+}
+
 #footerLinks a {
-    text-decoration: underline black;
+    text-decoration: black;
     color: black;
     font-size: smaller;
 }
@@ -233,16 +259,69 @@ hr.style-one {
     background: #333;
     background-image: linear-gradient(to right, #ccc, #333, #ccc);
 }
-.changing-images-set {
-    
+
+hr.style-two {
+    border: 0;
+    height: 1px;
+    margin: 0;
 }
+
+.changing-images-set {
+}
+
 .parallax-viewport {
-    position: absolute;     /* relative, absolute, fixed */
+    position: absolute; /* relative, absolute, fixed */
     overflow: hidden;
 }
+
 .parallax-layer {
     position: relative;
 }
-.flying-item {
-    
+
+.contacts-layout {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    letter-spacing: 4px;
+    word-spacing: 5px;
+    float: right;
+    padding-right: 20px;
+}
+
+.contacts-layout-number {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+    padding-left: 98px;
+    float: right;
+    padding-right: 20px;
+}
+
+.contacts-layout-number-footer {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
+.instagram-logo {
+    font-family: 'Billabong';
+    font-size: 50px;
+}
+
+.instagram-nickname {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    text-decoration: none;
+    color: black;
+    letter-spacing: 8px;
+    color: grey;
+}
+
+* {
+    border-radius: 0 !important;
+}
+
+.welcome-text {
+    font-family: 'Open Sans',sans-serif;
 }

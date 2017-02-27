@@ -5,46 +5,53 @@
 
 <div class="row" style="margin-top: 25px;">
     <div class="col-xs-3 col-md-3 col-lg-3"><img src="~/Content/Images/StartPage/start_page_cake_1.jpg" class="img-responsive parallax-layer" /></div>
-    <div class="col-xs-3 col-md-3 col-lg-3"><img src="~/Content/Images/StartPage/start_page_cupcake_1.jpg" class="img-responsive" /></div>
-    <div class="col-xs-3 col-md-3 col-lg-3"><img src="~/Content/Images/StartPage/start_page_1.gif" class="img-responsive" /></div>
-    <div class="col-xs-3 col-md-3 col-lg-3"><img src="~/Content/Images/StartPage/start_page_1.gif" class="img-responsive" /></div>
+    <div class="col-xs-3 col-md-3 col-lg-3"><img src="~/Content/Images/StartPage/start_page_cake_2_2.jpg" class="img-responsive" /></div>
+    <div class="col-xs-3 col-md-3 col-lg-3"><img src="~/Content/Images/StartPage/start_page_cake_3.jpg" class="img-responsive" /></div>
+    <div class="col-xs-3 col-md-3 col-lg-3"><img src="~/Content/Images/StartPage/start_page_cake_4.jpg" class="img-responsive" /></div>
 </div>
 
 <div class="row">
-    <div class="col-xs-3 col-md-3 col-lg-3 centered-text"><hr class="style-one"/><p class="ubuntu-text-start-page">ТОРТЫ</p></div>
-    <div class="col-xs-3 col-md-3 col-lg-3 centered-text"><hr class="style-one" /><p class="ubuntu-text-start-page">КАПКЕЙКИ</p></div>
-    <div class="col-xs-3 col-md-3 col-lg-3 centered-text"><hr class="style-one" /><p class="ubuntu-text-start-page">КАК ЗАКАЗАТЬ</p></div>
-    <div class="col-xs-3 col-md-3 col-lg-3 centered-text"><hr class="style-one" /><p class="ubuntu-text-start-page">ОБО МНЕ</p></div>
+    <div class="col-xs-3 col-md-3 col-lg-3 centered-text"><hr class="style-one"/><a href="@Url.Action("Index","Cake")" class="ubuntu-text-start-page">ТОРТЫ</a></div>
+    <div class="col-xs-3 col-md-3 col-lg-3 centered-text"><hr class="style-one" /><a href="@Url.Action("Index","CupCake")" class="ubuntu-text-start-page">КАПКЕЙКИ</a></div>
+    <div class="col-xs-3 col-md-3 col-lg-3 centered-text"><hr class="style-one" /><a href="@Url.Action("Index","Order")" class="ubuntu-text-start-page">КАК ЗАКАЗАТЬ</a></div>
+    <div class="col-xs-3 col-md-3 col-lg-3 centered-text"><hr class="style-one" /><a href="@Url.Action("Index","About")" class="ubuntu-text-start-page">ОБО МНЕ</a></div>
 </div>
-<div class="row">
-    <div class="col-md-12 centered-text" style="background-color: black; color: white; margin-top: 50px;">
+<div class="row" style=" margin-top: 50px;">
+    <div class="col-md-12 centered-text" style="background-color: black; color: white;"><br />
         <p class="ubuntu-big-text">FOR THE LOVE OF CAKES</p>
     </div>
 </div>
-<br />
-
-<script src="https://snapwidget.com/js/snapwidget.js"></script>
-
-<div class="row" style="margin-top: 150px;">
-    <div class="col-md-6">
-        Instagram: <br />
-
-        <a href="https://www.instagram.com/cosmicakes/" target="_blank">@@cosmicakes</a>
-
-        <br />
-        <iframe src="https://snapwidget.com/embed/code/232154" class="snapwidget-widget" allowTransparency="true" frameborder="0" scrolling="no" style="border: none; overflow: hidden; width: 405px; height: 405px;"></iframe>
+<div class="row" style="margin-top: 60px;">
+    <div class="col-md-6 centered-text">
+        <p class="instagram-logo">Instagram</p>
+        <p class="instagram-nickname">@@cosmicakes</p>
+       @*<iframe src="https://snapwidget.com/embed/code/232154" class="snapwidget-widget" allowTransparency="true" frameborder="0" scrolling="no" style="border: none; overflow: hidden; width: 465px; height: 465px;margin-top:15px;"></iframe>
+        <script src="https://snapwidget.com/js/snapwidget.js"></script>*@
+        <!-- SnapWidget -->
+        <iframe src="https://snapwidget.com/embed/342438" class="snapwidget-widget" allowTransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width: 465px; height: 465px;margin-top:15px;"></iframe>
+        <script src="https://snapwidget.com/js/snapwidget.js"></script>
     </div>
-    <div class="col-md-6" id="instafeed">
-
+    <div class="col-md-6 centered-text">
+        <p class="instagram-logo">Welcome</p>
+        <p class="instagram-nickname">в мое сладкое королевство</p>
+        <p style="padding-left: 0; padding-right: 44px;word-break: break-all; margin-top: 15px;text-align:right;font-family:'Open Sans',sans-serif;letter-spacing:1px;color:#444444;font-size:13px;">
+            Я - Нора. Здесь вы сможете найти<br /> все мои работы и выбрать для себя тот самый десерт<br />
+            +7 (906) 255 88 10<br />
+            golubevanora1@gmail.com 
+         </p>
+       <img src="~/Content/Images/StartPage/start_page_welcome_img.jpg"style="margin-bottom:27px;margin-top:15px;"/>
+        <a href="@Url.Action("Index","Cake")" class="btn btn-default" style="border-color: black; background-color: white; color: black; width: 300px; height: 50px; padding-top: 15px;font-family:'Ubuntu Condensed';letter-spacing:3px;">ХОЧУ ТОРТ</a>
     </div>
-
 </div>
-@*<script>
-    $('.parallax-layer').parallax({
-        xparallax: true,
-        yparallax: false
-    });
-</script>*@
+
+
+       
+
+
+
+
+
+
 
 
 
