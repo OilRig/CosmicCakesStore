@@ -19,7 +19,7 @@ namespace CosmicCakes.Ninject
             Bind<IOrderRepository>().To<OrderRepository>();
             Bind<ISimpleCakeRepository>().To<SimpleCakeRepository>();
             Bind<IImageRepository>().To<ImageRepository>();
-
+            Bind<IPriceIncludementRepository>().To<PriceIncludementsRepository>();
             //Loggers
             Bind<IAppLogger>().To<NLogLogger>();
         }

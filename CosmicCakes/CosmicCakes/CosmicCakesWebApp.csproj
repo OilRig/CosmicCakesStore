@@ -273,6 +273,7 @@
     <Content Include="fonts\ubuntu-condensed-v7-latin-regular.woff" />
     <Content Include="fonts\ubuntu-condensed-v7-latin-regular.woff2" />
     <Content Include="fonts\Ubuntu-C.ttf" />
+    <Content Include="fonts\Pushkin.otf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\instafeed.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

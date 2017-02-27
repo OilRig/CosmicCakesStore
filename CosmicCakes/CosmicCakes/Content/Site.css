@@ -81,6 +81,16 @@ img.margined-right-item {
     /*url(/fonts/ubuntu-condensed-v7-latin-regular.svg) format('svg');*/
 }
 
+@font-face {
+    font-family: Pushkin;
+    src: local('Pushkin'),
+    /*url(/fonts/ubuntu-condensed-v7-latin-regular.eot) format('embedded-opentype'), 
+       url(fonts/ubuntu-condensed-v7-latin-regular.woff2) format('woff2'), 
+       url(/fonts/ubuntu-condensed-v7-latin-regular.woff) format('woff'),*/
+    url(/fonts/Pushkin.otf);
+    /*url(/fonts/ubuntu-condensed-v7-latin-regular.svg) format('svg');*/
+}
+
 .ubuntu-text {
     font-family: "Ubuntu Condensed";
 }
@@ -259,6 +269,15 @@ hr.style-one {
     background: #333;
     background-image: linear-gradient(to right, #ccc, #333, #ccc);
 }
+hr.style-three {
+  border: 0; 
+  height: 0.5px; 
+  background-image: -webkit-linear-gradient(left, #9e9e9e, #cbcbcb, #f0f0f0);
+  background-image: -moz-linear-gradient(left, #9e9e9e, #cbcbcb, #f0f0f0);
+  background-image: -ms-linear-gradient(left, #9e9e9e, #cbcbcb, #f0f0f0);
+  background-image: -o-linear-gradient(left, #9e9e9e, #cbcbcb, #f0f0f0); 
+  margin-top:0;
+}
 
 hr.style-two {
     border: 0;
@@ -324,4 +343,7 @@ hr.style-two {
 
 .welcome-text {
     font-family: 'Open Sans',sans-serif;
+}
+div#aboutLinkContainer a {
+    color:black;
 }
