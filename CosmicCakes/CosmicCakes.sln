@@ -1,13 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CosmicCakesWebApp", "CosmicCakes\CosmicCakesWebApp.csproj", "{1127E7A1-28D1-433C-A8F0-43E5478AD827}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CosmicCakes.DAL", "CosmicCakes.DAL\CosmicCakes.DAL.csproj", "{B6E31A68-D01F-4051-AB2B-ACFA8313021B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CosmicCakes.Ninject", "CosmicCakes.Ninject\CosmicCakes.Ninject.csproj", "{C049EA35-23FD-47A0-92B3-207398871FE9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CosmicCakes.Logging", "CosmicCakes.Logging\CosmicCakes.Logging.csproj", "{89A3E8D9-77DC-44A0-8AB4-952531DF1068}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CosmicCakes.Services", "CosmicCakes.Services\CosmicCakes.Services.csproj", "{F07570B4-9B03-4E9E-A38C-10EFEC68B030}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +31,14 @@ Global
 		{C049EA35-23FD-47A0-92B3-207398871FE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C049EA35-23FD-47A0-92B3-207398871FE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C049EA35-23FD-47A0-92B3-207398871FE9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89A3E8D9-77DC-44A0-8AB4-952531DF1068}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89A3E8D9-77DC-44A0-8AB4-952531DF1068}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89A3E8D9-77DC-44A0-8AB4-952531DF1068}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89A3E8D9-77DC-44A0-8AB4-952531DF1068}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F07570B4-9B03-4E9E-A38C-10EFEC68B030}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F07570B4-9B03-4E9E-A38C-10EFEC68B030}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F07570B4-9B03-4E9E-A38C-10EFEC68B030}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F07570B4-9B03-4E9E-A38C-10EFEC68B030}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

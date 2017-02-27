@@ -73,10 +73,6 @@
       <HintPath>..\packages\Ninject.MVC5.3.2.1.0\lib\net45-full\Ninject.Web.Mvc.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
-      <HintPath>..\packages\NLog.4.4.1\lib\net45\NLog.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -273,16 +269,10 @@
     <Content Include="Scripts\BerryChecker.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="NLog.config">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="fonts\ubuntu-condensed-v7-latin-regular.eot" />
     <Content Include="fonts\ubuntu-condensed-v7-latin-regular.woff" />
     <Content Include="fonts\ubuntu-condensed-v7-latin-regular.woff2" />
     <Content Include="fonts\Ubuntu-C.ttf" />
-    <None Include="NLog.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\instafeed.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -347,6 +337,10 @@
     <ProjectReference Include="..\CosmicCakes.DAL\CosmicCakes.DAL.csproj">
       <Project>{B6E31A68-D01F-4051-AB2B-ACFA8313021B}</Project>
       <Name>CosmicCakes.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CosmicCakes.Logging\CosmicCakes.Logging.csproj">
+      <Project>{89a3e8d9-77dc-44a0-8ab4-952531df1068}</Project>
+      <Name>CosmicCakes.Logging</Name>
     </ProjectReference>
     <ProjectReference Include="..\CosmicCakes.Ninject\CosmicCakes.Ninject.csproj">
       <Project>{C049EA35-23FD-47A0-92B3-207398871FE9}</Project>

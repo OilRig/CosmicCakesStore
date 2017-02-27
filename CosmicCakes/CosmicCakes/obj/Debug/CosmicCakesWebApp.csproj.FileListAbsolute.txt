@@ -86,7 +86,6 @@ C:\Users\iborzenko\Source\Repos\CosmicCakesStore\CosmicCakes\CosmicCakes\bin\New
 C:\Users\iborzenko\Source\Repos\CosmicCakesStore\CosmicCakes\CosmicCakes\bin\Ninject.dll
 C:\Users\iborzenko\Source\Repos\CosmicCakesStore\CosmicCakes\CosmicCakes\bin\Ninject.Web.Common.dll
 C:\Users\iborzenko\Source\Repos\CosmicCakesStore\CosmicCakes\CosmicCakes\bin\Ninject.Web.Mvc.dll
-C:\Users\iborzenko\Source\Repos\CosmicCakesStore\CosmicCakes\CosmicCakes\bin\NLog.dll
 C:\Users\iborzenko\Source\Repos\CosmicCakesStore\CosmicCakes\CosmicCakes\bin\System.Web.Helpers.dll
 C:\Users\iborzenko\Source\Repos\CosmicCakesStore\CosmicCakes\CosmicCakes\bin\System.Web.Mvc.dll
 C:\Users\iborzenko\Source\Repos\CosmicCakesStore\CosmicCakes\CosmicCakes\bin\System.Web.Optimization.dll
@@ -105,7 +104,6 @@ C:\Users\iborzenko\Source\Repos\CosmicCakesStore\CosmicCakes\CosmicCakes\bin\Nem
 C:\Users\iborzenko\Source\Repos\CosmicCakesStore\CosmicCakes\CosmicCakes\bin\Ninject.xml
 C:\Users\iborzenko\Source\Repos\CosmicCakesStore\CosmicCakes\CosmicCakes\bin\Ninject.Web.Common.xml
 C:\Users\iborzenko\Source\Repos\CosmicCakesStore\CosmicCakes\CosmicCakes\bin\Ninject.Web.Mvc.xml
-C:\Users\iborzenko\Source\Repos\CosmicCakesStore\CosmicCakes\CosmicCakes\bin\NLog.xml
 C:\Users\iborzenko\Source\Repos\CosmicCakesStore\CosmicCakes\CosmicCakes\bin\System.Web.Helpers.xml
 C:\Users\iborzenko\Source\Repos\CosmicCakesStore\CosmicCakes\CosmicCakes\bin\System.Web.Mvc.xml
 C:\Users\iborzenko\Source\Repos\CosmicCakesStore\CosmicCakes\CosmicCakes\bin\System.Web.Optimization.xml
@@ -118,3 +116,7 @@ C:\Users\iborzenko\Source\Repos\CosmicCakesStore\CosmicCakes\CosmicCakes\bin\New
 C:\Users\iborzenko\Source\Repos\CosmicCakesStore\CosmicCakes\CosmicCakes\obj\Debug\CosmicCakesWebApp.csprojResolveAssemblyReference.cache
 C:\Users\iborzenko\Source\Repos\CosmicCakesStore\CosmicCakes\CosmicCakes\obj\Debug\CosmicCakes.dll
 C:\Users\iborzenko\Source\Repos\CosmicCakesStore\CosmicCakes\CosmicCakes\obj\Debug\CosmicCakes.pdb
+C:\Users\iborzenko\Source\Repos\CosmicCakesStore\CosmicCakes\CosmicCakes\bin\CosmicCakes.Logging.dll
+C:\Users\iborzenko\Source\Repos\CosmicCakesStore\CosmicCakes\CosmicCakes\bin\NLog.dll
+C:\Users\iborzenko\Source\Repos\CosmicCakesStore\CosmicCakes\CosmicCakes\bin\CosmicCakes.Logging.pdb
+C:\Users\iborzenko\Source\Repos\CosmicCakesStore\CosmicCakes\CosmicCakes\bin\NLog.xml
