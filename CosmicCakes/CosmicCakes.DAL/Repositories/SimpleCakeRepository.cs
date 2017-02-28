@@ -11,17 +11,21 @@ namespace CosmicCakes.DAL.Repositories
 {
     public class SimpleCakeRepository : BaseRepository<SimpleReadyCake>, ISimpleCakeRepository
     {
-        public SimpleCakeRepository(IAppLogger logger) : base(logger) { }
+        public SimpleCakeRepository(IAppLogger logger) : base(logger)
+        {
+            Logger = logger;
+        }
 
         public IEnumerable<SimpleReadyCake> GetAllCakes()
         {
             using (var context = GetContext())
             {
+                var cakes = context.Set<SimpleReadyCake>()
+                       .AsNoTracking()
+                       .ToList();
                 try
                 {
-                    var cakes = context.Set<SimpleReadyCake>()
-                        .AsNoTracking()
-                        .ToList();
+                    if (!cakes.Any()) throw new Exception("Error getting all cakes from DB");
                     return cakes;
                 }
                 catch (Exception ex)

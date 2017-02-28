@@ -12,7 +12,7 @@ namespace CosmicCakes.DAL.Repositories
     {
         public BisquitRepository(IAppLogger logger) : base(logger)
         {
-
+            Logger = logger;
         }
         public IEnumerable<Bisquit> GetAll()
         {

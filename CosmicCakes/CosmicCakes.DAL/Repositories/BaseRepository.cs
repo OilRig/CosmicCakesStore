@@ -7,7 +7,7 @@ namespace CosmicCakes.DAL.Repositories
 {
     public class BaseRepository<T> : IRepository<T> where T : class
     {
-        protected readonly IAppLogger Logger;
+        protected IAppLogger Logger;
         public BaseRepository(IAppLogger logger)
         {
             Logger = logger;
