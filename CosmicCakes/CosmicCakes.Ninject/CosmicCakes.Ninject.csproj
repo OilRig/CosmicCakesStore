@@ -75,6 +75,10 @@
       <Project>{89A3E8D9-77DC-44A0-8AB4-952531DF1068}</Project>
       <Name>CosmicCakes.Logging</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CosmicCakes.Services\CosmicCakes.Services.csproj">
+      <Project>{f07570b4-9b03-4e9e-a38c-10efec68b030}</Project>
+      <Name>CosmicCakes.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
