@@ -1,11 +1,17 @@
-﻿namespace CosmicCakes.DAL.Repositories
+﻿using CosmicCakes.Logging.Interfaces;
+
+namespace CosmicCakes.DAL.Repositories
 {
     public class ContextRepository<T> : BaseRepository<T> where T : class
     {
-        public CakeContext GetCakeContext()
+        public ContextRepository(IAppLogger logger) : base(logger)
         {
-            var context = GetContext();
-            return context as CakeContext;
+
         }
+        //public CakeContext GetCakeContext()
+        //{
+        //    var context = GetContext();
+        //    return context as CakeContext;
+        //}
     }
 }

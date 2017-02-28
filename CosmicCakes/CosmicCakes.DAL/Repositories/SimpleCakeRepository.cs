@@ -3,15 +3,19 @@ using CosmicCakes.DAL.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Globalization;
 using System.Linq;
+using CosmicCakes.Logging.Interfaces;
 
 namespace CosmicCakes.DAL.Repositories
 {
-    public class SimpleCakeRepository : ContextRepository<SimpleReadyCake>, ISimpleCakeRepository
+    public class SimpleCakeRepository : BaseRepository<SimpleReadyCake>, ISimpleCakeRepository
     {
+        public SimpleCakeRepository(IAppLogger logger) : base(logger) { }
+
         public IEnumerable<SimpleReadyCake> GetAllCakes()
         {
-            using (var context = GetCakeContext())
+            using (var context = GetContext())
             {
                 try
                 {
@@ -20,8 +24,9 @@ namespace CosmicCakes.DAL.Repositories
                         .ToList();
                     return cakes;
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
+                    Logger.Error(ex, DateTime.UtcNow + ":" + ex.Message);
                     throw;
                 }
 
@@ -30,21 +35,46 @@ namespace CosmicCakes.DAL.Repositories
 
         public SimpleReadyCake GetCakeById(int id)
         {
-            using (var context = GetCakeContext())
+            using (var context = GetContext())
             {
                 var cake = context.Set<SimpleReadyCake>().FirstOrDefault(c => c.Id == id);
-                return cake;
+                try
+                {
+                    if (cake == null)
+                    {
+                        throw new Exception("Error getting cake from DB. Cake Id is: " + id);
+                    }
+                    return cake;
+                }
+                catch (Exception ex)
+                {
+                    Logger.Error(ex, DateTime.UtcNow + ":" + ex.Message);
+                    throw;
+                }
+
             }
         }
 
         public IEnumerable<SimpleReadyCake> GetExistingCakes()
         {
-            using (var context = GetCakeContext())
+            using (var context = GetContext())
             {
                 var cakes = (from c in context.SimpleReadyCakes
                              where c.Id == 1 || c.Id == 2 || c.Id == 3 || c.Id == 5 || c.Id == 9
-                             select c).AsNoTracking().ToList();
-                return cakes;
+                             select c)
+                             .AsNoTracking()
+                             .ToList();
+                try
+                {
+                    if (!cakes.Any()) throw new Exception("Error getting cakes from DB");
+                    return cakes;
+                }
+                catch (Exception ex)
+                {
+                    Logger.Error(ex, DateTime.UtcNow + ":" + ex.Message);
+                    throw;
+                }
+
             }
         }
     }

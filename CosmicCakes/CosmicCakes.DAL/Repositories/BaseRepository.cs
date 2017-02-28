@@ -1,12 +1,18 @@
 ﻿using CosmicCakes.DAL.Interfaces;
 using System;
 using System.Data.Entity;
+using CosmicCakes.Logging.Interfaces;
 
 namespace CosmicCakes.DAL.Repositories
 {
     public class BaseRepository<T> : IRepository<T> where T : class
     {
-        protected DbContext GetContext(string connectionString = null)
+        protected readonly IAppLogger Logger;
+        public BaseRepository(IAppLogger logger)
+        {
+            Logger = logger;
+        }
+        protected CakeContext GetContext(string connectionString = null)
         {
             return new CakeContext();
         }
@@ -20,9 +26,9 @@ namespace CosmicCakes.DAL.Repositories
                     context.Set<T>().Add(entity);
                     context.SaveChanges();
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    throw;
+                    Logger.Error(ex, DateTime.UtcNow + ":" + ex.Message);
                 }
 
             }
@@ -36,28 +42,11 @@ namespace CosmicCakes.DAL.Repositories
                     context.Set<T>().Remove(entity);
                     context.SaveChanges();
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    throw;
+                    Logger.Error(ex, DateTime.UtcNow + ":" + ex.Message);
                 }
             }
         }
-
-        //public IEnumerable<T> GetAll()
-        //{
-        //    using (var context = GetContext())
-        //    {
-        //        try
-        //        {
-        //            var allItemsQuery = context.Set<T>().ToList();
-        //            return allItemsQuery;
-        //        }
-        //        catch (Exception e)
-        //        {
-        //            Console.WriteLine(e);
-        //            throw;
-        //        }
-        //    }
-        //}
     }
 }
