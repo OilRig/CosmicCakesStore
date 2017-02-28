@@ -114,6 +114,18 @@
         </div>
     </div>
 </div>
+@using (Html.BeginForm("MakeOrder", "Order", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="row">
+        <div class="col-md-4">
+            <p class="form-control-static">Выберите бисквит:</p>
+        </div>
+
+        <div class="col-md-8">
+            
+        </div>
+    </div>
+}
 <script>
     (function($) {
       

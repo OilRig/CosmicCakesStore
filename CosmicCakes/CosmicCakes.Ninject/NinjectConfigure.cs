@@ -2,6 +2,7 @@
 using CosmicCakes.DAL.Repositories;
 using CosmicCakes.Logging.Interfaces;
 using CosmicCakes.Logging.Loggers;
+using CosmicCakes.Services.EmailService;
 using Ninject.Modules;
 
 
@@ -22,6 +23,8 @@ namespace CosmicCakes.Ninject
             Bind<IPriceIncludementRepository>().To<PriceIncludementsRepository>();
             //Loggers
             Bind<IAppLogger>().To<NLogLogger>();
+            //Services
+            Bind<IEmailSender>().To<EmailSender>();
         }
     }
 }
