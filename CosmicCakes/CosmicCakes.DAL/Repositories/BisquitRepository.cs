@@ -1,10 +1,10 @@
 ﻿using CosmicCakes.DAL.Entities;
 using CosmicCakes.DAL.Interfaces;
+using CosmicCakes.Logging.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using CosmicCakes.Logging.Interfaces;
 
 namespace CosmicCakes.DAL.Repositories
 {
@@ -20,6 +20,27 @@ namespace CosmicCakes.DAL.Repositories
             {
                 var query = (from b in context.Bisquits
                              select b)
+                             .AsNoTracking()
+                             .ToList();
+                try
+                {
+                    if (!query.Any()) throw new Exception("Error getting all bisquits");
+                    return query;
+                }
+                catch (Exception ex)
+                {
+                    Logger.Error(ex, DateTime.UtcNow + ":" + ex.Message);
+                    throw;
+                }
+
+            }
+        }
+        public IEnumerable<string> GetAllNamesOnly()
+        {
+            using (var context = GetContext())
+            {
+                var query = (from b in context.Bisquits
+                             select b.Type)
                              .AsNoTracking()
                              .ToList();
                 try

@@ -10,13 +10,18 @@ namespace CosmicCakes.Controllers
         private readonly ISimpleCakeRepository _simpleCakeRepository;
         private readonly IImageRepository _imageRepository;
         private readonly IPriceIncludementRepository _priceIncludementRepository;
-        private readonly List<CakesStartPageModel> _existingCakes;
+        private readonly IFillingRepository _fillingRepository;
+        private readonly IBisquitRepository _bisquitRepository;
+        private List<CakesStartPageModel> _existingCakes;
         public CakeController(ISimpleCakeRepository simpleCakeRepository, IImageRepository imageRepository,
-            IPriceIncludementRepository priceIncludementRepository)
+            IPriceIncludementRepository priceIncludementRepository, IFillingRepository fillingRepository,
+            IBisquitRepository bisquitRepository)
         {
             _simpleCakeRepository = simpleCakeRepository;
             _imageRepository = imageRepository;
             _priceIncludementRepository = priceIncludementRepository;
+            _fillingRepository = fillingRepository;
+            _bisquitRepository = bisquitRepository;
             _existingCakes = new List<CakesStartPageModel>();
         }
         // GET: Cake
@@ -54,9 +59,13 @@ namespace CosmicCakes.Controllers
                 Description = cake.Description,
                 IsLevelable = cake.IsLevelable,
                 MaxWeight = cake.MaxWeight,
-                IndividualSquareImagesPaths = _imageRepository.GetCakeIndividualSquareImagesByCakeId(cake.Id),
                 IndividualRectangleImagesPaths = _imageRepository.GetCakeIndividualRectangleImagesByCakeId(cake.Id),
-                PriceIncludements = _priceIncludementRepository.GetAllPriceIncludementsById(id)
+                PriceIncludements = _priceIncludementRepository.GetAllPriceIncludementsById(id),
+                CakeOrderDitails = new CakeOrderDetails
+                {
+                    Bisquits = _bisquitRepository.GetAllNamesOnly(),
+                    Fillings = _fillingRepository.GetAllNamesOnly()
+                }
             };
             return View(infoModel);
         }

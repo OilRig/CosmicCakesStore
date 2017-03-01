@@ -1,10 +1,10 @@
-﻿using System;
-using CosmicCakes.DAL.Entities;
+﻿using CosmicCakes.DAL.Entities;
 using CosmicCakes.DAL.Interfaces;
+using CosmicCakes.Logging.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using CosmicCakes.Logging.Interfaces;
 
 namespace CosmicCakes.DAL.Repositories
 {
@@ -36,29 +36,6 @@ namespace CosmicCakes.DAL.Repositories
 
             }
         }
-
-        public IEnumerable<string> GetCakeIndividualSquareImagesByCakeId(int cakeId)
-        {
-            using (var context = GetContext())
-            {
-                var imagePaths = (from p in context.CakeIndividualSquareImages
-                                  where p.CakeId == cakeId
-                                  select p.Path)
-                                  .AsNoTracking()
-                                  .ToList();
-                try
-                {
-                    if (!imagePaths.Any()) throw new Exception($"Error getting square paths. Cake Id is: {cakeId}");
-                    return imagePaths;
-                }
-                catch (Exception ex)
-                {
-                    Logger.Error(ex, DateTime.UtcNow + ":" + ex.Message);
-                    throw;
-                }
-            }
-        }
-
         public IEnumerable<string> GetCakeIndividualRectangleImagesByCakeId(int cakeId)
         {
             using (var context = GetContext())

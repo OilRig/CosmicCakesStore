@@ -4,13 +4,13 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     var itemActivator = 0;
     var indicatorCounter = 0;
-    var numberSrcAddon = 0;
+    //var numberSrcAddon = 0;
 }
 
-<div class="row century-gothic-text">
+<div class="row century-gothic-text" style="margin-top:30px;">
 
 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-    <div id="CakeCarousel" class="carousel slide hundred-widthed-item" data-ride="carousel">
+    <div id="CakeCarousel" class="carousel slide" data-ride="carousel" style="width: 80%; margin: 0 auto">
         
         <ol class="carousel-indicators">
             @foreach (var image in Model.IndividualRectangleImagesPaths)
@@ -35,16 +35,15 @@
                 if (itemActivator == 1)
                 {
                     <div class="item active">
-                        <img src="@image" height="300">
+                        <img src="@image">
                     </div>
                 }
                 else
                 {
                     <div class="item">
-                        <img src="@image" height="300">
+                        <img src="@image">
                     </div>
                 }
-
             }
         </div>
 
@@ -61,45 +60,37 @@
 
     </div>
     <br />
-    <div class="row">
-        @foreach (var image in Model.IndividualSquareImagesPaths)
-        {
-            numberSrcAddon++;
-            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                <img id="sqimg" src="@image" class="img-responsive" data-addon ="@numberSrcAddon"/>
-            </div>
-        }
-    </div>
-
 </div>
 
 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 cake-info-font-size">
     <div class="centered-text-heading">@Model.Name</div>
     <br />
-    <div>@Model.Description</div>
+    <div style="font-family:'Open Sans',sans-serif;font-size:13px;">
+        <div>@Model.Description</div>
 
-    <p style="color: gray; font-size: 20pt;">от @Model.MinPrice р.</p>
+        <p style="color: gray; font-size: 20pt;">от @Model.MinPrice р.</p>
 
-    <ul>
-        <li>@Model.KgPrice р/кг</li>
-        <li>минимальный вес: @Model.MinWeight кг</li>
-        <li>
-            максимальный вес: @Model.MaxWeight кг
-            @if (Model.IsLevelable)
-            {
-                <p style="font-size:small">(т.е. 1 ярус, но у вас всегда есть возможность заказать 2 или даже 3 яруса) </p>
-            }
-        </li>
-    </ul>
-    <strong>В стоимость входит:</strong>
-    <div>
         <ul>
-            @foreach (var includement in Model.PriceIncludements)
+            <li>@Model.KgPrice р/кг</li>
+            <li>минимальный вес: @Model.MinWeight кг</li>
+            <li>
+                максимальный вес: @Model.MaxWeight кг
+                @if (Model.IsLevelable)
             {
-                <li>@includement</li>
-            }
+                    <p style="font-size:small">(т.е. 1 ярус, но у вас всегда есть возможность заказать 2 или даже 3 яруса) </p>
+                }
+            </li>
         </ul>
-    </div>  
+        <strong>В стоимость входит:</strong>
+        <div>
+            <ul>
+                @foreach (var includement in Model.PriceIncludements)
+            {
+                    <li>@includement</li>
+                }
+            </ul>
+        </div>
+    </div> 
 </div>
 </div>
 <br/>
@@ -114,24 +105,62 @@
         </div>
     </div>
 </div>
+<hr class="style-one" />
 @using (Html.BeginForm("MakeOrder", "Order", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
-    <div class="row">
-        <div class="col-md-4">
-            <p class="form-control-static">Выберите бисквит:</p>
+    <div class="row" style="margin-bottom:15px;margin-top:30px;">
+        <div class="col-md-3">
+            <label class="form-control-static">Выберите бисквит:</label>
         </div>
 
-        <div class="col-md-8">
-            
+        <div class="col-md-9">
+            <div class="dropdown">
+                <select class="form-control" style="padding-left:0;">
+                    @foreach (var bisquit in Model.CakeOrderDitails.Bisquits)
+                    {
+                        <option>@bisquit</option>
+                    }
+                </select>
+            </div>
+
         </div>
     </div>
-}
-<script>
-    (function($) {
-      
-    })(jQuery);
-</script>
-   
+
+    <div class="row" style="margin-bottom:15px;">
+        <div class="col-md-3">
+            <label class="form-control-static">Выберите начинку:</label>
+        </div>
+
+        <div class="col-md-9">
+                <div class="dropdown">
+                    <select class="form-control" style="padding-left:0;">
+                        @foreach (var filling in Model.CakeOrderDitails.Fillings)
+                        {
+                            <option>@filling</option>
+                        }
+                    </select>
+                </div>
+        </div>
+    </div>
+
+    <div class="row" style="margin-bottom:15px;">
+        <div class="col-md-3">
+            <label class="form-control-static">Что напишем на тортике:</label>
+        </div>
+
+        <div class="col-md-9">
+            <textarea class="form-control" placeholder="Текст надписи..."></textarea>
+        </div>
+    </div>
+
+
+            }
+            <script>
+                (function ($) {
+
+                })(jQuery);
+            </script>
+
 
 
 

@@ -122,3 +122,5 @@ C:\Users\iborzenko\Source\Repos\CosmicCakesStore\CosmicCakes\CosmicCakes\bin\Cos
 C:\Users\iborzenko\Source\Repos\CosmicCakesStore\CosmicCakes\CosmicCakes\bin\NLog.xml
 G:\Source\CosmicCakes\CosmicCakesStore\CosmicCakes\CosmicCakes\bin\CosmicCakes.Logging.dll
 G:\Source\CosmicCakes\CosmicCakesStore\CosmicCakes\CosmicCakes\bin\CosmicCakes.Logging.pdb
+G:\Source\CosmicCakes\CosmicCakesStore\CosmicCakes\CosmicCakes\bin\CosmicCakes.Services.dll
+G:\Source\CosmicCakes\CosmicCakesStore\CosmicCakes\CosmicCakes\bin\CosmicCakes.Services.pdb
