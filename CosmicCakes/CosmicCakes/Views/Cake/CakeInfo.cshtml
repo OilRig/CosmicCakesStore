@@ -106,58 +106,47 @@
     </div>
 </div>
 <hr class="style-one" />
-@using (Html.BeginForm("MakeOrder", "Order", FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("MakeOrder", "Price", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
-    <div class="row" style="margin-bottom:15px;margin-top:30px;">
-        <div class="col-md-3">
-            <label class="form-control-static">Выберите бисквит:</label>
+    <div class="row" style="margin-top:15px;">
+        <div class="col-md-2">
+            <label>Имя</label>
         </div>
-
-        <div class="col-md-9">
-            <div class="dropdown">
-                <select class="form-control" style="padding-left:0;">
-                    @foreach (var bisquit in Model.CakeOrderDitails.Bisquits)
-                    {
-                        <option>@bisquit</option>
-                    }
-                </select>
-            </div>
-
+        <div class="col-md-2">
+            <input name="CustomerName" type="text" class="form-control" />
+        </div>
+    </div>
+    <div class="row" style="margin-top:15px;">
+        <div class="col-md-2">
+            <label>Телефон</label>
+        </div>
+        <div class="col-md-2">
+            <input name="CustomerPhoneNumber" type="tel" class="form-control" />
+        </div>
+    </div>
+    <div class="row" style="margin-top:15px;">
+        <div class="col-md-2">
+            <label>Вес торта</label>
+        </div>
+        <div class="col-md-2">
+            <input name="CakeWeight" type="text" class="form-control" />
+        </div>
+    </div>
+    <div class="row" style="margin-top:15px;">
+        <div class="col-md-2">
+            <label>Дата,на которую нужен тортик</label>
+        </div>
+        <div id="datePicker" class="col-md-2">
+            <input  name="ExpireDate" type="text" class="form-control" />
         </div>
     </div>
 
-    <div class="row" style="margin-bottom:15px;">
-        <div class="col-md-3">
-            <label class="form-control-static">Выберите начинку:</label>
-        </div>
-
-        <div class="col-md-9">
-                <div class="dropdown">
-                    <select class="form-control" style="padding-left:0;">
-                        @foreach (var filling in Model.CakeOrderDitails.Fillings)
-                        {
-                            <option>@filling</option>
-                        }
-                    </select>
-                </div>
-        </div>
-    </div>
-
-    <div class="row" style="margin-bottom:15px;">
-        <div class="col-md-3">
-            <label class="form-control-static">Что напишем на тортике:</label>
-        </div>
-
-        <div class="col-md-9">
-            <textarea class="form-control" placeholder="Текст надписи..."></textarea>
-        </div>
-    </div>
-
-
-            }
+}
             <script>
                 (function ($) {
-
+                    $(document).ready(function () {
+                        $('#datePicker').datepicker();
+                    });
                 })(jQuery);
             </script>
 

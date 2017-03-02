@@ -170,6 +170,8 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\datePicker.css" />
+    <Content Include="Content\datePicker.min.js" />
     <Content Include="Content\Images\AquarelCake\Individual\Rectangle\aq_cake_rect_1.jpg" />
     <Content Include="Content\Images\AquarelCake\Individual\Rectangle\aq_cake_rect_2.jpg" />
     <Content Include="Content\Images\AquarelCake\Individual\Rectangle\aq_cake_rect_3.jpg" />

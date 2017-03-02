@@ -9,7 +9,8 @@ namespace CosmicCakesWebApp
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js",
-                        "~/Scripts/jquery-ui.js"));
+                        "~/Scripts/jquery-ui.js",
+                        "~/Content/datePicker.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
@@ -28,7 +29,8 @@ namespace CosmicCakesWebApp
                       "~/Content/site.css",
                       "~/Content/jquery-ui.css",
                       "~/Content/jquery-ui.structure.css",
-                      "~/Content/jquery-ui.theme.css"));
+                      "~/Content/jquery-ui.theme.css",
+                      "~/Content/datePicker.css"));
         }
     }
 }

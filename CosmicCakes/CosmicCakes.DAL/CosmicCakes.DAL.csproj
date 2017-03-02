@@ -218,6 +218,10 @@
     <Compile Include="Migrations\201703012038471_ImageFixes.Designer.cs">
       <DependentUpon>201703012038471_ImageFixes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703022005106_OrderFixes.cs" />
+    <Compile Include="Migrations\201703022005106_OrderFixes.Designer.cs">
+      <DependentUpon>201703022005106_OrderFixes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\BaseRepository.cs" />
@@ -340,6 +344,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703012038471_ImageFixes.resx">
       <DependentUpon>201703012038471_ImageFixes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703022005106_OrderFixes.resx">
+      <DependentUpon>201703022005106_OrderFixes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
