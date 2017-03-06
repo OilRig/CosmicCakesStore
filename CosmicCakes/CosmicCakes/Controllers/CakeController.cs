@@ -61,11 +61,7 @@ namespace CosmicCakes.Controllers
                 MaxWeight = cake.MaxWeight,
                 IndividualRectangleImagesPaths = _imageRepository.GetCakeIndividualRectangleImagesByCakeId(cake.Id),
                 PriceIncludements = _priceIncludementRepository.GetAllPriceIncludementsById(id),
-                CakeOrderDitails = new CakeOrderDetails
-                {
-                    Bisquits = _bisquitRepository.GetAllNamesOnly(),
-                    Fillings = _fillingRepository.GetAllNamesOnly()
-                }
+                Id = cake.Id
             };
             return View(infoModel);
         }

@@ -106,49 +106,72 @@
     </div>
 </div>
 <hr class="style-one" />
-@using (Html.BeginForm("MakeOrder", "Price", FormMethod.Post, new { enctype = "multipart/form-data" }))
-{
-    <div class="row" style="margin-top:15px;">
-        <div class="col-md-2">
-            <label>Имя</label>
-        </div>
-        <div class="col-md-2">
-            <input name="CustomerName" type="text" class="form-control" />
-        </div>
-    </div>
-    <div class="row" style="margin-top:15px;">
-        <div class="col-md-2">
-            <label>Телефон</label>
-        </div>
-        <div class="col-md-2">
-            <input name="CustomerPhoneNumber" type="tel" class="form-control" />
-        </div>
-    </div>
-    <div class="row" style="margin-top:15px;">
-        <div class="col-md-2">
-            <label>Вес торта</label>
-        </div>
-        <div class="col-md-2">
-            <input name="CakeWeight" type="text" class="form-control" />
-        </div>
-    </div>
-    <div class="row" style="margin-top:15px;">
-        <div class="col-md-2">
-            <label>Дата,на которую нужен тортик</label>
-        </div>
-        <div class="col-md-2">
-            <input id="datePicker"  name="ExpireDate" type="text" class="form-control" />
-        </div>
-    </div>
 
-}
-            <script>
-                (function ($) {
-                    $(document).ready(function () {
-                        $('#datePicker').datepicker();
-                    });
-                })(jQuery);
-            </script>
+    @using (Html.BeginForm("MakeOrder", "Price",new {Id = Model.Id }, FormMethod.Post, htmlAttributes: new { enctype = "multipart/form-data" }))
+    {
+            <div class="row" style="margin-top:30px;">
+                <div class="col-md-2">
+                    <label>Имя</label>
+                </div>
+                <div class="col-md-6">
+                    <input name="CustomerName" data-placement="right" data-toggle="tooltip" type="text" class="form-control" title="Как вас зовут?" />
+                </div>
+            </div>
+            <div class="row" style="margin-top:30px;">
+                <div class="col-md-2">
+                    <label>Телефон</label>
+                </div>
+                <div class="col-md-6">
+                    <input name="CustomerPhoneNumber" data-placement="right" data-toggle="tooltip" type="tel" class="form-control" title="Ваш номер" />
+                </div>
+            </div>
+            <div class="row" style="margin-top:30px;">
+                <div class="col-md-2">
+                    <label>Вес торта</label>
+                </div>
+                <div class="col-md-6">
+                    <input name="CakeWeight" data-placement="right" data-toggle="tooltip" type="text" class="form-control" title="Вес тортика в кг." />
+                </div>
+            </div>
+            <div class="row" style="margin-top:30px;">
+                <div class="col-md-2">
+                    <label>Дата,на которую нужен тортик</label>
+                </div>
+                <div class="col-md-6">
+                    <input id="datePicker" data-placement="right" name="ExpireDate" data-toggle="tooltip" type="text" class="form-control" title="К какому дню нужен торт?" />
+                </div>
+            </div>
+
+            <div class="row" style="margin-top:30px;">
+                <div class="col-md-2">
+                    <label>Комментарий к заказу</label>
+                </div>
+                <div class="col-md-6">
+                    <textarea data-placement="right" data-toggle="tooltip" placeholder="Ваш комментарий..." name="Comments" class="form-control" title="Пока мы дорабатываем сайт,оставляйте все свои пожелания здесь"></textarea>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top:30px;">
+                <div class="col-md-offset-2 col-md-6">
+                    <button class="btn btn-default make-order-button" type="submit">Хочу этот тортик</button>
+                </div>
+            </div>
+    }
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            $('#datePicker').datepicker();
+        });
+    })(jQuery);
+</script>
+
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    })(jQuery);
+</script>
 
 
 

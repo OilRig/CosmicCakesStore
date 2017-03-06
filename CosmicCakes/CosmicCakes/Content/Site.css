@@ -42,10 +42,7 @@ img.margined-right-item {
 }
 
 .hundred-widthed-item {
-    /*max-width: 100%;
-    max-height: 100%;
-    width: 100%;
-    height: 100%;*/
+   min-width:100%;
 }
 
 .hundred-widthed-item-changer {
@@ -342,4 +339,65 @@ hr.style-two {
 }
 div#aboutLinkContainer a {
     color:black;
+}
+.want-cake-button {
+    border-color: black;
+    background-color: white;
+    color: black;
+    width: 300px;
+    height: 50px; 
+    padding-top: 15px;
+    font-family:'Ubuntu Condensed';
+    letter-spacing:3px;
+    border-radius: 0 !important;
+}
+p.start-page-info-brief {
+    padding-left: 0;
+    padding-right: 44px;
+    word-break: break-all;
+    margin-top: 15px;
+    text-align:right;
+    font-family:'Open Sans',sans-serif;
+    letter-spacing:1px;color:#444444;
+    font-size:13px;
+}
+.make-order-button {
+    border-color: black;
+    background-color: white;
+    color: black;
+    width: 280px;
+    height: 50px;
+    font-family:'Ubuntu Condensed';
+    letter-spacing:3px;
+    border-radius: 0 !important
+}
+.about-link-container {
+    border:solid 1px rgb(51, 51, 51);
+    font-size:12px;padding:10px;
+    margin-top:20px;
+}
+.hey-header {
+    font-family:'Billabong';
+    font-size:50px;
+    word-spacing:5px;
+    margin-top:30px;
+    height:60px;
+    margin-bottom:0;
+}
+.about-wrapper {
+    font-family:'Open Sans',sans-serif;
+    font-size:13px;
+    letter-spacing:1px;
+    text-indent:15px;
+    margin-top:40px;
+    padding-right:110px;
+    word-break:break-word;
+    text-align:justify;
+}
+.signature {
+    text-align:right;
+    margin-top:20px;
+    margin-right:50px;
+    font-family:'Pushkin';
+    font-size:24px;
 }

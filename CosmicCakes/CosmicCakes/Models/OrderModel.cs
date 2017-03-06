@@ -5,6 +5,7 @@ namespace CosmicCakesWebApp.Models
 {
     public class OrderModel
     {
+        public int Id { get; set; }
         [Required(ErrorMessage = "Как же Вас зовут?")]
         public string CustomerName { get; set; }
         [Required(ErrorMessage = "И даже телефончик не оставите?")]
@@ -17,7 +18,7 @@ namespace CosmicCakesWebApp.Models
         public DateTime ExpireDate { get; set; }
         public override string ToString()
         {
-            return string.Format($"Заказ от: {CustomerName} \n Телефон: {CustomerPhoneNumber} \n Дата: {ExpireDate.ToShortDateString()} \n Торт: {CakeName} Вес: {CakeWeight} кг \n  Комментарий: {Comments}");
+            return string.Format($"Заказ от: {CustomerName} \nТелефон: {CustomerPhoneNumber} \nДата: {ExpireDate.ToShortDateString()} \nТорт: {CakeName}\nВес: {CakeWeight} кг \nКомментарий: {Comments}");
         }
     }
 }

@@ -13,10 +13,12 @@ namespace CosmicCakesWebApp.Controllers
     {
 
         private readonly IOrderRepository _orderRepository;
+        private readonly ISimpleCakeRepository _cakeRepository;
 
-        public PriceController(IOrderRepository orderRepo)
+        public PriceController(IOrderRepository orderRepo, ISimpleCakeRepository cakeRepository)
         {
             _orderRepository = orderRepo;
+            _cakeRepository = cakeRepository;
         }
 
 
@@ -38,43 +40,27 @@ namespace CosmicCakesWebApp.Controllers
 
             var to = new MailAddress("golubevanora1@gmail.com");
 
-            var m = new MailMessage(from, to);
+            using (var m = new MailMessage(from, to))
+            {
+                m.Subject = "Заказ";
 
-            m.Subject = "Заказ";
-
-            m.Body = order;
+                m.Body = order;
 
 
-            var smtp = new SmtpClient("smtp.gmail.com", 587);
+                var smtp = new SmtpClient("smtp.gmail.com", 587);
 
-            smtp.Credentials = new NetworkCredential("cosmicakesofficial@gmail.com", "gbczgjgf2345");
-            smtp.EnableSsl = true;
-            smtp.Send(m);
+                smtp.Credentials = new NetworkCredential("cosmicakesofficial@gmail.com", "gbczgjgf2345");
+                smtp.EnableSsl = true;
+                smtp.Send(m);
+            }
         }
         public ActionResult MakeOrder(OrderModel model)
         {
-            var orderModel = new OrderModel
-            {
-
-                CakeWeight = model.CakeWeight,
-                Comments = model.Comments,
-            };
-
-            return null;
-        }
-        [HttpPost]
-        public ActionResult ConfirmOrder(OrderModel model)
-        {
-            if (ModelState.IsValid)
-            {
-                model.ExpireDate = model.ExpireDate.ToUniversalTime();
-                SaveOrder(model);
-                SendOrder(model.ToString());
-                return RedirectToRoute("GoHome");
-            }
-            else return View("Order", model);
-
-
+            model.ExpireDate = model.ExpireDate.ToUniversalTime();
+            model.CakeName = _cakeRepository.GetCakeById(model.Id).Name;
+            SaveOrder(model);
+            SendOrder(model.ToString());
+            return RedirectToRoute("GoHome");
         }
     }
 }
