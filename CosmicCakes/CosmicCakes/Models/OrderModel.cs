@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace CosmicCakesWebApp.Models
+namespace CosmicCakes.Models
 {
     public class OrderModel
     {

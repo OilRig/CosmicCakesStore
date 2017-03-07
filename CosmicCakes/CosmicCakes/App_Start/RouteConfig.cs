@@ -18,6 +18,7 @@ namespace CosmicCakesWebApp
                 name: "GoHome",
                 url: "Home/Index"
             );
+
         }
     }
 }

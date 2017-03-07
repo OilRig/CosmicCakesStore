@@ -1,6 +1,6 @@
 ﻿using CosmicCakes.DAL.Entities;
 using CosmicCakes.DAL.Interfaces;
-using CosmicCakesWebApp.Models;
+using CosmicCakes.Models;
 using System;
 using System.Net;
 using System.Net.Mail;
@@ -20,8 +20,6 @@ namespace CosmicCakesWebApp.Controllers
             _orderRepository = orderRepo;
             _cakeRepository = cakeRepository;
         }
-
-
         private void SaveOrder(OrderModel model)
         {
             var order = new Order();
@@ -34,7 +32,7 @@ namespace CosmicCakesWebApp.Controllers
             order.CakeName = model.CakeName;
             _orderRepository.Add(order);
         }
-        public void SendOrder(string order)
+        private void SendOrder(string order)
         {
             var from = new MailAddress("cosmicakesofficial@gmail.com", "Order");
 
@@ -43,24 +41,28 @@ namespace CosmicCakesWebApp.Controllers
             using (var m = new MailMessage(from, to))
             {
                 m.Subject = "Заказ";
-
                 m.Body = order;
 
-
                 var smtp = new SmtpClient("smtp.gmail.com", 587);
-
                 smtp.Credentials = new NetworkCredential("cosmicakesofficial@gmail.com", "gbczgjgf2345");
                 smtp.EnableSsl = true;
                 smtp.Send(m);
             }
         }
+
+        [HttpPost]
         public ActionResult MakeOrder(OrderModel model)
         {
-            model.ExpireDate = model.ExpireDate.ToUniversalTime();
-            model.CakeName = _cakeRepository.GetCakeById(model.Id).Name;
-            SaveOrder(model);
-            SendOrder(model.ToString());
-            return RedirectToRoute("GoHome");
+            if (ModelState.IsValid)
+            {
+                model.ExpireDate = model.ExpireDate.ToUniversalTime();
+                model.CakeName = _cakeRepository.GetCakeById(model.Id).Name;
+                SaveOrder(model);
+                //SendOrder(model.ToString());
+                return View();
+            }
+            return RedirectToAction("Cake/CakeInfo", model);
+
         }
     }
 }

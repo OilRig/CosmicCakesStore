@@ -163,7 +163,6 @@
     <Compile Include="Models\CakeInfoModel.cs" />
     <Compile Include="Models\CakePartsModel.cs" />
     <Compile Include="Models\CakesStartPageModel.cs" />
-    <Compile Include="Models\CreateCakePageModel.cs" />
     <Compile Include="Models\OrderModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -274,6 +273,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\mask.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
@@ -298,6 +298,8 @@
     <Content Include="Views\Cake\CakeInfo.cshtml" />
     <Content Include="Views\CakePart\Index.cshtml" />
     <Content Include="Views\Error\PageNotFound.cshtml" />
+    <Content Include="Views\Price\MakeOrder.cshtml" />
+    <Content Include="Views\Shared\CakeOrder.partial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
