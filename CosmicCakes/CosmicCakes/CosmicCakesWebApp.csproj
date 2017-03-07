@@ -330,6 +330,10 @@
       <Project>{C049EA35-23FD-47A0-92B3-207398871FE9}</Project>
       <Name>CosmicCakes.Ninject</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CosmicCakes.Services\CosmicCakes.Services.csproj">
+      <Project>{F07570B4-9B03-4E9E-A38C-10EFEC68B030}</Project>
+      <Name>CosmicCakes.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

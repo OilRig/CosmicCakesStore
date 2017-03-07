@@ -33,6 +33,7 @@
                     <label>Дата,на которую нужен тортик</label>
                 </div>
                 <div class="col-md-6">
+                    @*@Html.EditorFor(m=>m.ExpireDate,new { placeholder = "Дата", id = "datePicker", data_placement = "right" ,data_toggle = "tooltip" ,@class="form-control", title="К какому дню нужен торт?" })*@
                     <input placeholder="Дата" id="datePicker" data-placement="right" name="ExpireDate" data-toggle="tooltip" type="text" class="form-control" title="К какому дню нужен торт?" />
                 </div>
             </div>
