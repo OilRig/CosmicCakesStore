@@ -55,7 +55,6 @@ namespace CosmicCakesWebApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                model.ExpireDate = model.ExpireDate.ToUniversalTime();
                 model.CakeName = _cakeRepository.GetCakeById(model.Id).Name;
                 SaveOrder(model);
                 //SendOrder(model.ToString());

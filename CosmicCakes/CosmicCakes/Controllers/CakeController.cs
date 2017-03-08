@@ -101,7 +101,6 @@ namespace CosmicCakes.Controllers
         [HttpPost]
         public ActionResult MakeOrder(OrderModel model)
         {
-            model.ExpireDate = model.ExpireDate.ToUniversalTime();
             model.CakeName = _cakeRepository.GetCakeById(model.Id).Name;
             try
             {
@@ -109,7 +108,7 @@ namespace CosmicCakes.Controllers
                 SaveOrder(model);
                 _emailSender.SendEmailOrder(model.ToString());
                 _smsSender.SendSmsOrder(model.ToString());
-                return View();
+                return View("SuccessOrder");
             }
             catch (Exception)
             {
