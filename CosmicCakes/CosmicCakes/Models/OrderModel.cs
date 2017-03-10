@@ -13,7 +13,7 @@ namespace CosmicCakes.Models
         public string CustomerPhoneNumber { get; set; }
         public string CakeName { get; set; }
         [Required(ErrorMessage = "Не указан вес тортика")]
-        public double CakeWeight { get; set; }
+        public double CakeWeight => 1.5;
         public string Comments { get; set; }
         [Required(ErrorMessage = "Кажется,Вы не указали дату для тортика")]
         public string ExpireDateString { get; set; }
