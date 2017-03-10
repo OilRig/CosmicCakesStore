@@ -20,7 +20,7 @@ namespace CosmicCakes.Controllers
         private readonly ISimpleCakeRepository _cakeRepository;
         private readonly IEmailSender _emailSender;
         private readonly ISmsSender _smsSender;
-        private List<CakesStartPageModel> _existingCakes;
+        private readonly List<CakesStartPageModel> _existingCakes;
 
         public CakeController(ISimpleCakeRepository simpleCakeRepository, IImageRepository imageRepository,
             IPriceIncludementRepository priceIncludementRepository, IFillingRepository fillingRepository,
@@ -52,7 +52,6 @@ namespace CosmicCakes.Controllers
             _orderRepository.Add(order);
         }
 
-        // GET: Cake
         [HttpGet]
         public ActionResult Index()
         {
@@ -77,25 +76,32 @@ namespace CosmicCakes.Controllers
         [HttpGet]
         public ActionResult CakeInfo(int id)
         {
-            var cake = _simpleCakeRepository.GetCakeById(id);
-            var infoModel = new CakeInfoModel
+            try
             {
-                Name = cake.Name,
-                KgPrice = cake.KgPrice,
-                MinWeight = cake.MinWeight,
-                MinPrice = cake.MinPrice,
-                Description = cake.Description,
-                IsLevelable = cake.IsLevelable,
-                MaxWeight = cake.MaxWeight,
-                IndividualRectangleImagesPaths = _imageRepository.GetCakeIndividualRectangleImagesByCakeId(cake.Id),
-                PriceIncludements = _priceIncludementRepository.GetAllPriceIncludementsById(id),
-                Id = cake.Id,
-                CakeOrderModel = new OrderModel()
+                var cake = _simpleCakeRepository.GetCakeById(id);
+                var infoModel = new CakeInfoModel
                 {
-                    Id = cake.Id
-                }
-            };
-            return View(infoModel);
+                    Name = cake.Name,
+                    KgPrice = cake.KgPrice,
+                    MinWeight = cake.MinWeight,
+                    MinPrice = cake.MinPrice,
+                    Description = cake.Description,
+                    IsLevelable = cake.IsLevelable,
+                    MaxWeight = cake.MaxWeight,
+                    IndividualRectangleImagesPaths = _imageRepository.GetCakeIndividualRectangleImagesByCakeId(cake.Id),
+                    PriceIncludements = _priceIncludementRepository.GetAllPriceIncludementsById(id),
+                    Id = cake.Id,
+                    CakeOrderModel = new OrderModel()
+                    {
+                        Id = cake.Id
+                    }
+                };
+                return View(infoModel);
+            }
+            catch (Exception)
+            {
+                return View("Error");
+            }   
         }
 
         [HttpPost]
