@@ -142,6 +142,7 @@ namespace CosmicCakes.Controllers
                     Id = cake.Id,
                     CakeOrderModel = model
                 };
+                ModelState.AddModelError(string.Empty,"Не все обязательные поля были заполнены");
                 return View("CakeInfo", infoModel);
             }
         }
