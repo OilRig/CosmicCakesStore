@@ -7,7 +7,7 @@
         </div>
         <div class="col-md-6">
             @Html.TextBoxFor(m => m.CustomerName, htmlAttributes: new { placeholder = "Имя", @data_placement = "right", @data_toggle = "tooltip" ,type = "text" ,@class="form-control", @title="Как вас зовут?"  })
-            @Html.ValidationMessageFor(m => m.CustomerName)
+            <p style="color: red;">@Html.ValidationMessageFor(m => m.CustomerName)</p>
         </div>
     </div>
             <div class="row" style="margin-top:30px;">
@@ -16,7 +16,7 @@
                 </div>
                 <div class="col-md-6">
                     @Html.TextBoxFor(m => m.CustomerPhoneNumber, htmlAttributes: new { data_placement = "right", data_toggle = "tooltip", type = "tel", @class = "form-control", title = "Ваш номер(без 8)" })
-                    @Html.ValidationMessageFor(m => m.CustomerPhoneNumber)
+                    <p style="color: red;">@Html.ValidationMessageFor(m => m.CustomerPhoneNumber)</p>
                 </div>
             </div>
             <div class="row" style="margin-top:30px;">
@@ -25,7 +25,7 @@
                 </div>
                 <div class="col-md-6">
                     @Html.TextBoxFor(m => m.CakeWeight, htmlAttributes: new { placeholder = "Вес", data_placement = "right", data_toggle = "tooltip", @class = "form-control", title = "Вес тортика в кг." })
-                    @Html.ValidationMessageFor(m => m.CakeWeight)
+                    <p style="color: red;">@Html.ValidationMessageFor(m => m.CakeWeight)</p>
                 </div>
             </div>
             <div class="row" style="margin-top:30px;">
@@ -33,7 +33,8 @@
                     <label>Дата,на которую нужен тортик</label>
                 </div>
                 <div class="col-md-6">
-                    <input placeholder="Дата" id="datePicker" data-placement="right" name="ExpireDate" data-toggle="tooltip" type="text" class="form-control" title="К какому дню нужен торт?" />
+                    <input placeholder="Дата" id="datePicker" data-placement="right" name="ExpireDateString" data-toggle="tooltip" type="text" class="form-control" title="К какому дню нужен торт?" />
+                    <p style="color: red;">@Html.ValidationMessageFor(m => m.ExpireDateString)</p>
                 </div>
             </div>
 
@@ -42,7 +43,7 @@
                     <label>Комментарий к заказу</label>
                 </div>
                 <div class="col-md-6">
-                    <textarea data-placement="right" data-toggle="tooltip" placeholder="Ваш комментарий..." name="Comments" class="form-control" title="Пока мы дорабатываем сайт,оставляйте все свои пожелания здесь"></textarea>
+                    <textarea data-placement="right" data-toggle="tooltip" placeholder="Ваш комментарий..." name="Comments" class="form-control" title="Оставляйте все свои пожелания здесь"></textarea>
                 </div>
             </div>
 

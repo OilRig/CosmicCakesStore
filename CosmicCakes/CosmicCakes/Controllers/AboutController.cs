@@ -8,7 +8,7 @@ namespace CosmicCakes.Controllers
 {
     public class AboutController : Controller
     {
-        // GET: About
+        [HttpGet]
         public ActionResult Index()
         {
             return View();

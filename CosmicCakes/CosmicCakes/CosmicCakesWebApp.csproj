@@ -61,6 +61,10 @@
       <HintPath>..\packages\Nemiro.OAuth.1.12\lib\net461\Nemiro.OAuth.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
       <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
       <Private>True</Private>
@@ -142,11 +146,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
@@ -156,6 +155,7 @@
     <Compile Include="Controllers\CakePartController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\AppServiceController.cs" />
     <Compile Include="Controllers\PriceController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -263,6 +263,7 @@
     <Content Include="fonts\Pushkin.otf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\cakeNameHoverProcessor.js" />
+    <Content Include="Scripts\dateProccessor.js" />
     <Content Include="Scripts\imageAutomaticSlider.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -289,8 +290,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\About\Index.cshtml" />
     <Content Include="Views\Cake\Index.cshtml" />
@@ -300,6 +299,9 @@
     <Content Include="Views\Error\PageNotFound.cshtml" />
     <Content Include="Views\Price\MakeOrder.cshtml" />
     <Content Include="Views\Shared\CakeOrder.partial.cshtml" />
+    <Content Include="Views\Shared\SuccessOrder.cshtml" />
+    <Content Include="Views\Error\Error500.cshtml" />
+    <Content Include="Views\Error\General.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -308,6 +310,7 @@
     <Folder Include="Content\Images\GingerBreadCake\Individual\MainPage\" />
     <Folder Include="Content\Images\GingerBreadCake\Individual\Preview\" />
     <Folder Include="Content\Images\GingerBreadCake\StartPage\" />
+    <Folder Include="Views\IAppService\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -329,6 +332,10 @@
     <ProjectReference Include="..\CosmicCakes.Ninject\CosmicCakes.Ninject.csproj">
       <Project>{C049EA35-23FD-47A0-92B3-207398871FE9}</Project>
       <Name>CosmicCakes.Ninject</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CosmicCakes.Services\CosmicCakes.Services.csproj">
+      <Project>{F07570B4-9B03-4E9E-A38C-10EFEC68B030}</Project>
+      <Name>CosmicCakes.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

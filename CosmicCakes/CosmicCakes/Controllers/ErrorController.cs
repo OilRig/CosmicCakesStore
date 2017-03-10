@@ -1,15 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 
 namespace CosmicCakes.Controllers
 {
     public class ErrorController : Controller
     {
-        // GET: Error
+        [HttpGet]
         public ActionResult PageNotFound()
+        {
+            return View();
+        }
+        [HttpGet]
+        public ActionResult Error500()
+        {
+            return View();
+        }
+        [HttpGet]
+        public ActionResult General()
         {
             return View();
         }
