@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.Globalization;
 
 namespace CosmicCakes.Models
 {
@@ -15,10 +16,12 @@ namespace CosmicCakes.Models
         public double CakeWeight { get; set; }
         public string Comments { get; set; }
         [Required(ErrorMessage = "Кажется,Вы не указали дату для тортика")]
-        public DateTime ExpireDate { get; set; }
+        public string ExpireDateString { get; set; }
+        public DateTime ExpireDate => DateTime.ParseExact(ExpireDateString, "MM/dd/yyyy", CultureInfo.InstalledUICulture);
         public override string ToString()
         {
             return string.Format($"Заказ от: {CustomerName} \nТелефон: {CustomerPhoneNumber} \nДата: {ExpireDate.ToShortDateString()} \nТорт: {CakeName}\nВес: {CakeWeight} кг \nКомментарий: {Comments}");
         }
+
     }
 }

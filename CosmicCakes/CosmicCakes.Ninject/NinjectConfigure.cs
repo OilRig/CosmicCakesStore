@@ -3,6 +3,7 @@ using CosmicCakes.DAL.Repositories;
 using CosmicCakes.Logging.Interfaces;
 using CosmicCakes.Logging.Loggers;
 using CosmicCakes.Services.EmailService;
+using CosmicCakes.Services.SmsService;
 using Ninject.Modules;
 
 
@@ -25,6 +26,7 @@ namespace CosmicCakes.Ninject
             Bind<IAppLogger>().To<NLogLogger>();
             //Services
             Bind<IEmailSender>().To<EmailSender>();
+            Bind<ISmsSender>().To<SmsSender>();
         }
     }
 }
