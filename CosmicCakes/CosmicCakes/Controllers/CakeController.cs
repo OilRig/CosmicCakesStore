@@ -6,10 +6,11 @@ using CosmicCakes.Services.SmsService;
 using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
+using CosmicCakes.Logging.Interfaces;
 
 namespace CosmicCakes.Controllers
 {
-    public class CakeController : Controller
+    public class CakeController : AppServiceController
     {
         private readonly ISimpleCakeRepository _simpleCakeRepository;
         private readonly IImageRepository _imageRepository;
@@ -18,14 +19,14 @@ namespace CosmicCakes.Controllers
         private readonly IBisquitRepository _bisquitRepository;
         private readonly IOrderRepository _orderRepository;
         private readonly ISimpleCakeRepository _cakeRepository;
-        private readonly IEmailSender _emailSender;
-        private readonly ISmsSender _smsSender;
+       
+       
         private readonly List<CakesStartPageModel> _existingCakes;
 
         public CakeController(ISimpleCakeRepository simpleCakeRepository, IImageRepository imageRepository,
             IPriceIncludementRepository priceIncludementRepository, IFillingRepository fillingRepository,
             IBisquitRepository bisquitRepository, IOrderRepository orderRepo, ISimpleCakeRepository cakeRepository,
-            IEmailSender emailSender, ISmsSender smsSender)
+            IEmailSender emailSender, ISmsSender smsSender, IAppLogger logger):base(logger,emailSender,smsSender)
         {
             _simpleCakeRepository = simpleCakeRepository;
             _imageRepository = imageRepository;
@@ -34,8 +35,6 @@ namespace CosmicCakes.Controllers
             _bisquitRepository = bisquitRepository;
             _orderRepository = orderRepo;
             _cakeRepository = cakeRepository;
-            _emailSender = emailSender;
-            _smsSender = smsSender;
             _existingCakes = new List<CakesStartPageModel>();
         }
 
@@ -55,22 +54,31 @@ namespace CosmicCakes.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            var cakes = _simpleCakeRepository.GetExistingCakes();
-            foreach (var cake in cakes)
+            try
             {
-                _existingCakes.Add(new CakesStartPageModel
+                var cakes = _simpleCakeRepository.GetExistingCakes();
+                foreach (var cake in cakes)
                 {
-                    Id = cake.Id,
-                    Description = cake.Description,
-                    Name = cake.Name,
-                    KgPrice = cake.KgPrice,
-                    MinWeight = cake.MinWeight,
-                    MinPrice = cake.MinPrice,
-                    BackgroundImagePath = cake.BackgroundImagePath,
-                    ImagePaths = _imageRepository.GetAllImagePathsByCakeId(cake.Id)
-                });
+                    _existingCakes.Add(new CakesStartPageModel
+                    {
+                        Id = cake.Id,
+                        Description = cake.Description,
+                        Name = cake.Name,
+                        KgPrice = cake.KgPrice,
+                        MinWeight = cake.MinWeight,
+                        MinPrice = cake.MinPrice,
+                        BackgroundImagePath = cake.BackgroundImagePath,
+                        ImagePaths = _imageRepository.GetAllImagePathsByCakeId(cake.Id)
+                    });
+                }
+                return View(_existingCakes);
             }
-            return View(_existingCakes);
+            catch (Exception ex)
+            {
+                Logger.Error(ex,$"Cake/Index:{ex.Message}");
+                return View("Error");
+            }
+            
         }
 
         [HttpGet]
@@ -98,8 +106,9 @@ namespace CosmicCakes.Controllers
                 };
                 return View(infoModel);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Logger.Error(ex, $"Cake/CakeInfo:Id {id}");
                 return View("Error");
             }   
         }
@@ -108,15 +117,15 @@ namespace CosmicCakes.Controllers
         public ActionResult MakeOrder(OrderModel model)
         {
             model.CakeName = _cakeRepository.GetCakeById(model.Id).Name;
-            try
+            if (ModelState.IsValid)
             {
                 UpdateModel(model);
                 SaveOrder(model);
-                _emailSender.SendEmailOrder(model.ToString());
-                _smsSender.SendSmsOrder(model.ToString());
+                EmailSender.SendEmailOrder(model.ToString());
+                SmsSender.SendSmsOrder(model.ToString());
                 return View("SuccessOrder");
             }
-            catch (Exception)
+            else
             {
                 var cake = _simpleCakeRepository.GetCakeById(model.Id);
                 var infoModel = new CakeInfoModel

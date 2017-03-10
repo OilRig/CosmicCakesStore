@@ -153,8 +153,10 @@
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\CakeController.cs" />
     <Compile Include="Controllers\CakePartController.cs" />
+    <Compile Include="Controllers\DebugController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\AppServiceController.cs" />
     <Compile Include="Controllers\PriceController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -262,6 +264,7 @@
     <Content Include="fonts\Pushkin.otf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\cakeNameHoverProcessor.js" />
+    <Content Include="Scripts\dateProccessor.js" />
     <Content Include="Scripts\imageAutomaticSlider.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -298,6 +301,9 @@
     <Content Include="Views\Price\MakeOrder.cshtml" />
     <Content Include="Views\Shared\CakeOrder.partial.cshtml" />
     <Content Include="Views\Shared\SuccessOrder.cshtml" />
+    <Content Include="Views\Error\Error500.cshtml" />
+    <Content Include="Views\Error\General.cshtml" />
+    <Content Include="Views\Debug\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -306,6 +312,7 @@
     <Folder Include="Content\Images\GingerBreadCake\Individual\MainPage\" />
     <Folder Include="Content\Images\GingerBreadCake\Individual\Preview\" />
     <Folder Include="Content\Images\GingerBreadCake\StartPage\" />
+    <Folder Include="Views\IAppService\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

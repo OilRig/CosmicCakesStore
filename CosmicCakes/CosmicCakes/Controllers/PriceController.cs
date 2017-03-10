@@ -7,7 +7,7 @@ using System.Net.Mail;
 using System.Web.Mvc;
 
 
-namespace CosmicCakesWebApp.Controllers
+namespace CosmicCakes.Controllers
 {
     public class PriceController : Controller
     {

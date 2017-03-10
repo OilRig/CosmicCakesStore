@@ -106,16 +106,13 @@
 </div>
 <hr class="style-one" />
 
-@Html.Partial("CakeOrder.partial",Model.CakeOrderModel)
+<div class="row" style="margin-left: 100px; ">
+    @Html.Partial("CakeOrder.partial", Model.CakeOrderModel)
+</div>
+
 
 <script src="~/Scripts/mask.js" type="text/javascript"></script>
-<script>
-    (function ($) {
-        $(document).ready(function () {
-            $('#datePicker').datepicker();
-        });
-    })(jQuery);
-</script>
+<script src="/Scripts/dateProccessor.js"></script>
 
 <script>
     (function ($) {
