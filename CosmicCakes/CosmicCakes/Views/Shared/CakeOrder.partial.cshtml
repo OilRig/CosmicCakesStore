@@ -1,5 +1,5 @@
 ﻿@model CosmicCakes.Models.OrderModel
-@using (Html.BeginForm("MakeOrder", "Cake", new { Id = Model.Id }, FormMethod.Post, htmlAttributes: new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("MakeOrder", "Cake", new { Id = Model.Id }, FormMethod.Post, htmlAttributes: new { enctype = "multipart/form-data", id = "orderForm" }))
 {
     <div class="row" style="margin-top:30px;">
         <div class="col-md-2">
