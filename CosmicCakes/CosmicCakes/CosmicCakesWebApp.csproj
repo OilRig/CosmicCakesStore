@@ -153,7 +153,6 @@
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\CakeController.cs" />
     <Compile Include="Controllers\CakePartController.cs" />
-    <Compile Include="Controllers\DebugController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\AppServiceController.cs" />
@@ -240,8 +239,6 @@
     <Content Include="Content\Images\Icons\vk-icon.png" />
     <Content Include="Content\Images\Icons\wassap-logo-button.png" />
     <Content Include="Content\Images\Logo.jpg" />
-    <Content Include="Content\Images\StartPage\start_page_1.gif" />
-    <Content Include="Content\Images\StartPage\start_page_cupcake_1.jpg" />
     <Content Include="Content\Images\StartPage\start_page_cake_1.jpg" />
     <Content Include="Content\jquery-ui.css" />
     <Content Include="Content\jquery-ui.min.css" />
@@ -262,6 +259,7 @@
     <Content Include="fonts\ubuntu-condensed-v7-latin-regular.woff2" />
     <Content Include="fonts\Ubuntu-C.ttf" />
     <Content Include="fonts\Pushkin.otf" />
+    <None Include="Properties\PublishProfiles\CC.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\cakeNameHoverProcessor.js" />
     <Content Include="Scripts\dateProccessor.js" />
@@ -304,7 +302,6 @@
     <Content Include="Views\Shared\SuccessOrder.cshtml" />
     <Content Include="Views\Error\Error500.cshtml" />
     <Content Include="Views\Error\General.cshtml" />
-    <Content Include="Views\Debug\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -313,7 +310,6 @@
     <Folder Include="Content\Images\GingerBreadCake\Individual\MainPage\" />
     <Folder Include="Content\Images\GingerBreadCake\Individual\Preview\" />
     <Folder Include="Content\Images\GingerBreadCake\StartPage\" />
-    <Folder Include="Views\IAppService\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
