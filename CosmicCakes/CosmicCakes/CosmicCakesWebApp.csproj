@@ -305,8 +305,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\Images\Cupcakes\Individual\MainPage\" />
-    <Folder Include="Content\Images\Cupcakes\Individual\Preview\" />
+    <Folder Include="Content\Images\Cupcakes\Individual\Rectangle\" />
+    <Folder Include="Content\Images\Cupcakes\Individual\Square\" />
     <Folder Include="Content\Images\GingerBreadCake\Individual\MainPage\" />
     <Folder Include="Content\Images\GingerBreadCake\Individual\Preview\" />
     <Folder Include="Content\Images\GingerBreadCake\StartPage\" />

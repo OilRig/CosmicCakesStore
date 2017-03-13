@@ -15,22 +15,49 @@
 .dl-horizontal dt {
     white-space: normal;
 }
-@media all and (max-width: 1200px) { /* screen size until 1200px */
-    body {
-        font-size: 1.5em; /* 1.5x default size */
+
+/*IPhone5*/
+@media (width: 320px) {
+   
+    div#text-container a {
+        font-size: 2.0em !important; 
+        }
+    div#briefCake {
+        font-size:0.7em !important;
+    }
+    div#briefCake > p.price{
+        font-size:1.05em !important;
     }
 }
-@media all and (max-width: 1000px) { /* screen size until 1000px */
-    body {
-        font-size: 1.2em; /* 1.2x default size */
+
+@media  (width: 568px) { 
+     div#text-container a {
+        font-size: 3.5em!important; 
         }
+      div#briefCake {
+        font-size:0.9em !important;
     }
-@media all and (max-width: 500px) { /* screen size until 500px */
-    body {
-        font-size: 0.8em; /* 0.8x default size */
+       div#briefCake > p.price{
+
+    }
+}
+/*IPhone6*/
+@media (width: 667px) { 
+    div#text-container a {
+        font-size: 1em !important; 
         }
+     div#briefCake {
+        font-size:0.7em !important;
     }
-/* Set width on the form input elements since they're 100% wide by default */
+      div#briefCake > p.price{
+
+    }
+}
+
+
+
+
+
 input,
 select,
 textarea {
@@ -114,7 +141,7 @@ img.margined-right-item {
 
 .ubuntu-text-start-page {
     font-family: "Ubuntu Condensed" !important;
-    font-size: 0.875em;
+    font-size: 1.15em;
     letter-spacing: 3px;
     color: black;
 }
@@ -122,7 +149,7 @@ img.margined-right-item {
 a.ubuntu-text-start-page:hover {
     color: #9e9e9e;
     font-family: "Ubuntu Condensed" !important;
-    font-size: 0.875em;
+    font-size: 1.15em;
     letter-spacing: 4px;
     text-decoration: none;
 }
@@ -175,10 +202,6 @@ p.ubuntu-big-text {
     display: none;
 }
 
-.cake-name {
-    font-size: 1em;
-}
-
 div.centered-text > span {
     line-height: 300px;
 }
@@ -194,20 +217,20 @@ div#text-container a {
     cursor: pointer;
     color: black;
     font-family: 'Corinthia';
-    font-size: 3.484em;
+    font-size: 8em;
 }
 
 div#text-container a:hover {
         transition:2s;
     text-decoration: none;
     cursor: pointer;
-    font-size: 3.484em;
+    font-size: 8.3em;
 }
 
 div#briefCake {
     transition:2s;
     font-family: "Ubuntu Condensed";
-    font-size: 1.000em;
+    font-size: 1em;
     letter-spacing: 1px;
 }
 
@@ -215,7 +238,7 @@ div#briefCake > p.price {
     transition:2s;
     color: grey;
     font-family: "Ubuntu Condensed";
-    font-size: 1.125em;
+    font-size: 1.6em;
     letter-spacing: 1px;
 }
 
@@ -231,13 +254,13 @@ div.cakeInfoSet a {
 
 div.cakeInfoSet div#briefCake {
     transition: 1s;
-    font-size: 1.188em;
+    font-size: 1em;
     color: white !important;
 }
 
 div.cakeInfoSet:hover div#briefCake > p.price {
     transition: 1s;
-    font-size: 1.188em;
+    font-size: 1.6em;
     color: white !important;
 }
 
@@ -287,7 +310,6 @@ hr.style-three {
   background-image: -moz-linear-gradient(left, #9e9e9e, #cbcbcb, #f0f0f0);
   background-image: -ms-linear-gradient(left, #9e9e9e, #cbcbcb, #f0f0f0);
   background-image: -o-linear-gradient(left, #9e9e9e, #cbcbcb, #f0f0f0); 
-  margin-top:0;
 }
 
 hr.style-two {
