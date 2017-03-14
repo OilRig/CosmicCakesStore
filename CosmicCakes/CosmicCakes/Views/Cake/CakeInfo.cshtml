@@ -5,15 +5,9 @@
     var itemActivator = 0;
     var indicatorCounter = 0;
 }
-
-<div class="row">
-    <div class="col-md-12">      
-            <span>@Html.ValidationSummary(true, "", new { @class = "text-danger" })</span>
-    </div>
-</div>
 <div class="row century-gothic-text" style="margin-top:30px;">
 
-<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+<div class="col-sm-6">
     <div id="CakeCarousel" class="carousel slide" data-ride="carousel" style="width: 80%; margin: 0 auto">
         
         <ol class="carousel-indicators">
@@ -66,7 +60,7 @@
     <br />
 </div>
 
-<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 cake-info-font-size">
+<div class="col-sm-6 cake-info-font-size">
     <div class="centered-text-heading">@Model.Name</div>
     <br />
     <div style="font-family:'Open Sans',sans-serif;font-size:13px;">
@@ -100,7 +94,7 @@
 <br/>
        <br/>
 <div class="row">
-    <div class="col-md-12">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <div class="justified-text century-gothic-text">
             Каждый торт упакован в красивую коробку и украшен лентой.
             Также вы можете выбрать топпер на торт - табличку с пожеланиями, отличная замена шоколадной надписи на торте, смотрится более эффектно (:<br />
@@ -111,8 +105,10 @@
 </div>
 <hr class="style-one" />
 
-<div class="row" style="margin-left: 100px; ">
-    @Html.Partial("CakeOrder.partial", Model.CakeOrderModel)
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        @Html.Partial("CakeOrder.partial", Model.CakeOrderModel)
+    </div>
 </div>
 
 

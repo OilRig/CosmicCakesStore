@@ -2,53 +2,53 @@
 @using (Html.BeginForm("MakeOrder", "Cake", new { Id = Model.Id }, FormMethod.Post, htmlAttributes: new { enctype = "multipart/form-data", id = "orderForm" }))
 {
     <div class="row" style="margin-top:30px;">
-        <div class="col-md-2">
+        <div class="col-sm-2">
             <label>Имя</label>
         </div>
-        <div class="col-md-6">
+        <div class="col-sm-6">
             @Html.TextBoxFor(m => m.CustomerName, htmlAttributes: new { placeholder = "Имя", @data_placement = "right", @data_toggle = "tooltip" ,type = "text" ,@class="form-control", @title="Как вас зовут?"  })
             <p style="color: red;">@Html.ValidationMessageFor(m => m.CustomerName)</p>
         </div>
     </div>
             <div class="row" style="margin-top:30px;">
-                <div class="col-md-2">
+                <div class="col-sm-2">
                     <label>Телефон</label>
                 </div>
-                <div class="col-md-6">
+                <div class="col-sm-6">
                     @Html.TextBoxFor(m => m.CustomerPhoneNumber, htmlAttributes: new { data_placement = "right", data_toggle = "tooltip", type = "tel", @class = "form-control", title = "Ваш номер(без 8)" })
                     <p style="color: red;">@Html.ValidationMessageFor(m => m.CustomerPhoneNumber)</p>
                 </div>
             </div>
             <div class="row" style="margin-top:30px;">
-                <div class="col-md-2">
+                <div class="col-sm-2">
                     <label>Вес торта</label>
                 </div>
-                <div class="col-md-6">
+                <div class="col-sm-6">
                     @Html.TextBoxFor(m => m.CakeWeight, htmlAttributes: new { placeholder = "Вес", data_placement = "right", data_toggle = "tooltip", @class = "form-control", title = "Вес тортика в кг." })
                     <p style="color: red;">@Html.ValidationMessageFor(m => m.CakeWeight)</p>
                 </div>
             </div>
             <div class="row" style="margin-top:30px;">
-                <div class="col-md-2">
+                <div class="col-sm-2">
                     <label>Дата,на которую нужен тортик</label>
                 </div>
-                <div class="col-md-6">
+                <div class="col-sm-6">
                     <input placeholder="Дата" id="datePicker" data-placement="right" name="ExpireDateString" data-toggle="tooltip" type="text" class="form-control" title="К какому дню нужен торт?" />
                     <p style="color: red;">@Html.ValidationMessageFor(m => m.ExpireDateString)</p>
                 </div>
             </div>
 
             <div class="row" style="margin-top:30px;">
-                <div class="col-md-2">
+                <div class="col-sm-2">
                     <label>Комментарий к заказу</label>
                 </div>
-                <div class="col-md-6">
+                <div class="col-sm-6">
                     <textarea data-placement="right" data-toggle="tooltip" placeholder="Ваш комментарий..." name="Comments" class="form-control" title="Оставляйте все свои пожелания здесь"></textarea>
                 </div>
             </div>
 
             <div class="row" style="margin-top:30px;">
-                <div class="col-md-offset-2 col-md-6">
+                <div class="col-sm-offset-2 col-sm-6">
                     <button class="btn btn-default make-order-button" type="submit">Хочу этот тортик</button>
                 </div>
             </div>

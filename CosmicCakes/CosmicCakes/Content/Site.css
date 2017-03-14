@@ -16,21 +16,11 @@
     white-space: normal;
 }
 
-/*IPhone5*/
-@media (width: 320px) {
-   
-    div#text-container a {
-        font-size: 2.0em !important; 
-        }
-    div#briefCake {
-        font-size:0.7em !important;
-    }
-    div#briefCake > p.price{
-        font-size:1.05em !important;
-    }
-}
-
-@media  (width: 568px) { 
+/*iPhone 5 & 5S in landscape*/
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 568px) 
+and (orientation : landscape) { 
      div#text-container a {
         font-size: 3.5em!important; 
         }
@@ -41,20 +31,120 @@
 
     }
 }
-/*IPhone6*/
-@media (width: 667px) { 
-    div#text-container a {
-        font-size: 1em !important; 
+
+/*iPhone 5 & 5S in portrait*/
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 568px) 
+and (orientation : portrait) { 
+     div#text-container a {
+        font-size: 2.0em !important; 
         }
-     div#briefCake {
+    div#briefCake {
         font-size:0.7em !important;
     }
-      div#briefCake > p.price{
-
+    div#briefCake > p.price{
+        font-size:1.05em !important;
     }
 }
 
 
+/*iPhone 6 in landscape*/
+@media only screen 
+and (min-device-width : 375px) 
+and (max-device-width : 667px) 
+and (orientation : landscape) { 
+      div#text-container a {
+        font-size: 4em !important; 
+        }
+      div#briefCake {
+        font-size:1em !important;
+    }
+       div#briefCake > p.price{
+           font-size:2em !important;
+    }
+}
+
+/*iPhone 6 in portrait*/
+@media only screen 
+and (min-device-width : 375px) 
+and (max-device-width : 667px) 
+and (orientation : portrait) { 
+
+     div#text-container a {
+        font-size: 2.0em !important; 
+        }
+    div#briefCake {
+        font-size:0.7em !important;
+    }
+    div#briefCake > p.price{
+        font-size:1.5em !important;
+    }
+}
+
+/*iPhone 6 Plus in landscape*/
+@media only screen 
+and (min-device-width : 414px) 
+and (max-device-width : 736px) 
+and (orientation : landscape) { 
+     div#text-container a {
+        font-size: 5em !important; 
+        }
+      div#briefCake {
+        font-size:1em !important;
+    }
+       div#briefCake > p.price{
+           font-size:2em !important;
+    }
+}
+
+/*iPhone 6 Plus in portrait*/
+@media only screen 
+and (min-device-width : 414px) 
+and (max-device-width : 736px) 
+and (orientation : portrait) { 
+     div#text-container a {
+        font-size: 2.5em !important; 
+        }
+    div#briefCake {
+        font-size:0.7em !important;
+    }
+    div#briefCake > p.price{
+        font-size:1.5em !important;
+    }
+}
+
+/*iPad in landscape*/
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : landscape) { 
+    div#text-container a {
+        font-size: 6em !important; 
+        }
+      div#briefCake {
+        font-size:1.3em  !important;
+    }
+       div#briefCake > p.price{
+           font-size:1.5em !important;
+    }
+}
+
+/*iPad in portrait*/
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : portrait) { 
+     div#text-container a {
+        font-size: 4.5em !important; 
+        }
+    div#briefCake {
+        font-size:1em !important;
+    }
+    div#briefCake > p.price{
+        font-size:1.5em !important;
+    }
+}
 
 
 
