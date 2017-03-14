@@ -171,6 +171,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\datePicker.css" />
     <Content Include="Content\datePicker.min.js" />
+    <Content Include="Content\Images\61032.svg" />
     <Content Include="Content\Images\AquarelCake\Individual\Rectangle\aq_cake_rect_1.jpg" />
     <Content Include="Content\Images\AquarelCake\Individual\Rectangle\aq_cake_rect_2.jpg" />
     <Content Include="Content\Images\AquarelCake\Individual\Rectangle\aq_cake_rect_3.jpg" />
@@ -240,6 +241,13 @@
     <Content Include="Content\Images\Icons\wassap-logo-button.png" />
     <Content Include="Content\Images\Logo.jpg" />
     <Content Include="Content\Images\StartPage\start_page_cake_1.jpg" />
+    <Content Include="Content\Images\StartPage\start_page_cake_2.jpg" />
+    <Content Include="Content\Images\StartPage\start_page_cake_2frst.jpg" />
+    <Content Include="Content\Images\StartPage\start_page_cake_2scnd.jpg" />
+    <Content Include="Content\Images\StartPage\start_page_cake_2_2.jpg" />
+    <Content Include="Content\Images\StartPage\start_page_cake_3.jpg" />
+    <Content Include="Content\Images\StartPage\start_page_cake_4.jpg" />
+    <Content Include="Content\Images\StartPage\start_page_welcome_img.jpg" />
     <Content Include="Content\jquery-ui.css" />
     <Content Include="Content\jquery-ui.min.css" />
     <Content Include="Content\jquery-ui.structure.css" />
@@ -259,6 +267,7 @@
     <Content Include="fonts\ubuntu-condensed-v7-latin-regular.woff2" />
     <Content Include="fonts\Ubuntu-C.ttf" />
     <Content Include="fonts\Pushkin.otf" />
+    <Content Include="fonts\Billabong.ttf" />
     <None Include="Properties\PublishProfiles\CC.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\cakeNameHoverProcessor.js" />
@@ -279,7 +288,9 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
