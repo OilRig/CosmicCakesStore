@@ -17,7 +17,7 @@ namespace CosmicCakesWebApp
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<CakeContext, Configuration>("Cakes"));
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<CakeContext, Configuration>("DefaultConnection"));
 
         }
 
