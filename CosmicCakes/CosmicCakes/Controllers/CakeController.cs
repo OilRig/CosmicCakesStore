@@ -1,12 +1,12 @@
 ﻿using CosmicCakes.DAL.Entities;
 using CosmicCakes.DAL.Interfaces;
+using CosmicCakes.Logging.Interfaces;
 using CosmicCakes.Models;
 using CosmicCakes.Services.EmailService;
 using CosmicCakes.Services.SmsService;
 using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
-using CosmicCakes.Logging.Interfaces;
 
 namespace CosmicCakes.Controllers
 {
@@ -19,14 +19,14 @@ namespace CosmicCakes.Controllers
         private readonly IBisquitRepository _bisquitRepository;
         private readonly IOrderRepository _orderRepository;
         private readonly ISimpleCakeRepository _cakeRepository;
-       
-       
+
+
         private readonly List<CakesStartPageModel> _existingCakes;
 
         public CakeController(ISimpleCakeRepository simpleCakeRepository, IImageRepository imageRepository,
             IPriceIncludementRepository priceIncludementRepository, IFillingRepository fillingRepository,
             IBisquitRepository bisquitRepository, IOrderRepository orderRepo, ISimpleCakeRepository cakeRepository,
-            IEmailSender emailSender, ISmsSender smsSender, IAppLogger logger):base(logger,emailSender,smsSender)
+            IEmailSender emailSender, ISmsSender smsSender, IAppLogger logger) : base(logger, emailSender, smsSender)
         {
             _simpleCakeRepository = simpleCakeRepository;
             _imageRepository = imageRepository;
@@ -75,10 +75,11 @@ namespace CosmicCakes.Controllers
             }
             catch (Exception ex)
             {
-                Logger.Error(ex,$"Cake/Index:{ex.Message}");
+                Logger.Error(ex, $"Cake/Index:{ex.Message}");
+                SmsSender.SendSmsOrder(ex.Message);
                 return View("Error");
             }
-            
+
         }
 
         [HttpGet]
@@ -110,7 +111,7 @@ namespace CosmicCakes.Controllers
             {
                 Logger.Error(ex, $"Cake/CakeInfo:Id {id}");
                 return View("Error");
-            }   
+            }
         }
 
         [HttpPost]
@@ -142,7 +143,7 @@ namespace CosmicCakes.Controllers
                     Id = cake.Id,
                     CakeOrderModel = model
                 };
-                ModelState.AddModelError(string.Empty,"Не все обязательные поля были заполнены");
+                ModelState.AddModelError(string.Empty, "Не все обязательные поля были заполнены");
                 return View("CakeInfo", infoModel);
             }
         }

@@ -268,6 +268,7 @@
     <Content Include="fonts\Ubuntu-C.ttf" />
     <Content Include="fonts\Pushkin.otf" />
     <Content Include="fonts\Billabong.ttf" />
+    <Content Include="fonts\4256.ttf" />
     <None Include="Properties\PublishProfiles\CC.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\cakeNameHoverProcessor.js" />

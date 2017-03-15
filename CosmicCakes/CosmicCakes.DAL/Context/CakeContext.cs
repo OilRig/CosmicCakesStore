@@ -1,4 +1,5 @@
 using CosmicCakes.DAL.Entities;
+using CosmicCakes.DAL.Migrations;
 using System.Data.Entity;
 
 namespace CosmicCakes.DAL
@@ -9,6 +10,7 @@ namespace CosmicCakes.DAL
         public CakeContext()
             : base("Cakes")
         {
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<CakeContext, Configuration>("Cakes"));
 
         }
 

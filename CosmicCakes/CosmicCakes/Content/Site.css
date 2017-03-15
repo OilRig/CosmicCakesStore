@@ -248,6 +248,11 @@ img.margined-right-item {
     url(/fonts/Pushkin.otf);
     /*url(/fonts/ubuntu-condensed-v7-latin-regular.svg) format('svg');*/
 }
+@font-face {
+    font-family:Corinthia;
+    src:local('Corinthia'),
+        url(/fonts/4256.ttf);
+}
 
 .ubuntu-text {
     font-family: "Ubuntu Condensed";
