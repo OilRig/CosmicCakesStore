@@ -7,7 +7,7 @@ namespace CosmicCakes.DAL
     public class CakeContext : DbContext
     {
         public CakeContext()
-            : base("DefaultConnection")
+            : base("Cakes")
         {
 
         }
