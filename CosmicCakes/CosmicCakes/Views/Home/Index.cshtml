@@ -1,13 +1,16 @@
 ﻿@{
     Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.MetaKeyWords = "Cosmicakes,торт,заказать,Нора,Голубева,Nora,Golubeva,на,спб,санкт-петербург,дешево,капкейки,кондитер,ягода,cosmic,cakes,оформить,кондитерская";
+    ViewBag.Description = "Добро пожаловть на главную страницу кондитерского мира Cosmic Cakes. Будет вкусно!";
+    ViewBag.Title = "Cosmic Cakes - Домашняя страница";
 }
 
 
 <div class="row" style="margin-top: 25px;">
-    <div class="col-xs-3 col-md-3 col-lg-3"><img src="~/Content/Images/StartPage/start_page_cake_1.jpg" class="img-responsive" /></div>
-    <div class="col-xs-3 col-md-3 col-lg-3"><img src="~/Content/Images/StartPage/start_page_cake_2_2.jpg" class="img-responsive" /></div>
-    <div class="col-xs-3 col-md-3 col-lg-3"><img src="~/Content/Images/StartPage/start_page_cake_3.jpg" class="img-responsive" /></div>
-    <div class="col-xs-3 col-md-3 col-lg-3"><img src="~/Content/Images/StartPage/start_page_cake_4.jpg" class="img-responsive" /></div>
+    <div class="col-xs-3 col-md-3 col-lg-3"><img src="~/Content/Images/StartPage/start_page_cake_1.jpg" class="img-responsive" alt="Торт на заказ от Cosmic Cakes" /></div>
+    <div class="col-xs-3 col-md-3 col-lg-3"><img src="~/Content/Images/StartPage/start_page_cake_2_2.jpg" class="img-responsive" alt="Капкейки на заказ от Cosmic Cakes" /></div>
+    <div class="col-xs-3 col-md-3 col-lg-3"><img src="~/Content/Images/StartPage/start_page_cake_3.jpg" class="img-responsive" alt="Заказ на сайте Cosmic Cakes" /></div>
+    <div class="col-xs-3 col-md-3 col-lg-3"><img src="~/Content/Images/StartPage/start_page_cake_4.jpg" class="img-responsive" alt="Бисквиты, начинки и крема от Cosmic Cakes" /></div>
 </div>
 
 <div class="row">
@@ -26,7 +29,7 @@
         <p class="instagram-logo">Instagram</p>
         <p class="instagram-nickname">@@cosmicakes</p>
             <iframe id="insta" src="https://snapwidget.com/embed/342438" class="snapwidget-widget" allowTransparency="true" frameborder="0" scrolling="no"></iframe>
-            <script src="https://snapwidget.com/js/snapwidget.js"></script>
+            <script src="https://snapwidget.com/js/snapwidget.js" async></script>
     </div>
     <div class="col-sm-6 centered-text">
         <p class="instagram-logo">Welcome</p>
@@ -36,7 +39,7 @@
             +7 (906) 255 88 10<br />
             golubevanora1@gmail.com 
          </p>
-       <img src="~/Content/Images/StartPage/start_page_welcome_img.jpg"style="margin-bottom:27px;margin-top:15px;"/>
+       <img src="~/Content/Images/StartPage/start_page_welcome_img.jpg"style="margin-bottom:27px;margin-top:15px;" alt="Добро пожаловать в Cosmic Cakes"/>
         <a href="@Url.Action("Index","Cake")" class="btn btn-default want-cake-button">ХОЧУ ТОРТ</a>
     </div>
 </div>
