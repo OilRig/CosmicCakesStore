@@ -22,6 +22,7 @@ namespace CosmicCakes.Ninject
             Bind<ISimpleCakeRepository>().To<SimpleCakeRepository>();
             Bind<IImageRepository>().To<ImageRepository>();
             Bind<IPriceIncludementRepository>().To<PriceIncludementsRepository>();
+            Bind<IBlogRepository>().To<BlogRepository>();
             //Loggers
             Bind<IAppLogger>().To<NLogLogger>();
             //Services

@@ -1,0 +1,44 @@
+﻿@model CosmicakesControlWebApp.Models.PostModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <p>Новая запись в блог</p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        @using (Html.BeginForm("SavePost", "Blog", FormMethod.Post, htmlAttributes: new { enctype = "multipart/form-data", id = "orderForm" }))
+        {
+            <div class="row">
+                <div class="col-sm-3">
+                    <label>Автор:</label>
+                </div>
+                <div class="col-sm-8">
+                    @Html.TextBoxFor(m => m.Author, new {@class = "form-control" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3">
+                    <label>Тема:</label>
+                </div>
+                <div class="col-sm-8">
+                    @Html.TextBoxFor(m => m.Theme, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3">
+                    <label>Пост:</label>
+                </div>
+                <div class="col-sm-8">
+                    @Html.TextBoxFor(m => m.Content, new { @class = "form-control" })
+                </div>
+            </div>
+            <button type="submit" class="btn btn-default">Отправить</button>
+        }
+    </div>
+</div>
+

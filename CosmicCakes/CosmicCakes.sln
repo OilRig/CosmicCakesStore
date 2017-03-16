@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CosmicCakesWebApp", "CosmicCakes\CosmicCakesWebApp.csproj", "{1127E7A1-28D1-433C-A8F0-43E5478AD827}"
 EndProject
@@ -12,6 +12,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CosmicCakes.Logging", "CosmicCakes.Logging\CosmicCakes.Logging.csproj", "{89A3E8D9-77DC-44A0-8AB4-952531DF1068}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CosmicCakes.Services", "CosmicCakes.Services\CosmicCakes.Services.csproj", "{F07570B4-9B03-4E9E-A38C-10EFEC68B030}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CosmicakesControlWebApp", "CosmicakesControlWebApp\CosmicakesControlWebApp.csproj", "{27FD087A-BD72-42C0-BE65-369A447AB6AA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{F07570B4-9B03-4E9E-A38C-10EFEC68B030}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F07570B4-9B03-4E9E-A38C-10EFEC68B030}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F07570B4-9B03-4E9E-A38C-10EFEC68B030}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27FD087A-BD72-42C0-BE65-369A447AB6AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27FD087A-BD72-42C0-BE65-369A447AB6AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27FD087A-BD72-42C0-BE65-369A447AB6AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27FD087A-BD72-42C0-BE65-369A447AB6AA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -29,5 +29,7 @@ namespace CosmicCakes.DAL
         //priceIncludements section
         public virtual DbSet<IndividualPriceIncludement> IndividualCakePriceIncludements { get; set; }
 
+        //Blog section
+        public virtual DbSet<BlogPost> BlogPosts { get; set; }
     }
 }
