@@ -74,6 +74,10 @@
                 var cakeId = $(this).data("cakeid");
                 window.location.href = "/Cake/CakeInfo/" + cakeId;
             });
+            if(!Modernizr.touch)
+            {
+                $('div#text-container').css('margin-top', '50px');
+            }
         });
     })
         (jQuery);
