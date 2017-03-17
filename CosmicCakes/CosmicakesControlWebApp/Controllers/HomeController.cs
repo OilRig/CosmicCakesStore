@@ -2,6 +2,7 @@
 
 namespace CosmicakesControlWebApp.Controllers
 {
+
     public class HomeController : Controller
     {
         [HttpGet]
