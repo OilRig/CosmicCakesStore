@@ -31,5 +31,8 @@ namespace CosmicCakes.DAL
 
         //Blog section
         public virtual DbSet<BlogPost> BlogPosts { get; set; }
+
+        //Feedbacks
+        public virtual DbSet<UserFeedback> UserFeedbacks { get; set; }
     }
 }

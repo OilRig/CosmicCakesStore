@@ -7,13 +7,13 @@ namespace CosmicCakes.DAL.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class BackgroundImages : IMigrationMetadata
+    public sealed partial class FinalMIgrationV1 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(BackgroundImages));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(FinalMIgrationV1));
         
         string IMigrationMetadata.Id
         {
-            get { return "201702040955417_BackgroundImages"; }
+            get { return "201703170906445_FinalMIgrationV1"; }
         }
         
         string IMigrationMetadata.Source
