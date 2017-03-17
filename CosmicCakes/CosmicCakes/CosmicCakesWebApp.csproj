@@ -151,6 +151,7 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AboutController.cs" />
+    <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\CakeController.cs" />
     <Compile Include="Controllers\CakePartController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
@@ -161,6 +162,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\BlogItemsModel.cs" />
     <Compile Include="Models\CakeInfoModel.cs" />
     <Compile Include="Models\CakePartsModel.cs" />
     <Compile Include="Models\CakesStartPageModel.cs" />
@@ -316,6 +318,7 @@
     <Content Include="Views\Shared\SuccessOrder.cshtml" />
     <Content Include="Views\Error\Error500.cshtml" />
     <Content Include="Views\Error\General.cshtml" />
+    <Content Include="Views\Blog\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

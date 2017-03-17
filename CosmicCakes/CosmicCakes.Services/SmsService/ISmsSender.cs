@@ -2,6 +2,6 @@
 {
     public interface ISmsSender
     {
-        void SendSmsOrder(string message);
+        void SendSmsOrder(string message, bool error = false);
     }
 }
