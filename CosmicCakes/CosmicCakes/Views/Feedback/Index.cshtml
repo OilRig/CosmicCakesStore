@@ -9,16 +9,26 @@
         <p>Отзывы о нас</p>
     </div>
 </div>
-@foreach (var feedback in Model.UserFeedbacks)
+@if (Model.UserFeedbacks.Any())
 {
-    <div class="row" style="margin-top:50px;">
-        <div class="col-md-12 centerd-content"><label>@feedback.Author</label></div>
-    </div>
-    <div class="row">
-        <div class="col-md-12"><label>@feedback.Content</label></div>
-    </div>
-    <hr class="style-one" />
+    foreach (var feedback in Model.UserFeedbacks)
+    {
+        <div class="row" style="margin-top:50px;">
+            <div class="col-md-12 centerd-content"><label>@feedback.Author</label></div>
+        </div>
+        <div class="row">
+            <div class="col-md-12"><label>@feedback.Content</label></div>
+        </div>
+        <hr class="style-one" />
+    }
 }
+else
+{
+    <div class="row">
+        <div class="col-md-12 centerd-content blog-themeheading"><h4>Отзывов пока нет, Вы можете быть первым!</h4></div>
+    </div>
+}
+
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         @Html.Partial("FeedbackForm.partial", Model.LeftedFeedback)

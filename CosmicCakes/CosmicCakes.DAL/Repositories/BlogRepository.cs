@@ -22,7 +22,7 @@ namespace CosmicCakes.DAL.Repositories
                     .AsNoTracking();
                 try
                 {
-                    if (!query.Any()) throw new Exception("Error getting all posts");
+                   
                     return Enumerable.Reverse(query.ToList()); 
                 }
                 catch (Exception ex)
