@@ -1,18 +1,20 @@
 ﻿@model CosmicCakes.Models.BlogItemsModel
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Cosmic Cakes - Блог конлитерской Cosmic Cakes";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 @foreach(var post in Model.BlogPosts)
 {
-    <div class="row" style="margin-top:50px;">
-        <div class="col-md-12 centerd-content"><label>@post.Author</label></div>
-    </div>
     <div class="row">
-        <div class="col-md-12"><label>@post.Theme</label></div>
+        <div class="col-md-12 centerd-content blog-themeheading"><h4>@post.Theme</h4></div>
     </div>
+
+    <div class="row" style="margin-top:50px;">
+        <div class="col-md-12"><label>@post.Author</label></div>
+    </div>
+
     <div class="row">
         <div class="col-md-12"><label>@post.Content</label></div>
     </div>

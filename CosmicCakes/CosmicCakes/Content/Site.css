@@ -563,3 +563,23 @@ p.start-page-info-brief {
     font-family:'Pushkin';
     font-size:2em;
 }
+.blog-themeheading  :before{
+    display: inline-block;
+    margin-right: 6px;
+    margin-bottom:3px;
+    height: 1px;
+    content: " ";
+    text-shadow: none;
+    background-color: #999;
+    width: 140px;
+}
+.blog-themeheading  :after {
+    display: inline-block;
+    margin-left: 6px;
+    margin-bottom:3px;
+    height: 1px;
+    content: " ";
+    text-shadow: none;
+    background-color: #999;
+    width: 140px;
+}
