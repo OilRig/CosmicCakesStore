@@ -1,6 +1,9 @@
 ﻿using CosmicCakes.DAL.Entities;
 using CosmicCakes.DAL.Interfaces;
+using CosmicCakes.Logging.Interfaces;
 using CosmicCakes.Models;
+using CosmicCakes.Services.EmailService;
+using CosmicCakes.Services.SmsService;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,10 +12,11 @@ using System.Web.Mvc;
 
 namespace CosmicCakes.Controllers
 {
-    public class FeedbackController : Controller
+    public class FeedbackController : AppServiceController
     {
         private readonly IFeedbackRepository _feedbackRepository;
-        public FeedbackController(IFeedbackRepository feedbackRepository)
+        public FeedbackController(IFeedbackRepository feedbackRepository, IEmailSender emailSender, ISmsSender smsSender, IAppLogger logger)
+            : base(logger, emailSender, smsSender)
         {
             _feedbackRepository = feedbackRepository;
         }
@@ -20,11 +24,21 @@ namespace CosmicCakes.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            var model = new FeedbackItemsModel();
-            var feedbacks = _feedbackRepository.GetAllFeedbacks();
-            foreach (var feedback in feedbacks)
-                model.UserFeedbacks.Add(feedback);
-            return View(model);
+            try
+            {
+                var model = new FeedbackItemsModel();
+                var feedbacks = _feedbackRepository.GetAllFeedbacks();
+                foreach (var feedback in feedbacks)
+                    model.UserFeedbacks.Add(feedback);
+                return View(model);
+            }
+            catch (Exception ex)
+            {
+                Logger.Error(ex, $"Feedback/Index:{ex.Message}");
+                SmsSender.SendSmsOrder(ex.Message, true);
+                return View("Error");
+            }
+
         }
 
         [HttpPost]
@@ -37,7 +51,7 @@ namespace CosmicCakes.Controllers
                 CreateDate = model.CreateDate
             };
             _feedbackRepository.Add(feedback);
-            return View();
+            return RedirectToAction("Index");
         }
     }
 }

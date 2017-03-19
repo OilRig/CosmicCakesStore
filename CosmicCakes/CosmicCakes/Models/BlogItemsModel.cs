@@ -9,9 +9,11 @@ namespace CosmicCakes.Models
     public class BlogItemsModel
     {
         public List<BlogPost> BlogPosts { get; set; }
+       
         public BlogItemsModel()
         {
             BlogPosts = new List<BlogPost>();
+
         }
     }
 }

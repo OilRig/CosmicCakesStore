@@ -1,0 +1,29 @@
+﻿@model CosmicCakes.Models.UserFeedbackModel
+@using (Html.BeginForm("SaveFeedback", "Feedback", FormMethod.Post, htmlAttributes: new { enctype = "multipart/form-data", id = "feedbackForm" }))
+{
+    <div class="row" style="margin-top:30px;">
+        <div class="col-sm-2">
+            <label>Имя</label>
+        </div>
+        <div class="col-sm-6">
+            @Html.TextBoxFor(m => m.Author, htmlAttributes: new { placeholder = "Имя", type = "text", @class = "form-control"})
+            <p style="color: red;">@Html.ValidationMessageFor(m => m.Author)</p>
+        </div>
+    </div>
+    <div class="row" style="margin-top:30px;">
+        <div class="col-sm-2">
+            <label>Что Вы о нас думаете?</label>
+        </div>
+        <div class="col-sm-6">
+            @Html.TextAreaFor(m => m.Content, htmlAttributes: new { placeholder = "Ваш отзыв", type = "text", @class = "form-control" })
+            <p style="color: red;">@Html.ValidationMessageFor(m => m.Content)</p>
+        </div>
+    </div>
+
+    <div class="row" style="margin-top:30px;">
+        <div class="col-sm-offset-2 col-sm-6">
+            <button class="btn btn-default make-order-button" type="submit">Оставить отзыв</button>
+        </div>
+    </div>
+}
+

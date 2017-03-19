@@ -25,7 +25,6 @@ namespace CosmicCakes.DAL.Repositories
                     .ToList();
                 try
                 {
-                    if (!query.Any()) throw new Exception("Error getting all posts");
                     return query;
                 }
                 catch (Exception ex)

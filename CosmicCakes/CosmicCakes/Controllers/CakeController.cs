@@ -76,7 +76,7 @@ namespace CosmicCakes.Controllers
             catch (Exception ex)
             {
                 Logger.Error(ex, $"Cake/Index:{ex.Message}");
-                SmsSender.SendSmsOrder(ex.Message);
+                SmsSender.SendSmsOrder(ex.Message,true);
                 return View("Error");
             }
 
