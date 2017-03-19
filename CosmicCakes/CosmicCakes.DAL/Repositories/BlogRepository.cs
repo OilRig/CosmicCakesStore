@@ -19,12 +19,11 @@ namespace CosmicCakes.DAL.Repositories
             using (var context = GetContext())
             {
                 var query = context.BlogPosts
-                    .AsNoTracking()
-                    .ToList();
+                    .AsNoTracking();
                 try
                 {
                     if (!query.Any()) throw new Exception("Error getting all posts");
-                    return query;
+                    return Enumerable.Reverse(query.ToList()); 
                 }
                 catch (Exception ex)
                 {

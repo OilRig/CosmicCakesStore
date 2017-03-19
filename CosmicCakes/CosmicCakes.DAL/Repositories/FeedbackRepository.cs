@@ -21,11 +21,11 @@ namespace CosmicCakes.DAL.Repositories
             using (var context = GetContext())
             {
                 var query = context.UserFeedbacks
-                    .AsNoTracking()
-                    .ToList();
+                    .AsNoTracking();
+                   
                 try
                 {
-                    return query;
+                    return Enumerable.Reverse(query.ToList()); 
                 }
                 catch (Exception ex)
                 {
