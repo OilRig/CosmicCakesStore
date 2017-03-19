@@ -566,20 +566,20 @@ p.start-page-info-brief {
 .blog-themeheading  :before{
     display: inline-block;
     margin-right: 6px;
-    margin-bottom:3px;
+    margin-bottom:5px;
     height: 1px;
     content: " ";
     text-shadow: none;
-    background-color: #999;
+    background-color: #ffa4c2;
     width: 140px;
 }
 .blog-themeheading  :after {
     display: inline-block;
     margin-left: 6px;
-    margin-bottom:3px;
+    margin-bottom:5px;
     height: 1px;
     content: " ";
     text-shadow: none;
-    background-color: #999;
+    background-color: #ffa4c2;
     width: 140px;
 }
