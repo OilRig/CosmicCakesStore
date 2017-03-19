@@ -5,20 +5,22 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace CosmicCakes.DAL.Repositories
 {
-    public class BlogRepository : BaseRepository<BlogPost>, IBlogRepository
+    public class FeedbackRepository:BaseRepository<UserFeedback>,IFeedbackRepository
     {
-        public BlogRepository(IAppLogger logger) : base(logger)
+        public FeedbackRepository(IAppLogger logger) : base(logger)
         {
             Logger = logger;
         }
-        public IEnumerable<BlogPost> GetAllPosts()
+        public IEnumerable<UserFeedback> GetAllFeedbacks()
         {
             using (var context = GetContext())
             {
-                var query = context.BlogPosts
+                var query = context.UserFeedbacks
                     .AsNoTracking()
                     .ToList();
                 try
@@ -36,11 +38,11 @@ namespace CosmicCakes.DAL.Repositories
             }
         }
 
-        public BlogPost GetPostById(int id)
+        public UserFeedback GetFeedbackById(int id)
         {
-            using(var context = GetContext())
+            using (var context = GetContext())
             {
-                var query = context.BlogPosts
+                var query = context.UserFeedbacks
                     .Where(b => b.Id == id)
                     .AsNoTracking()
                     .FirstOrDefault();

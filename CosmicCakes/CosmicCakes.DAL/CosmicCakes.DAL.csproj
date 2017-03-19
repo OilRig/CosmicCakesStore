@@ -66,6 +66,7 @@
     <Compile Include="Interfaces\IBisquitRepository.cs" />
     <Compile Include="Interfaces\IBlogRepository.cs" />
     <Compile Include="Interfaces\ICreamRepository.cs" />
+    <Compile Include="Interfaces\IFeedbackRepository.cs" />
     <Compile Include="Interfaces\IFillingRepository.cs" />
     <Compile Include="Interfaces\IImageRepository.cs" />
     <Compile Include="Interfaces\IOrderRepository.cs" />
@@ -86,6 +87,7 @@
     <Compile Include="Repositories\BisquitRepository.cs" />
     <Compile Include="Repositories\BlogRepository.cs" />
     <Compile Include="Repositories\CreamRepository.cs" />
+    <Compile Include="Repositories\FeedbackRepository.cs" />
     <Compile Include="Repositories\FillingRepository.cs" />
     <Compile Include="Repositories\ImageRepository.cs" />
     <Compile Include="Repositories\OrderRepository.cs" />
