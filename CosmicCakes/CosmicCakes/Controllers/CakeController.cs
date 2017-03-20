@@ -76,7 +76,7 @@ namespace CosmicCakes.Controllers
             catch (Exception ex)
             {
                 Logger.Error(ex, $"Cake/Index:{ex.Message}");
-                SmsSender.SendSmsOrder(ex.Message,true);
+                SmsSender.SendSmsOrder(ex.Message, true);
                 return View("Error");
             }
 
@@ -123,7 +123,7 @@ namespace CosmicCakes.Controllers
                 UpdateModel(model);
                 SaveOrder(model);
                 EmailSender.SendEmailOrder(model.ToString());
-                SmsSender.SendSmsOrder(model.ToString());
+                SmsSender.SendSmsOrder(model.ToString(), false);
                 return View("SuccessOrder");
             }
             else

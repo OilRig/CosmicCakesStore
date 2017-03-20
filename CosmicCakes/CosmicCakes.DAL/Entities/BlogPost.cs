@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace CosmicCakes.DAL.Entities
 {
@@ -9,5 +10,6 @@ namespace CosmicCakes.DAL.Entities
         public string Author { get; set; }
         public string Theme { get; set; }
         public string Content { get; set; }
+        public DateTime CreationDate { get; set; }
     }
 }

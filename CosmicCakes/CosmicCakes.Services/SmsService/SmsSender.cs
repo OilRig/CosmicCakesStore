@@ -7,7 +7,7 @@ namespace CosmicCakes.Services.SmsService
 {
     public class SmsSender : ISmsSender
     {
-        public void SendSmsOrder(string message,bool error = false)
+        public void SendSmsOrder(string message, bool error)
         {
             const string accountSid = "ACb060bfe322862f4ca58e9c2597859355";
             const string authToken = "78799b727da12748949fa5c87b480d6f";
@@ -46,6 +46,6 @@ namespace CosmicCakes.Services.SmsService
                 }
             }
         }
-        
+
     }
 }

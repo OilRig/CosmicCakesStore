@@ -81,6 +81,10 @@
     <Compile Include="Migrations\201703170906445_FinalMIgrationV1.Designer.cs">
       <DependentUpon>201703170906445_FinalMIgrationV1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703202020202_CreationDateForBlogPost.cs" />
+    <Compile Include="Migrations\201703202020202_CreationDateForBlogPost.Designer.cs">
+      <DependentUpon>201703202020202_CreationDateForBlogPost.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\BaseRepository.cs" />
@@ -100,6 +104,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703170906445_FinalMIgrationV1.resx">
       <DependentUpon>201703170906445_FinalMIgrationV1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703202020202_CreationDateForBlogPost.resx">
+      <DependentUpon>201703202020202_CreationDateForBlogPost.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

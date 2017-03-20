@@ -1,6 +1,7 @@
 ﻿using CosmicakesControlWebApp.Models;
 using CosmicCakes.DAL.Entities;
 using CosmicCakes.DAL.Interfaces;
+using System;
 using System.Web.Mvc;
 
 namespace CosmicakesControlWebApp.Controllers
@@ -28,7 +29,8 @@ namespace CosmicakesControlWebApp.Controllers
                 {
                     Author = model.Author,
                     Content = model.Content,
-                    Theme = model.Theme
+                    Theme = model.Theme,
+                    CreationDate = DateTime.UtcNow
                 };
                 _blogRepository.Add(post);
                 return View();
