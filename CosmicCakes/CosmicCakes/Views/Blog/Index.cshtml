@@ -17,7 +17,7 @@
         </div>
 
         <div class="row">
-            <div class="col-md-12"><label>@post.Content</label></div>
+            <div class="col-md-12">@Html.Raw(HttpUtility.HtmlDecode(post.Content))</div>
         </div>
         <hr class="style-one" />
     }

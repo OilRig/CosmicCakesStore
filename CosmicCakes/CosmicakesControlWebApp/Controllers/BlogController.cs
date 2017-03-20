@@ -19,6 +19,7 @@ namespace CosmicakesControlWebApp.Controllers
         }
 
         [HttpPost]
+        [ValidateInput(false)]
         public ActionResult SavePost(PostModel model)
         {
             if (ModelState.IsValid)
