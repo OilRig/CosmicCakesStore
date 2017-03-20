@@ -66,14 +66,14 @@
     <div class="centered-text-heading">@Model.Name</div>
     <br />
     <div style="font-family:'Open Sans',sans-serif;font-size:13px;">
-        <div>@Model.Description</div>
+        <div class="individual-cake-description">@Model.Description</div>
 
-        <p style="color: gray; font-size: 20pt;">от @Model.MinPrice р.</p>
+        <p style="color: #9e9e9e; font-size: 20pt;margin-top:15px;">от @Model.MinPrice р.</p>
 
-        <ul>
-            <li>@Model.KgPrice р/кг</li>
-            <li>минимальный вес: @Model.MinWeight кг</li>
-            <li>
+        <ul style="margin-bottom:25px;margin-top:15px;">
+            <li style="font-size:1.1em;">@Model.KgPrice р/кг</li>
+            <li style="font-size:1.1em;">минимальный вес: @Model.MinWeight кг</li>
+            <li style="font-size:1.1em;">
                 максимальный вес: @Model.MaxWeight кг
                 @if (Model.IsLevelable)
             {
@@ -86,7 +86,7 @@
             <ul>
                 @foreach (var includement in Model.PriceIncludements)
             {
-                    <li>@includement</li>
+                    <li style="font-size:1.1em;margin-top:3px;margin-bottom:3px;">@includement</li>
                 }
             </ul>
         </div>
@@ -96,21 +96,20 @@
 <br/>
        <br/>
 <div class="row">
+    <div class="col-sm-12">
+        @Html.Partial("CakeOrder.partial", Model.CakeOrderModel)
+    </div>
+</div>
+<div class="row" style="margin-top:50px;">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        <div class="justified-text century-gothic-text">
+        <div class="justified-text">
             Каждый торт упакован в красивую коробку и украшен лентой.
             Также вы можете выбрать топпер на торт - табличку с пожеланиями, отличная замена шоколадной надписи на торте, смотрится более эффектно (:<br />
             Обратите внимание, что мы можем изменить какой-нибудь вид ягод в оформлении в связи с отсутствием ее в магазине (или в связи с ненадлежащим качеством).<br />
             <strong>Пожалуйста, предупреждайте по поводу пищевой аллергии на продукты.</strong>
         </div>
     </div>
-</div>
-<hr class="style-one" />
-
-<div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        @Html.Partial("CakeOrder.partial", Model.CakeOrderModel)
-    </div>
+    <hr class="style-one" style="margin-top:50px;margin-bottom:30px;" />
 </div>
 
 
@@ -127,7 +126,10 @@
 <script>
     (function ($) {
         $(document).ready(function () {
-            $('[data-toggle="tooltip"]').tooltip();
+            if (!Modernizr.touch)
+            {
+                $('[data-toggle="tooltip"]').tooltip();
+            }
         });
     })(jQuery);
 </script>

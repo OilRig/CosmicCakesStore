@@ -1,7 +1,7 @@
 ﻿@model CosmicCakes.Models.OrderModel
-@using (Html.BeginForm("MakeOrder", "Cake", new { Id = Model.Id }, FormMethod.Post, htmlAttributes: new { enctype = "multipart/form-data", id = "orderForm" }))
+@using (Html.BeginForm("MakeOrder", "Cake", new { Id = Model.Id }, FormMethod.Post, htmlAttributes: new { enctype = "multipart/form-data", id = "orderForm"}))
 {
-    <div class="row" style="margin-top:30px;">
+    <div class="row" style="margin-top:10px;">
         <div class="col-sm-2">
             <label>Имя</label>
         </div>
@@ -10,7 +10,7 @@
             <p style="color: red;">@Html.ValidationMessageFor(m => m.CustomerName)</p>
         </div>
     </div>
-            <div class="row" style="margin-top:30px;">
+            <div class="row" style="margin-top:10px;">
                 <div class="col-sm-2">
                     <label>Телефон</label>
                 </div>
@@ -19,7 +19,7 @@
                     <p style="color: red;">@Html.ValidationMessageFor(m => m.CustomerPhoneNumber)</p>
                 </div>
             </div>
-            <div class="row" style="margin-top:30px;">
+            <div class="row" style="margin-top:10px;">
                 <div class="col-sm-2">
                     <label>Вес торта</label>
                 </div>
@@ -28,7 +28,7 @@
                     <p style="color: red;">@Html.ValidationMessageFor(m => m.CakeWeight)</p>
                 </div>
             </div>
-            <div class="row" style="margin-top:30px;">
+            <div class="row" style="margin-top:10px;">
                 <div class="col-sm-2">
                     <label>Дата,на которую нужен тортик</label>
                 </div>
@@ -38,7 +38,7 @@
                 </div>
             </div>
 
-            <div class="row" style="margin-top:30px;">
+            <div class="row" style="margin-top:10px;">
                 <div class="col-sm-2">
                     <label>Комментарий к заказу</label>
                 </div>
@@ -47,7 +47,7 @@
                 </div>
             </div>
 
-            <div class="row" style="margin-top:30px;">
+            <div class="row" style="margin-top:10px;">
                 <div class="col-sm-offset-2 col-sm-6">
                     <button class="btn btn-default make-order-button" type="submit">Хочу этот тортик</button>
                 </div>

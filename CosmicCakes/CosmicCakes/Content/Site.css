@@ -301,16 +301,38 @@ p.ubuntu-big-text {
     font-size: 2.244em;
     line-height: 1;
     text-align: center;
+    font-weight:100;
+}
+.centered-text-heading :before {
+     display: inline-block;
+    margin-right: 6px;
+    margin-bottom:5px;
+    height: 1px;
+    content: " ";
+    text-shadow: none;
+    background-color: #ffa4c2;
+    width: 140px;
+}
+.centered-text-heading :after {
+    display: inline-block;
+    margin-left: 6px;
+    margin-bottom:5px;
+    height: 1px;
+    content: " ";
+    text-shadow: none;
+    background-color: #ffa4c2;
+    width: 140px;
 }
 
+
 .cake-info-font-size {
-    font-size: 1.063em;
+    font-size: 1.2em !important;
 }
 
 .justified-text {
     text-align: justify;
     text-indent: 10%;
-    font-size: 1em;
+    font-size: 1.2em;
     margin-top: 15px;
 }
 
@@ -563,7 +585,7 @@ p.start-page-info-brief {
     font-family:'Pushkin';
     font-size:2em;
 }
-.blog-themeheading  :before{
+.blog-themeheading :before{
     display: inline-block;
     margin-right: 6px;
     margin-bottom:5px;
@@ -573,7 +595,7 @@ p.start-page-info-brief {
     background-color: #ffa4c2;
     width: 140px;
 }
-.blog-themeheading  :after {
+.blog-themeheading :after{
     display: inline-block;
     margin-left: 6px;
     margin-bottom:5px;
@@ -583,3 +605,9 @@ p.start-page-info-brief {
     background-color: #ffa4c2;
     width: 140px;
 }
+.individual-cake-description {
+    font-family:"Ubuntu Condensed";
+    text-align:justify;
+    font-size:16px;
+}
+
