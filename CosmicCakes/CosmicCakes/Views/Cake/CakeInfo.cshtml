@@ -113,23 +113,13 @@
 </div>
 
 
-<script src="~/Scripts/mask.js" type="text/javascript" async></script>
-<script src="/Scripts/dateProccessor.js" async></script>
-<script src="/Scripts/orderValidator.js"></script>
+<script src="~/Scripts/mask.js" type="text/javascript" defer></script>
+<script src="/Scripts/dateProccessor.js" defer></script>
+<script src="/Scripts/orderValidator.js" defer></script>
 <script>
     (function ($) {
         $(document).ready(function () {
             $('[type="tel"]').mask('+7(000)-000-00-00', { placeholder: "+7(___)-___-__-__" });
-        });
-    })(jQuery);
-</script>
-<script>
-    (function ($) {
-        $(document).ready(function () {
-            if (!Modernizr.touch)
-            {
-                $('[data-toggle="tooltip"]').tooltip();
-            }
         });
     })(jQuery);
 </script>
