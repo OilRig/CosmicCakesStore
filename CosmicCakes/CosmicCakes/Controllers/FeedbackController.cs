@@ -44,14 +44,23 @@ namespace CosmicCakes.Controllers
         [HttpPost]
         public ActionResult SaveFeedback(UserFeedbackModel model)
         {
-            var feedback = new UserFeedback()
+            if(ModelState.IsValid)
             {
-                Author = model.Author,
-                Content = model.Content,
-                CreateDate = model.CreateDate
-            };
-            _feedbackRepository.Add(feedback);
-            return RedirectToAction("Index");
+                var feedback = new UserFeedback()
+                {
+                    Author = model.Author,
+                    Content = model.Content,
+                    CreateDate = model.CreateDate,
+                    Email = model.Email
+                };
+                _feedbackRepository.Add(feedback);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View("Index", model);
+            }
+            
         }
     }
 }
