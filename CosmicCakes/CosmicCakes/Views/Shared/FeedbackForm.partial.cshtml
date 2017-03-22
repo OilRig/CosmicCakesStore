@@ -5,7 +5,7 @@
         <div class="col-sm-2">
             <label>Имя</label>
         </div>
-        <div class="col-sm-6">
+        <div class="col-sm-3">
             @Html.TextBoxFor(m => m.Author, htmlAttributes: new { placeholder = "Имя",  @class = "form-control"})
             <p style="color: red;">@Html.ValidationMessageFor(m => m.Author)</p>
         </div>
@@ -15,7 +15,7 @@
         <div class="col-sm-2">
             <label>Email</label>
         </div>
-        <div class="col-sm-6">
+        <div class="col-sm-3">
             @Html.TextBoxFor(m => m.Email, htmlAttributes: new { placeholder = "Email", @class = "form-control" })
             <p style="color: red;">@Html.ValidationMessageFor(m => m.Email)</p>
         </div>
@@ -26,7 +26,7 @@
             <label>Что Вы о нас думаете?</label>
         </div>
         <div class="col-sm-6">
-            @Html.TextAreaFor(m => m.Content, htmlAttributes: new { placeholder = "Ваш отзыв",@class = "form-control" })
+            @Html.TextAreaFor(m => m.Content, htmlAttributes: new { placeholder = "Ваш отзыв",@class = "form-control",rows = "10" })
             <p style="color: red;">@Html.ValidationMessageFor(m => m.Content)</p>
         </div>
     </div>

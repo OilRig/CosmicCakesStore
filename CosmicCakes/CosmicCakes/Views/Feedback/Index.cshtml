@@ -3,7 +3,10 @@
     ViewBag.Title = "Cosmic Cakes - Отзывы о нас";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<script type="text/javascript" src="~/Scripts/blogEditor.js"></script>
+<script type="text/javascript">
+    bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });
+</script>
 <div class="row">
     <div class="col-sm-12 centerd-content">
         <p>Отзывы о нас</p>
@@ -28,10 +31,6 @@ else
         <div class="col-md-12 centerd-content blog-themeheading"><h4>Отзывов пока нет, Вы можете быть первым!</h4></div>
     </div>
 }
+@Html.Partial("FeedbackForm.partial", Model.LeftedFeedback)
 
-<div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        @Html.Partial("FeedbackForm.partial", Model.LeftedFeedback)
-</div>
-    </div>
 
