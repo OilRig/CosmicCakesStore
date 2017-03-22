@@ -42,6 +42,7 @@ namespace CosmicCakes.Controllers
         }
 
         [HttpPost]
+        [ValidateInput(false)]
         public ActionResult SaveFeedback(UserFeedbackModel model)
         {
             if(ModelState.IsValid)

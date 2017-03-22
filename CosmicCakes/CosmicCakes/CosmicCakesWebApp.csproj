@@ -265,6 +265,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\accordion.js" />
+    <Content Include="Scripts\blogEditor.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="fonts\ubuntu-condensed-v7-latin-regular.eot" />

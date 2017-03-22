@@ -16,11 +16,12 @@
 {
     foreach (var feedback in Model.UserFeedbacks)
     {
-        <div class="row" style="margin-top:50px;">
-            <div class="col-md-12 centerd-content"><label>@feedback.Author</label></div>
+        var email = feedback.Email != null ? "(" + feedback.Email + ")" : "";
+        <div class="row" style="margin-top:50px;margin-bottom:30px;">
+            <div class="col-md-12 centerd-content"><p class="h4">@feedback.Author @email</p></div>
         </div>
         <div class="row">
-            <div class="col-md-12"><label>@feedback.Content</label></div>
+            <div class="col-md-12">@Html.Raw(HttpUtility.HtmlDecode(feedback.Content))</div>
         </div>
         <hr class="style-one" />
     }
