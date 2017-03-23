@@ -55,11 +55,18 @@ namespace CosmicCakes.Controllers
                     Email = model.Email
                 };
                 _feedbackRepository.Add(feedback);
-                return RedirectToAction("Index");
+                return View();
             }
             else
             {
-                return View("Index", model);
+                var infoModel = new FeedbackItemsModel();
+
+                var feedbacks = _feedbackRepository.GetAllFeedbacks();
+
+                foreach (var feedback in feedbacks)
+                    infoModel.UserFeedbacks.Add(feedback);
+                infoModel.LeftedFeedback = model;
+                return View("Index",infoModel);
             }
             
         }

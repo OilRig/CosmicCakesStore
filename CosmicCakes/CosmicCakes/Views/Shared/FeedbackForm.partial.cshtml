@@ -26,9 +26,10 @@
             <label>Что Вы о нас думаете?</label>
         </div>
         <div class="col-sm-6">
-            @Html.TextAreaFor(m => m.Content, htmlAttributes: new { placeholder = "Ваш отзыв",@class = "form-control",rows = "10" })
+            @Html.TextAreaFor(m => m.Content, htmlAttributes: new { placeholder = "Ваш отзыв",@class = "form-control",rows = "10" })  
             <p style="color: red;">@Html.ValidationMessageFor(m => m.Content)</p>
         </div>
+        
     </div>
 
     <div class="row" style="margin-top:30px;">

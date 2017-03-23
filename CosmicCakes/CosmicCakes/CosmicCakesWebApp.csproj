@@ -325,6 +325,7 @@
     <Content Include="Views\Blog\Index.cshtml" />
     <Content Include="Views\Feedback\Index.cshtml" />
     <Content Include="Views\Shared\FeedbackForm.partial.cshtml" />
+    <Content Include="Views\Feedback\SaveFeedback.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
