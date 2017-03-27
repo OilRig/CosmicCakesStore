@@ -280,6 +280,7 @@
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\cakeNameHoverProcessor.js" />
     <Content Include="Scripts\dateProccessor.js" />
+    <Content Include="Scripts\feedbackValidator.js" />
     <Content Include="Scripts\imageAutomaticSlider.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
