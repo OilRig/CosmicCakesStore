@@ -9,5 +9,6 @@ namespace CosmicCakes.DAL.Entities
         public string Content { get; set; }
         public string Email { get; set; }
         public DateTime CreateDate { get; set; }
+        public string AttachedImagePath { get; set; }
     }
 }

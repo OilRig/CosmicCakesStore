@@ -15,5 +15,6 @@ namespace CosmicCakes.Models
         [Required(ErrorMessage ="Мы грустим,когда Вы ничего не пишете:(")]
         public string Content { get; set; }
         public DateTime CreateDate => DateTime.UtcNow;
+        public HttpPostedFileBase AttachedImage { get; set; }
     }
 }

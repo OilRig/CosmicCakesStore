@@ -6,9 +6,12 @@ using CosmicCakes.Services.EmailService;
 using CosmicCakes.Services.SmsService;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
+using System.Web.Helpers;
 using System.Web.Mvc;
+using System.Xml.Xsl;
 
 namespace CosmicCakes.Controllers
 {
@@ -21,6 +24,22 @@ namespace CosmicCakes.Controllers
             _feedbackRepository = feedbackRepository;
         }
 
+        private string StreamToFile(Stream inputStream, HttpPostedFileBase file)
+        {
+            var path = Server.MapPath("~/User_Feedback_Images/" + (Guid.NewGuid()) + file.FileName);
+
+            WebImage img = new WebImage(file.InputStream);
+            if (img.Width > 100)
+                img.Resize(100, 100,true);
+            img.Save(path);
+
+            using (var fileStream = new FileStream(path, FileMode.Create, FileAccess.Write))
+            {
+                inputStream.CopyTo(fileStream);
+                fileStream.Flush();
+            }
+            return path;
+        }
         [HttpGet]
         public ActionResult Index()
         {
@@ -52,7 +71,8 @@ namespace CosmicCakes.Controllers
                     Author = model.Author,
                     Content = model.Content,
                     CreateDate = model.CreateDate,
-                    Email = model.Email
+                    Email = model.Email,
+                    AttachedImagePath = StreamToFile(model.AttachedImage.InputStream,model.AttachedImage)
                 };
                 _feedbackRepository.Add(feedback);
                 return View();

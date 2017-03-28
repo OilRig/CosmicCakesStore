@@ -69,10 +69,10 @@
             <div class="col-md-12"><p style="color:#9c9c9c;margin:0;">@feedback.CreateDate.ToShortDateString()</p></div>
         </div>
 
-        <div class="row" style="margin-top:15px;">
+        @*<div class="row" style="margin-top:15px;">
             <div class="col-md-9"><p style="font-size:1.2em;color:#585858;">@feedback.Content</p></div>
-            <div class="col-md-3 centerd-content"><img src="~/Content/Images/test_cake.jpg" style="width:200px;height:200px;" /></div>
-        </div>
+            <div class="col-md-3 centerd-content"><img src="@feedback.AttachedImagePath" /></div>
+        </div>*@
         <hr class="style-one" />
     }
 }
