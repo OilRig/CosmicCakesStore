@@ -116,7 +116,7 @@ namespace CosmicCakes.Controllers
 
         [HttpPost]
         public ActionResult MakeOrder(OrderModel model)
-        {
+        { 
             model.CakeName = _cakeRepository.GetCakeById(model.Id).Name;
             if (ModelState.IsValid)
             {
@@ -143,7 +143,6 @@ namespace CosmicCakes.Controllers
                     Id = cake.Id,
                     CakeOrderModel = model
                 };
-                ModelState.AddModelError(string.Empty, "Не все обязательные поля были заполнены");
                 return View("CakeInfo", infoModel);
             }
         }

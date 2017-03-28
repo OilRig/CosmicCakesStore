@@ -8,9 +8,9 @@ namespace CosmicCakesWebApp
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js",
-                        "~/Scripts/jquery-ui.js",
-                        "~/Scripts/jquery.validate.js",
+                        "~/Scripts/jquery-1.10.2.min.js",
+                        "~/Scripts/jquery-ui.min.js",
+                        "~/Scripts/jquery.validate.min.js",
                         "~/Scripts/modernizr-2.6.2.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
