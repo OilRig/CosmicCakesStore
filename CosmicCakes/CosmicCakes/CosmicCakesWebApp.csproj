@@ -253,7 +253,13 @@
     <Content Include="Content\Images\StartPage\start_page_cake_3.jpg" />
     <Content Include="Content\Images\StartPage\start_page_cake_4.jpg" />
     <Content Include="Content\Images\StartPage\start_page_welcome_img.jpg" />
-    <Content Include="Content\Images\User_Feedback_Images\172ecce2-8e84-4fc5-90e0-2caa51e635896wgicg.jpg" />
+    <Content Include="Content\Images\ui-icons_444444_256x240.png" />
+    <Content Include="Content\Images\ui-icons_555555_256x240.png" />
+    <Content Include="Content\Images\ui-icons_777620_256x240.png" />
+    <Content Include="Content\Images\ui-icons_777777_256x240.png" />
+    <Content Include="Content\Images\ui-icons_cc0000_256x240.png" />
+    <Content Include="Content\Images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\Images\User_Feedback_Images\6wgicg.jpg" />
     <Content Include="Content\jquery-ui.css" />
     <Content Include="Content\jquery-ui.min.css" />
     <Content Include="Content\jquery-ui.structure.css" />

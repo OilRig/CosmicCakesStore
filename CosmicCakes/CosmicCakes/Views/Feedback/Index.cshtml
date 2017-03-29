@@ -34,6 +34,31 @@
     </div>
 </div>
 
+<div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="container">
+                    <div class="modal-body">
+
+                       <div class="row">
+                           <div class="col-sm-12 centerd-content"  id="userImage">
+
+                           </div>
+                       </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <div class="row">
+                            <div class="col-sm-12 centerd-content">
+                                <button id="hideUserImage" type="button" class="btn btn-default make-order-button" data-dismiss="modal" style="width:200px;">Закрыть</button>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="row" style="margin-top:5px;">
     <div class="col-sm-12">
         <p style="font-family:Pushkin;font-size:3em;padding-left:80px;height:58px;padding-top:10px;letter-spacing:1px;">мы будем рады узнать ваше мнение</p>
@@ -41,8 +66,8 @@
 </div>
 
 <div class="row">
-    <div class="col-md-12 centerd-content">
-        <button type="button" class="btn btn-default make-order-button" style="width:380px;" data-toggle="modal" data-target="#orderModal">
+    <div class="col-sm-12 centerd-content">
+        <button type="button" class="btn btn-default make-order-button" data-toggle="modal" data-target="#orderModal">
             ОСТАВИТЬ ОТЗЫВ
         </button>
     </div>
@@ -55,30 +80,43 @@
         var email = feedback.Email != null ? feedback.Email : null;
 
         <div class="row" style="margin-top:50px;">
-            <div class="col-md-12"><p class="h3" style="margin-bottom:5px;"> @feedback.Author</p></div>
+            <div class="col-sm-12"><p class="h3" style="margin-bottom:5px;"> @feedback.Author</p></div>
         </div>
 
         if (email != null)
         {
             <div class="row">
-                <div class="col-md-12"><p style="color:#9c9c9c;margin:0;">@email</p></div>
+                <div class="col-sm-12"><p style="color:#9c9c9c;margin:0;">@email</p></div>
             </div>
         }
 
         <div class="row">
-            <div class="col-md-12"><p style="color:#9c9c9c;margin:0;">@feedback.CreateDate.ToShortDateString()</p></div>
+            <div class="col-sm-12"><p style="color:#9c9c9c;margin:0;">@feedback.CreateDate.ToShortDateString()</p></div>
         </div>
 
         <div class="row" style="margin-top:15px;">
-            <div class="col-md-9"><p style="font-size:1.2em;color:#585858;">@feedback.Content</p></div>
+            <div class="col-sm-10"><p style="font-size:1.2em;color:#585858;">@feedback.Content</p></div>
             @if (feedback.AttachedImagePath != null)
             {
-                <div class="col-md-3 centerd-content"><img src="~/Content/Images/User_Feedback_Images/@feedback.AttachedImagePath" style="width:150px;height:150px;" /></div>
+                <div class="col-sm-2"><a data-src="/Content/Images/User_Feedback_Images/@feedback.AttachedImagePath" id="showFullImage" data-toggle="modal" data-target="#imageModal"><img src="~/Content/Images/User_Feedback_Images/@feedback.AttachedImagePath" style="width:150px;height:150px;cursor:zoom-in;" /></a></div>
             }
         </div>
         <hr class="style-one" />
     }
 }
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            $('a#showFullImage').click(function () {
+                var src = $(this).data("src");
+                $('div#userImage').html('<img src="' + src + '"' + '/>');
+            });
+            $('button#hideUserImage').click(function () {
+                $('div#userImage').html('');
+            });
+        });
+})(jQuery);
+</script>
 
 
 
