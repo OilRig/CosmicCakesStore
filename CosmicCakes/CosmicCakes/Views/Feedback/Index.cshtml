@@ -71,7 +71,10 @@
 
         <div class="row" style="margin-top:15px;">
             <div class="col-md-9"><p style="font-size:1.2em;color:#585858;">@feedback.Content</p></div>
-            <div class="col-md-3 centerd-content"><img src="@feedback.AttachedImagePath" /></div>
+            @if (feedback.AttachedImagePath != null)
+            {
+                <div class="col-md-3 centerd-content"><img src="~/Content/Images/User_Feedback_Images/@feedback.AttachedImagePath" style="width:150px;height:150px;" /></div>
+            }
         </div>
         <hr class="style-one" />
     }

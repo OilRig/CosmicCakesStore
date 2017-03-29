@@ -26,19 +26,15 @@ namespace CosmicCakes.Controllers
 
         private string StreamToFile(Stream inputStream, HttpPostedFileBase file)
         {
-            var path = Server.MapPath("~/User_Feedback_Images/" + (Guid.NewGuid()) + file.FileName);
+            var guidFileName = (Guid.NewGuid()) + file.FileName;
+            var path = Server.MapPath("/Content/Images/User_Feedback_Images/" + guidFileName);
 
-            WebImage img = new WebImage(file.InputStream);
+            WebImage img = new WebImage(inputStream);
             if (img.Width > 100)
-                img.Resize(100, 100,true);
+                img.Resize(300, 300, true);
             img.Save(path);
-
-            using (var fileStream = new FileStream(path, FileMode.Create, FileAccess.Write))
-            {
-                inputStream.CopyTo(fileStream);
-                fileStream.Flush();
-            }
-            return path;
+            
+            return guidFileName;
         }
         [HttpGet]
         public ActionResult Index()
@@ -61,7 +57,6 @@ namespace CosmicCakes.Controllers
         }
 
         [HttpPost]
-        [ValidateInput(false)]
         public ActionResult SaveFeedback(UserFeedbackModel model)
         {
             if(ModelState.IsValid)
@@ -72,7 +67,7 @@ namespace CosmicCakes.Controllers
                     Content = model.Content,
                     CreateDate = model.CreateDate,
                     Email = model.Email,
-                    AttachedImagePath = StreamToFile(model.AttachedImage.InputStream,model.AttachedImage)
+                    AttachedImagePath = model.AttachedImage != null ? StreamToFile(model.AttachedImage.InputStream, model.AttachedImage) : null
                 };
                 _feedbackRepository.Add(feedback);
                 return View();
