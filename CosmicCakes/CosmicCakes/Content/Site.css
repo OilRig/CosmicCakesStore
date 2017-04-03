@@ -30,6 +30,9 @@ and (orientation : landscape) {
        div#briefCake > p.price{
            font-size:1em !important;
     }
+       p.feedback-heading {
+           font-size:1.5em;
+       }
 }
 
 /*iPhone 5 & 5S in portrait*/
@@ -56,6 +59,9 @@ and (orientation : portrait) {
        height: 265px;
        margin-top:15px;
 }
+     p.feedback-heading {
+           font-size:1em;
+       }
 }
 
 
@@ -73,6 +79,9 @@ and (orientation : landscape) {
        div#briefCake > p.price{
            font-size:2em !important;
     }
+        p.feedback-heading {
+           font-size:1.5em;
+       }
 }
 
 /*iPhone 6 in portrait*/
@@ -100,6 +109,9 @@ and (orientation : portrait) {
        height: 265px;
        margin-top:15px;
 }
+     p.feedback-heading {
+           font-size:1em;
+       }
 }
 
 /*iPhone 6 Plus in landscape*/
@@ -116,6 +128,9 @@ and (orientation : landscape) {
        div#briefCake > p.price{
            font-size:2em !important;
     }
+        p.feedback-heading {
+           font-size:1.5em;
+       }
 }
 
 /*iPhone 6 Plus in portrait*/
@@ -142,6 +157,9 @@ and (orientation : portrait) {
        height: 265px;
        margin-top:15px;
 }
+     p.feedback-heading {
+           font-size:1em;
+       }
 }
 
 /*iPad in landscape*/
@@ -416,8 +434,8 @@ div.cakeInfoSet:hover div#briefCake > p.price {
 }
 
 .childBackground {
-    background: no-repeat fixed;
-    -webkit-background-size: cover;
+    background: no-repeat;
+    /*-webkit-background-size: cover;*/
     -moz-background-size: cover;
     -o-background-size: cover;
     background-position-x: 0;
@@ -609,5 +627,11 @@ p.start-page-info-brief {
     font-family:"Ubuntu Condensed";
     text-align:justify;
     font-size:16px;
+}
+.feedback-heading {
+    font-family:Pushkin;font-size:3em;padding-left:80px;height:58px;padding-top:10px;letter-spacing:1px;
+}
+button[data-target="#orderModal"] {
+    margin-top:30px;
 }
 

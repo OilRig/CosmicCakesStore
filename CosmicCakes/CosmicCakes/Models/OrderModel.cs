@@ -22,6 +22,7 @@ namespace CosmicCakes.Models
         public DateTime ExpireDate { get; set; }
         public override string ToString()
         {
+            ExpireDate = DateTime.Parse(ExpireDateString);
             return string.Format($"Заказ от: {CustomerName} \nТелефон: {CustomerPhoneNumber} \nДата: {ExpireDate.ToShortDateString()} \nТорт: {CakeName}\nВес: {CakeWeight} кг \nКомментарий: {Comments}");
         }
 

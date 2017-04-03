@@ -45,7 +45,7 @@ namespace CosmicCakes.Controllers
             order.Comments = model.Comments;
             order.CustomerName = model.CustomerName;
             order.CustomerPhoneNumber = model.CustomerPhoneNumber;
-            order.ExpireDate = model.ExpireDate;
+            order.ExpireDate = DateTime.Parse(model.ExpireDateString);
             order.OrderDate = DateTime.Now;
             order.CakeName = model.CakeName;
             _orderRepository.Add(order);
