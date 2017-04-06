@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿
+using System.Collections.Generic;
 
 namespace CosmicCakes.Models
 {
@@ -15,5 +16,6 @@ namespace CosmicCakes.Models
         public OrderModel CakeOrderModel { get; set; }
         public IEnumerable<string> IndividualRectangleImagesPaths { get; set; }
         public IEnumerable<string> PriceIncludements { get; set; }
+
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CosmicCakes.DAL.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Globalization;
@@ -24,6 +25,10 @@ namespace CosmicCakes.Models
         public int SelectedLevels { get; set; }
         public List<int> Levels { get; set; }
         public bool IsLevelable { get; set; }
+        public IEnumerable<string> Bisquits { get; set; }
+        public string FirstLevelBisquit { get; set; }
+        public string SecondLevelBisquit { get; set; }
+        public string ThirdLevelBisquit { get; set; }
         public OrderModel()
         {
             Levels = new List<int>

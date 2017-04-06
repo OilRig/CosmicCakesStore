@@ -103,8 +103,10 @@ namespace CosmicCakes.Controllers
                     CakeOrderModel = new OrderModel()
                     {
                         Id = cake.Id,
-                        IsLevelable = cake.IsLevelable
-                    }
+                        IsLevelable = cake.IsLevelable,
+                        Bisquits = _bisquitRepository.GetAllNamesOnly()
+                    },
+                    
                 };
                 return View(infoModel);
             }
