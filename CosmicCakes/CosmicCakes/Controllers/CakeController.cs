@@ -45,7 +45,7 @@ namespace CosmicCakes.Controllers
             order.Comments = model.Comments;
             order.CustomerName = model.CustomerName;
             order.CustomerPhoneNumber = model.CustomerPhoneNumber;
-            order.ExpireDate = DateTime.Parse(model.ExpireDateString);
+            order.ExpireDate = DateTime.ParseExact(model.ExpireDateString,"MM/dd/yyyy",null);
             order.OrderDate = DateTime.Now;
             order.CakeName = model.CakeName;
             _orderRepository.Add(order);
@@ -102,7 +102,8 @@ namespace CosmicCakes.Controllers
                     Id = cake.Id,
                     CakeOrderModel = new OrderModel()
                     {
-                        Id = cake.Id
+                        Id = cake.Id,
+                        IsLevelable = cake.IsLevelable
                     }
                 };
                 return View(infoModel);

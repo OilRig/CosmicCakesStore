@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Globalization;
 
@@ -20,10 +21,20 @@ namespace CosmicCakes.Models
         [Required(ErrorMessage = "Кажется,Вы не указали дату для тортика")]
         public string ExpireDateString { get; set; }
         public DateTime ExpireDate { get; set; }
+        public int SelectedLevels { get; set; }
+        public List<int> Levels { get; set; }
+        public bool IsLevelable { get; set; }
+        public OrderModel()
+        {
+            Levels = new List<int>
+            {
+                1,2,3
+            };
+        }
         public override string ToString()
         {
             ExpireDate = DateTime.Parse(ExpireDateString);
-            return string.Format($"Заказ от: {CustomerName} \nТелефон: {CustomerPhoneNumber} \nДата: {ExpireDate.ToShortDateString()} \nТорт: {CakeName}\nВес: {CakeWeight} кг \nКомментарий: {Comments}");
+            return string.Format($"Заказ от: {CustomerName} \nТелефон: {CustomerPhoneNumber} \nДата: {ExpireDate.ToShortDateString()} \nТорт: {CakeName}\nВес: {CakeWeight} кг \n Ярусы:{SelectedLevels} \nКомментарий: {Comments}");
         }
 
     }

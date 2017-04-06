@@ -42,6 +42,7 @@
             <div class="col-sm-9">
                 @Html.TextBoxFor(m => m.CakeWeight, htmlAttributes: new { placeholder = "Вес", @class = "form-control" })
                 <p style="color: red;">@Html.ValidationMessageFor(m => m.CakeWeight)</p>
+                <p id="recomend" style="color:#fb9494;"></p>
             </div>
 
         </div>
@@ -62,6 +63,22 @@
     </div>
     <div class="row" style="margin-top:10px;">
 
+        @if (Model.IsLevelable)
+        {
+            <div class="col-sm-6">
+
+                <div class="col-sm-3">
+                    <label>Ярусы</label>
+                </div>
+
+                <div class="col-sm-9">
+                    @Html.DropDownListFor(m => m.SelectedLevels, new SelectList(Model.Levels), htmlAttributes: new { @class = "form-control" })
+                </div>
+
+            </div>
+
+        }
+      
         <div class="col-sm-6">
 
             <div class="col-sm-3">

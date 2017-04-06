@@ -1,7 +1,12 @@
 ﻿(function ($) {
     $(document).ready(function () {
         $("#orderForm").validate({
-            rules: {
+            rules:
+                {
+                ExpireDateString:
+                   {
+                       required:true
+                   },
                 CakeWeight: {
                     required:true,
                     min: 1.5,
@@ -11,10 +16,10 @@
                 CustomerName: "required",
                 CustomerPhoneNumber: {
                     required: true
-                },
-                ExpireDateString: "required"
+                }
             },
             messages: {
+                ExpireDateString: "<p style='color:red;'>Кажется,Вы не указали дату для тортика</p>",
                 CustomerName: "<p style='color:red;'>Как же Вас зовут?</p>",
                 CakeWeight: {
                     required: "<p style='color:red;'>Не указан вес тортика</p>",
@@ -23,9 +28,35 @@
                 },
                 CustomerPhoneNumber: {
                     required: "<p style='color:red;'>Даже телефончик не оставите?</p>",
-                },
+                }
+            }
+        });
 
-                ExpireDateString: "<p style='color:red;'>Кажется,Вы не указали дату для тортика</p>"
+        $('input#CakeWeight').on('input', function () {
+            var name = $('div#cakeName').text();
+            if (name != 'Двухъярусный   торт')
+            {
+                var theMessage = '';
+                var weightValue = $(this).val();
+                var levelValue = $('select#SelectedLevels :selected').text();
+                if (weightValue > 3 && levelValue < 2) {
+                    theMessage = "Рекомендуем увеличить количество ярусов";
+                }
+                $('p#recomend').text(theMessage);
+            }
+           
+        });
+
+        $('select#SelectedLevels').on('change', function () {
+            var name = $('div#cakeName').text();
+            if (name != 'Двухъярусный   торт') {
+                var theMessage = '';
+                var weightValue = $('input#CakeWeight').val();
+                var levelValue = $('select#SelectedLevels :selected').text();
+                if (weightValue > 3 && levelValue < 2) {
+                    theMessage = "Рекомендуем увеличить количество ярусов";
+                }
+                $('p#recomend').text(theMessage);
             }
         });
     });
