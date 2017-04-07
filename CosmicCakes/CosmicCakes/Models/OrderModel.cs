@@ -1,8 +1,6 @@
-﻿using CosmicCakes.DAL.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Globalization;
 
 namespace CosmicCakes.Models
 {
@@ -15,8 +13,8 @@ namespace CosmicCakes.Models
         public string CustomerPhoneNumber { get; set; }
         public string CakeName { get; set; }
         [Required(ErrorMessage = "Не указан вес тортика")]
-        [Range(1.5,20,ErrorMessage ="Минимальный вес - 1.5кг")]
-        [DataType(DataType.Currency,ErrorMessage ="А тут должна быть циферка")]
+        [Range(1.5, 20, ErrorMessage = "Минимальный вес - 1.5кг")]
+        [DataType(DataType.Currency, ErrorMessage = "А тут должна быть циферка")]
         public double CakeWeight { get; set; }
         public string Comments { get; set; }
         [Required(ErrorMessage = "Кажется,Вы не указали дату для тортика")]
@@ -30,6 +28,7 @@ namespace CosmicCakes.Models
         public string SecondLevelBisquit { get; set; }
         public string ThirdLevelBisquit { get; set; }
         public string SelectedOneLevelBisquit { get; set; }
+        public bool CustomLevelBisquits { get; set; }
         public OrderModel()
         {
             Levels = new List<int>
@@ -39,7 +38,7 @@ namespace CosmicCakes.Models
         }
         public override string ToString()
         {
-            ExpireDate = DateTime.Parse(ExpireDateString);
+            ExpireDate = DateTime.ParseExact(ExpireDateString, "MM/dd/yyyy", null);
             return string.Format($"Заказ от: {CustomerName} \nТелефон: {CustomerPhoneNumber} \nДата: {ExpireDate.ToShortDateString()} \nТорт: {CakeName}\nВес: {CakeWeight} кг \n Ярусы:{SelectedLevels} \nКомментарий: {Comments}");
         }
 
