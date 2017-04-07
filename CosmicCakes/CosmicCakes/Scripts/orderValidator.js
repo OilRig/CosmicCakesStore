@@ -64,8 +64,8 @@
             {
                 $('div#multiLevelCake').css('display', 'none');
                 $('div#singleLevelCake').css('display', 'block');
-                if ($('input#differentBisquits').is(':checked'))
-                $(this).triggerHandler('change',[true]);
+                $('input#differentBisquits').attr('checked', false);
+                $('input#differentBisquits').trigger('change');
             }
             else if($(this).val()==2)
             {
@@ -85,14 +85,8 @@
             }
         });
 
-        $('input#differentBisquits').on('change', function (fromDrop) {
-            if (!fromDrop)
-            {
-                $('div#levelSelector').css('display', 'none');
-                $('div#oneBisquitMiltiLevel').css('display', 'block');
-                $('div#singleLevelBisquit').css('display', 'none');
-            }
-            else {
+        $('input#differentBisquits').on('change', function () {
+            
                 if ($(this).is(':checked')) {
                     $('div#singleLevelBisquit').css('display', 'none');
                     $('div#levelSelector').css('display', 'block');
@@ -102,7 +96,6 @@
                     $('div#levelSelector').css('display', 'none');
                     $('div#oneBisquitMiltiLevel').css('display', 'block');
                     $('div#singleLevelBisquit').css('display', 'none');
-                }
             } 
         });
     });
