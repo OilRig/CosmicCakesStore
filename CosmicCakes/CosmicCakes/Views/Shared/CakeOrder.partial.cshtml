@@ -42,7 +42,7 @@
             <div class="col-sm-9">
                 @Html.TextBoxFor(m => m.CakeWeight, htmlAttributes: new { placeholder = "Вес", @class = "form-control" })
                 <p style="color: red;">@Html.ValidationMessageFor(m => m.CakeWeight)</p>
-                <p id="recomend" style="color:#fb9494;"></p>
+                
             </div>
 
         </div>
@@ -73,12 +73,96 @@
 
                 <div class="col-sm-9">
                     @Html.DropDownListFor(m => m.SelectedLevels, new SelectList(Model.Levels), htmlAttributes: new { @class = "form-control" })
+                    <p id="recomend" style="color:#fb9494;"></p>
                 </div>
 
             </div>
 
         }
       
+        <div class="col-sm-6" id="singleLevelCake">
+
+            <div class="col-sm-3">
+                <label>Бисквит</label>
+            </div>
+
+            <div class="col-sm-9">
+                @Html.DropDownListFor(m => m.SelectedOneLevelBisquit, new SelectList(Model.Bisquits), htmlAttributes: new { @class = "form-control", })
+            </div>
+        </div>
+
+        <div  id="multiLevelCake" class="col-sm-6" style="display:none;">
+
+            <div id="oneBisquitMiltiLevel" class="col-sm-8">
+
+                <div class="row">
+                    <div class="col-sm-3">
+                        <label>Бисквит</label>
+                    </div>
+
+                    <div class="col-sm-9">
+                        @Html.DropDownListFor(m => m.SelectedOneLevelBisquit, new SelectList(Model.Bisquits), htmlAttributes: new { @class = "form-control", })
+                    </div>
+                </div>
+
+            </div>
+
+           
+            
+
+            <div id="levelSelector" class="col-sm-8" style="display:none;">
+
+                <div class="row">
+
+                    <div id="fstLvlLabel" class="col-sm-3">
+                        <p>1 ярус:</p>
+                    </div>
+
+                    <div class="col-sm-9">
+                        @Html.DropDownListFor(m => m.FirstLevelBisquit, new SelectList(Model.Bisquits), htmlAttributes: new { @class = "form-control" })
+                    </div>
+
+                </div>
+
+                <div class="row" style="margin-top:10px;">
+
+                    <div id="scdLvlLabel" class="col-sm-3">
+                        <p>2 ярус:</p>
+                    </div>
+
+                    <div class="col-sm-9">
+                        @Html.DropDownListFor(m => m.SecondLevelBisquit, new SelectList(Model.Bisquits), htmlAttributes: new { @class = "form-control" })
+                    </div>
+
+                </div>
+
+                <div class="row" style="margin-top:10px;">
+
+                    <div id="thrdLvlLabel" class="col-sm-3">
+                        <p>3 ярус:</p>
+                    </div>
+
+                    <div class="col-sm-9">
+                        @Html.DropDownListFor(m => m.ThirdLevelBisquit, new SelectList(Model.Bisquits), htmlAttributes: new { @class = "form-control" })
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-sm-1">
+                @Html.CheckBox("differentBisquits", false)
+            </div>
+
+            <div class="col-sm-3">
+                <label> Разные бисквиты в ярусы</label>
+            </div>
+
+        </div>
+       
+    </div>
+    <div  style="margin-top:10px;" class="row">
+
         <div class="col-sm-6">
 
             <div class="col-sm-3">
@@ -91,65 +175,7 @@
 
         </div>
 
-    </div>
 
-    <div class="row" style="margin-top:10px;">
-
-        <div class="col-sm-6">
-            <div class="col-sm-1">
-                @Html.CheckBox("differentBisquits", false)
-            </div>
-
-            <div class="col-sm-3">
-                <label> Разные бисквиты в ярусы</label>
-            </div>
-
-            <div class="col-sm-8">
-
-                <div class="row">
-
-                    <div class="col-sm-3">
-                        <p>1 ярус:</p>
-                    </div>
-
-                    <div class="col-sm-9">
-                        @Html.DropDownListFor(m => m.FirstLevelBisquit, new SelectList(Model.Bisquits), htmlAttributes: new { @class = "form-control" })
-                    </div>
-
-                </div>
-
-                <div class="row" style="margin-top:10px;">
-
-                    <div class="col-sm-3">
-                        <p>2 ярус:</p>
-                    </div>
-
-                    <div class="col-sm-9">
-                        @Html.DropDownListFor(m => m.SecondLevelBisquit, new SelectList(Model.Bisquits), htmlAttributes: new { @class = "form-control" })
-                    </div>
-
-                </div>
-
-                <div class="row" style="margin-top:10px;">
-
-                    <div class="col-sm-3">
-                        <p>3 ярус:</p>
-                    </div>
-
-                    <div class="col-sm-9">
-                        @Html.DropDownListFor(m => m.ThirdLevelBisquit, new SelectList(Model.Bisquits), htmlAttributes: new { @class = "form-control" })
-                    </div>
-
-                </div>
-               
-               
-            </div>
-            
-        </div>
-
-        <div class="col-sm-6">
-
-        </div>
     </div>
 
         <div class="row" style="margin-top:50px;">

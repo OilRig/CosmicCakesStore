@@ -29,6 +29,7 @@ namespace CosmicCakes.Models
         public string FirstLevelBisquit { get; set; }
         public string SecondLevelBisquit { get; set; }
         public string ThirdLevelBisquit { get; set; }
+        public string SelectedOneLevelBisquit { get; set; }
         public OrderModel()
         {
             Levels = new List<int>

@@ -58,6 +58,52 @@
                 }
                 $('p#recomend').text(theMessage);
             }
+
+            //for level selectors count
+            if ($(this).val() == 1)
+            {
+                $('div#multiLevelCake').css('display', 'none');
+                $('div#singleLevelCake').css('display', 'block');
+                if ($('input#differentBisquits').is(':checked'))
+                $(this).triggerHandler('change',[true]);
+            }
+            else if($(this).val()==2)
+            {
+                $('div#multiLevelCake').css('display', 'block');
+                $('div#singleLevelCake').css('display', 'none');
+                $('#FirstLevelBisquit,#fstLvlLabel').css('display', 'block');
+                $('#SecondLevelBisquit,#scdLvlLabel').css('display', 'block');
+                $('#ThirdLevelBisquit,#thrdLvlLabel').css('display', 'none');  
+            }
+            else if($(this).val()==3)
+            {
+                $('div#multiLevelCake').css('display', 'block');
+                $('div#singleLevelCake').css('display', 'none');
+                $('#FirstLevelBisquit, #fstLvlLabel').css('display', 'block');
+                $('#SecondLevelBisquit, #scdLvlLabel').css('display', 'block');
+                $('#ThirdLevelBisquit, #thrdLvlLabel').css('display', 'block');
+            }
+        });
+
+        $('input#differentBisquits').on('change', function (fromDrop) {
+            if (!fromDrop)
+            {
+                $('div#levelSelector').css('display', 'none');
+                $('div#oneBisquitMiltiLevel').css('display', 'block');
+                $('div#singleLevelBisquit').css('display', 'none');
+            }
+            else {
+                if ($(this).is(':checked')) {
+                    $('div#singleLevelBisquit').css('display', 'none');
+                    $('div#levelSelector').css('display', 'block');
+                    $('div#oneBisquitMiltiLevel').css('display', 'none');
+                }
+                else if ($(this).is(':unchecked')) {
+                    $('div#levelSelector').css('display', 'none');
+                    $('div#oneBisquitMiltiLevel').css('display', 'block');
+                    $('div#singleLevelBisquit').css('display', 'none');
+                }
+            } 
         });
     });
 })(jQuery);
