@@ -6,8 +6,8 @@
                     function () {
                         var currSrc = $(this).attr('src');
                         var frstImgNexSrc = $(this).next('img#cakeImageSecond').attr('src');
+                        $(this).attr('src', frstImgNexSrc);
                         $(this).next('img#cakeImageSecond').attr('src', currSrc);
-                        $(this).attr("src", frstImgNexSrc);
                         $(this).fadeIn(1000);
                     });
             }, 7000);
