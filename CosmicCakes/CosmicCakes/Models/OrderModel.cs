@@ -28,6 +28,7 @@ namespace CosmicCakes.Models
         public string SecondLevelBisquit { get; set; }
         public string ThirdLevelBisquit { get; set; }
         public string SelectedOneLevelBisquit { get; set; }
+        public string SelectedMultiLevelBisquit { get; set; }
         public bool CustomLevelBisquits { get; set; }
         public OrderModel()
         {
@@ -39,7 +40,44 @@ namespace CosmicCakes.Models
         public override string ToString()
         {
             ExpireDate = DateTime.ParseExact(ExpireDateString, "MM/dd/yyyy", null);
-            return string.Format($"Заказ от: {CustomerName} \nТелефон: {CustomerPhoneNumber} \nДата: {ExpireDate.ToShortDateString()} \nТорт: {CakeName}\nВес: {CakeWeight} кг \n Ярусы:{SelectedLevels} \nКомментарий: {Comments}");
+
+            switch (SelectedLevels)
+            {
+                case 1:
+                    {
+                        return string.Format($"Заказ от: {CustomerName} \n Телефон: {CustomerPhoneNumber} \n Дата: {ExpireDate.ToShortDateString()} \n Торт: {CakeName}\n Вес: {CakeWeight} кг \n Ярусы:{SelectedLevels} \n"
+                        + $"Бисквит: {SelectedOneLevelBisquit} \n Комментарий: {Comments}");
+                    }
+                case 2:
+                    {
+                        if (CustomLevelBisquits)
+                        {
+                            return string.Format($"Заказ от: {CustomerName} \n Телефон: {CustomerPhoneNumber} \n Дата: {ExpireDate.ToShortDateString()} \n Торт: {CakeName}\n Вес: {CakeWeight} кг \n Ярусы: {SelectedLevels} \n" +
+                                $"-Разные бисквиты в ярусы: Да \n --Бисквит в первый ярус: {FirstLevelBisquit} \n --Бисквит во второй ярус: {SecondLevelBisquit} \n Комментарий: {Comments}");
+                        }
+                        else
+                        {
+                            return string.Format($"Заказ от: {CustomerName} \n Телефон: {CustomerPhoneNumber} \n Дата: {ExpireDate.ToShortDateString()} \n Торт: {CakeName}\n Вес: {CakeWeight} кг \n Ярусы:{SelectedLevels} \n"
+                                + $"-Разные бисквиты в ярусы: Нет \n --Бисквит: {SelectedMultiLevelBisquit} \n Комментарий: {Comments}");
+                        }
+                    }
+                case 3:
+                    {
+                        if (CustomLevelBisquits)
+                        {
+                            return string.Format($"Заказ от: {CustomerName} \n Телефон: {CustomerPhoneNumber} \n Дата: {ExpireDate.ToShortDateString()} \n Торт: {CakeName}\n Вес: {CakeWeight} кг \n Ярусы: {SelectedLevels} \n" +
+                                $"-Разные бисквиты в ярусы: Да \n --Бисквит в первый ярус: {FirstLevelBisquit} \n --Бисквит во второй ярус: {SecondLevelBisquit}  \n --Бисквит в третий ярус: {ThirdLevelBisquit}\n Комментарий: {Comments}");
+                        }
+                        else
+                        {
+                            return string.Format($"Заказ от: {CustomerName} \n Телефон: {CustomerPhoneNumber} \n Дата: {ExpireDate.ToShortDateString()} \n Торт: {CakeName}\n Вес: {CakeWeight} кг \n Ярусы:{SelectedLevels} \n"
+                                + $"-Разные бисквиты в ярусы: Нет \n --Бисквит: {SelectedMultiLevelBisquit} \n Комментарий: {Comments}");
+                        }
+                    }
+                default: return null;
+            }
+
+
         }
 
     }
