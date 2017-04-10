@@ -335,6 +335,7 @@
     <Content Include="Views\Feedback\Index.cshtml" />
     <Content Include="Views\Shared\FeedbackForm.partial.cshtml" />
     <Content Include="Views\Feedback\SaveFeedback.cshtml" />
+    <Content Include="Views\Price\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\Images\Cupcakes\Individual\Rectangle\" />
