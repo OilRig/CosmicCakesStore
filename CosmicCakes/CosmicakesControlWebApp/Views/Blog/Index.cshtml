@@ -36,15 +36,15 @@
                     <label>Шаблон:</label>
                 </div>
                 <div class="col-sm-8">
-                    @Html.DropDownListFor(m => m.SelectedTemplate,new SelectList(Model.PostTemplates), new { @class = "form-control",id="templateSelector" })
+                    @Html.DropDownListFor(m => m.SelectedTemplateName,new SelectList(Model.PostTemplatesNames), new { @class = "form-control",id="templateSelector" })
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-1">
                     <label>Пост:</label>
                 </div>
-                <div class="col-xs-11">
-                    @Html.TextAreaFor(m => m.Content, new { @class = "form-control",style = "width:100% !important;", rows = "30" })
+                <div class="col-xs-11" id="templateBody">
+                   
                 </div>
             </div>
             <div class="row" style="margin-top:30px;">
@@ -57,4 +57,23 @@
     </div>
    
 </div>
+<script>
+    (function ($) {
+        $('select#templateSelector').on('change', function () {
+            var name = $(this).val();
+            $.ajax({
+                type: "GET",
+                url: '@Url.Action("LoadTemplate", "Blog")',
+                data: { templateName: name },
+                dataType: "json",
+                error: function (xhr) {
+                    alert("Error!");
+                },
+                success: function (data) {
+                    $('div#templateBody').html(data);
+                }
+            });
+        });
+    })(jQuery);
+</script>
 

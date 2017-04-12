@@ -11,5 +11,6 @@ namespace CosmicCakes.DAL.Interfaces
     {
         IEnumerable<PostContentTemplate> GetAllTemplates();
         PostContentTemplate GetTemplateByName(string name);
+        IEnumerable<string> GetAllTemplatesNamesOnly();
     }
 }

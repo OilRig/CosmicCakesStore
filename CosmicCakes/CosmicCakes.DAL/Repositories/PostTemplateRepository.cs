@@ -38,6 +38,28 @@ namespace CosmicCakes.DAL.Repositories
             }
         }
 
+        public IEnumerable<string> GetAllTemplatesNamesOnly()
+        {
+            using (var context = GetContext())
+            {
+                var query = (from b in context.PostTemplates
+                             select b.Name)
+                             .AsNoTracking()
+                             .ToList();
+                try
+                {
+                    if (!query.Any()) throw new Exception("Error getting all templates");
+                    return query;
+                }
+                catch (Exception ex)
+                {
+                    Logger.Error(ex, DateTime.UtcNow + ":" + ex.Message);
+                    throw;
+                }
+
+            }
+        }
+
         public PostContentTemplate GetTemplateByName(string name)
         {
             using (var context = GetContext())

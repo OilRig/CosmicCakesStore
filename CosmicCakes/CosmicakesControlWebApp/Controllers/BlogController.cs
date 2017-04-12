@@ -3,6 +3,7 @@ using CosmicCakes.DAL.Entities;
 using CosmicCakes.DAL.Interfaces;
 using System;
 using System.Web.Mvc;
+using System.Linq;
 
 namespace CosmicakesControlWebApp.Controllers
 {
@@ -15,10 +16,18 @@ namespace CosmicakesControlWebApp.Controllers
             _blogRepository = blogRepository;
             _postTemplateRepository = postTemplateRepository;
         }
+
         [HttpGet]
         public ActionResult Index()
         {
-            return View();
+            var templateNames = _postTemplateRepository.GetAllTemplatesNamesOnly();
+
+            var model = new PostModel
+            {
+                PostTemplatesNames = templateNames
+            };
+
+            return View(model);
         }
 
         [HttpPost]
@@ -38,6 +47,13 @@ namespace CosmicakesControlWebApp.Controllers
                 return View();
             }
             return View("Error");
+        }
+
+        [HttpGet]
+        public JsonResult LoadTemplate(string templateName)
+        {
+            var template = _postTemplateRepository.GetTemplateByName(templateName);
+            return Json(template.Body, JsonRequestBehavior.AllowGet);
         }
     }
 }

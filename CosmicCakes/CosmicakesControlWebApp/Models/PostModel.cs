@@ -9,8 +9,8 @@ namespace CosmicakesControlWebApp.Models
         public string Author { get; set; }
         public string Theme { get; set; }
         public string Content { get; set; }
-        public List<PostContentTemplate> PostTemplates { get; set; }
-        public PostContentTemplate SelectedTemplate { get; set; }
+        public IEnumerable<string> PostTemplatesNames { get; set; }
+        public string SelectedTemplateName { get; set; }
 
     }
 }
