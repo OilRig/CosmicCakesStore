@@ -9,13 +9,11 @@
 </script>     
 
 <div class="row">
-    <div class="col-md-12">
-        <p>Новая запись в блог</p>
-    </div>
+
 </div>
 <div class="row">
     <div class="col-sm-12">
-        @using (Html.BeginForm("SavePost", "Blog", FormMethod.Post, htmlAttributes: new { enctype = "multipart/form-data", id = "orderForm" }))
+        @using (Html.BeginForm("SavePost", "Blog", FormMethod.Post, htmlAttributes: new { enctype = "multipart/form-data"}))
         {
             <div class="row">
                 <div class="col-sm-1">
@@ -31,6 +29,14 @@
                 </div>
                 <div class="col-sm-8">
                     @Html.TextBoxFor(m => m.Theme, new { @class = "form-control"})
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-1">
+                    <label>Шаблон:</label>
+                </div>
+                <div class="col-sm-8">
+                    @Html.DropDownListFor(m => m.SelectedTemplate,new SelectList(Model.PostTemplates), new { @class = "form-control",id="templateSelector" })
                 </div>
             </div>
             <div class="row">
