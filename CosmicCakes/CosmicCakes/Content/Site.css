@@ -213,7 +213,7 @@ textarea {
 }
 
 .margined-right-item {
-    padding-left: 35px;
+    padding-left: 25px;
 }
 
 img.margined-right-item {
@@ -633,5 +633,10 @@ p.start-page-info-brief {
 }
 button[data-target="#orderModal"] {
     margin-top:30px;
+}
+.subscribe-text {
+    font-size:16px;
+    font-family:'Open Sans',sans-serif;
+    text-align:justify;
 }
 

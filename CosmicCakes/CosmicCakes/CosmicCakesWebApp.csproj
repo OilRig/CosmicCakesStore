@@ -158,6 +158,7 @@
     <Compile Include="Controllers\FeedbackController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\AppServiceController.cs" />
+    <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\PriceController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -167,6 +168,7 @@
     <Compile Include="Models\CakePartsModel.cs" />
     <Compile Include="Models\CakesStartPageModel.cs" />
     <Compile Include="Models\FeedbackItemsModel.cs" />
+    <Compile Include="Models\NewsSubscribeModel.cs" />
     <Compile Include="Models\OrderModel.cs" />
     <Compile Include="Models\UserFeedbackModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -305,6 +307,7 @@
     <Content Include="Scripts\pageScroller.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\SubscribeValidator.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -336,6 +339,8 @@
     <Content Include="Views\Shared\FeedbackForm.partial.cshtml" />
     <Content Include="Views\Feedback\SaveFeedback.cshtml" />
     <Content Include="Views\Price\Index.cshtml" />
+    <Content Include="Views\News\Index.cshtml" />
+    <Content Include="Views\Shared\SubscribeCompleted.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\Images\Cupcakes\Individual\Rectangle\" />
