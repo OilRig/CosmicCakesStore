@@ -25,6 +25,7 @@ namespace CosmicCakes.Ninject
             Bind<IBlogRepository>().To<BlogRepository>();
             Bind<IFeedbackRepository>().To<FeedbackRepository>();
             Bind<IPostTemplateRepository>().To<PostTemplateRepository>();
+            Bind<IUserSubscriptionRepository>().To<UserSubscriptionRepository>();
             //Loggers
             Bind<IAppLogger>().To<NLogLogger>();
             //Services

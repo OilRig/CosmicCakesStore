@@ -35,5 +35,8 @@ namespace CosmicCakes.DAL
 
         //Feedbacks
         public virtual DbSet<UserFeedback> UserFeedbacks { get; set; }
+
+        //Subscribtions
+        public virtual DbSet<UserSubscribtion> UserSubscriptions { get; set; }
     }
 }

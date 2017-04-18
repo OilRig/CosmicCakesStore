@@ -4,7 +4,7 @@
     ViewBag.Title = "Подписка на новости от Cosmic Cakes";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+@Html.ValidationSummary(true)
 <div class="row" style="margin-top:50px;">
     <div class="col-sm-12">
         <div class="subscribe-text">
@@ -43,9 +43,10 @@
                     <label>Email: </label>
                 </div>
                 <div class="col-sm-7 input-group">
-                    @Html.TextBoxFor(m => m.Email, htmlAttributes: new { @class = "form-control", aria_describedby = "sizing-addon2" })                   
+                    @Html.TextBoxFor(m => m.Email, htmlAttributes: new { @class = "form-control", aria_describedby = "sizing-addon2" })    
+                    <p style="color:red">@Html.ValidationMessageFor(m => m.Email)</p>               
                 </div>
-                @Html.ValidationMessageFor(m => m.Email)
+                
             </div>
 
         </div>
