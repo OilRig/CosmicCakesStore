@@ -65,6 +65,7 @@ namespace CosmicakesControlWebApp.Controllers
                 SendMessageAsync(message); 
             });
         }
+
         [HttpGet]
         public ActionResult Index()
         {
