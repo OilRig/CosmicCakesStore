@@ -1,0 +1,16 @@
+﻿@model CosmicakesControlWebApp.Models.AnnounceModel
+@{
+    ViewBag.Title = "Index";
+}
+
+@using (Html.BeginForm("Announce", "News", FormMethod.Post, htmlAttributes: new { enctype = "multipart/form-data" }))
+{
+<div class="row">
+    <div class="col-sm-12">
+        @Html.TextAreaFor(m => m.Content, htmlAttributes: new { @class = "form-comtrol" })
+        <button type="submit">Го</button>
+    </div>
+</div>
+}
+
+
