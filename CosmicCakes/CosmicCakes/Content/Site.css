@@ -639,4 +639,8 @@ button[data-target="#orderModal"] {
     font-family:'Open Sans',sans-serif;
     text-align:justify;
 }
+p.leave-comment-text {
+     font-family:'Ubuntu Condensed';
+    font-size:2em;
+}
 

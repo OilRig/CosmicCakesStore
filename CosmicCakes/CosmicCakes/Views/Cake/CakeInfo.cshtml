@@ -7,6 +7,8 @@
     var itemActivator = 0;
     var indicatorCounter = 0;
 }
+
+
 @Html.ValidationSummary(true)
 <div class="row century-gothic-text" style="margin-top:30px;">
 
@@ -112,6 +114,15 @@
     </div>
     <hr class="style-one" style="margin-top:50px;margin-bottom:30px;" />
 </div>
+ <div class="row">
+     <div class="col-sm-12 centerd-content">
+         <p class="leave-comment-text">Оставляйте ваши комментарии об этом тортике</p>
+     </div>
+ </div>
+<div id="vk_comments"></div>
+<script type="text/javascript">
+VK.Widgets.Comments("vk_comments", {limit: 10, attach: "*"});
+</script>
 
 
 <script src="~/Scripts/mask.js" type="text/javascript" defer></script>
