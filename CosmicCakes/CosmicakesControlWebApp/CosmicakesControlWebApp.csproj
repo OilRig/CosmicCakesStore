@@ -219,6 +219,7 @@
     <Content Include="Views\Blog\SavePost.cshtml" />
     <Content Include="Views\News\Index.cshtml" />
     <Content Include="Views\News\Announce.cshtml" />
+    <Content Include="Views\Shared\ErrorTemplate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

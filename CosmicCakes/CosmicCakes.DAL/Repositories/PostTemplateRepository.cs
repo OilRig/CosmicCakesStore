@@ -48,7 +48,7 @@ namespace CosmicCakes.DAL.Repositories
                              .ToList();
                 try
                 {
-                    if (!query.Any()) throw new Exception("Error getting all templates");
+                    if (query==null) throw new Exception("Error getting all templates");
                     return query;
                 }
                 catch (Exception ex)

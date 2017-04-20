@@ -20,14 +20,22 @@ namespace CosmicakesControlWebApp.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            var templateNames = _postTemplateRepository.GetAllTemplatesNamesOnly();
-
-            var model = new PostModel
+            try
             {
-                PostTemplatesNames = templateNames
-            };
+                var templateNames = _postTemplateRepository.GetAllTemplatesNamesOnly();
 
-            return View(model);
+                var model = new PostModel
+                {
+                    PostTemplatesNames = templateNames
+                };
+
+                return View(model);
+            }
+            catch(Exception e)
+            {
+                return View("ErrorTemplate",e);
+            }
+            
         }
 
         [HttpPost]
