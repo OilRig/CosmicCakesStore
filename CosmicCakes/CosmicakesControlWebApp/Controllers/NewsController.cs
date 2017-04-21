@@ -15,9 +15,11 @@ namespace CosmicakesControlWebApp.Controllers
     public class NewsController : Controller
     {
         IUserSubscriptionRepository _subscribtionRepository;
-        public NewsController(IUserSubscriptionRepository subscribtionRepository)
+        IEmailTemplateRepository _templateRepository;
+        public NewsController(IUserSubscriptionRepository subscribtionRepository, IEmailTemplateRepository templateRepository)
         {
             _subscribtionRepository = subscribtionRepository;
+            _templateRepository = templateRepository;
         }
 
         private delegate void AsyncMethodCaller(MailMessage message);
@@ -50,8 +52,10 @@ namespace CosmicakesControlWebApp.Controllers
             AsyncCallback callbackHandler = new AsyncCallback(AsyncCallback);
             caller.BeginInvoke(message, callbackHandler, null);
         }
-        private void NotifyUsers(IEnumerable<UserSubscribtion> subsUsers,string content)
+        private void NotifyUsers(IEnumerable<UserSubscribtion> subsUsers,string content,string templateName = "CC-News")
         {
+            string messageTemplate = _templateRepository.GetTemplateByName(templateName).Body;
+
             subsUsers
                 .ToList()
                 .ForEach(u =>
@@ -59,8 +63,9 @@ namespace CosmicakesControlWebApp.Controllers
                 var from = new MailAddress("cosmicakesofficial@gmail.com","Кондитерская Cosmic Cakes");
                 var to = new MailAddress(u.Email);
 
-                var message = new MailMessage(from, to);                
-                message.Body = $"Уважаемый(ая) {u.Name} {u.Patronymic}! \n Вас приветствует Нора Голубева из кондитерской Cosmic Cakes! У нас для Вас есть новости. \n \n {content}";
+                var message = new MailMessage(from, to);
+                message.IsBodyHtml = true;
+                message.Body = messageTemplate.Replace("{firstName}",u.Name).Replace("{patronymic}",u.Patronymic).Replace("{renderBody}",content);
                 message.Subject = "Новости кондитерской Cosmic Cakes";
                 SendMessageAsync(message); 
             });
@@ -69,14 +74,19 @@ namespace CosmicakesControlWebApp.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            return View();
+            var model = new AnnounceModel
+            {
+                TemplateNames = _templateRepository.GetTemplateNamesOnly()
+            };
+            return View(model);
         }
 
         [HttpPost]
+        [ValidateInput(false)]
         public ActionResult Announce(AnnounceModel model)
         {
             var users = _subscribtionRepository.GetAllSubscribedUsers();
-            NotifyUsers(users,model.Content);
+            NotifyUsers(users,model.Content,model.SelectedTemplateName);
             return View();
         }
     }

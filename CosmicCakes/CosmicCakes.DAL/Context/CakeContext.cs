@@ -38,5 +38,9 @@ namespace CosmicCakes.DAL
 
         //Subscribtions
         public virtual DbSet<UserSubscribtion> UserSubscriptions { get; set; }
+
+        //Emails
+        public virtual DbSet<EmailTemplate> EmailTemplates { get; set; }
+        public virtual DbSet<EmailLinkedResorce> LinkedResorces { get; set; }
     }
 }
