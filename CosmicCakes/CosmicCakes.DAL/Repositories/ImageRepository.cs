@@ -25,7 +25,7 @@ namespace CosmicCakes.DAL.Repositories
                                   .ToList();
                 try
                 {
-                    if (!imagePaths.Any()) throw new Exception($"Error getting paths.Cake Id is:{cakeId}");
+                    if (imagePaths==null) throw new Exception($"Error getting paths.Cake Id is:{cakeId}");
                     return imagePaths;
                 }
                 catch (Exception ex)
@@ -47,7 +47,7 @@ namespace CosmicCakes.DAL.Repositories
                                   .ToList();
                 try
                 {
-                    if (!imagePaths.Any()) throw new Exception($"Error getting rectangle paths. Cake Id is: {cakeId}");
+                    if (imagePaths==null) throw new Exception($"Error getting rectangle paths. Cake Id is: {cakeId}");
                     return imagePaths;
                 }
                 catch (Exception ex)

@@ -45,7 +45,7 @@ namespace CosmicCakes.Controllers
             order.Comments = model.Comments;
             order.CustomerName = model.CustomerName;
             order.CustomerPhoneNumber = model.CustomerPhoneNumber;
-            order.ExpireDate = DateTime.ParseExact(model.ExpireDateString,"MM/dd/yyyy",null);
+            order.ExpireDate = DateTime.ParseExact(model.ExpireDateString, "MM/dd/yyyy", null);
             order.OrderDate = DateTime.Now;
             order.CakeName = model.CakeName;
             _orderRepository.Add(order);
@@ -106,7 +106,7 @@ namespace CosmicCakes.Controllers
                         IsLevelable = cake.IsLevelable,
                         Bisquits = _bisquitRepository.GetAllNamesOnly()
                     },
-                    
+
                 };
                 return View(infoModel);
             }
@@ -119,7 +119,7 @@ namespace CosmicCakes.Controllers
 
         [HttpPost]
         public ActionResult MakeOrder(OrderModel model)
-        { 
+        {
             model.CakeName = _cakeRepository.GetCakeById(model.Id).Name;
             if (ModelState.IsValid)
             {

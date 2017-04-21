@@ -25,7 +25,7 @@ namespace CosmicCakes.DAL.Repositories
                              .ToList();
                 try
                 {
-                    if (!query.Any()) throw new Exception("Error getting creams");
+                    if (query==null) throw new Exception("Error getting creams");
                     return query;
                 }
                 catch (Exception ex)

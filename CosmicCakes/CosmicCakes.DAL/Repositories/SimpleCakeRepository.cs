@@ -25,7 +25,7 @@ namespace CosmicCakes.DAL.Repositories
                        .ToList();
                 try
                 {
-                    if (!cakes.Any()) throw new Exception("Error getting all cakes from DB");
+                    if (cakes==null) throw new Exception("Error getting all cakes from DB");
                     return cakes;
                 }
                 catch (Exception ex)

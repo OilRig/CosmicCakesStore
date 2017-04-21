@@ -13,6 +13,12 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+    <script src="https://vk.com/js/api/openapi.js?144" type="text/javascript"></script>>
+
+    <script type="text/javascript">
+        VK.init({apiId: 5990858, onlyWidgets: true});
+    </script>
+
 </head>
 <body>
     <div class="container">
@@ -45,7 +51,7 @@
                         <li class="margined-right-item ubuntu-navbar-text" id="cakes"> <a href="@Url.Action("Index","Cake")">ТОРТЫ</a></li>
                         <li class="margined-right-item ubuntu-navbar-text" id="cupcakes"><a href="@Url.Action("Index","Cupcake")">КАПКЕЙКИ</a></li>
                         <li class="margined-right-item ubuntu-navbar-text" id="cakeParts"><a href="@Url.Action("Index","CakePart")">БИСКВИТЫ&nbsp;И&nbsp;НАЧИНКИ</a></li>
-                        <li class="margined-right-item ubuntu-navbar-text" id="checkPrice"><a href="@Url.Action("Index","Price")">КАК&nbsp;ЗАКАЗАТЬ</a></li>
+                        <li class="margined-right-item ubuntu-navbar-text" id="subscribe"><a href="@Url.Action("Index","News")">ПОДПИСАТЬСЯ&nbsp;НА&nbsp;НОВОСТИ</a></li>
                         <li class="margined-right-item ubuntu-navbar-text" id="blog"><a href="@Url.Action("Index","Blog")">БЛОГ</a></li>
                         <li class="margined-right-item ubuntu-navbar-text" id="about"><a href="@Url.Action("Index","About")">ОБО&nbsp;МНЕ</a></li>
                         <li class="margined-right-item ubuntu-navbar-text" id="feedback"><a href="@Url.Action("Index","Feedback")">ОТЗЫВЫ</a></li>
@@ -86,7 +92,7 @@
                             <li style="display: inline; margin-right: 20px; padding: 0;"> <a href="@Url.Action("Index", "Cake")">ТОРТЫ</a></li>
                             <li style="display: inline; margin-right: 20px; padding: 0;"><a href="@Url.Action("Index", "Cupcake")">КАПКЕЙКИ</a></li>
                             <li style="display: inline; margin-right: 20px; padding: 0;"><a href="@Url.Action("Index", "CakePart")">БИСКВИТЫ&nbsp;И&nbsp;НАЧИНКИ</a></li>
-                            <li style="display: inline; margin-right: 20px; padding: 0;"><a href="@Url.Action("Index", "Price")">КАК&nbsp;ЗАКАЗАТЬ</a></li>
+                            <li style="display: inline; margin-right: 20px; padding: 0;"><a href="@Url.Action("Index", "News")">ПОДПИСАТЬСЯ&nbsp;НА&nbsp;НОВОСТИ</a></li>
                             <li style="display: inline; margin-right: 20px; padding: 0;"><a href="@Url.Action("Index", "Blog")">БЛОГ</a></li>
                             <li style="display: inline; margin-right: 20px; padding: 0;"><a href="@Url.Action("Index", "About")">ОБО&nbsp;МНЕ</a></li>
                             <li style="display: inline; padding: 0; margin: 0;"><a href="@Url.Action("Index","Feedback")">ОТЗЫВЫ</a></li>

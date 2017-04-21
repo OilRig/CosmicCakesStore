@@ -1,0 +1,68 @@
+﻿@model CosmicakesControlWebApp.Models.AnnounceModel
+@{
+    ViewBag.Title = "Index";
+}
+<script type="text/javascript" src="~/Scripts/blogEditor.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+        bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });
+  //]]>
+</script>
+@using (Html.BeginForm("Announce", "News", FormMethod.Post, htmlAttributes: new { enctype = "multipart/form-data" }))
+{
+
+    <div class="row">
+        <div class="col-sm-1">
+            <label>Шаблон:</label>
+        </div>
+        <div class="col-sm-8">
+            @Html.DropDownListFor(m => m.SelectedTemplateName, new SelectList(Model.TemplateNames), new { @class = "form-control", id = "templateSelector" })
+        </div>
+    </div>
+<div class="row" style="margin-top:10px;">
+    <div class="col-sm-1">
+        <label>Новость:</label>
+    </div>
+    <div class="col-sm-8">
+        @Html.TextAreaFor(m => m.Content, htmlAttributes: new { @class = "form-control",rows="6" })
+        
+    </div>
+</div>
+<div class="row" style="margin-top:10px;">
+    <div class="col-sm-1">
+        <label>Вложения:</label>
+    </div>
+    <div class="col-sm-8">
+
+        <div class="row">
+            <div class="col-sm-4">
+                <input type="file" name="AttachedFiles" />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-4">
+                <input type="file" name="AttachedFiles" />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-4">
+                <input type="file" name="AttachedFiles" />
+            </div>
+        </div>
+        
+    </div>
+</div>
+    <div class="row" style="margin-top:10px;">
+        <div class="col-sm-1">
+            <label>Отправка:</label>
+        </div>
+        <div class="col-sm-8">
+            <button class="make-order-button" type="submit">Оповестить подписчиков</button>
+        </div>
+    </div>
+
+}
+
+

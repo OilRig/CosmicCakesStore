@@ -31,8 +31,16 @@ namespace CosmicCakes.DAL
 
         //Blog section
         public virtual DbSet<BlogPost> BlogPosts { get; set; }
+        public virtual DbSet<PostContentTemplate> PostTemplates { get; set; }
 
         //Feedbacks
         public virtual DbSet<UserFeedback> UserFeedbacks { get; set; }
+
+        //Subscribtions
+        public virtual DbSet<UserSubscribtion> UserSubscriptions { get; set; }
+
+        //Emails
+        public virtual DbSet<EmailTemplate> EmailTemplates { get; set; }
+        public virtual DbSet<EmailLinkedResorce> LinkedResorces { get; set; }
     }
 }

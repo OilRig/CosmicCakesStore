@@ -64,8 +64,8 @@
             {
                 $('div#multiLevelCake').css('display', 'none');
                 $('div#singleLevelCake').css('display', 'block');
-                $('input#differentBisquits').attr('checked', false);
-                $('input#differentBisquits').trigger('change');
+                $('input#CustomLevelBisquits').attr('checked', false);
+                $('input#CustomLevelBisquits').trigger('change');
             }
             else if($(this).val()==2)
             {
@@ -85,7 +85,7 @@
             }
         });
 
-        $('input#differentBisquits').on('change', function () {
+        $('input#CustomLevelBisquits').on('change', function () {
             
                 if ($(this).is(':checked')) {
                     $('div#singleLevelBisquit').css('display', 'none');
