@@ -24,7 +24,7 @@ namespace CosmicCakes.DAL.Repositories
                              .ToList();
                 try
                 {
-                    if (!query.Any()) throw new Exception("Error getting all fillings");
+                    if (query==null) throw new Exception("Error getting all fillings");
                     return query;
                 }
                 catch (Exception ex)
@@ -45,7 +45,7 @@ namespace CosmicCakes.DAL.Repositories
                              .ToList();
                 try
                 {
-                    if (!query.Any()) throw new Exception("Error getting all fillings");
+                    if (query==null) throw new Exception("Error getting all fillings");
                     return query;
                 }
                 catch (Exception ex)

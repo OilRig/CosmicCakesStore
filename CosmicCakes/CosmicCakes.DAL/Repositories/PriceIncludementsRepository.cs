@@ -25,7 +25,7 @@ namespace CosmicCakes.DAL.Repositories
                     .ToList();
                 try
                 {
-                    if (!includements.Any()) throw new Exception($"Error getting all price includements by cake id = {cakeId}");
+                    if (includements==null) throw new Exception($"Error getting all price includements by cake id = {cakeId}");
                     return includements;
                 }
                 catch (Exception ex)
