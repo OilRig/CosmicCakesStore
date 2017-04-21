@@ -2,7 +2,12 @@
 @{
     ViewBag.Title = "Index";
 }
-
+<script type="text/javascript" src="~/Scripts/blogEditor.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+        bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });
+  //]]>
+</script>
 @using (Html.BeginForm("Announce", "News", FormMethod.Post, htmlAttributes: new { enctype = "multipart/form-data" }))
 {
 
