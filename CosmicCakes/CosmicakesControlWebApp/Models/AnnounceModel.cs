@@ -10,6 +10,7 @@ namespace CosmicakesControlWebApp.Models
         public string Content { get; set; }
         public IEnumerable<string> TemplateNames { get; set; }
         public string SelectedTemplateName { get; set; }
+        public IEnumerable<HttpPostedFileBase> AttachedFiles { get; set; }
         public AnnounceModel()
         {
             TemplateNames = new List<string>();

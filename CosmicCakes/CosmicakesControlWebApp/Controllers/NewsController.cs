@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using System.Net.Mail;
 using System.Net;
 using System.Runtime.Remoting.Messaging;
+using System.IO;
 
 namespace CosmicakesControlWebApp.Controllers
 {
@@ -52,7 +53,7 @@ namespace CosmicakesControlWebApp.Controllers
             AsyncCallback callbackHandler = new AsyncCallback(AsyncCallback);
             caller.BeginInvoke(message, callbackHandler, null);
         }
-        private void NotifyUsers(IEnumerable<UserSubscribtion> subsUsers,string content,string templateName = "CC-News")
+        private void NotifyUsers(IEnumerable<UserSubscribtion> subsUsers,string content,IEnumerable<HttpPostedFileBase> attachedFiles, string templateName = "CC-News")
         {
             string messageTemplate = _templateRepository.GetTemplateByName(templateName).Body;
 
@@ -67,10 +68,23 @@ namespace CosmicakesControlWebApp.Controllers
                 message.IsBodyHtml = true;
                 message.Body = messageTemplate.Replace("{firstName}",u.Name).Replace("{patronymic}",u.Patronymic).Replace("{renderBody}",content);
                 message.Subject = "Новости кондитерской Cosmic Cakes";
+                GenerateMailAttachments(attachedFiles).ToList().ForEach(attach=>message.Attachments.Add(attach));
                 SendMessageAsync(message); 
             });
         }
 
+        private IEnumerable<Attachment> GenerateMailAttachments(IEnumerable<HttpPostedFileBase> files)
+        {
+            foreach (var attachment in files)
+            {
+                if(attachment!=null)
+                {
+                    var contentStream = attachment.InputStream;
+                    var mailAttachment = new Attachment(contentStream, attachment.FileName, attachment.ContentType);
+                    yield return mailAttachment;
+                }
+            }
+        } 
         [HttpGet]
         public ActionResult Index()
         {
@@ -86,7 +100,7 @@ namespace CosmicakesControlWebApp.Controllers
         public ActionResult Announce(AnnounceModel model)
         {
             var users = _subscribtionRepository.GetAllSubscribedUsers();
-            NotifyUsers(users,model.Content,model.SelectedTemplateName);
+            NotifyUsers(users,model.Content,model.AttachedFiles, model.SelectedTemplateName);
             return View();
         }
     }
