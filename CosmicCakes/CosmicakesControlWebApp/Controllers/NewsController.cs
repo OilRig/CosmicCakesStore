@@ -90,7 +90,8 @@ namespace CosmicakesControlWebApp.Controllers
         {
             var model = new AnnounceModel
             {
-                TemplateNames = _templateRepository.GetTemplateNamesOnly()
+                TemplateNames = _templateRepository.GetTemplateNamesOnly(),
+                SubscribedUsers = _subscribtionRepository.GetAllSubscribedUsers().ToList().Count
             };
             return View(model);
         }
