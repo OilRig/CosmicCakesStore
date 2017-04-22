@@ -30,6 +30,8 @@ namespace CosmicCakes.Models
         public string SelectedOneLevelBisquit { get; set; }
         public string SelectedMultiLevelBisquit { get; set; }
         public bool CustomLevelBisquits { get; set; }
+        public bool DeliveryNeeded { get; set; }
+        public string DeliveryAdress { get; set; }
         public OrderModel()
         {
             Levels = new List<int>
@@ -40,25 +42,25 @@ namespace CosmicCakes.Models
         public override string ToString()
         {
             ExpireDate = DateTime.ParseExact(ExpireDateString, "MM/dd/yyyy", null);
-
+            string deliveryAdress = DeliveryNeeded ? DeliveryAdress : "Нет";
             switch (SelectedLevels)
             {
                 case 1:
                     {
                         return string.Format($"Заказ от: {CustomerName} \n Телефон: {CustomerPhoneNumber} \n Дата: {ExpireDate.ToShortDateString()} \n Торт: {CakeName}\n Вес: {CakeWeight} кг \n Ярусы:{SelectedLevels} \n"
-                        + $"Бисквит: {SelectedOneLevelBisquit} \n Комментарий: {Comments}");
+                        + $"Бисквит: {SelectedOneLevelBisquit} \n Комментарий: {Comments} \n Доставка: {deliveryAdress}");
                     }
                 case 2:
                     {
                         if (CustomLevelBisquits)
                         {
                             return string.Format($"Заказ от: {CustomerName} \n Телефон: {CustomerPhoneNumber} \n Дата: {ExpireDate.ToShortDateString()} \n Торт: {CakeName}\n Вес: {CakeWeight} кг \n Ярусы: {SelectedLevels} \n" +
-                                $"-Разные бисквиты в ярусы: Да \n --Бисквит в первый ярус: {FirstLevelBisquit} \n --Бисквит во второй ярус: {SecondLevelBisquit} \n Комментарий: {Comments}");
+                                $"-Разные бисквиты в ярусы: Да \n --Бисквит в первый ярус: {FirstLevelBisquit} \n --Бисквит во второй ярус: {SecondLevelBisquit} \n Комментарий: {Comments} \n Доставка: {deliveryAdress}");
                         }
                         else
                         {
                             return string.Format($"Заказ от: {CustomerName} \n Телефон: {CustomerPhoneNumber} \n Дата: {ExpireDate.ToShortDateString()} \n Торт: {CakeName}\n Вес: {CakeWeight} кг \n Ярусы:{SelectedLevels} \n"
-                                + $"-Разные бисквиты в ярусы: Нет \n --Бисквит: {SelectedMultiLevelBisquit} \n Комментарий: {Comments}");
+                                + $"-Разные бисквиты в ярусы: Нет \n --Бисквит: {SelectedMultiLevelBisquit} \n Комментарий: {Comments} \n Доставка: {deliveryAdress}");
                         }
                     }
                 case 3:
@@ -66,12 +68,12 @@ namespace CosmicCakes.Models
                         if (CustomLevelBisquits)
                         {
                             return string.Format($"Заказ от: {CustomerName} \n Телефон: {CustomerPhoneNumber} \n Дата: {ExpireDate.ToShortDateString()} \n Торт: {CakeName}\n Вес: {CakeWeight} кг \n Ярусы: {SelectedLevels} \n" +
-                                $"-Разные бисквиты в ярусы: Да \n --Бисквит в первый ярус: {FirstLevelBisquit} \n --Бисквит во второй ярус: {SecondLevelBisquit}  \n --Бисквит в третий ярус: {ThirdLevelBisquit}\n Комментарий: {Comments}");
+                                $"-Разные бисквиты в ярусы: Да \n --Бисквит в первый ярус: {FirstLevelBisquit} \n --Бисквит во второй ярус: {SecondLevelBisquit}  \n --Бисквит в третий ярус: {ThirdLevelBisquit}\n Комментарий: {Comments} \n Доставка: {deliveryAdress}");
                         }
                         else
                         {
                             return string.Format($"Заказ от: {CustomerName} \n Телефон: {CustomerPhoneNumber} \n Дата: {ExpireDate.ToShortDateString()} \n Торт: {CakeName}\n Вес: {CakeWeight} кг \n Ярусы:{SelectedLevels} \n"
-                                + $"-Разные бисквиты в ярусы: Нет \n --Бисквит: {SelectedMultiLevelBisquit} \n Комментарий: {Comments}");
+                                + $"-Разные бисквиты в ярусы: Нет \n --Бисквит: {SelectedMultiLevelBisquit} \n Комментарий: {Comments} \n Доставка: {deliveryAdress}");
                         }
                     }
                 default: return null;

@@ -98,5 +98,16 @@
                     $('div#singleLevelBisquit').css('display', 'none');
             } 
         });
+
+        $('input#deliveryNeeded').on('change', function () {
+            if($(this).is(':checked'))
+            {
+                $('div#deliveryAdress').css('display', 'block');
+            }
+            else
+            {
+                $('div#deliveryAdress').css('display', 'none');
+            }
+        });
     });
 })(jQuery);
