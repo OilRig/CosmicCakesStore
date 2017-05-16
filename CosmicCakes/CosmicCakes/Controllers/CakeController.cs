@@ -125,8 +125,8 @@ namespace CosmicCakes.Controllers
             {
                 UpdateModel(model);
                 SaveOrder(model);
-                //EmailSender.SendEmailOrder(model.ToString());
-                //SmsSender.SendSmsOrder(model.ToString(), false);
+                EmailSender.SendEmailOrder(model.ToString());
+                SmsSender.SendSmsOrder(model.ToString(), false);
                 return View("SuccessOrder");
             }
             else
@@ -144,7 +144,12 @@ namespace CosmicCakes.Controllers
                     IndividualRectangleImagesPaths = _imageRepository.GetCakeIndividualRectangleImagesByCakeId(cake.Id),
                     PriceIncludements = _priceIncludementRepository.GetAllPriceIncludementsById(model.Id),
                     Id = cake.Id,
-                    CakeOrderModel = model
+                    CakeOrderModel = new OrderModel()
+                    {
+                        Id = cake.Id,
+                        IsLevelable = cake.IsLevelable,
+                        Bisquits = _bisquitRepository.GetAllNamesOnly()
+                    }
                 };
                 return View("CakeInfo", infoModel);
             }
