@@ -32,7 +32,7 @@
             }
         });
 
-        $('input#CakeWeight').on('input', function () {
+        $('input#CakeStringWeight').on('input', function () {
             var name = $('div#cakeName').text();
             if (name != 'Двухъярусный   торт')
             {
@@ -51,7 +51,7 @@
             var name = $('div#cakeName').text();
             if (name != 'Двухъярусный   торт') {
                 var theMessage = '';
-                var weightValue = $('input#CakeWeight').val();
+                var weightValue = $('input#CakeStringWeight').val();
                 var levelValue = $('select#SelectedLevels :selected').text();
                 if (weightValue > 3 && levelValue < 2) {
                     theMessage = "Рекомендуем увеличить количество ярусов";
