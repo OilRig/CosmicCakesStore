@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Globalization;
 
 namespace CosmicCakes.Models
 {
@@ -15,7 +16,8 @@ namespace CosmicCakes.Models
         [Required(ErrorMessage = "Не указан вес тортика")]
         [Range(1.5, 20, ErrorMessage = "Минимальный вес - 1.5кг")]
         [DataType(DataType.Currency, ErrorMessage = "А тут должна быть циферка")]
-        public double CakeWeight { get; set; }
+        public double CakeWeight => GetWeight(CakeStringWeight);
+        public string CakeStringWeight { get; set; }
         public string Comments { get; set; }
         [Required(ErrorMessage = "Кажется,Вы не указали дату для тортика")]
         public string ExpireDateString { get; set; }
@@ -38,6 +40,15 @@ namespace CosmicCakes.Models
             {
                 1,2,3
             };
+        }
+        public double GetWeight(string value)
+        {
+            NumberFormatInfo nfi = new NumberFormatInfo();
+            if (value.Contains("."))
+                nfi.NumberDecimalSeparator = ".";
+            else if (value.Contains(","))
+                nfi.NumberDecimalSeparator = ",";
+            return double.Parse(value, nfi);
         }
         public override string ToString()
         {

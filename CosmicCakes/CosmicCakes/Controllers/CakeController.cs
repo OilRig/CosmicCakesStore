@@ -125,8 +125,8 @@ namespace CosmicCakes.Controllers
             {
                 UpdateModel(model);
                 SaveOrder(model);
-                EmailSender.SendEmailOrder(model.ToString());
-                SmsSender.SendSmsOrder(model.ToString(), false);
+                //EmailSender.SendEmailOrder(model.ToString());
+                //SmsSender.SendSmsOrder(model.ToString(), false);
                 return View("SuccessOrder");
             }
             else
