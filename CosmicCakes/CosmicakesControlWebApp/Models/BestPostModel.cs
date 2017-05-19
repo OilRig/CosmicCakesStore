@@ -14,6 +14,8 @@ namespace CosmicakesControlWebApp.Models
         public string BigPromise { get; set; }
         public string MainContent { get; set; }
         public string Quote { get; set; }
+        public string OpenImageUrl { get; set; }
+        public string CloseImageUrl { get; set; }
         public string HowToSection { get; set; }
         public IEnumerable<string> PostTemplatesNames { get; set; }
         public string SelectedTemplateName { get; set; }

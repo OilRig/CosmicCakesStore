@@ -175,7 +175,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AnnounceModel.cs" />
-    <Compile Include="Models\PostModel.cs" />
+    <Compile Include="Models\BestPostModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -222,6 +222,7 @@
     <Content Include="Views\News\Announce.cshtml" />
     <Content Include="Views\Shared\ErrorTemplate.cshtml" />
     <Content Include="Views\Debug\Index.cshtml" />
+    <Content Include="Views\Shared\BestPost.partial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
