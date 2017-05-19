@@ -3,7 +3,6 @@ using CosmicCakes.DAL.Interfaces;
 using CosmicCakes.Logging.Interfaces;
 using CosmicCakes.Models;
 using CosmicCakes.Services.EmailService;
-using CosmicCakes.Services.SmsService;
 using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
@@ -26,7 +25,7 @@ namespace CosmicCakes.Controllers
         public CakeController(ISimpleCakeRepository simpleCakeRepository, IImageRepository imageRepository,
             IPriceIncludementRepository priceIncludementRepository, IFillingRepository fillingRepository,
             IBisquitRepository bisquitRepository, IOrderRepository orderRepo, ISimpleCakeRepository cakeRepository,
-            IEmailSender emailSender, ISmsSender smsSender, IAppLogger logger) : base(logger, emailSender, smsSender)
+            IEmailSender emailSender,IAppLogger logger) : base(logger, emailSender)
         {
             _simpleCakeRepository = simpleCakeRepository;
             _imageRepository = imageRepository;
@@ -76,7 +75,6 @@ namespace CosmicCakes.Controllers
             catch (Exception ex)
             {
                 Logger.Error(ex, $"Cake/Index:{ex.Message}");
-                SmsSender.SendSmsOrder(ex.Message, true);
                 return View("Error");
             }
 
@@ -126,7 +124,6 @@ namespace CosmicCakes.Controllers
                 UpdateModel(model);
                 SaveOrder(model);
                 EmailSender.SendEmailOrder(model.ToString());
-                SmsSender.SendSmsOrder(model.ToString(), false);
                 return View("SuccessOrder");
             }
             else
