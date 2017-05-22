@@ -3,7 +3,6 @@ using CosmicCakes.DAL.Interfaces;
 using CosmicCakes.Logging.Interfaces;
 using CosmicCakes.Models;
 using CosmicCakes.Services.EmailService;
-using CosmicCakes.Services.SmsService;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -18,8 +17,8 @@ namespace CosmicCakes.Controllers
     public class FeedbackController : AppServiceController
     {
         private readonly IFeedbackRepository _feedbackRepository;
-        public FeedbackController(IFeedbackRepository feedbackRepository, IEmailSender emailSender, ISmsSender smsSender, IAppLogger logger)
-            : base(logger, emailSender, smsSender)
+        public FeedbackController(IFeedbackRepository feedbackRepository, IEmailSender emailSender,IAppLogger logger)
+            : base(logger, emailSender)
         {
             _feedbackRepository = feedbackRepository;
         }
@@ -50,7 +49,6 @@ namespace CosmicCakes.Controllers
             catch (Exception ex)
             {
                 Logger.Error(ex, $"Feedback/Index:{ex.Message}");
-                SmsSender.SendSmsOrder(ex.Message, true);
                 return View("Error");
             }
 

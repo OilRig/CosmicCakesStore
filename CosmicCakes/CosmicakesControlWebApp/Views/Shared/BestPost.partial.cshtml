@@ -1,0 +1,64 @@
+﻿@model CosmicakesControlWebApp.Models.BestPostModel
+<div class="row centerd-content">
+
+    <div class="col-sm-4 centerd-content">
+        @Html.TextBoxFor(m => m.Heading, htmlAttributes: new {@class="form-control",placeholder="Заголовок" })
+    </div>
+
+</div>
+<div class="row" style="margin-top:30px;">
+
+    <div class="col-sm-6">
+        @Html.TextAreaFor(m => m.Opening, htmlAttributes: new { @class = "form-control",placeholder = "Вступление" })
+    </div>
+
+    <div class="col-sm-6">
+        <img src="{OpenImageUrl}" alt="innerImage" class="img-responsive" style="width:400px;height:285px;" />
+    </div>
+
+</div>
+<div class="row" style="margin-top:30px;">
+
+    <div class="col-sm-12 centerd-content">
+        @Html.TextBoxFor(m => m.FirstSubHeading, htmlAttributes: new { @class = "form-control", placeholder = "Подзаголовок" })
+    </div>
+
+</div>
+<div class="row" style="margin-top:30px;">
+
+    <div class="col-sm-12 centerd-content">
+        @Html.TextAreaFor(m => m.MainContent, htmlAttributes: new { @class = "form-control", placeholder = "Главная статья" })
+    </div>
+
+</div>
+<div class="row" style="margin-top:30px;">
+
+    <div class="col-sm-12 centerd-content">
+        <p>
+            @Html.TextBoxFor(m => m.Quote, htmlAttributes: new { @class = "form-control", placeholder = "Циатата" })
+        </p>
+    </div>
+
+</div>
+
+<div class="row">
+
+    <div class="col-sm-12 centerd-content">
+        @Html.TextBoxFor(m => m.BigPromise, htmlAttributes: new { @class = "form-control" })
+    </div>
+
+</div>
+<div class="row">
+
+    <div class="col-sm-4">
+        <img src="{CloseImageUrl}" alt="innerImage" class="img-responsive" style="width:400px;height:285px;" />
+    </div>
+
+    <div class="col-sm-8">
+        @Html.TextBoxFor(m => m.HowToSection, htmlAttributes: new { @class = "form-control" })
+    </div>
+
+
+</div>
+
+

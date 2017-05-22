@@ -168,13 +168,14 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\BlogController.cs" />
+    <Compile Include="Controllers\DebugController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AnnounceModel.cs" />
-    <Compile Include="Models\PostModel.cs" />
+    <Compile Include="Models\BestPostModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -220,6 +221,8 @@
     <Content Include="Views\News\Index.cshtml" />
     <Content Include="Views\News\Announce.cshtml" />
     <Content Include="Views\Shared\ErrorTemplate.cshtml" />
+    <Content Include="Views\Debug\Index.cshtml" />
+    <Content Include="Views\Shared\BestPost.partial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

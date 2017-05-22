@@ -40,7 +40,7 @@
             </div>
 
             <div class="col-sm-9">
-                @Html.TextBoxFor(m => m.CakeWeight, htmlAttributes: new { placeholder = "Вес", @class = "form-control" })
+                @Html.TextBoxFor(m => m.CakeStringWeight, htmlAttributes: new { placeholder = "Вес", @class = "form-control" })
                 <p style="color: red;">@Html.ValidationMessageFor(m => m.CakeWeight)</p>
                 
             </div>
@@ -161,7 +161,39 @@
         </div>
        
     </div>
+    <div class="row" style="margin-top:10px;" >
+        <div class="col-sm-6">
+
+            <div class="col-sm-3">
+                <label>Начинка:</label>
+            </div>
+
+            <div class="col-sm-9">
+                @Html.DropDownListFor(m=>m.SelectedFilling,new SelectList(Model.Fillings), htmlAttributes: new { @class = "form-control" })
+            </div>
+
+        </div>
+    </div>
     <div  style="margin-top:10px;" class="row">
+
+        <div class="col-sm-6">
+
+            <div class="col-sm-3">
+                <label>Доставка</label>
+            </div>
+
+            <div class="col-sm-1">
+                @Html.CheckBoxFor(m=>m.DeliveryNeeded,htmlAttributes:new { id="deliveryNeeded"})
+            </div>
+            <div class="col-sm-1" id = "deliveryAdress" style="display:none;">
+                <label>Адрес:</label>
+            </div>
+            <div class="col-sm-7" id = "deliveryAdress" style="display:none;">
+                @Html.TextAreaFor(m => m.DeliveryAdress, htmlAttributes: new { @class = "form-control" })
+                <p id="recomendDelivery" style="color:#fb9494;"></p>
+            </div>
+
+        </div>
 
         <div class="col-sm-6">
 
@@ -176,6 +208,19 @@
         </div>
 
 
+    </div>
+    <div class="row" style="margin-top:10px;" >
+        <div class="col-sm-6">
+
+            <div class="col-sm-3">
+                <label>Приблизительная стоимость:</label>
+            </div>
+
+            <div class="col-sm-9">
+                <p class="approximate-price" id="priceHolder" >0р.</p>
+            </div>
+
+        </div>
     </div>
 
         <div class="row" style="margin-top:50px;">

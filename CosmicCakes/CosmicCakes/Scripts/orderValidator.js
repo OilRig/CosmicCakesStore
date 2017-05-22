@@ -7,7 +7,7 @@
                    {
                        required:true
                    },
-                CakeWeight: {
+                CakeStringWeight: {
                     required:true,
                     min: 1.5,
                     max:20,
@@ -21,7 +21,7 @@
             messages: {
                 ExpireDateString: "<p style='color:red;'>Кажется,Вы не указали дату для тортика</p>",
                 CustomerName: "<p style='color:red;'>Как же Вас зовут?</p>",
-                CakeWeight: {
+                CakeStringWeight: {
                     required: "<p style='color:red;'>Не указан вес тортика</p>",
                     min: "<p style='color:red;'>Минимальный вес - 1.5 кг</p>",
                     max: "<p style='color:red;'>Больше 20 кг не сможем поместить в холодильник :(</p>"
@@ -32,7 +32,7 @@
             }
         });
 
-        $('input#CakeWeight').on('input', function () {
+        $('input#CakeStringWeight').on('input', function () {
             var name = $('div#cakeName').text();
             if (name != 'Двухъярусный   торт')
             {
@@ -51,7 +51,7 @@
             var name = $('div#cakeName').text();
             if (name != 'Двухъярусный   торт') {
                 var theMessage = '';
-                var weightValue = $('input#CakeWeight').val();
+                var weightValue = $('input#CakeStringWeight').val();
                 var levelValue = $('select#SelectedLevels :selected').text();
                 if (weightValue > 3 && levelValue < 2) {
                     theMessage = "Рекомендуем увеличить количество ярусов";
@@ -97,6 +97,19 @@
                     $('div#oneBisquitMiltiLevel').css('display', 'block');
                     $('div#singleLevelBisquit').css('display', 'none');
             } 
+        });
+
+        $('input#deliveryNeeded').on('change', function () {
+            if($(this).is(':checked'))
+            {
+                $('div#deliveryAdress').css('display', 'block');
+                $('p#recomendDelivery').text('+350-400р. к сумме заказа в зависимости от места доставки');
+            }
+            else
+            {
+                $('div#deliveryAdress').css('display', 'none');
+                $('p#recomendDelivery').text('');
+            }
         });
     });
 })(jQuery);

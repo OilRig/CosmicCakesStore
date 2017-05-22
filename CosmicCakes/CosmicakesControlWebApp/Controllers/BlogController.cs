@@ -22,9 +22,9 @@ namespace CosmicakesControlWebApp.Controllers
         {
             try
             {
-                var templateNames = _postTemplateRepository.GetAllTemplatesNamesOnly();
+                var templateNames = _postTemplateRepository.GetAllTemplatesNamesOnly().Where(t=>!t.EndsWith("EditArea"));
 
-                var model = new PostModel
+                var model = new BestPostModel
                 {
                     PostTemplatesNames = templateNames
                 };
@@ -40,14 +40,14 @@ namespace CosmicakesControlWebApp.Controllers
 
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult SavePost(PostModel model)
+        public ActionResult SavePost(BestPostModel model)
         {
             if (ModelState.IsValid)
             {
                 var post = new BlogPost()
                 {
                     Author = model.Author,
-                    Content = model.Content,
+                    Content = model.MainContent,
                     Theme = model.Theme,
                     CreationDate = DateTime.UtcNow
                 };
@@ -58,10 +58,21 @@ namespace CosmicakesControlWebApp.Controllers
         }
 
         [HttpGet]
-        public JsonResult LoadTemplate(string templateName)
+        public PartialViewResult LoadTemplate(string templateName)
         {
-            var template = _postTemplateRepository.GetTemplateByName(templateName);
-            return Json(template.Body, JsonRequestBehavior.AllowGet);
+            object model = new object();
+            switch(templateName)
+            {
+                case "BestPostTemplate":
+                    {
+                        model = new BestPostModel();
+                        var name = templateName + "EditArea";
+                        var template = _postTemplateRepository.GetTemplateByName(name);
+                        return PartialView("BestPost.partial",model);
+                    }
+                default:return null;
+            }
+            
         }
     }
 }
