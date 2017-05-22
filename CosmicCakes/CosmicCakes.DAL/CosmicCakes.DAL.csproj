@@ -51,302 +51,114 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\BlogPost.cs" />
     <Compile Include="Entities\CakeIndividualImage.cs" />
     <Compile Include="Entities\Bisquit.cs" />
     <Compile Include="Context\CakeContext.cs" />
     <Compile Include="Entities\Cream.cs" />
+    <Compile Include="Entities\EmailLinkedResorce.cs" />
+    <Compile Include="Entities\EmailTemplate.cs" />
     <Compile Include="Entities\DoubleLeveledCake.cs" />
     <Compile Include="Entities\Filling.cs" />
     <Compile Include="Entities\IndividualPriceIncludement.cs" />
     <Compile Include="Entities\Order.cs" />
-    <Compile Include="Entities\CommonPriceIncludement.cs" />
+    <Compile Include="Entities\PostContentTemplate.cs" />
     <Compile Include="Entities\SimpleCakeImage.cs" />
     <Compile Include="Entities\SimpleReadyCake.cs" />
+    <Compile Include="Entities\UserFeedback.cs" />
+    <Compile Include="Entities\UserSubscribtion.cs" />
     <Compile Include="Interfaces\IBisquitRepository.cs" />
+    <Compile Include="Interfaces\IBlogRepository.cs" />
     <Compile Include="Interfaces\ICreamRepository.cs" />
+    <Compile Include="Interfaces\IEmailTemplateRepository.cs" />
+    <Compile Include="Interfaces\IFeedbackRepository.cs" />
     <Compile Include="Interfaces\IFillingRepository.cs" />
     <Compile Include="Interfaces\IImageRepository.cs" />
     <Compile Include="Interfaces\IOrderRepository.cs" />
+    <Compile Include="Interfaces\IPostTemplateRepository.cs" />
     <Compile Include="Interfaces\IPriceIncludementRepository.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Interfaces\ISimpleCakeRepository.cs" />
+    <Compile Include="Interfaces\IUserSubscriptionRepository.cs" />
     <Compile Include="Migrations\201612260636084_InitialCreate.cs" />
     <Compile Include="Migrations\201612260636084_InitialCreate.Designer.cs">
       <DependentUpon>201612260636084_InitialCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201612260817057_AddingOrdersEntity.cs" />
-    <Compile Include="Migrations\201612260817057_AddingOrdersEntity.Designer.cs">
-      <DependentUpon>201612260817057_AddingOrdersEntity.cs</DependentUpon>
+    <Compile Include="Migrations\201703170906445_FinalMIgrationV1.cs" />
+    <Compile Include="Migrations\201703170906445_FinalMIgrationV1.Designer.cs">
+      <DependentUpon>201703170906445_FinalMIgrationV1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201612260822461_AddedCommentFieldToOrderEntity.cs" />
-    <Compile Include="Migrations\201612260822461_AddedCommentFieldToOrderEntity.Designer.cs">
-      <DependentUpon>201612260822461_AddedCommentFieldToOrderEntity.cs</DependentUpon>
+    <Compile Include="Migrations\201703202020202_CreationDateForBlogPost.cs" />
+    <Compile Include="Migrations\201703202020202_CreationDateForBlogPost.Designer.cs">
+      <DependentUpon>201703202020202_CreationDateForBlogPost.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201612261941380_ChangesOnOrder.cs" />
-    <Compile Include="Migrations\201612261941380_ChangesOnOrder.Designer.cs">
-      <DependentUpon>201612261941380_ChangesOnOrder.cs</DependentUpon>
+    <Compile Include="Migrations\201703212032075_FedbackEmail.cs" />
+    <Compile Include="Migrations\201703212032075_FedbackEmail.Designer.cs">
+      <DependentUpon>201703212032075_FedbackEmail.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201612311431449_NoOrderDateExpireForNow.cs" />
-    <Compile Include="Migrations\201612311431449_NoOrderDateExpireForNow.Designer.cs">
-      <DependentUpon>201612311431449_NoOrderDateExpireForNow.cs</DependentUpon>
+    <Compile Include="Migrations\201703290639255_userFeedbackimage.cs" />
+    <Compile Include="Migrations\201703290639255_userFeedbackimage.Designer.cs">
+      <DependentUpon>201703290639255_userFeedbackimage.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201612311500044_OrderExpireDateV2.cs" />
-    <Compile Include="Migrations\201612311500044_OrderExpireDateV2.Designer.cs">
-      <DependentUpon>201612311500044_OrderExpireDateV2.cs</DependentUpon>
+    <Compile Include="Migrations\201704120917221_PostTemplates.cs" />
+    <Compile Include="Migrations\201704120917221_PostTemplates.Designer.cs">
+      <DependentUpon>201704120917221_PostTemplates.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201701121025075_BerriesDone.cs" />
-    <Compile Include="Migrations\201701121025075_BerriesDone.Designer.cs">
-      <DependentUpon>201701121025075_BerriesDone.cs</DependentUpon>
+    <Compile Include="Migrations\201704181603142_userSubscriptions.cs" />
+    <Compile Include="Migrations\201704181603142_userSubscriptions.Designer.cs">
+      <DependentUpon>201704181603142_userSubscriptions.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201701121119219_DoneEverything.cs" />
-    <Compile Include="Migrations\201701121119219_DoneEverything.Designer.cs">
-      <DependentUpon>201701121119219_DoneEverything.cs</DependentUpon>
+    <Compile Include="Migrations\201704210746259_EmailTemplates.cs" />
+    <Compile Include="Migrations\201704210746259_EmailTemplates.Designer.cs">
+      <DependentUpon>201704210746259_EmailTemplates.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201701221951465_AddedAdditionalDecore.cs" />
-    <Compile Include="Migrations\201701221951465_AddedAdditionalDecore.Designer.cs">
-      <DependentUpon>201701221951465_AddedAdditionalDecore.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201701232226464_AddedSimpleReadyCakes.cs" />
-    <Compile Include="Migrations\201701232226464_AddedSimpleReadyCakes.Designer.cs">
-      <DependentUpon>201701232226464_AddedSimpleReadyCakes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201701232229004_MinWeight.cs" />
-    <Compile Include="Migrations\201701232229004_MinWeight.Designer.cs">
-      <DependentUpon>201701232229004_MinWeight.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201701232242200_DoubleLeveledCakesAdded.cs" />
-    <Compile Include="Migrations\201701232242200_DoubleLeveledCakesAdded.Designer.cs">
-      <DependentUpon>201701232242200_DoubleLeveledCakesAdded.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201701241856047_NoseparateleveledCakes.cs" />
-    <Compile Include="Migrations\201701241856047_NoseparateleveledCakes.Designer.cs">
-      <DependentUpon>201701241856047_NoseparateleveledCakes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201701241931300_NoWeightRangeForSimpleCakes.cs" />
-    <Compile Include="Migrations\201701241931300_NoWeightRangeForSimpleCakes.Designer.cs">
-      <DependentUpon>201701241931300_NoWeightRangeForSimpleCakes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201701251252142_MinPriceForCake.cs" />
-    <Compile Include="Migrations\201701251252142_MinPriceForCake.Designer.cs">
-      <DependentUpon>201701251252142_MinPriceForCake.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201701261817156_MaxWeightAdded.cs" />
-    <Compile Include="Migrations\201701261817156_MaxWeightAdded.Designer.cs">
-      <DependentUpon>201701261817156_MaxWeightAdded.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201701301824233_AddingImages.cs" />
-    <Compile Include="Migrations\201701301824233_AddingImages.Designer.cs">
-      <DependentUpon>201701301824233_AddingImages.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201701301827234_EditOnImages.cs" />
-    <Compile Include="Migrations\201701301827234_EditOnImages.Designer.cs">
-      <DependentUpon>201701301827234_EditOnImages.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201701301837432_EditImagesTable.cs" />
-    <Compile Include="Migrations\201701301837432_EditImagesTable.Designer.cs">
-      <DependentUpon>201701301837432_EditImagesTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201701301846062_ImagesSolving.cs" />
-    <Compile Include="Migrations\201701301846062_ImagesSolving.Designer.cs">
-      <DependentUpon>201701301846062_ImagesSolving.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702021035272_BackgroundPathForCakes.cs" />
-    <Compile Include="Migrations\201702021035272_BackgroundPathForCakes.Designer.cs">
-      <DependentUpon>201702021035272_BackgroundPathForCakes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702040955417_BackgroundImages.cs" />
-    <Compile Include="Migrations\201702040955417_BackgroundImages.Designer.cs">
-      <DependentUpon>201702040955417_BackgroundImages.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702041001410_IndividualImages.cs" />
-    <Compile Include="Migrations\201702041001410_IndividualImages.Designer.cs">
-      <DependentUpon>201702041001410_IndividualImages.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702041113281_SquareAndRectangleImages.cs" />
-    <Compile Include="Migrations\201702041113281_SquareAndRectangleImages.Designer.cs">
-      <DependentUpon>201702041113281_SquareAndRectangleImages.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702041139030_Improvement.cs" />
-    <Compile Include="Migrations\201702041139030_Improvement.Designer.cs">
-      <DependentUpon>201702041139030_Improvement.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702051043136_CakeIncludements.cs" />
-    <Compile Include="Migrations\201702051043136_CakeIncludements.Designer.cs">
-      <DependentUpon>201702051043136_CakeIncludements.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702051723239_SomeIssuesAndImprovements.cs" />
-    <Compile Include="Migrations\201702051723239_SomeIssuesAndImprovements.Designer.cs">
-      <DependentUpon>201702051723239_SomeIssuesAndImprovements.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702051725274_PriceIncludements.cs" />
-    <Compile Include="Migrations\201702051725274_PriceIncludements.Designer.cs">
-      <DependentUpon>201702051725274_PriceIncludements.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702051728295_NoFKForCommonIncludement.cs" />
-    <Compile Include="Migrations\201702051728295_NoFKForCommonIncludement.Designer.cs">
-      <DependentUpon>201702051728295_NoFKForCommonIncludement.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702062006028_BiaqDesc.cs" />
-    <Compile Include="Migrations\201702062006028_BiaqDesc.Designer.cs">
-      <DependentUpon>201702062006028_BiaqDesc.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702062014253_FillingDesc.cs" />
-    <Compile Include="Migrations\201702062014253_FillingDesc.Designer.cs">
-      <DependentUpon>201702062014253_FillingDesc.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702062019555_CreamDesc.cs" />
-    <Compile Include="Migrations\201702062019555_CreamDesc.Designer.cs">
-      <DependentUpon>201702062019555_CreamDesc.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702062024430_CleaningDB.cs" />
-    <Compile Include="Migrations\201702062024430_CleaningDB.Designer.cs">
-      <DependentUpon>201702062024430_CleaningDB.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702081253527_FixIncl.cs" />
-    <Compile Include="Migrations\201702081253527_FixIncl.Designer.cs">
-      <DependentUpon>201702081253527_FixIncl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702081254371_FixInclAddTable.cs" />
-    <Compile Include="Migrations\201702081254371_FixInclAddTable.Designer.cs">
-      <DependentUpon>201702081254371_FixInclAddTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702212030338_iNCLUDEMENTS.cs" />
-    <Compile Include="Migrations\201702212030338_iNCLUDEMENTS.Designer.cs">
-      <DependentUpon>201702212030338_iNCLUDEMENTS.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201703012038471_ImageFixes.cs" />
-    <Compile Include="Migrations\201703012038471_ImageFixes.Designer.cs">
-      <DependentUpon>201703012038471_ImageFixes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201703022005106_OrderFixes.cs" />
-    <Compile Include="Migrations\201703022005106_OrderFixes.Designer.cs">
-      <DependentUpon>201703022005106_OrderFixes.cs</DependentUpon>
+    <Compile Include="Migrations\201704210827209_EmailResourses.cs" />
+    <Compile Include="Migrations\201704210827209_EmailResourses.Designer.cs">
+      <DependentUpon>201704210827209_EmailResourses.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\BaseRepository.cs" />
     <Compile Include="Repositories\BisquitRepository.cs" />
+    <Compile Include="Repositories\BlogRepository.cs" />
     <Compile Include="Repositories\CreamRepository.cs" />
+    <Compile Include="Repositories\EmailTemplateRepository.cs" />
+    <Compile Include="Repositories\FeedbackRepository.cs" />
     <Compile Include="Repositories\FillingRepository.cs" />
     <Compile Include="Repositories\ImageRepository.cs" />
     <Compile Include="Repositories\OrderRepository.cs" />
+    <Compile Include="Repositories\PostTemplateRepository.cs" />
     <Compile Include="Repositories\PriceIncludementsRepository.cs" />
     <Compile Include="Repositories\SimpleCakeRepository.cs" />
+    <Compile Include="Repositories\UserSubscriptionRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201612260636084_InitialCreate.resx">
       <DependentUpon>201612260636084_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201612260817057_AddingOrdersEntity.resx">
-      <DependentUpon>201612260817057_AddingOrdersEntity.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201703170906445_FinalMIgrationV1.resx">
+      <DependentUpon>201703170906445_FinalMIgrationV1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201612260822461_AddedCommentFieldToOrderEntity.resx">
-      <DependentUpon>201612260822461_AddedCommentFieldToOrderEntity.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201703202020202_CreationDateForBlogPost.resx">
+      <DependentUpon>201703202020202_CreationDateForBlogPost.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201612261941380_ChangesOnOrder.resx">
-      <DependentUpon>201612261941380_ChangesOnOrder.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201703212032075_FedbackEmail.resx">
+      <DependentUpon>201703212032075_FedbackEmail.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201612311431449_NoOrderDateExpireForNow.resx">
-      <DependentUpon>201612311431449_NoOrderDateExpireForNow.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201703290639255_userFeedbackimage.resx">
+      <DependentUpon>201703290639255_userFeedbackimage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201612311500044_OrderExpireDateV2.resx">
-      <DependentUpon>201612311500044_OrderExpireDateV2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201704120917221_PostTemplates.resx">
+      <DependentUpon>201704120917221_PostTemplates.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201701121025075_BerriesDone.resx">
-      <DependentUpon>201701121025075_BerriesDone.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201704181603142_userSubscriptions.resx">
+      <DependentUpon>201704181603142_userSubscriptions.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201701121119219_DoneEverything.resx">
-      <DependentUpon>201701121119219_DoneEverything.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201704210746259_EmailTemplates.resx">
+      <DependentUpon>201704210746259_EmailTemplates.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201701221951465_AddedAdditionalDecore.resx">
-      <DependentUpon>201701221951465_AddedAdditionalDecore.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201701232226464_AddedSimpleReadyCakes.resx">
-      <DependentUpon>201701232226464_AddedSimpleReadyCakes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201701232229004_MinWeight.resx">
-      <DependentUpon>201701232229004_MinWeight.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201701232242200_DoubleLeveledCakesAdded.resx">
-      <DependentUpon>201701232242200_DoubleLeveledCakesAdded.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201701241856047_NoseparateleveledCakes.resx">
-      <DependentUpon>201701241856047_NoseparateleveledCakes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201701241931300_NoWeightRangeForSimpleCakes.resx">
-      <DependentUpon>201701241931300_NoWeightRangeForSimpleCakes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201701251252142_MinPriceForCake.resx">
-      <DependentUpon>201701251252142_MinPriceForCake.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201701261817156_MaxWeightAdded.resx">
-      <DependentUpon>201701261817156_MaxWeightAdded.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201701301824233_AddingImages.resx">
-      <DependentUpon>201701301824233_AddingImages.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201701301827234_EditOnImages.resx">
-      <DependentUpon>201701301827234_EditOnImages.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201701301837432_EditImagesTable.resx">
-      <DependentUpon>201701301837432_EditImagesTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201701301846062_ImagesSolving.resx">
-      <DependentUpon>201701301846062_ImagesSolving.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702021035272_BackgroundPathForCakes.resx">
-      <DependentUpon>201702021035272_BackgroundPathForCakes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702040955417_BackgroundImages.resx">
-      <DependentUpon>201702040955417_BackgroundImages.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702041001410_IndividualImages.resx">
-      <DependentUpon>201702041001410_IndividualImages.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702041113281_SquareAndRectangleImages.resx">
-      <DependentUpon>201702041113281_SquareAndRectangleImages.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702041139030_Improvement.resx">
-      <DependentUpon>201702041139030_Improvement.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702051043136_CakeIncludements.resx">
-      <DependentUpon>201702051043136_CakeIncludements.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702051723239_SomeIssuesAndImprovements.resx">
-      <DependentUpon>201702051723239_SomeIssuesAndImprovements.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702051725274_PriceIncludements.resx">
-      <DependentUpon>201702051725274_PriceIncludements.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702051728295_NoFKForCommonIncludement.resx">
-      <DependentUpon>201702051728295_NoFKForCommonIncludement.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702062006028_BiaqDesc.resx">
-      <DependentUpon>201702062006028_BiaqDesc.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702062014253_FillingDesc.resx">
-      <DependentUpon>201702062014253_FillingDesc.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702062019555_CreamDesc.resx">
-      <DependentUpon>201702062019555_CreamDesc.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702062024430_CleaningDB.resx">
-      <DependentUpon>201702062024430_CleaningDB.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702081253527_FixIncl.resx">
-      <DependentUpon>201702081253527_FixIncl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702081254371_FixInclAddTable.resx">
-      <DependentUpon>201702081254371_FixInclAddTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702212030338_iNCLUDEMENTS.resx">
-      <DependentUpon>201702212030338_iNCLUDEMENTS.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703012038471_ImageFixes.resx">
-      <DependentUpon>201703012038471_ImageFixes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703022005106_OrderFixes.resx">
-      <DependentUpon>201703022005106_OrderFixes.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201704210827209_EmailResourses.resx">
+      <DependentUpon>201704210827209_EmailResourses.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

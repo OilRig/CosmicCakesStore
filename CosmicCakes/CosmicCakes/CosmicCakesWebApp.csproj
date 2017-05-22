@@ -61,8 +61,8 @@
       <HintPath>..\packages\Nemiro.OAuth.1.12\lib\net461\Nemiro.OAuth.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
@@ -151,19 +151,26 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AboutController.cs" />
+    <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\CakeController.cs" />
     <Compile Include="Controllers\CakePartController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\FeedbackController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\AppServiceController.cs" />
+    <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\PriceController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\BlogItemsModel.cs" />
     <Compile Include="Models\CakeInfoModel.cs" />
     <Compile Include="Models\CakePartsModel.cs" />
     <Compile Include="Models\CakesStartPageModel.cs" />
+    <Compile Include="Models\FeedbackItemsModel.cs" />
+    <Compile Include="Models\NewsSubscribeModel.cs" />
     <Compile Include="Models\OrderModel.cs" />
+    <Compile Include="Models\UserFeedbackModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -171,6 +178,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\datePicker.css" />
     <Content Include="Content\datePicker.min.js" />
+    <Content Include="Content\Images\61032.svg" />
     <Content Include="Content\Images\AquarelCake\Individual\Rectangle\aq_cake_rect_1.jpg" />
     <Content Include="Content\Images\AquarelCake\Individual\Rectangle\aq_cake_rect_2.jpg" />
     <Content Include="Content\Images\AquarelCake\Individual\Rectangle\aq_cake_rect_3.jpg" />
@@ -239,9 +247,21 @@
     <Content Include="Content\Images\Icons\vk-icon.png" />
     <Content Include="Content\Images\Icons\wassap-logo-button.png" />
     <Content Include="Content\Images\Logo.jpg" />
-    <Content Include="Content\Images\StartPage\start_page_1.gif" />
-    <Content Include="Content\Images\StartPage\start_page_cupcake_1.jpg" />
     <Content Include="Content\Images\StartPage\start_page_cake_1.jpg" />
+    <Content Include="Content\Images\StartPage\start_page_cake_2.jpg" />
+    <Content Include="Content\Images\StartPage\start_page_cake_2frst.jpg" />
+    <Content Include="Content\Images\StartPage\start_page_cake_2scnd.jpg" />
+    <Content Include="Content\Images\StartPage\start_page_cake_2_2.jpg" />
+    <Content Include="Content\Images\StartPage\start_page_cake_3.jpg" />
+    <Content Include="Content\Images\StartPage\start_page_cake_4.jpg" />
+    <Content Include="Content\Images\StartPage\start_page_welcome_img.jpg" />
+    <Content Include="Content\Images\ui-icons_444444_256x240.png" />
+    <Content Include="Content\Images\ui-icons_555555_256x240.png" />
+    <Content Include="Content\Images\ui-icons_777620_256x240.png" />
+    <Content Include="Content\Images\ui-icons_777777_256x240.png" />
+    <Content Include="Content\Images\ui-icons_cc0000_256x240.png" />
+    <Content Include="Content\Images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\Images\User_Feedback_Images\6wgicg.jpg" />
     <Content Include="Content\jquery-ui.css" />
     <Content Include="Content\jquery-ui.min.css" />
     <Content Include="Content\jquery-ui.structure.css" />
@@ -254,6 +274,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\accordion.js" />
+    <Content Include="Scripts\blogEditor.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="fonts\ubuntu-condensed-v7-latin-regular.eot" />
@@ -261,9 +282,15 @@
     <Content Include="fonts\ubuntu-condensed-v7-latin-regular.woff2" />
     <Content Include="fonts\Ubuntu-C.ttf" />
     <Content Include="fonts\Pushkin.otf" />
+    <Content Include="fonts\Billabong.ttf" />
+    <Content Include="fonts\4256.ttf" />
+    <None Include="Properties\PublishProfiles\CC.pubxml" />
+    <None Include="Properties\PublishProfiles\PUBCC.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\cakeNameHoverProcessor.js" />
     <Content Include="Scripts\dateProccessor.js" />
+    <Content Include="Scripts\feedbackValidator.min.js" />
+    <Content Include="Scripts\feedbackValidator.js" />
     <Content Include="Scripts\imageAutomaticSlider.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -276,10 +303,16 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\mask.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\orderValidator.js" />
+    <Content Include="Scripts\pageScroller.js" />
+    <Content Include="Scripts\priceCalculator.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\SubscribeValidator.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -302,15 +335,20 @@
     <Content Include="Views\Shared\SuccessOrder.cshtml" />
     <Content Include="Views\Error\Error500.cshtml" />
     <Content Include="Views\Error\General.cshtml" />
+    <Content Include="Views\Blog\Index.cshtml" />
+    <Content Include="Views\Feedback\Index.cshtml" />
+    <Content Include="Views\Shared\FeedbackForm.partial.cshtml" />
+    <Content Include="Views\Feedback\SaveFeedback.cshtml" />
+    <Content Include="Views\Price\Index.cshtml" />
+    <Content Include="Views\News\Index.cshtml" />
+    <Content Include="Views\Shared\SubscribeCompleted.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
-    <Folder Include="Content\Images\Cupcakes\Individual\MainPage\" />
-    <Folder Include="Content\Images\Cupcakes\Individual\Preview\" />
+    <Folder Include="Content\Images\Cupcakes\Individual\Rectangle\" />
+    <Folder Include="Content\Images\Cupcakes\Individual\Square\" />
     <Folder Include="Content\Images\GingerBreadCake\Individual\MainPage\" />
     <Folder Include="Content\Images\GingerBreadCake\Individual\Preview\" />
     <Folder Include="Content\Images\GingerBreadCake\StartPage\" />
-    <Folder Include="Views\IAppService\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -337,6 +375,9 @@
       <Project>{F07570B4-9B03-4E9E-A38C-10EFEC68B030}</Project>
       <Name>CosmicCakes.Services</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

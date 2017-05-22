@@ -1,0 +1,565 @@
+﻿body {
+    /*padding-top: 50px;*/
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/*iPhone 5 & 5S in landscape*/
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 568px) 
+and (orientation : landscape) { 
+     div#text-container a {
+        font-size: 3.5em!important; 
+        }
+      div#briefCake {
+        font-size:0.9em !important;
+    }
+       div#briefCake > p.price{
+           font-size:1em !important;
+    }
+}
+
+/*iPhone 5 & 5S in portrait*/
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 568px) 
+and (orientation : portrait) { 
+     div#text-container a {
+        font-size: 2.0em !important; 
+        }
+    div#briefCake {
+        font-size:0.7em !important;
+    }
+    div#briefCake > p.price{
+        font-size:1.05em !important;
+    }
+    .ubuntu-text-start-page {
+        font-size:0.7em !important;
+    }
+    .inst-wrapper{
+    border:none;
+     overflow:hidden;
+      width: 265px;
+       height: 265px;
+       margin-top:15px;
+}
+}
+
+
+/*iPhone 6 in landscape*/
+@media only screen 
+and (min-device-width : 375px) 
+and (max-device-width : 667px) 
+and (orientation : landscape) { 
+      div#text-container a {
+        font-size: 4em !important; 
+        }
+      div#briefCake {
+        font-size:1em !important;
+    }
+       div#briefCake > p.price{
+           font-size:2em !important;
+    }
+}
+
+/*iPhone 6 in portrait*/
+@media only screen 
+and (min-device-width : 375px) 
+and (max-device-width : 667px) 
+and (orientation : portrait) { 
+
+     div#text-container a {
+        font-size: 2.0em !important; 
+        }
+    div#briefCake {
+        font-size:0.7em !important;
+    }
+    div#briefCake > p.price{
+        font-size:1.5em !important;
+    }
+    .ubuntu-text-start-page {
+        font-size:1em !important;
+    }
+    .inst-wrapper{
+    border:none;
+     overflow:hidden;
+      width: 265px;
+       height: 265px;
+       margin-top:15px;
+}
+}
+
+/*iPhone 6 Plus in landscape*/
+@media only screen 
+and (min-device-width : 414px) 
+and (max-device-width : 736px) 
+and (orientation : landscape) { 
+     div#text-container a {
+        font-size: 4em !important; 
+        }
+      div#briefCake {
+        font-size:1em !important;
+    }
+       div#briefCake > p.price{
+           font-size:2em !important;
+    }
+}
+
+/*iPhone 6 Plus in portrait*/
+@media only screen 
+and (min-device-width : 414px) 
+and (max-device-width : 736px) 
+and (orientation : portrait) { 
+     div#text-container a {
+        font-size: 2.5em !important; 
+        }
+    div#briefCake {
+        font-size:0.7em !important;
+    }
+    div#briefCake > p.price{
+        font-size:1.5em !important;
+    }
+    .ubuntu-text-start-page {
+        font-size:1em !important;
+    }
+    .inst-wrapper{
+    border:none;
+     overflow:hidden;
+      width: 265px;
+       height: 265px;
+       margin-top:15px;
+}
+}
+
+/*iPad in landscape*/
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : landscape) { 
+    div#text-container a {
+        font-size: 6em !important; 
+        }
+      div#briefCake {
+        font-size:1.3em  !important;
+    }
+       div#briefCake > p.price{
+           font-size:1.5em !important;
+    }
+}
+
+/*iPad in portrait*/
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : portrait) { 
+     div#text-container a {
+        font-size: 4.5em !important; 
+        }
+    div#briefCake {
+        font-size:1em !important;
+    }
+    div#briefCake > p.price{
+        font-size:1.5em !important;
+    }
+}
+
+
+
+input,
+select,
+textarea {
+    max-width: 800px;
+}
+
+.centerd-content {
+    text-align: center;
+    align-content: center;
+    float: none;
+}
+
+.main-head-menu {
+    font-family: Castellar;
+}
+
+.margined-right-item {
+    padding-left: 50px;
+}
+
+img.margined-right-item {
+    margin-right: 15px;
+}
+
+.hundred-widthed-item {
+   min-width:100%;
+}
+
+.hundred-widthed-item-changer {
+    max-width: 100%;
+    max-height: 100%;
+    margin-right: 20px;
+    width: 65px;
+    height: 65px;
+}
+
+.centered-text {
+    text-align: center;
+    vertical-align: center;
+}
+
+@font-face {
+    font-family: Ubuntu Condensed;
+    src: local('Ubuntu Condensed'),
+    /*url(/fonts/ubuntu-condensed-v7-latin-regular.eot) format('embedded-opentype'), 
+       url(fonts/ubuntu-condensed-v7-latin-regular.woff2) format('woff2'), 
+       url(/fonts/ubuntu-condensed-v7-latin-regular.woff) format('woff'),*/
+    url(/fonts/Ubuntu-C.ttf) format('truetype');
+    /*url(/fonts/ubuntu-condensed-v7-latin-regular.svg) format('svg');*/
+}
+
+@font-face {
+    font-family: Billabong;
+    src: local('Billabong'),
+    /*url(/fonts/ubuntu-condensed-v7-latin-regular.eot) format('embedded-opentype'), 
+       url(fonts/ubuntu-condensed-v7-latin-regular.woff2) format('woff2'), 
+       url(/fonts/ubuntu-condensed-v7-latin-regular.woff) format('woff'),*/
+    url(/fonts/Billabong.ttf) format('truetype');
+    /*url(/fonts/ubuntu-condensed-v7-latin-regular.svg) format('svg');*/
+}
+
+@font-face {
+    font-family: Pushkin;
+    src: local('Pushkin'),
+    /*url(/fonts/ubuntu-condensed-v7-latin-regular.eot) format('embedded-opentype'), 
+       url(fonts/ubuntu-condensed-v7-latin-regular.woff2) format('woff2'), 
+       url(/fonts/ubuntu-condensed-v7-latin-regular.woff) format('woff'),*/
+    url(/fonts/Pushkin.otf);
+    /*url(/fonts/ubuntu-condensed-v7-latin-regular.svg) format('svg');*/
+}
+@font-face {
+    font-family:Corinthia;
+    src:local('Corinthia'),
+        url(/fonts/4256.ttf);
+}
+
+.ubuntu-text {
+    font-family: "Ubuntu Condensed";
+}
+
+.ubuntu-navbar-text {
+    font-family: "Ubuntu Condensed";
+    font-weight: lighter;
+    letter-spacing: 3px;
+}
+
+.ubuntu-text-start-page {
+    font-family: "Ubuntu Condensed" !important;
+    font-size: 1.15em;
+    letter-spacing: 3px;
+    color: black;
+}
+
+a.ubuntu-text-start-page:hover {
+    color: #9e9e9e;
+    font-family: "Ubuntu Condensed" !important;
+    font-size: 1.15em;
+    letter-spacing: 4px;
+    text-decoration: none;
+}
+
+.ubuntu-big-text {
+    font-family: "Ubuntu Condensed" !important;
+    font-size: 1.500em;
+    letter-spacing: 3px;
+}
+
+p.ubuntu-big-text {
+    font-family: "Ubuntu Condensed" !important;
+    font-size: 1.250em;
+    word-spacing: 40px;
+    letter-spacing: 10px !important;
+    margin-bottom: 15px;
+}
+
+.century-gothic-text {
+    font-family: "Century Gothic";
+}
+
+.centered-text-heading {
+    font-size: 2.244em;
+    line-height: 1;
+    text-align: center;
+}
+
+.cake-info-font-size {
+    font-size: 1.063em;
+}
+
+.justified-text {
+    text-align: justify;
+    text-indent: 10%;
+    font-size: 1em;
+    margin-top: 15px;
+}
+
+.test-border-item {
+    border: black 1px solid;
+}
+
+[class*="col-"] {
+    margin-bottom: -200px;
+    padding-bottom: 200px;
+}
+
+.fader img {
+    display: none;
+}
+
+div.centered-text > span {
+    line-height: 300px;
+}
+
+div.centered-text > div#text-container {
+    vertical-align: middle;
+    display: inline-block;
+}
+
+div#text-container a {
+        transition:1s;
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+    font-family: 'Corinthia';
+    font-size: 6em;
+}
+
+div#text-container a:hover {
+        transition:1s;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 6.3em;
+}
+
+div#briefCake {
+    transition:1s;
+    font-family: "Ubuntu Condensed";
+    font-size: 1em;
+    letter-spacing: 1px;
+}
+
+div#briefCake > p.price {
+    transition:1s;
+    color: grey;
+    font-family: "Ubuntu Condensed";
+    font-size: 1.3em;
+    letter-spacing: 1px;
+}
+
+div.cakeInfoSet:hover {
+    transition: 1s;
+    color: white !important;
+    z-index: 1;
+}
+div.cakeInfoSet a {
+    transition: 1s;
+    color: white !important;
+}
+
+div.cakeInfoSet div#briefCake {
+    transition: 1s;
+    font-size: 1em;
+    color: white !important;
+}
+
+div.cakeInfoSet:hover div#briefCake > p.price {
+    transition: 1s;
+    font-size: 1.6em;
+    color: white !important;
+}
+
+.cakeInfoSetSimple {
+    transition: 1s;
+}
+
+.childBackground {
+    background: no-repeat fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-position-x: 0;
+    background-position-y: 0;
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    opacity: 0;
+}
+
+.grey-footer {
+    background-color: #f7f7f7;
+    box-shadow: 0 500px 0 500px #f7f7f7;
+    min-height: 250px;
+    margin-top: 60px;
+}
+
+#footerLinks a {
+    text-decoration: black;
+    color: black;
+    font-size: smaller;
+}
+
+hr.style-one {
+    border: 0;
+    height: 0.5px;
+    background: #333;
+    background-image: linear-gradient(to right, #ccc, #333, #ccc);
+}
+hr.style-three {
+  border: 0; 
+  height: 0.5px; 
+  background-image: -webkit-linear-gradient(left, #9e9e9e, #cbcbcb, #f0f0f0);
+  background-image: -moz-linear-gradient(left, #9e9e9e, #cbcbcb, #f0f0f0);
+  background-image: -ms-linear-gradient(left, #9e9e9e, #cbcbcb, #f0f0f0);
+  background-image: -o-linear-gradient(left, #9e9e9e, #cbcbcb, #f0f0f0); 
+}
+
+hr.style-two {
+    border: 0;
+    height: 0.5px;
+    margin: 0;
+}
+
+.changing-images-set {
+}
+
+.parallax-viewport {
+    position: absolute; /* relative, absolute, fixed */
+    overflow: hidden;
+}
+
+.parallax-layer {
+    position: relative;
+}
+
+.contacts-layout {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.8em;
+    letter-spacing: 4px;
+    word-spacing: 5px;
+    float: right;
+    padding-right: 20px;
+}
+
+.contacts-layout-number {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.8em;
+    letter-spacing: 2px;
+    padding-left: 98px;
+    float: right;
+    padding-right: 20px;
+}
+
+.contacts-layout-number-footer {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.875em;
+    letter-spacing: 2px;
+}
+
+.instagram-logo {
+    font-family: 'Billabong';
+    font-size: 3.112em;
+}
+
+.instagram-nickname {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.000em;
+    text-decoration: none;
+    color: black;
+    letter-spacing: 8px;
+    color: grey;
+}
+
+.welcome-text {
+    font-family: 'Open Sans',sans-serif;
+}
+div#aboutLinkContainer a {
+    color:black;
+}
+.want-cake-button {
+    border-color: black;
+    background-color: white;
+    color: black;
+    width: 300px;
+    height: 50px; 
+    padding-top: 15px;
+    font-family:'Ubuntu Condensed';
+    letter-spacing:3px;
+    border-radius: 0 !important;
+}
+p.start-page-info-brief {
+    padding-left: 0;
+    padding-right: 44px;
+    word-break: break-all;
+    margin-top: 15px;
+    text-align:right;
+    font-family:'Open Sans',sans-serif;
+    letter-spacing:1px;color:#444444;
+    font-size:1em;
+}
+.make-order-button {
+    border-color: black;
+    background-color: white;
+    color: black;
+    width: 280px;
+    height: 50px;
+    font-family:'Ubuntu Condensed';
+    letter-spacing:3px;
+    border-radius: 0 !important
+}
+.about-link-container {
+    border:solid 1px rgb(51, 51, 51);
+    font-size:1em;
+    padding:10px;
+    margin-top:20px;
+}
+.hey-header {
+    font-family:'Billabong';
+    font-size:3.112em;
+    word-spacing:5px;
+    margin-top:30px;
+    height:60px;
+    margin-bottom:0;
+}
+.about-wrapper {
+    font-family:'Open Sans',sans-serif;
+    font-size:1em;
+    letter-spacing:1px;
+    text-indent:15px;
+    margin-top:40px;
+    padding-right:110px;
+    word-break:break-word;
+    text-align:justify;
+}
+.signature {
+    text-align:right;
+    margin-top:20px;
+    margin-right:50px;
+    font-family:'Pushkin';
+    font-size:2em;
+}

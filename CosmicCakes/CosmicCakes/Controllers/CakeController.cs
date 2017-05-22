@@ -1,12 +1,11 @@
 ﻿using CosmicCakes.DAL.Entities;
 using CosmicCakes.DAL.Interfaces;
+using CosmicCakes.Logging.Interfaces;
 using CosmicCakes.Models;
 using CosmicCakes.Services.EmailService;
-using CosmicCakes.Services.SmsService;
 using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
-using CosmicCakes.Logging.Interfaces;
 
 namespace CosmicCakes.Controllers
 {
@@ -19,14 +18,14 @@ namespace CosmicCakes.Controllers
         private readonly IBisquitRepository _bisquitRepository;
         private readonly IOrderRepository _orderRepository;
         private readonly ISimpleCakeRepository _cakeRepository;
-       
-       
+
+
         private readonly List<CakesStartPageModel> _existingCakes;
 
         public CakeController(ISimpleCakeRepository simpleCakeRepository, IImageRepository imageRepository,
             IPriceIncludementRepository priceIncludementRepository, IFillingRepository fillingRepository,
             IBisquitRepository bisquitRepository, IOrderRepository orderRepo, ISimpleCakeRepository cakeRepository,
-            IEmailSender emailSender, ISmsSender smsSender, IAppLogger logger):base(logger,emailSender,smsSender)
+            IEmailSender emailSender, IAppLogger logger) : base(logger, emailSender)
         {
             _simpleCakeRepository = simpleCakeRepository;
             _imageRepository = imageRepository;
@@ -45,7 +44,7 @@ namespace CosmicCakes.Controllers
             order.Comments = model.Comments;
             order.CustomerName = model.CustomerName;
             order.CustomerPhoneNumber = model.CustomerPhoneNumber;
-            order.ExpireDate = model.ExpireDate;
+            order.ExpireDate = DateTime.ParseExact(model.ExpireDateString, "MM/dd/yyyy", null);
             order.OrderDate = DateTime.Now;
             order.CakeName = model.CakeName;
             _orderRepository.Add(order);
@@ -75,10 +74,10 @@ namespace CosmicCakes.Controllers
             }
             catch (Exception ex)
             {
-                Logger.Error(ex,$"Cake/Index:{ex.Message}");
+                Logger.Error(ex, $"Cake/Index:{ex.Message}");
                 return View("Error");
             }
-            
+
         }
 
         [HttpGet]
@@ -101,8 +100,12 @@ namespace CosmicCakes.Controllers
                     Id = cake.Id,
                     CakeOrderModel = new OrderModel()
                     {
-                        Id = cake.Id
-                    }
+                        Id = cake.Id,
+                        IsLevelable = cake.IsLevelable,
+                        Bisquits = _bisquitRepository.GetAllNamesOnly(),
+                        Fillings = _fillingRepository.GetAllNamesOnly()
+                    },
+
                 };
                 return View(infoModel);
             }
@@ -110,7 +113,7 @@ namespace CosmicCakes.Controllers
             {
                 Logger.Error(ex, $"Cake/CakeInfo:Id {id}");
                 return View("Error");
-            }   
+            }
         }
 
         [HttpPost]
@@ -122,7 +125,6 @@ namespace CosmicCakes.Controllers
                 UpdateModel(model);
                 SaveOrder(model);
                 EmailSender.SendEmailOrder(model.ToString());
-                SmsSender.SendSmsOrder(model.ToString());
                 return View("SuccessOrder");
             }
             else
@@ -140,7 +142,13 @@ namespace CosmicCakes.Controllers
                     IndividualRectangleImagesPaths = _imageRepository.GetCakeIndividualRectangleImagesByCakeId(cake.Id),
                     PriceIncludements = _priceIncludementRepository.GetAllPriceIncludementsById(model.Id),
                     Id = cake.Id,
-                    CakeOrderModel = model
+                    CakeOrderModel = new OrderModel()
+                    {
+                        Id = cake.Id,
+                        IsLevelable = cake.IsLevelable,
+                        Bisquits = _bisquitRepository.GetAllNamesOnly(),
+                        Fillings = _fillingRepository.GetAllNamesOnly()
+                    }
                 };
                 return View("CakeInfo", infoModel);
             }

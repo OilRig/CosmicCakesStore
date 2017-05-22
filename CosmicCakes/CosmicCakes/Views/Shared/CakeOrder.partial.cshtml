@@ -1,56 +1,232 @@
 ﻿@model CosmicCakes.Models.OrderModel
-@using (Html.BeginForm("MakeOrder", "Cake", new { Id = Model.Id }, FormMethod.Post, htmlAttributes: new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("MakeOrder", "Cake", new { Id = Model.Id }, FormMethod.Post, htmlAttributes: new { enctype = "multipart/form-data", id = "orderForm"}))
 {
-    <div class="row" style="margin-top:30px;">
-        <div class="col-md-2">
-            <label>Имя</label>
+    <div class="row" style="margin-top:10px;">
+
+        <div class="col-sm-6">
+
+            <div class="col-sm-3">
+                <label>Имя</label>
+            </div>
+
+            <div class="col-sm-9">
+                @Html.TextBoxFor(m => m.CustomerName, htmlAttributes: new { style = "width:100%;margin:0;", placeholder = "Имя", type = "text", @class = "form-control" })
+                <p style="color: red;">@Html.ValidationMessageFor(m => m.CustomerName)</p>
+            </div>
+
         </div>
-        <div class="col-md-6">
-            @Html.TextBoxFor(m => m.CustomerName, htmlAttributes: new { placeholder = "Имя", @data_placement = "right", @data_toggle = "tooltip" ,type = "text" ,@class="form-control", @title="Как вас зовут?"  })
-            <p style="color: red;">@Html.ValidationMessageFor(m => m.CustomerName)</p>
+
+        <div class="col-sm-6">
+
+            <div class="col-sm-3">
+                <label>Телефон</label>
+            </div>
+
+            <div class="col-sm-9">
+                @Html.TextBoxFor(m => m.CustomerPhoneNumber, htmlAttributes: new { type = "tel", @class = "form-control" })
+                <p style="color: red;">@Html.ValidationMessageFor(m => m.CustomerPhoneNumber)</p>
+            </div>
+
+        </div>
+        
+    </div>
+
+    <div class="row" style="margin-top:10px;">
+
+        <div class="col-sm-6">
+
+            <div class="col-sm-3">
+                <label>Вес торта (кг)</label>
+            </div>
+
+            <div class="col-sm-9">
+                @Html.TextBoxFor(m => m.CakeStringWeight, htmlAttributes: new { placeholder = "Вес", @class = "form-control" })
+                <p style="color: red;">@Html.ValidationMessageFor(m => m.CakeWeight)</p>
+                
+            </div>
+
+        </div>
+
+        <div class="col-sm-6">
+
+            <div class="col-sm-3">
+                <label>Дата,на которую нужен тортик</label>
+            </div>
+
+            <div class="col-sm-9">
+                @Html.TextBoxFor(m => m.ExpireDateString, htmlAttributes: new { placeholder = "Дата", id = "datePicker", type = "text", @class = "form-control" })
+                <p style="color: red;">@Html.ValidationMessageFor(m => m.ExpireDateString)</p>
+            </div>
+
+        </div>
+               
+    </div>
+    <div class="row" style="margin-top:10px;">
+
+        @if (Model.IsLevelable)
+        {
+            <div class="col-sm-6">
+
+                <div class="col-sm-3">
+                    <label>Ярусы</label>
+                </div>
+
+                <div class="col-sm-9">
+                    @Html.DropDownListFor(m => m.SelectedLevels, new SelectList(Model.Levels), htmlAttributes: new { @class = "form-control" })
+                    <p id="recomend" style="color:#fb9494;"></p>
+                </div>
+
+            </div>
+
+        }
+      
+        <div class="col-sm-6" id="singleLevelCake">
+
+            <div class="col-sm-3">
+                <label>Бисквит</label>
+            </div>
+
+            <div class="col-sm-9">
+                @Html.DropDownListFor(m => m.SelectedOneLevelBisquit, new SelectList(Model.Bisquits), htmlAttributes: new { @class = "form-control", })
+            </div>
+        </div>
+
+        <div  id="multiLevelCake" class="col-sm-6" style="display:none;">
+
+            <div id="oneBisquitMiltiLevel" class="col-sm-8">
+
+                <div class="row">
+                    <div class="col-sm-3">
+                        <label>Бисквит</label>
+                    </div>
+
+                    <div class="col-sm-9">
+                        @Html.DropDownListFor(m => m.SelectedMultiLevelBisquit, new SelectList(Model.Bisquits), htmlAttributes: new { @class = "form-control", })
+                    </div>
+                </div>
+
+            </div>
+
+           
+            
+
+            <div id="levelSelector" class="col-sm-8" style="display:none;">
+
+                <div class="row">
+
+                    <div id="fstLvlLabel" class="col-sm-3">
+                        <p>1 ярус:</p>
+                    </div>
+
+                    <div class="col-sm-9">
+                        @Html.DropDownListFor(m => m.FirstLevelBisquit, new SelectList(Model.Bisquits), htmlAttributes: new { @class = "form-control" })
+                    </div>
+
+                </div>
+
+                <div class="row" style="margin-top:10px;">
+
+                    <div id="scdLvlLabel" class="col-sm-3">
+                        <p>2 ярус:</p>
+                    </div>
+
+                    <div class="col-sm-9">
+                        @Html.DropDownListFor(m => m.SecondLevelBisquit, new SelectList(Model.Bisquits), htmlAttributes: new { @class = "form-control" })
+                    </div>
+
+                </div>
+
+                <div class="row" style="margin-top:10px;">
+
+                    <div id="thrdLvlLabel" class="col-sm-3">
+                        <p>3 ярус:</p>
+                    </div>
+
+                    <div class="col-sm-9">
+                        @Html.DropDownListFor(m => m.ThirdLevelBisquit, new SelectList(Model.Bisquits), htmlAttributes: new { @class = "form-control" })
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-sm-1">
+                @Html.CheckBox("CustomLevelBisquits", false)
+            </div>
+
+            <div class="col-sm-3">
+                <label> Разные бисквиты в ярусы</label>
+            </div>
+
+        </div>
+       
+    </div>
+    <div class="row" style="margin-top:10px;" >
+        <div class="col-sm-6">
+
+            <div class="col-sm-3">
+                <label>Начинка:</label>
+            </div>
+
+            <div class="col-sm-9">
+                @Html.DropDownListFor(m=>m.SelectedFilling,new SelectList(Model.Fillings), htmlAttributes: new { @class = "form-control" })
+            </div>
+
         </div>
     </div>
-            <div class="row" style="margin-top:30px;">
-                <div class="col-md-2">
-                    <label>Телефон</label>
-                </div>
-                <div class="col-md-6">
-                    @Html.TextBoxFor(m => m.CustomerPhoneNumber, htmlAttributes: new { data_placement = "right", data_toggle = "tooltip", type = "tel", @class = "form-control", title = "Ваш номер(без 8)" })
-                    <p style="color: red;">@Html.ValidationMessageFor(m => m.CustomerPhoneNumber)</p>
-                </div>
-            </div>
-            <div class="row" style="margin-top:30px;">
-                <div class="col-md-2">
-                    <label>Вес торта</label>
-                </div>
-                <div class="col-md-6">
-                    @Html.TextBoxFor(m => m.CakeWeight, htmlAttributes: new { placeholder = "Вес", data_placement = "right", data_toggle = "tooltip", @class = "form-control", title = "Вес тортика в кг." })
-                    <p style="color: red;">@Html.ValidationMessageFor(m => m.CakeWeight)</p>
-                </div>
-            </div>
-            <div class="row" style="margin-top:30px;">
-                <div class="col-md-2">
-                    <label>Дата,на которую нужен тортик</label>
-                </div>
-                <div class="col-md-6">
-                    <input placeholder="Дата" id="datePicker" data-placement="right" name="ExpireDateString" data-toggle="tooltip" type="text" class="form-control" title="К какому дню нужен торт?" />
-                    <p style="color: red;">@Html.ValidationMessageFor(m => m.ExpireDateString)</p>
-                </div>
+    <div  style="margin-top:10px;" class="row">
+
+        <div class="col-sm-6">
+
+            <div class="col-sm-3">
+                <label>Доставка</label>
             </div>
 
-            <div class="row" style="margin-top:30px;">
-                <div class="col-md-2">
-                    <label>Комментарий к заказу</label>
-                </div>
-                <div class="col-md-6">
-                    <textarea data-placement="right" data-toggle="tooltip" placeholder="Ваш комментарий..." name="Comments" class="form-control" title="Оставляйте все свои пожелания здесь"></textarea>
-                </div>
+            <div class="col-sm-1">
+                @Html.CheckBoxFor(m=>m.DeliveryNeeded,htmlAttributes:new { id="deliveryNeeded"})
+            </div>
+            <div class="col-sm-1" id = "deliveryAdress" style="display:none;">
+                <label>Адрес:</label>
+            </div>
+            <div class="col-sm-7" id = "deliveryAdress" style="display:none;">
+                @Html.TextAreaFor(m => m.DeliveryAdress, htmlAttributes: new { @class = "form-control" })
+                <p id="recomendDelivery" style="color:#fb9494;"></p>
             </div>
 
-            <div class="row" style="margin-top:30px;">
-                <div class="col-md-offset-2 col-md-6">
-                    <button class="btn btn-default make-order-button" type="submit">Хочу этот тортик</button>
-                </div>
+        </div>
+
+        <div class="col-sm-6">
+
+            <div class="col-sm-3">
+                <label>Комментарий к заказу</label>
             </div>
-}
+
+            <div class="col-sm-9">
+                @Html.TextAreaFor(m => m.Comments, htmlAttributes: new { placeholder = "Ваш комментарий...", @class = "form-control", rows = "3" })
+            </div>
+
+        </div>
+
+
+    </div>
+    <div class="row" style="margin-top:10px;" >
+        <div class="col-sm-6">
+
+            <div class="col-sm-3">
+                <label>Приблизительная стоимость:</label>
+            </div>
+
+            <div class="col-sm-9">
+                <p class="approximate-price" id="priceHolder" >0р.</p>
+            </div>
+
+        </div>
+    </div>
+
+        <div class="row" style="margin-top:50px;">
+            <div class="col-sm-12 centerd-content">
+                <button class="btn btn-default make-order-button" type="submit">Хочу этот тортик</button>
+            </div>
+        </div>
+        }
 

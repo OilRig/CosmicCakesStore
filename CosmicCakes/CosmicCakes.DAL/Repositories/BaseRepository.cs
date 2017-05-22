@@ -1,7 +1,6 @@
 ﻿using CosmicCakes.DAL.Interfaces;
-using System;
-using System.Data.Entity;
 using CosmicCakes.Logging.Interfaces;
+using System;
 
 namespace CosmicCakes.DAL.Repositories
 {
