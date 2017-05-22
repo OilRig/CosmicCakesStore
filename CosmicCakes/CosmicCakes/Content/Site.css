@@ -643,4 +643,8 @@ p.leave-comment-text {
      font-family:'Ubuntu Condensed';
     font-size:2em;
 }
+p.approximate-price {
+    font-size:2em;
+    font-family:'Open Sans',sans-serif;
+}
 

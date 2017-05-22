@@ -26,6 +26,7 @@ namespace CosmicCakes.Models
         public List<int> Levels { get; set; }
         public bool IsLevelable { get; set; }
         public IEnumerable<string> Bisquits { get; set; }
+        public IEnumerable<string> Fillings { get; set; }
         public string FirstLevelBisquit { get; set; }
         public string SecondLevelBisquit { get; set; }
         public string ThirdLevelBisquit { get; set; }
@@ -34,6 +35,7 @@ namespace CosmicCakes.Models
         public bool CustomLevelBisquits { get; set; }
         public bool DeliveryNeeded { get; set; }
         public string DeliveryAdress { get; set; }
+        public string SelectedFilling { get; set; }
         public OrderModel()
         {
             Levels = new List<int>
@@ -59,18 +61,18 @@ namespace CosmicCakes.Models
                 case 1:
                     {
                         return string.Format($"Заказ от: {CustomerName} \n Телефон: {CustomerPhoneNumber} \n Дата: {ExpireDate.ToShortDateString()} \n Торт: {CakeName}\n Вес: {CakeWeight} кг \n Ярусы:{SelectedLevels} \n"
-                        + $"Бисквит: {SelectedOneLevelBisquit} \n Комментарий: {Comments} \n Доставка: {deliveryAdress}");
+                        + $"Бисквит: {SelectedOneLevelBisquit} \n Начинка:{SelectedFilling} \n Комментарий: {Comments} \n Доставка: {deliveryAdress}");
                     }
                 case 2:
                     {
                         if (CustomLevelBisquits)
                         {
-                            return string.Format($"Заказ от: {CustomerName} \n Телефон: {CustomerPhoneNumber} \n Дата: {ExpireDate.ToShortDateString()} \n Торт: {CakeName}\n Вес: {CakeWeight} кг \n Ярусы: {SelectedLevels} \n" +
+                            return string.Format($"Заказ от: {CustomerName} \n Телефон: {CustomerPhoneNumber} \n Дата: {ExpireDate.ToShortDateString()} \n Торт: {CakeName}\n Вес: {CakeWeight} кг \n Начинка:{SelectedFilling} \n Ярусы: {SelectedLevels} \n" +
                                 $"-Разные бисквиты в ярусы: Да \n --Бисквит в первый ярус: {FirstLevelBisquit} \n --Бисквит во второй ярус: {SecondLevelBisquit} \n Комментарий: {Comments} \n Доставка: {deliveryAdress}");
                         }
                         else
                         {
-                            return string.Format($"Заказ от: {CustomerName} \n Телефон: {CustomerPhoneNumber} \n Дата: {ExpireDate.ToShortDateString()} \n Торт: {CakeName}\n Вес: {CakeWeight} кг \n Ярусы:{SelectedLevels} \n"
+                            return string.Format($"Заказ от: {CustomerName} \n Телефон: {CustomerPhoneNumber} \n Дата: {ExpireDate.ToShortDateString()} \n Торт: {CakeName}\n Вес: {CakeWeight} кг \n Начинка:{SelectedFilling} \n Ярусы:{SelectedLevels} \n"
                                 + $"-Разные бисквиты в ярусы: Нет \n --Бисквит: {SelectedMultiLevelBisquit} \n Комментарий: {Comments} \n Доставка: {deliveryAdress}");
                         }
                     }
@@ -78,12 +80,12 @@ namespace CosmicCakes.Models
                     {
                         if (CustomLevelBisquits)
                         {
-                            return string.Format($"Заказ от: {CustomerName} \n Телефон: {CustomerPhoneNumber} \n Дата: {ExpireDate.ToShortDateString()} \n Торт: {CakeName}\n Вес: {CakeWeight} кг \n Ярусы: {SelectedLevels} \n" +
+                            return string.Format($"Заказ от: {CustomerName} \n Телефон: {CustomerPhoneNumber} \n Дата: {ExpireDate.ToShortDateString()} \n Торт: {CakeName}\n Вес: {CakeWeight} кг \n Начинка:{SelectedFilling} \n Ярусы: {SelectedLevels} \n" +
                                 $"-Разные бисквиты в ярусы: Да \n --Бисквит в первый ярус: {FirstLevelBisquit} \n --Бисквит во второй ярус: {SecondLevelBisquit}  \n --Бисквит в третий ярус: {ThirdLevelBisquit}\n Комментарий: {Comments} \n Доставка: {deliveryAdress}");
                         }
                         else
                         {
-                            return string.Format($"Заказ от: {CustomerName} \n Телефон: {CustomerPhoneNumber} \n Дата: {ExpireDate.ToShortDateString()} \n Торт: {CakeName}\n Вес: {CakeWeight} кг \n Ярусы:{SelectedLevels} \n"
+                            return string.Format($"Заказ от: {CustomerName} \n Телефон: {CustomerPhoneNumber} \n Дата: {ExpireDate.ToShortDateString()} \n Торт: {CakeName}\n Вес: {CakeWeight} кг \n Начинка:{SelectedFilling} \n Ярусы:{SelectedLevels} \n"
                                 + $"-Разные бисквиты в ярусы: Нет \n --Бисквит: {SelectedMultiLevelBisquit} \n Комментарий: {Comments} \n Доставка: {deliveryAdress}");
                         }
                     }

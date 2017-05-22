@@ -25,7 +25,7 @@ namespace CosmicCakes.Controllers
         public CakeController(ISimpleCakeRepository simpleCakeRepository, IImageRepository imageRepository,
             IPriceIncludementRepository priceIncludementRepository, IFillingRepository fillingRepository,
             IBisquitRepository bisquitRepository, IOrderRepository orderRepo, ISimpleCakeRepository cakeRepository,
-            IEmailSender emailSender,IAppLogger logger) : base(logger, emailSender)
+            IEmailSender emailSender, IAppLogger logger) : base(logger, emailSender)
         {
             _simpleCakeRepository = simpleCakeRepository;
             _imageRepository = imageRepository;
@@ -102,7 +102,8 @@ namespace CosmicCakes.Controllers
                     {
                         Id = cake.Id,
                         IsLevelable = cake.IsLevelable,
-                        Bisquits = _bisquitRepository.GetAllNamesOnly()
+                        Bisquits = _bisquitRepository.GetAllNamesOnly(),
+                        Fillings = _fillingRepository.GetAllNamesOnly()
                     },
 
                 };
@@ -145,7 +146,8 @@ namespace CosmicCakes.Controllers
                     {
                         Id = cake.Id,
                         IsLevelable = cake.IsLevelable,
-                        Bisquits = _bisquitRepository.GetAllNamesOnly()
+                        Bisquits = _bisquitRepository.GetAllNamesOnly(),
+                        Fillings = _fillingRepository.GetAllNamesOnly()
                     }
                 };
                 return View("CakeInfo", infoModel);

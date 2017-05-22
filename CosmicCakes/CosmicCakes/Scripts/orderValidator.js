@@ -103,10 +103,12 @@
             if($(this).is(':checked'))
             {
                 $('div#deliveryAdress').css('display', 'block');
+                $('p#recomendDelivery').text('+350-400р. к сумме заказа в зависимости от места доставки');
             }
             else
             {
                 $('div#deliveryAdress').css('display', 'none');
+                $('p#recomendDelivery').text('');
             }
         });
     });
