@@ -1,11 +1,10 @@
 ﻿using CosmicCakes.DAL.Entities;
 using CosmicCakes.DAL.Interfaces;
+using CosmicCakes.Logging.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
-using System.Globalization;
 using System.Linq;
-using CosmicCakes.Logging.Interfaces;
 
 namespace CosmicCakes.DAL.Repositories
 {
@@ -25,7 +24,7 @@ namespace CosmicCakes.DAL.Repositories
                        .ToList();
                 try
                 {
-                    if (cakes==null) throw new Exception("Error getting all cakes from DB");
+                    if (cakes == null) throw new Exception("Error getting all cakes from DB");
                     return cakes;
                 }
                 catch (Exception ex)
@@ -64,7 +63,7 @@ namespace CosmicCakes.DAL.Repositories
             using (var context = GetContext())
             {
                 var cakes = (from c in context.SimpleReadyCakes
-                             where c.Id == 1 || c.Id == 2 || c.Id == 3 || c.Id == 5 || c.Id == 9
+                             where c.Id == 1 || c.Id == 2 || c.Id == 3 || c.Id == 5 || c.Id == 9 || c.Id == 10
                              select c)
                              .AsNoTracking()
                              .ToList();
