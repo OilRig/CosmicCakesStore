@@ -262,6 +262,15 @@
     <Content Include="Content\Images\ui-icons_cc0000_256x240.png" />
     <Content Include="Content\Images\ui-icons_ffffff_256x240.png" />
     <Content Include="Content\Images\User_Feedback_Images\6wgicg.jpg" />
+    <Content Include="Content\Images\WeddingCake\Individual\Rectangle\wed_cake_rect_1.jpg" />
+    <Content Include="Content\Images\WeddingCake\Individual\Rectangle\wed_cake_rect_5.jpg" />
+    <Content Include="Content\Images\WeddingCake\Individual\Rectangle\wed_cake_rect_4.jpg" />
+    <Content Include="Content\Images\WeddingCake\Individual\Rectangle\wed_cake_rect_3.jpg" />
+    <Content Include="Content\Images\WeddingCake\Individual\Rectangle\wed_cake_rect_2.jpg" />
+    <Content Include="Content\Images\WeddingCake\Individual\StartPage\wed_cake_start_4.jpg" />
+    <Content Include="Content\Images\WeddingCake\Individual\StartPage\wed_cake_start_3.jpg" />
+    <Content Include="Content\Images\WeddingCake\Individual\StartPage\wed_cake_start_2.jpg" />
+    <Content Include="Content\Images\WeddingCake\Individual\StartPage\wed_cake_start_1.jpg" />
     <Content Include="Content\jquery-ui.css" />
     <Content Include="Content\jquery-ui.min.css" />
     <Content Include="Content\jquery-ui.structure.css" />
