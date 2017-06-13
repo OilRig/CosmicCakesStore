@@ -8,7 +8,7 @@ namespace CosmicCakes.Services.EmailService
         public void SendEmailOrder(string message)
         {
 
-            var from = new MailAddress("cosmicakesofficial@gmail.com", "Order");
+            var from = new MailAddress("cosmicakesofficial@gmail.com", "Заказ");
 
             var to = new MailAddress("golubevanora1@gmail.com");
 
@@ -18,7 +18,7 @@ namespace CosmicCakes.Services.EmailService
                 m.Body = message;
 
                 var smtp = new SmtpClient("smtp.gmail.com", 587);
-                smtp.Credentials = new NetworkCredential("cosmicakesofficial@gmail.com", "gbczgjgf2345");
+                smtp.Credentials = new NetworkCredential("cosmicakesofficial@gmail.com", "xxxxxxx");
                 smtp.EnableSsl = true;
                 smtp.Send(m);
             }
