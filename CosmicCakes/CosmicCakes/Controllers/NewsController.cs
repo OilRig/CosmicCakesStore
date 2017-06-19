@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Threading.Tasks;
 
 namespace CosmicCakes.Controllers
 {
@@ -43,7 +44,7 @@ namespace CosmicCakes.Controllers
                 try
                 {
                     TryValidateModel(model);
-                    SaveUserSubscription(model);
+                    Task.Run(() => SaveUserSubscription(model));
                     return View("SubscribeCompleted");
                 }
                 catch(Exception)
