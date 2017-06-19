@@ -3,6 +3,7 @@ using CosmicCakes.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -17,10 +18,10 @@ namespace CosmicCakes.Controllers
         }
 
         [HttpGet]
-        public ActionResult Index()
+        public async Task<ActionResult> Index()
         {
             var model = new BlogItemsModel();
-            var posts = _blogRepository.GetAllPosts();
+            var posts = await Task.Run(() => _blogRepository.GetAllPosts());
             foreach (var post in posts)
                 model.BlogPosts.Add(post);
             return View(model);

@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Helpers;
 using System.Web.Mvc;
@@ -36,12 +37,12 @@ namespace CosmicCakes.Controllers
             return guidFileName;
         }
         [HttpGet]
-        public ActionResult Index()
+        public async Task<ActionResult> Index()
         {
             try
             {
                 var model = new FeedbackItemsModel();
-                var feedbacks = _feedbackRepository.GetAllFeedbacks();
+                var feedbacks = await Task.Run(() => _feedbackRepository.GetAllFeedbacks());
                 foreach (var feedback in feedbacks)
                     model.UserFeedbacks.Add(feedback);
                 return View(model);
@@ -55,7 +56,7 @@ namespace CosmicCakes.Controllers
         }
 
         [HttpPost]
-        public ActionResult SaveFeedback(UserFeedbackModel model)
+        public async Task<ActionResult> SaveFeedback(UserFeedbackModel model)
         {
             if(ModelState.IsValid)
             {
@@ -65,16 +66,16 @@ namespace CosmicCakes.Controllers
                     Content = model.Content,
                     CreateDate = model.CreateDate,
                     Email = model.Email,
-                    AttachedImagePath = model.AttachedImage != null ? StreamToFile(model.AttachedImage.InputStream, model.AttachedImage) : null
+                    AttachedImagePath = model.AttachedImage != null ? await Task.Run(() => StreamToFile(model.AttachedImage.InputStream, model.AttachedImage)) : null
                 };
-                _feedbackRepository.Add(feedback);
+                Task.Run(() =>_feedbackRepository.Add(feedback));
                 return View();
             }
             else
             {
                 var infoModel = new FeedbackItemsModel();
 
-                var feedbacks = _feedbackRepository.GetAllFeedbacks();
+                var feedbacks = await Task.Run(() => _feedbackRepository.GetAllFeedbacks());
 
                 foreach (var feedback in feedbacks)
                     infoModel.UserFeedbacks.Add(feedback);

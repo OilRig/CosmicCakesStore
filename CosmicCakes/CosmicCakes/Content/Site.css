@@ -497,22 +497,38 @@ hr.style-two {
 
 .contacts-layout {
     font-family: 'Open Sans', sans-serif;
-    font-size: 0.8em;
+    font-size: 1em;
     letter-spacing: 4px;
     word-spacing: 5px;
     float: right;
     padding-right: 20px;
+    font-weight:bold;
 }
 
 .contacts-layout-number {
     font-family: 'Open Sans', sans-serif;
-    font-size: 0.8em;
+    font-size: 1em;
     letter-spacing: 2px;
     padding-left: 98px;
     float: right;
     padding-right: 20px;
+    font-weight:bold;
 }
-
+.contacts-layout-number > a {
+    text-decoration:none;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1em;
+    letter-spacing: 2px;
+    padding-left: 98px;
+    float: right;
+    padding-right: 20px;
+    font-weight:bold;
+    color:black;
+}
+.contacts-layout-number > a:hover {
+    transition:1s;
+    color:grey;
+}
 .contacts-layout-number-footer {
     font-family: 'Open Sans', sans-serif;
     font-size: 0.875em;
