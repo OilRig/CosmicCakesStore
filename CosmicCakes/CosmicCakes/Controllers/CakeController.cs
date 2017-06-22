@@ -40,14 +40,25 @@ namespace CosmicCakes.Controllers
 
         private void SaveOrder(OrderModel model)
         {
-            var order = new Order();
-            order.CakeWeight = model.CakeWeight;
-            order.Comments = model.Comments;
-            order.CustomerName = model.CustomerName;
-            order.CustomerPhoneNumber = model.CustomerPhoneNumber;
-            order.ExpireDate = DateTime.ParseExact(model.ExpireDateString, "MM/dd/yyyy", null);
-            order.OrderDate = DateTime.Now;
-            order.CakeName = model.CakeName;
+            var order = new Order()
+            {
+                CakeName = model.CakeName != null ? model.CakeName:"",
+                CakeWeight = model.CakeWeight,
+                Comments = model.Comments != null ? model.Comments:"",
+                CustomerName = model.CustomerName != null ? model.CustomerName:"",
+                CustomerPhoneNumber = model.CustomerPhoneNumber != null ? model.CustomerPhoneNumber:"",
+                DeliveryNeeded = model.DeliveryNeeded,
+                DeliveryAdress = model.DeliveryAdress != null ? model.DeliveryAdress:"",
+                ExpireDate = DateTime.ParseExact(model.ExpireDateString, "MM/dd/yyyy", null),
+                OrderDate = DateTime.UtcNow,
+                SelectedLevels = model.SelectedLevels,
+                FillingType = model.SelectedFilling != null ? model.SelectedFilling : "",
+                FirstLevelBisquit = model.FirstLevelBisquit != null ? model.FirstLevelBisquit:"",
+                SecondLevelBisquit = model.SecondLevelBisquit != null ? model.SecondLevelBisquit:"",
+                ThirdLevelBisquit = model.ThirdLevelBisquit != null ? model.ThirdLevelBisquit :"",
+                SelectedMultiLevelBisquit = model.SelectedMultiLevelBisquit != null ? model.SelectedMultiLevelBisquit:"",
+                SelectedOneLevelBisquit = model.SelectedOneLevelBisquit != null ? model.SelectedOneLevelBisquit:""
+            };
             _orderRepository.Add(order);
         }
 
@@ -127,9 +138,8 @@ namespace CosmicCakes.Controllers
             model.CakeName = await Task.Run(() => _cakeRepository.GetCakeById(model.Id).Name);
             if (ModelState.IsValid)
             {
-                UpdateModel(model);
                 Task.Run(() => SaveOrder(model));
-                Task.Run(() => EmailSender.SendEmailOrder(model.ToString()));
+                //Task.Run(() => EmailSender.SendEmailOrder(model.ToString()));
                 return View("SuccessOrder");
             }
             else

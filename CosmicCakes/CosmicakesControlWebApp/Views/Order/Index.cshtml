@@ -1,0 +1,117 @@
+﻿@model IEnumerable<CosmicakesControlWebApp.Models.Orders.Order>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row">
+    <div class="col-sm-1">
+        Заказчик
+    </div>
+
+    <div class="col-sm-2">
+        Телефон
+    </div>
+
+    <div class="col-sm-2">
+        Торт
+    </div>
+
+    <div class="col-sm-2">
+        Вес
+    </div>
+
+    <div class="col-sm-2">
+        Дата создания заказа
+    </div>
+
+    <div class="col-sm-2">
+        Заказ на дату
+    </div>
+
+</div>
+
+@foreach(var order in Model)
+{
+    <div class="row">
+
+        <div class="col-sm-1">
+            @order.CustomerName
+        </div>
+
+        <div class="col-sm-2">
+            @order.CustomerPhoneNumber
+        </div>
+
+        <div class="col-sm-2">
+            @order.CakeName
+        </div>
+
+        <div class="col-sm-2">
+            @order.CakeWeight
+        </div>
+
+        <div class="col-sm-2">
+            @order.OrderDate
+        </div>
+
+        <div class="col-sm-2">
+            @order.ExpireDate
+        </div>
+
+        <div class="col-sm-1">
+            <button id="detail">Детали</button>
+        </div>
+    </div>
+
+    <div class="row" id="orderDetails" style="display:none;">
+
+        <div class="col-sm-2">
+            Ярусы:@order.SelectedLevels
+        </div>
+
+        @if (order.SelectedLevels > 1)
+        {
+            if (order.CustonBisquits)
+            {
+                <div class="col-sm-2">
+                    @order.FirstLevelBisquit<br />
+                    @order.SecondLevelBisquit<br />
+                    @order.ThirdLevelBisquit
+                </div>
+            }
+            else
+            {
+                <div class="col-sm-2">
+                    @order.SelectedMultiLevelBisquit
+                </div>
+            }
+        }
+        else if (order.SelectedLevels == 1)
+        {
+            <div class="col-sm-2">
+                @order.SelectedOneLevelBisquit
+            </div>
+        }
+        
+        @if (order.DeliveryNeeded)
+        {
+            <div class="col-sm-2">
+                @order.DeliveryAdress
+            </div>
+        }
+        
+        <div class="col-sm-2">
+            @order.Comments
+        </div>
+    </div>
+}
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            $('#detail').click(function () {
+                $('div#orderDetails').css('display', 'block');
+            });
+        });
+    })(jQuery);
+</script>
+

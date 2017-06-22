@@ -3,6 +3,7 @@ using CosmicCakes.DAL.Interfaces;
 using System;
 using System.Collections.Generic;
 using CosmicCakes.Logging.Interfaces;
+using System.Linq;
 
 namespace CosmicCakes.DAL.Repositories
 {
@@ -14,7 +15,23 @@ namespace CosmicCakes.DAL.Repositories
         }
         public IEnumerable<Order> GetAllOrders()
         {
-            throw new NotImplementedException();
+            using (var context = GetContext())
+            {
+                var cakes = context.Orders
+                       .AsNoTracking()
+                       .ToList();
+                try
+                {
+                    if (cakes == null) throw new Exception("Error getting all orders from DB");
+                    return cakes;
+                }
+                catch (Exception ex)
+                {
+                    Logger.Error(ex, DateTime.UtcNow + ":" + ex.Message);
+                    throw;
+                }
+
+            }
         }
     }
 }
