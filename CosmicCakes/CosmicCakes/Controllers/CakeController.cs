@@ -79,7 +79,7 @@ namespace CosmicCakes.Controllers
                         MinWeight = cake.MinWeight,
                         MinPrice = cake.MinPrice,
                         BackgroundImagePath = cake.BackgroundImagePath,
-                        ImagePaths = _imageRepository.GetAllImagePathsByCakeId(cake.Id)
+                        ImagePaths = await Task.Run(() => _imageRepository.GetAllImagePathsByCakeId(cake.Id))
                     });
                 }
                 return View(_existingCakes);
@@ -139,7 +139,7 @@ namespace CosmicCakes.Controllers
             if (ModelState.IsValid)
             {
                 Task.Run(() => SaveOrder(model));
-                //Task.Run(() => EmailSender.SendEmailOrder(model.ToString()));
+                Task.Run(() => EmailSender.SendEmailOrder(model.ToString()));
                 return View("SuccessOrder");
             }
             else
