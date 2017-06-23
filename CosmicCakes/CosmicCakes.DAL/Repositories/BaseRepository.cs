@@ -38,7 +38,7 @@ namespace CosmicCakes.DAL.Repositories
             {
                 try
                 {
-                    context.Set<T>().Remove(entity);
+                    context.Entry(entity).State = System.Data.Entity.EntityState.Deleted;
                     context.SaveChanges();
                 }
                 catch (Exception ex)

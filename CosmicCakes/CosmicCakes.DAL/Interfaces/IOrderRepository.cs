@@ -6,5 +6,6 @@ namespace CosmicCakes.DAL.Interfaces
     public interface IOrderRepository : IRepository<Order>
     {
         IEnumerable<Order> GetAllOrders();
+        Order GetOrderById(int id);
     }
 }

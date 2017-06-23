@@ -24,6 +24,7 @@ namespace CosmicakesControlWebApp.Controllers
 
             var model = orders.Select(ord => new Models.Orders.Order
             {
+                Id = ord.Id,
                 CakeName = ord.CakeName,
                 CakeWeight = ord.CakeWeight,
                 Comments = ord.Comments,
@@ -45,5 +46,13 @@ namespace CosmicakesControlWebApp.Controllers
             
             return View(model);
         }
+
+        public async Task<ActionResult> AjaxDeleteOrder(int id)
+        {
+            var order = _orderRepository.GetOrderById(id);
+            await Task.Run(() => _orderRepository.Remove(order));
+
+            return null;
+        } 
     }
 }

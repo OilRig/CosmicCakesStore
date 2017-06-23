@@ -3,115 +3,121 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<div class="row">
-    <div class="col-sm-1">
-        Заказчик
-    </div>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Заказчик</th>
+            <th>Телефон</th>
+            <th>Торт</th>
+            <th>Вес</th>
+            <th>Дата создания заказа</th>
+            <th> Заказ на дату</th>
+            <th>Действия</th>
+        </tr>
+    </thead>
 
-    <div class="col-sm-2">
-        Телефон
-    </div>
-
-    <div class="col-sm-2">
-        Торт
-    </div>
-
-    <div class="col-sm-2">
-        Вес
-    </div>
-
-    <div class="col-sm-2">
-        Дата создания заказа
-    </div>
-
-    <div class="col-sm-2">
-        Заказ на дату
-    </div>
-
-</div>
-
-@foreach(var order in Model)
-{
-    <div class="row">
-
-        <div class="col-sm-1">
-            @order.CustomerName
-        </div>
-
-        <div class="col-sm-2">
-            @order.CustomerPhoneNumber
-        </div>
-
-        <div class="col-sm-2">
-            @order.CakeName
-        </div>
-
-        <div class="col-sm-2">
-            @order.CakeWeight
-        </div>
-
-        <div class="col-sm-2">
-            @order.OrderDate
-        </div>
-
-        <div class="col-sm-2">
-            @order.ExpireDate
-        </div>
-
-        <div class="col-sm-1">
-            <button id="detail">Детали</button>
-        </div>
-    </div>
-
-    <div class="row" id="orderDetails" style="display:none;">
-
-        <div class="col-sm-2">
-            Ярусы:@order.SelectedLevels
-        </div>
-
-        @if (order.SelectedLevels > 1)
+    <tbody>
+        @foreach (var order in Model)
         {
-            if (order.CustonBisquits)
-            {
-                <div class="col-sm-2">
-                    @order.FirstLevelBisquit<br />
-                    @order.SecondLevelBisquit<br />
-                    @order.ThirdLevelBisquit
-                </div>
-            }
-            else
-            {
-                <div class="col-sm-2">
-                    @order.SelectedMultiLevelBisquit
-                </div>
-            }
+            <tr>
+                <td>@order.CustomerName</td>
+                <td><div class="row"><div class="col-sm-12"><a href="tel:@order.CustomerPhoneNumber">@order.CustomerPhoneNumber</a></div></div></td>
+                <td>@order.CakeName</td>
+                <td>@order.CakeWeight</td>
+                <td>@order.OrderDate.ToShortDateString()</td>
+                <td>@order.ExpireDate.ToShortDateString()</td>
+                <td>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <button onclick="ShowDetails(@order.Id)">Детали</button>
+                        </div>
+                        <div class="col-sm-6">
+                            <button data-orderId="@order.Id" id="removeOrder">Удалить</button>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            var Id = "orderDetails" + order.Id;
+            <tr id="@Id" style="display:none;">
+
+                <td>Ярусы:@order.SelectedLevels</td>
+
+                @if (order.SelectedLevels > 1)
+                {
+                    if (order.CustonBisquits)
+                    {
+                        <td>
+                            Бисквиты:<br />
+                            1 ярус:@order.FirstLevelBisquit<br />
+                            2 ярус:@order.SecondLevelBisquit<br />
+                            3 ярус: @order.ThirdLevelBisquit
+                        </td>
+                    }
+                    else
+                    {
+                        <td>
+                            Бисквит:<br />
+                            @order.SelectedMultiLevelBisquit
+                        </td>
+                    }
+                }
+                else if (order.SelectedLevels == 1)
+                {
+                    <td>
+                        Бисквит:<br />
+                        @order.SelectedOneLevelBisquit
+                    </td>
+                }                
+                    <td>
+                        Доставка:@order.DeliveryAdress
+                    </td>
+                <td>Комментарии:@order.Comments</td>
+                <td colspan="3" style="text-align:center;vertical-align:central;">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <button onclick="HideDetails(@order.Id)" id="detail">Скрыть детали</button>
+                        </div>
+                    </div>
+                </td>
+            </tr>
         }
-        else if (order.SelectedLevels == 1)
-        {
-            <div class="col-sm-2">
-                @order.SelectedOneLevelBisquit
-            </div>
-        }
-        
-        @if (order.DeliveryNeeded)
-        {
-            <div class="col-sm-2">
-                @order.DeliveryAdress
-            </div>
-        }
-        
-        <div class="col-sm-2">
-            @order.Comments
-        </div>
-    </div>
-}
+    </tbody>
+</table>
+
 <script>
-    (function ($) {
-        $(document).ready(function () {
-            $('#detail').click(function () {
-                $('div#orderDetails').css('display', 'block');
+        (function ($) {
+            $(document).ready(function () {
+                $('button#removeOrder').click(function(){
+                    var ordId = $(this).data('orderid');
+                    $.ajax({
+                        type:'post',
+                        url: '@Url.Action("AjaxDeleteOrder","Order")',
+                        data: { id: ordId },
+                        error: function (xhr) {
+                            alert(xhr.statusCode);
+                        },
+                        success: function()
+                        {
+                            window.location.href = "/order/index";
+                        }
+                    });
+                })              
             });
-        });
-    })(jQuery);
+        })(jQuery);
+    </script>
+
+<script>
+    function ShowDetails(id) {
+        $('tr#orderDetails' + id).removeAttr('style');
+    }
 </script>
+
+<script>
+    function HideDetails(id)
+    {
+        $('tr#orderDetails' + id).css('display','none');
+    }
+</script>
+
+
 
