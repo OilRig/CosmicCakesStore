@@ -4,6 +4,7 @@ using CosmicCakes.DAL.Interfaces;
 using System;
 using System.Web.Mvc;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace CosmicakesControlWebApp.Controllers
 {
@@ -18,15 +19,15 @@ namespace CosmicakesControlWebApp.Controllers
         }
 
         [HttpGet]
-        public ActionResult Index()
+        public async Task<ActionResult> Index()
         {
             try
             {
-                var templateNames = _postTemplateRepository.GetAllTemplatesNamesOnly().Where(t=>!t.EndsWith("EditArea"));
+                var templateNames = Task.Run(() => _postTemplateRepository.GetAllTemplatesNamesOnly().Where(t=>!t.EndsWith("EditArea")));
 
                 var model = new BestPostModel
                 {
-                    PostTemplatesNames = templateNames
+                    PostTemplatesNames = await templateNames
                 };
 
                 return View(model);
@@ -40,7 +41,7 @@ namespace CosmicakesControlWebApp.Controllers
 
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult SavePost(BestPostModel model)
+        public async Task<ActionResult> SavePost(BestPostModel model)
         {
             if (ModelState.IsValid)
             {
@@ -51,7 +52,7 @@ namespace CosmicakesControlWebApp.Controllers
                     Theme = model.Theme,
                     CreationDate = DateTime.UtcNow
                 };
-                _blogRepository.Add(post);
+                Task.Run(() => _blogRepository.Add(post));
                 return View();
             }
             return View("Error");

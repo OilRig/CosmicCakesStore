@@ -10,6 +10,7 @@ using System.Net.Mail;
 using System.Net;
 using System.Runtime.Remoting.Messaging;
 using System.IO;
+using System.Threading.Tasks;
 
 namespace CosmicakesControlWebApp.Controllers
 {
@@ -22,54 +23,38 @@ namespace CosmicakesControlWebApp.Controllers
             _subscribtionRepository = subscribtionRepository;
             _templateRepository = templateRepository;
         }
-
-        private delegate void AsyncMethodCaller(MailMessage message);
-        private void SendMailInSeperateThread(MailMessage message)
+        private void NotifyUsers(string content,IEnumerable<HttpPostedFileBase> attachedFiles, string templateName = "CC-News")
         {
-            try
-            {
-                using (message)
-                {
-                    var smtp = new SmtpClient("smtp.gmail.com", 587);
-                    smtp.Credentials = new NetworkCredential("cosmicakesofficial@gmail.com", "gbczgjgf2345");
-                    smtp.EnableSsl = true;
-                    smtp.Send(message);
-                }    
-            }
-            catch (Exception e)
-            {
-                
-            }
-        }
-        private void AsyncCallback(IAsyncResult ar)
-        {
-            AsyncResult result = (AsyncResult)ar;
-            AsyncMethodCaller caller = (AsyncMethodCaller)result.AsyncDelegate;
-            caller.EndInvoke(ar);
-        }
-        private void SendMessageAsync(MailMessage message)
-        {
-            AsyncMethodCaller caller = new AsyncMethodCaller(SendMailInSeperateThread);
-            AsyncCallback callbackHandler = new AsyncCallback(AsyncCallback);
-            caller.BeginInvoke(message, callbackHandler, null);
-        }
-        private void NotifyUsers(IEnumerable<UserSubscribtion> subsUsers,string content,IEnumerable<HttpPostedFileBase> attachedFiles, string templateName = "CC-News")
-        {
+            var users = _subscribtionRepository.GetAllSubscribedUsers();
             string messageTemplate = _templateRepository.GetTemplateByName(templateName).Body;
 
-            subsUsers
+            users
                 .ToList()
                 .ForEach(u =>
             {
                 var from = new MailAddress("cosmicakesofficial@gmail.com","Кондитерская Cosmic Cakes");
                 var to = new MailAddress(u.Email);
 
-                var message = new MailMessage(from, to);
-                message.IsBodyHtml = true;
-                message.Body = messageTemplate.Replace("{firstName}",u.Name).Replace("{patronymic}",u.Patronymic).Replace("{renderBody}",content);
-                message.Subject = "Новости кондитерской Cosmic Cakes";
-                GenerateMailAttachments(attachedFiles).ToList().ForEach(attach=>message.Attachments.Add(attach));
-                SendMessageAsync(message); 
+                using (var message = new MailMessage(from, to))
+                {
+                    message.IsBodyHtml = true;
+                    message.Body = messageTemplate.Replace("{firstName}", u.Name).Replace("{patronymic}", u.Patronymic).Replace("{renderBody}", content);
+                    message.Subject = "Новости кондитерской Cosmic Cakes";
+                    GenerateMailAttachments(attachedFiles).ToList().ForEach(attach => message.Attachments.Add(attach));
+                    try
+                    {
+                        using (var smtp = new SmtpClient("smtp.gmail.com", 587))
+                        {
+                            smtp.Credentials = new NetworkCredential("cosmicakesofficial@gmail.com", "nora1996NORA");
+                            smtp.EnableSsl = true;
+                            smtp.Send(message);
+                        }
+                    }
+                    catch (Exception e)
+                    {
+
+                    }
+                }        
             });
         }
 
@@ -100,8 +85,7 @@ namespace CosmicakesControlWebApp.Controllers
         [ValidateInput(false)]
         public ActionResult Announce(AnnounceModel model)
         {
-            var users = _subscribtionRepository.GetAllSubscribedUsers();
-            NotifyUsers(users,model.Content,model.AttachedFiles, model.SelectedTemplateName);
+            Task.Run(() => NotifyUsers(model.Content, model.AttachedFiles, model.SelectedTemplateName));
             return View();
         }
     }

@@ -66,7 +66,7 @@ namespace CosmicCakes.Controllers
                     Content = model.Content,
                     CreateDate = model.CreateDate,
                     Email = model.Email,
-                    AttachedImagePath = model.AttachedImage != null ? await Task.Run(() => StreamToFile(model.AttachedImage.InputStream, model.AttachedImage)) : null
+                    AttachedImagePath = model.AttachedImage != null ? StreamToFile(model.AttachedImage.InputStream, model.AttachedImage) : null
                 };
                 Task.Run(() =>_feedbackRepository.Add(feedback));
                 return View();

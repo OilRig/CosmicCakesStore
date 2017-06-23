@@ -20,7 +20,6 @@ namespace CosmicCakes.Controllers
         private readonly IOrderRepository _orderRepository;
         private readonly ISimpleCakeRepository _cakeRepository;
 
-
         private readonly List<CakesStartPageModel> _existingCakes;
 
         public CakeController(ISimpleCakeRepository simpleCakeRepository, IImageRepository imageRepository,
@@ -98,8 +97,12 @@ namespace CosmicCakes.Controllers
             try
             {
                 var cake = await Task.Run(() => _simpleCakeRepository.GetCakeById(id));
-                var individualRectangleImagesPaths = await Task.Run(() => _imageRepository.GetCakeIndividualRectangleImagesByCakeId(cake.Id));
-                var priceIncludements = await Task.Run(() => _priceIncludementRepository.GetAllPriceIncludementsById(cake.Id));
+
+                var individualRectangleImagesPaths = Task.Run(() => _imageRepository.GetCakeIndividualRectangleImagesByCakeId(cake.Id));
+                var priceIncludements = Task.Run(() => _priceIncludementRepository.GetAllPriceIncludementsById(cake.Id));
+
+                var bisquits = Task.Run(() => _bisquitRepository.GetAllNamesOnly());
+                var fillings = Task.Run(() => _fillingRepository.GetAllNamesOnly());
 
                 var infoModel = new CakeInfoModel
                 {
@@ -111,15 +114,15 @@ namespace CosmicCakes.Controllers
                     MainInfo = cake.MainInfo,
                     IsLevelable = cake.IsLevelable,
                     MaxWeight = cake.MaxWeight,
-                    IndividualRectangleImagesPaths = individualRectangleImagesPaths,
-                    PriceIncludements = priceIncludements,
+                    IndividualRectangleImagesPaths = await individualRectangleImagesPaths,
+                    PriceIncludements = await priceIncludements,
                     Id = cake.Id,
                     CakeOrderModel = new OrderModel()
                     {
                         Id = cake.Id,
                         IsLevelable = cake.IsLevelable,
-                        Bisquits = await Task.Run(() => _bisquitRepository.GetAllNamesOnly()),
-                        Fillings = await Task.Run(() => _fillingRepository.GetAllNamesOnly())
+                        Bisquits = await bisquits,
+                        Fillings = await fillings
                     },
 
                 };
@@ -135,18 +138,23 @@ namespace CosmicCakes.Controllers
         [HttpPost]
         public async Task<ActionResult> MakeOrder(OrderModel model)
         {
-            model.CakeName = await Task.Run(() => _cakeRepository.GetCakeById(model.Id).Name);
+            var cake = await Task.Run(() => _simpleCakeRepository.GetCakeById(model.Id));
+            model.CakeName = cake.Name;
+
+            var individualRectangleImagesPaths = Task.Run(() => _imageRepository.GetCakeIndividualRectangleImagesByCakeId(cake.Id));
+            var priceIncludements = Task.Run(() => _priceIncludementRepository.GetAllPriceIncludementsById(cake.Id));
+
+            var bisquits = Task.Run(() => _bisquitRepository.GetAllNamesOnly());
+            var fillings = Task.Run(() => _fillingRepository.GetAllNamesOnly());
+
             if (ModelState.IsValid)
             {
                 Task.Run(() => SaveOrder(model));
-                Task.Run(() => EmailSender.SendEmailOrder(model.ToString()));
+                //Task.Run(() => EmailSender.SendEmailOrder(model.ToString()));
                 return View("SuccessOrder");
             }
             else
             {
-                var cake = await Task.Run(() => _simpleCakeRepository.GetCakeById(model.Id));
-                var individualRectangleImagesPaths = await Task.Run(() => _imageRepository.GetCakeIndividualRectangleImagesByCakeId(cake.Id));
-                var priceIncludements = await Task.Run(() => _priceIncludementRepository.GetAllPriceIncludementsById(cake.Id));
                 var infoModel = new CakeInfoModel
                 {
                     Name = cake.Name,
@@ -157,15 +165,15 @@ namespace CosmicCakes.Controllers
                     MainInfo = cake.MainInfo,
                     IsLevelable = cake.IsLevelable,
                     MaxWeight = cake.MaxWeight,
-                    IndividualRectangleImagesPaths = individualRectangleImagesPaths,
-                    PriceIncludements = priceIncludements,
+                    IndividualRectangleImagesPaths = await individualRectangleImagesPaths,
+                    PriceIncludements = await priceIncludements,
                     Id = cake.Id,
                     CakeOrderModel = new OrderModel()
                     {
                         Id = cake.Id,
                         IsLevelable = cake.IsLevelable,
-                        Bisquits = await Task.Run(() => _bisquitRepository.GetAllNamesOnly()),
-                        Fillings = await Task.Run(() => _fillingRepository.GetAllNamesOnly())
+                        Bisquits = await bisquits,
+                        Fillings = await fillings
                     }
                 };
                 return View("CakeInfo", infoModel);
