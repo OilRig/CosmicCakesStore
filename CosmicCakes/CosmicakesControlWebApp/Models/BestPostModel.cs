@@ -10,6 +10,9 @@ namespace CosmicakesControlWebApp.Models
         public string Theme { get; set; }
         public string Heading { get; set; }
         public string Opening { get; set; }
+        public List<string> HeadImagesSet { get; set; }
+        public List<string> MiddleImagesSet { get; set; }
+        public List<string> ClosingImagesSet { get; set; }
         public string FirstSubHeading { get; set; }
         public string BigPromise { get; set; }
         public string MainContent { get; set; }
