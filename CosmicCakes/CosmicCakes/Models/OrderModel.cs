@@ -46,11 +46,15 @@ namespace CosmicCakes.Models
         public double GetWeight(string value)
         {
             NumberFormatInfo nfi = new NumberFormatInfo();
-            if (value.Contains("."))
-                nfi.NumberDecimalSeparator = ".";
-            else if (value.Contains(","))
-                nfi.NumberDecimalSeparator = ",";
-            return double.Parse(value, nfi);
+            if(value != null)
+            {
+                if (value.Contains("."))
+                    nfi.NumberDecimalSeparator = ".";
+                else if (value.Contains(","))
+                    nfi.NumberDecimalSeparator = ",";
+                return double.Parse(value, nfi);
+            }
+            return double.MinValue; 
         }
         public override string ToString()
         {
