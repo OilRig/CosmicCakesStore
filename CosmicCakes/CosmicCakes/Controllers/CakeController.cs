@@ -139,26 +139,23 @@ namespace CosmicCakes.Controllers
         [HttpPost]
         public async Task<ActionResult> MakeOrder(OrderModel model)
         {
-            var cakeTask = Task.Run(() => _simpleCakeRepository.GetCakeById(model.Id));
-           
-            var individualRectangleImagesPaths = Task.Run(() => _imageRepository.GetCakeIndividualRectangleImagesByCakeId(model.Id));
-            var priceIncludements = Task.Run(() => _priceIncludementRepository.GetAllPriceIncludementsById(model.Id));
-
-            var bisquits = Task.Run(() => _bisquitRepository.GetAllNamesOnly());
-            var fillings = Task.Run(() => _fillingRepository.GetAllNamesOnly());
-
-            var cake = await cakeTask;
+            var cake = await Task.Run(() => _simpleCakeRepository.GetCakeById(model.Id));
 
             if (ModelState.IsValid)
             {
-               
                 model.CakeName = cake.Name;
                 Task.Run(() => SaveOrder(model));
-                //Task.Run(() => EmailSender.SendEmailOrder(model.ToString()));
+                Task.Run(() => EmailSender.SendEmailOrder(model.ToString()));
                 return View("SuccessOrder");
             }
             else
             {
+                var individualRectangleImagesPaths = Task.Run(() => _imageRepository.GetCakeIndividualRectangleImagesByCakeId(model.Id));
+                var priceIncludements = Task.Run(() => _priceIncludementRepository.GetAllPriceIncludementsById(model.Id));
+
+                var bisquits = Task.Run(() => _bisquitRepository.GetAllNamesOnly());
+                var fillings = Task.Run(() => _fillingRepository.GetAllNamesOnly());
+
                 var infoModel = new CakeInfoModel
                 {
                     Name = cake.Name,
