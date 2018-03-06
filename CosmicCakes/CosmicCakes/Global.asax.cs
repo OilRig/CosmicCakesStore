@@ -45,8 +45,6 @@ namespace CosmicCakesWebApp
 
                 Response.Redirect($"~/Error/{action}");
             }
-
-
         }
     }
 }

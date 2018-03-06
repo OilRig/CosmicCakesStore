@@ -30,6 +30,7 @@ namespace CosmicCakes.Controllers
 
             _subscriptionRepository.Add(userSubscription);
         }
+
         [HttpGet]
         public ActionResult Index()
         {

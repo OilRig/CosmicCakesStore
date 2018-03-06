@@ -150,16 +150,12 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\AboutController.cs" />
-    <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\CakeController.cs" />
-    <Compile Include="Controllers\CakePartController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\FeedbackController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\AppServiceController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
-    <Compile Include="Controllers\PriceController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -334,22 +330,21 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\About\Index.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Cake\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutWithNoMargins.cshtml" />
     <Content Include="Views\Cake\CakeInfo.cshtml" />
-    <Content Include="Views\CakePart\Index.cshtml" />
+    <Content Include="Views\Home\CakeParts.cshtml" />
     <Content Include="Views\Error\PageNotFound.cshtml" />
-    <Content Include="Views\Price\MakeOrder.cshtml" />
     <Content Include="Views\Shared\CakeOrder.partial.cshtml" />
     <Content Include="Views\Shared\SuccessOrder.cshtml" />
     <Content Include="Views\Error\Error500.cshtml" />
     <Content Include="Views\Error\General.cshtml" />
-    <Content Include="Views\Blog\Index.cshtml" />
+    <Content Include="Views\Home\Blog.cshtml" />
     <Content Include="Views\Feedback\Index.cshtml" />
     <Content Include="Views\Shared\FeedbackForm.partial.cshtml" />
     <Content Include="Views\Feedback\SaveFeedback.cshtml" />
-    <Content Include="Views\Price\Index.cshtml" />
+    <Content Include="Views\Home\Prices.cshtml" />
     <Content Include="Views\News\Index.cshtml" />
     <Content Include="Views\Shared\SubscribeCompleted.cshtml" />
   </ItemGroup>

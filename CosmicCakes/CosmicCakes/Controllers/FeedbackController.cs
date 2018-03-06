@@ -36,6 +36,7 @@ namespace CosmicCakes.Controllers
             
             return guidFileName;
         }
+
         [HttpGet]
         public async Task<ActionResult> Index()
         {
@@ -68,7 +69,9 @@ namespace CosmicCakes.Controllers
                     Email = model.Email,
                     AttachedImagePath = model.AttachedImage != null ? StreamToFile(model.AttachedImage.InputStream, model.AttachedImage) : null
                 };
+
                 Task.Run(() =>_feedbackRepository.Add(feedback));
+
                 return View();
             }
             else
