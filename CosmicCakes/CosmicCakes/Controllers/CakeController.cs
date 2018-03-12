@@ -27,36 +27,38 @@ namespace CosmicCakes.Controllers
             IBisquitRepository bisquitRepository, IOrderRepository orderRepo, ISimpleCakeRepository cakeRepository,
             IEmailSender emailSender, IAppLogger logger) : base(logger, emailSender)
         {
-            _simpleCakeRepository = simpleCakeRepository;
-            _imageRepository = imageRepository;
+            _simpleCakeRepository       = simpleCakeRepository;
+            _imageRepository            = imageRepository;
             _priceIncludementRepository = priceIncludementRepository;
-            _fillingRepository = fillingRepository;
-            _bisquitRepository = bisquitRepository;
-            _orderRepository = orderRepo;
-            _cakeRepository = cakeRepository;
-            _existingCakes = new List<CakesStartPageModel>();
+            _fillingRepository          = fillingRepository;
+            _bisquitRepository          = bisquitRepository;
+            _orderRepository            = orderRepo;
+            _cakeRepository             = cakeRepository;
+            _existingCakes              = new List<CakesStartPageModel>();
         }
+
+        private string GetStringValueOrEmpty(string value) => value ?? string.Empty;
 
         private void SaveOrder(OrderModel model)
         {
             var order = new Order()
             {
-                CakeName                  = model.CakeName != null ? model.CakeName:"",
+                CakeName                  = GetStringValueOrEmpty(model.CakeName),
                 CakeWeight                = model.CakeWeight,
-                Comments                  = model.Comments != null ? model.Comments:"",
-                CustomerName              = model.CustomerName != null ? model.CustomerName:"",
-                CustomerPhoneNumber       = model.CustomerPhoneNumber != null ? model.CustomerPhoneNumber:"",
+                Comments                  = GetStringValueOrEmpty(model.Comments),
+                CustomerName              = GetStringValueOrEmpty(model.CustomerName),
+                CustomerPhoneNumber       = GetStringValueOrEmpty(model.CustomerPhoneNumber),
                 DeliveryNeeded            = model.DeliveryNeeded,
-                DeliveryAdress            = model.DeliveryAdress != null ? model.DeliveryAdress:"",
+                DeliveryAdress            = GetStringValueOrEmpty(model.DeliveryAdress),
                 ExpireDate                = DateTime.ParseExact(model.ExpireDateString, "MM/dd/yyyy", null),
                 OrderDate                 = DateTime.UtcNow,
                 SelectedLevels            = model.SelectedLevels,
-                FillingType               = model.SelectedFilling != null ? model.SelectedFilling : "",
-                FirstLevelBisquit         = model.FirstLevelBisquit != null ? model.FirstLevelBisquit:"",
-                SecondLevelBisquit        = model.SecondLevelBisquit != null ? model.SecondLevelBisquit:"",
-                ThirdLevelBisquit         = model.ThirdLevelBisquit != null ? model.ThirdLevelBisquit :"",
-                SelectedMultiLevelBisquit = model.SelectedMultiLevelBisquit != null ? model.SelectedMultiLevelBisquit:"",
-                SelectedOneLevelBisquit   = model.SelectedOneLevelBisquit != null ? model.SelectedOneLevelBisquit:""
+                FillingType               = GetStringValueOrEmpty(model.SelectedFilling),
+                FirstLevelBisquit         = GetStringValueOrEmpty(model.FirstLevelBisquit),
+                SecondLevelBisquit        = GetStringValueOrEmpty(model.SecondLevelBisquit),
+                ThirdLevelBisquit         = GetStringValueOrEmpty(model.ThirdLevelBisquit),
+                SelectedMultiLevelBisquit = GetStringValueOrEmpty(model.SelectedMultiLevelBisquit),
+                SelectedOneLevelBisquit   = GetStringValueOrEmpty(model.SelectedOneLevelBisquit)
             };
             _orderRepository.Add(order);
         }
@@ -72,16 +74,17 @@ namespace CosmicCakes.Controllers
                 {
                     _existingCakes.Add(new CakesStartPageModel
                     {
-                        Id = cake.Id,
-                        Description = cake.Description,
-                        Name = cake.Name,
-                        KgPrice = cake.KgPrice,
-                        MinWeight = cake.MinWeight,
-                        MinPrice = cake.MinPrice,
+                        Id                  = cake.Id,
+                        Description         = cake.Description,
+                        Name                = cake.Name,
+                        KgPrice             = cake.KgPrice,
+                        MinWeight           = cake.MinWeight,
+                        MinPrice            = cake.MinPrice,
                         BackgroundImagePath = cake.BackgroundImagePath,
-                        ImagePaths = _imageRepository.GetAllImagePathsByCakeId(cake.Id)
+                        ImagePaths          = _imageRepository.GetAllImagePathsByCakeId(cake.Id)
                     });
                 }
+
                 return View(_existingCakes);
             }
             catch (Exception ex)
@@ -106,28 +109,29 @@ namespace CosmicCakes.Controllers
                 var fillings = Task.Run(() => _fillingRepository.GetAllNamesOnly());
 
                 var cake = await cakeTask;
+
                 var infoModel = new CakeInfoModel
                 {
-                    Name = cake.Name,
-                    KgPrice = cake.KgPrice,
-                    MinWeight = cake.MinWeight,
-                    MinPrice = cake.MinPrice,
-                    Description = cake.Description,
-                    MainInfo = cake.MainInfo,
-                    IsLevelable = cake.IsLevelable,
-                    MaxWeight = cake.MaxWeight,
+                    Name                           = cake.Name,
+                    KgPrice                        = cake.KgPrice,
+                    MinWeight                      = cake.MinWeight,
+                    MinPrice                       = cake.MinPrice,
+                    Description                    = cake.Description,
+                    MainInfo                       = cake.MainInfo,
+                    IsLevelable                    = cake.IsLevelable,
+                    MaxWeight                      = cake.MaxWeight,
                     IndividualRectangleImagesPaths = await individualRectangleImagesPaths,
-                    PriceIncludements = await priceIncludements,
-                    Id = cake.Id,
+                    PriceIncludements              = await priceIncludements,
+                    Id                             = cake.Id,
                     CakeOrderModel = new OrderModel()
                     {
-                        Id = cake.Id,
+                        Id          = cake.Id,
                         IsLevelable = cake.IsLevelable,
-                        Bisquits = await bisquits,
-                        Fillings = await fillings
-                    },
-
+                        Bisquits    = await bisquits,
+                        Fillings    = await fillings
+                    }
                 };
+
                 return View(infoModel);
             }
             catch (Exception ex)
@@ -145,8 +149,10 @@ namespace CosmicCakes.Controllers
             if (ModelState.IsValid)
             {
                 model.CakeName = cake.Name;
-                Task.Run(() => SaveOrder(model));
-                Task.Run(() => EmailSender.SendEmailOrder(model.ToString()));
+
+                await Task.Run(() => SaveOrder(model));
+                await Task.Run(() => EmailSender.SendEmailOrder(model.ToString()));
+
                 return View("SuccessOrder");
             }
             else
@@ -159,25 +165,26 @@ namespace CosmicCakes.Controllers
 
                 var infoModel = new CakeInfoModel
                 {
-                    Name = cake.Name,
-                    KgPrice = cake.KgPrice,
-                    MinWeight = cake.MinWeight,
-                    MinPrice = cake.MinPrice,
-                    Description = cake.Description,
-                    MainInfo = cake.MainInfo,
-                    IsLevelable = cake.IsLevelable,
-                    MaxWeight = cake.MaxWeight,
+                    Name                           = cake.Name,
+                    KgPrice                        = cake.KgPrice,
+                    MinWeight                      = cake.MinWeight,
+                    MinPrice                       = cake.MinPrice,
+                    Description                    = cake.Description,
+                    MainInfo                       = cake.MainInfo,
+                    IsLevelable                    = cake.IsLevelable,
+                    MaxWeight                      = cake.MaxWeight,
                     IndividualRectangleImagesPaths = await individualRectangleImagesPaths,
-                    PriceIncludements = await priceIncludements,
-                    Id = cake.Id,
+                    PriceIncludements              = await priceIncludements,
+                    Id                             = cake.Id,
                     CakeOrderModel = new OrderModel()
                     {
-                        Id = cake.Id,
+                        Id          = cake.Id,
                         IsLevelable = cake.IsLevelable,
-                        Bisquits = await bisquits,
-                        Fillings = await fillings
+                        Bisquits    = await bisquits,
+                        Fillings    = await fillings
                     }
                 };
+
                 return View("CakeInfo", infoModel);
             }
         }

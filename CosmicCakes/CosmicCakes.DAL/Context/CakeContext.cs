@@ -36,11 +36,11 @@ namespace CosmicCakes.DAL
         //Feedbacks
         public virtual DbSet<UserFeedback> UserFeedbacks { get; set; }
 
-        //Subscribtions
-        public virtual DbSet<UserSubscribtion> UserSubscriptions { get; set; }
-
         //Emails
         public virtual DbSet<EmailTemplate> EmailTemplates { get; set; }
         public virtual DbSet<EmailLinkedResorce> LinkedResorces { get; set; }
+
+        //Help
+        public virtual DbSet<HelpRequest> HelpRequests { get; set; }
     }
 }

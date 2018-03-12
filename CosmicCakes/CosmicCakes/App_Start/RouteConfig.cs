@@ -10,11 +10,6 @@ namespace CosmicCakesWebApp
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
             routes.LowercaseUrls = true;
-            routes.MapRoute(
-                name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
-            );
 
             routes.MapRoute(
                 name: "GoHome",
@@ -47,6 +42,12 @@ namespace CosmicCakesWebApp
             );
 
             routes.MapRoute(
+                name: "Help",
+                url: "help",
+                defaults: new { controller = "Home", action = nameof(HomeController.Help) }
+            );
+
+            routes.MapRoute(
                 name: "Cakes",
                 url: "cakes",
                 defaults: new { controller = "Cake", action = nameof(CakeController.Index) });
@@ -55,6 +56,12 @@ namespace CosmicCakesWebApp
                name: "CakeInfo",
                url: "cake/{id}",
                defaults: new { controller = "Cake", action = nameof(CakeController.CakeInfo), id = UrlParameter.Optional });
+
+            routes.MapRoute(
+               name: "Default",
+               url: "{controller}/{action}/{id}",
+               defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+           );
         }
     }
 }

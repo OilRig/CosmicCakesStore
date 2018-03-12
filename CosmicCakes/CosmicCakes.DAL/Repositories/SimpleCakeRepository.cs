@@ -20,11 +20,12 @@ namespace CosmicCakes.DAL.Repositories
         {
             using (var context = GetContext())
             {
-                var cakes = context.Set<SimpleReadyCake>()
-                       .AsNoTracking()
-                       .ToList();
                 try
                 {
+                    var cakes = context.Set<SimpleReadyCake>()
+                       .AsNoTracking()
+                       .ToList();
+               
                     if (cakes == null) throw new Exception("Error getting all cakes from DB");
                     return cakes;
                 }
@@ -41,9 +42,10 @@ namespace CosmicCakes.DAL.Repositories
         {
             using (var context = GetContext())
             {
-                var cake = context.Set<SimpleReadyCake>().FirstOrDefault(c => c.Id == id);
                 try
                 {
+                    var cake = context.Set<SimpleReadyCake>().FirstOrDefault(c => c.Id == id);
+                
                     if (cake == null)
                     {
                         throw new Exception("Error getting cake from DB. Cake Id is: " + id);
@@ -58,18 +60,21 @@ namespace CosmicCakes.DAL.Repositories
 
             }
         }
+
         public IEnumerable<SimpleReadyCake> GetExistingCakes()
         {
             using (var context = GetContext())
             {
-                var cakes = (from c in context.SimpleReadyCakes
+                try
+                {
+                    var cakes = (from c in context.SimpleReadyCakes
                              where c.Id == 1 || c.Id == 2 || c.Id == 3 || c.Id == 5 || c.Id == 9 || c.Id == 10
                              select c)
                              .AsNoTracking()
                              .ToList();
-                try
-                {
+               
                     if (!cakes.Any()) throw new Exception("Error getting cakes from DB");
+
                     return cakes;
                 }
                 catch (Exception ex)

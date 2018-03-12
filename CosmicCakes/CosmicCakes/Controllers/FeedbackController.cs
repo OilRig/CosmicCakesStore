@@ -12,6 +12,7 @@ using System.Web;
 using System.Web.Helpers;
 using System.Web.Mvc;
 using System.Xml.Xsl;
+using CaptchaMvc.HtmlHelpers;
 
 namespace CosmicCakes.Controllers
 {
@@ -37,6 +38,14 @@ namespace CosmicCakes.Controllers
             return guidFileName;
         }
 
+        private void FillFeedbacks(IEnumerable<UserFeedback> feedbacks, UserFeedbackModel userFeedback, FeedbackItemsModel model )
+        {
+            foreach (var feedback in feedbacks)
+                model.UserFeedbacks.Add(feedback);
+
+            model.LeftedFeedback = userFeedback;
+        }
+
         [HttpGet]
         public async Task<ActionResult> Index()
         {
@@ -59,31 +68,38 @@ namespace CosmicCakes.Controllers
         [HttpPost]
         public async Task<ActionResult> SaveFeedback(UserFeedbackModel model)
         {
-            if(ModelState.IsValid)
+            var feedbacks = await Task.Run(() => _feedbackRepository.GetAllFeedbacks());
+            var infoModel = new FeedbackItemsModel();
+
+            if (ModelState.IsValid)
             {
-                var feedback = new UserFeedback()
+                if(this.IsCaptchaValid(string.Empty))
                 {
-                    Author = model.Author,
-                    Content = model.Content,
-                    CreateDate = model.CreateDate,
-                    Email = model.Email,
-                    AttachedImagePath = model.AttachedImage != null ? StreamToFile(model.AttachedImage.InputStream, model.AttachedImage) : null
-                };
+                    var feedback = new UserFeedback()
+                    {
+                        Author = model.Author,
+                        Content = model.Content,
+                        CreateDate = model.CreateDate,
+                        Email = model.Email,
+                        AttachedImagePath = model.AttachedImage != null ? StreamToFile(model.AttachedImage.InputStream, model.AttachedImage) : null
+                    };
 
-                Task.Run(() =>_feedbackRepository.Add(feedback));
+                    await Task.Run(() => _feedbackRepository.Add(feedback));
 
-                return View();
+                    return View();
+                }
+
+                ModelState.AddModelError("CAPTCHA", "Неверная капча!");
+
+                FillFeedbacks(feedbacks, model, infoModel);
+
+                return View("Index", infoModel);
             }
             else
             {
-                var infoModel = new FeedbackItemsModel();
+                FillFeedbacks(feedbacks, model, infoModel);
 
-                var feedbacks = await Task.Run(() => _feedbackRepository.GetAllFeedbacks());
-
-                foreach (var feedback in feedbacks)
-                    infoModel.UserFeedbacks.Add(feedback);
-                infoModel.LeftedFeedback = model;
-                return View("Index",infoModel);
+                return View("Index", infoModel);
             }
             
         }

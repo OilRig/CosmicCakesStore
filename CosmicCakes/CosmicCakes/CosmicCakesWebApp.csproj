@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -44,6 +45,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CaptchaMvc, Version=2.5.0.0, Culture=neutral, PublicKeyToken=fe46ad421dd3b0e6, processorArchitecture=MSIL">
+      <HintPath>..\packages\CaptchaMvc.Mvc5.1.5.0\lib\net45-full\CaptchaMvc.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
@@ -163,6 +167,7 @@
     <Compile Include="Models\CakePartsModel.cs" />
     <Compile Include="Models\CakesStartPageModel.cs" />
     <Compile Include="Models\FeedbackItemsModel.cs" />
+    <Compile Include="Models\HelpRequestModel.cs" />
     <Compile Include="Models\NewsSubscribeModel.cs" />
     <Compile Include="Models\OrderModel.cs" />
     <Compile Include="Models\UserFeedbackModel.cs" />
@@ -345,6 +350,8 @@
     <Content Include="Views\Feedback\SaveFeedback.cshtml" />
     <Content Include="Views\Home\Prices.cshtml" />
     <Content Include="Views\Shared\SubscribeCompleted.cshtml" />
+    <Content Include="Views\Shared\SuccessRequest.cshtml" />
+    <Content Include="Views\Home\Help.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\Images\Cupcakes\Individual\Rectangle\" />

@@ -28,10 +28,10 @@
         <div class="col-sm-12">
             <h5>Стоимость:</h5>
             <ul>
-                <li>Торты от 1800 р/кг, минимальный вес от 1,5 кг. Выбрать торт и рассчитать точную стоимость <a href="#">здесь</a></li>
-                <li>Капкейки от 200 р/шт, минимальный заказ от 6 штук. Выбрать капкейки и рассчитать точную стоимость <a href="#">здесь</a> </li>
-                <li>Десерт Павлова от 200 р/шт, минимальный заказ от 6 штук. Выбрать десерт Павлова и рассчитать точную стоимость <a href="#">здесь</a> </li>
-                <li>Макаронс от 80 р/шт, минимальный заказ от 12 штук. Выбрать макаронс и рассчитать точную стоимость <a href="#">здесь</a> </li>
+                <li>Торты от 1800 р/кг, минимальный вес от 1,5 кг. Выбрать торт и рассчитать точную стоимость <a href="/cakes">здесь</a></li>
+                <li>Капкейки от 200 р/шт, минимальный заказ от 6 штук. Выбрать капкейки и рассчитать точную стоимость <a href="/sweets">здесь</a> </li>
+                <li>Десерт Павлова от 200 р/шт, минимальный заказ от 6 штук. Выбрать десерт Павлова и рассчитать точную стоимость <a href="/sweets">здесь</a> </li>
+                <li>Макаронс от 80 р/шт, минимальный заказ от 12 штук. Выбрать макаронс и рассчитать точную стоимость <a href="sweets">здесь</a> </li>
             </ul>
         </div>
     </div>
@@ -57,16 +57,25 @@
         </div>
     </div>
 
-    <div class="row">
+    <div class="row" style="margin-bottom:20px;font-family:'Open Sans',sans-serif;font-size:15px;">
         <div class="col-sm-12">
-            <p>Если у Вас остались вопросы, то воспользуйтесь <a>формой обратной связи</a> и задайте все интересующий Вас вопросы</p>
+            <p>Если у Вас остались вопросы, то воспользуйтесь <a href="/help">формой обратной связи</a> и задайте все интересующий Вас вопросы</p>
 
             <p>Мы в социальных сетях:</p>
-            <ul style="padding-left: 0; text-align: center; opacity: 0.6;">
-                <li style="display: inline; padding: 0; margin-right: 20px;"><a href="https://www.instagram.com/cosmicakes/" target="_blank"><img src="/Content/Images/Icons/instagram-social-network-logo-of-photo-camera.png" height="20" width="20" /></a></li>
-                <li style="display: inline; padding: 0; margin-right: 20px;"><a href="tel:+79062558810" target="_blank"><img src="/Content/Images/Icons/wassap-logo-button.png" height="20" width="20" /></a></li>
-                <li style="display: inline; padding: 0; margin:0;"><a href="https://vk.com/cosmicakes" target="_blank"><img src="/Content/Images/Icons/vk-icon.png" height="20" width="20" /></a></li>
+            <ul style="padding-left: 0; opacity: 0.6;">
+                <li style="padding: 0; margin-right: 20px; margin-bottom:10px; list-style-type:none;"><a href="https://www.instagram.com/cosmicakes/" target="_blank"><img src="/Content/Images/Icons/instagram-social-network-logo-of-photo-camera.png" height="20" width="20" /></a> - Instagram</li>
+                <li style="padding: 0; margin-right: 20px; margin-bottom:10px; list-style-type: none;"><a href="tel:+79062558810" target="_blank"><img src="/Content/Images/Icons/wassap-logo-button.png" height="20" width="20" /></a> - Телефон</li>
+                <li style="padding: 0; margin:0; margin-bottom:10px; list-style-type: none;"><a href="https://vk.com/cosmicakes" target="_blank"><img src="/Content/Images/Icons/vk-icon.png" height="20" width="20" /></a> - ВКонтакте</li>
             </ul>
         </div>
     </div>
 </div>
+
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            $('#prices').addClass("active");
+        });
+    })
+    (jQuery);
+</script>

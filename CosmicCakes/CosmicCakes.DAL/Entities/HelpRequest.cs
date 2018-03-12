@@ -7,13 +7,20 @@ using System.Threading.Tasks;
 
 namespace CosmicCakes.DAL.Entities
 {
-    public class UserSubscribtion
+    public class HelpRequest
     {
         [Key]
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string Patronymic { get; set; }
-        [Required]
+
+        [MaxLength(100)]
         public string Email { get; set; }
+
+        [MaxLength(100)]
+        public string Name { get; set; }
+
+        [MaxLength(100)]
+        public string Patronymic { get; set; }
+
+        public string RequestText { get; set; }
     }
 }
