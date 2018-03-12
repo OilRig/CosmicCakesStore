@@ -41,22 +41,22 @@ namespace CosmicCakes.Controllers
         {
             var order = new Order()
             {
-                CakeName = model.CakeName != null ? model.CakeName:"",
-                CakeWeight = model.CakeWeight,
-                Comments = model.Comments != null ? model.Comments:"",
-                CustomerName = model.CustomerName != null ? model.CustomerName:"",
-                CustomerPhoneNumber = model.CustomerPhoneNumber != null ? model.CustomerPhoneNumber:"",
-                DeliveryNeeded = model.DeliveryNeeded,
-                DeliveryAdress = model.DeliveryAdress != null ? model.DeliveryAdress:"",
-                ExpireDate = DateTime.ParseExact(model.ExpireDateString, "MM/dd/yyyy", null),
-                OrderDate = DateTime.UtcNow,
-                SelectedLevels = model.SelectedLevels,
-                FillingType = model.SelectedFilling != null ? model.SelectedFilling : "",
-                FirstLevelBisquit = model.FirstLevelBisquit != null ? model.FirstLevelBisquit:"",
-                SecondLevelBisquit = model.SecondLevelBisquit != null ? model.SecondLevelBisquit:"",
-                ThirdLevelBisquit = model.ThirdLevelBisquit != null ? model.ThirdLevelBisquit :"",
+                CakeName                  = model.CakeName != null ? model.CakeName:"",
+                CakeWeight                = model.CakeWeight,
+                Comments                  = model.Comments != null ? model.Comments:"",
+                CustomerName              = model.CustomerName != null ? model.CustomerName:"",
+                CustomerPhoneNumber       = model.CustomerPhoneNumber != null ? model.CustomerPhoneNumber:"",
+                DeliveryNeeded            = model.DeliveryNeeded,
+                DeliveryAdress            = model.DeliveryAdress != null ? model.DeliveryAdress:"",
+                ExpireDate                = DateTime.ParseExact(model.ExpireDateString, "MM/dd/yyyy", null),
+                OrderDate                 = DateTime.UtcNow,
+                SelectedLevels            = model.SelectedLevels,
+                FillingType               = model.SelectedFilling != null ? model.SelectedFilling : "",
+                FirstLevelBisquit         = model.FirstLevelBisquit != null ? model.FirstLevelBisquit:"",
+                SecondLevelBisquit        = model.SecondLevelBisquit != null ? model.SecondLevelBisquit:"",
+                ThirdLevelBisquit         = model.ThirdLevelBisquit != null ? model.ThirdLevelBisquit :"",
                 SelectedMultiLevelBisquit = model.SelectedMultiLevelBisquit != null ? model.SelectedMultiLevelBisquit:"",
-                SelectedOneLevelBisquit = model.SelectedOneLevelBisquit != null ? model.SelectedOneLevelBisquit:""
+                SelectedOneLevelBisquit   = model.SelectedOneLevelBisquit != null ? model.SelectedOneLevelBisquit:""
             };
             _orderRepository.Add(order);
         }
@@ -67,6 +67,7 @@ namespace CosmicCakes.Controllers
             try
             {
                 var cakes = await Task.Run(()=>_simpleCakeRepository.GetExistingCakes());
+
                 foreach (var cake in cakes)
                 {
                     _existingCakes.Add(new CakesStartPageModel
@@ -139,7 +140,7 @@ namespace CosmicCakes.Controllers
         [HttpPost]
         public async Task<ActionResult> MakeOrder(OrderModel model)
         {
-            var cake = await Task.Run(() => _simpleCakeRepository.GetCakeById(model.Id));
+            SimpleReadyCake cake = await Task.Run(() => _simpleCakeRepository.GetCakeById(model.Id));
 
             if (ModelState.IsValid)
             {

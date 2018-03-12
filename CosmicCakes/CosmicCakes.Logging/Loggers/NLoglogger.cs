@@ -18,7 +18,7 @@ namespace CosmicCakes.Logging.Loggers
 
         public void Error(Exception ex, string message)
         {
-            logger.Error(ex, ex.Message, message);
+            logger.Error(ex, ex?.Message, message);
         }
     }
 }
