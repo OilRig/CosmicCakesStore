@@ -70,6 +70,7 @@
     <Compile Include="Entities\Cake\SimpleCakeImage.cs" />
     <Compile Include="Entities\Cake\SimpleReadyCake.cs" />
     <Compile Include="Entities\Feedback\UserFeedback.cs" />
+    <Compile Include="Helpers\AccessLockers.cs" />
     <Compile Include="Interfaces\IEmailTemplateRepository.cs" />
     <Compile Include="Interfaces\IHelpRequestRepository.cs" />
     <Compile Include="Interfaces\IPostTemplateRepository.cs" />
