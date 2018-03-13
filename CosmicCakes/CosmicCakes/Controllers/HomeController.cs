@@ -11,20 +11,12 @@ namespace CosmicCakes.Controllers
 {
     public class HomeController : AppServiceController
     {
-        private readonly IBlogRepository _blogRepository;
-        private readonly IFillingRepository _fillingRepository;
-        private readonly IBisquitRepository _bisquitRepository;
-        private readonly ICreamRepository _creamRepository;
-        private readonly IHelpRequestRepository _helpRepository;
+        private readonly ICakeInventoryRepository _inventoryRepository;
 
-        public HomeController(IHelpRequestRepository helpRepository, IBlogRepository blogRepository, IFillingRepository fillingRepository, IBisquitRepository bisquitRepository, ICreamRepository creamRepository,
+        public HomeController( ICakeInventoryRepository inventoryRepository,
             IAppLogger logger) : base(logger)
         {
-            _blogRepository    = blogRepository;
-            _fillingRepository = fillingRepository;
-            _bisquitRepository = bisquitRepository;
-            _creamRepository   = creamRepository;
-            _helpRepository    = helpRepository;
+            _inventoryRepository = inventoryRepository;
         }
 
         [HttpGet]
@@ -51,12 +43,50 @@ namespace CosmicCakes.Controllers
             return View();
         }
 
+        [HttpGet]
+        public async Task<ActionResult> Blog()
+        {
+            var model = new BlogItemsModel();
+
+            var posts = Task.Run(() => _inventoryRepository.GetAll<BlogPost>());
+
+            foreach (var post in await posts)
+                model.BlogPosts.Add(post);
+
+            return View(model);
+        }
+
+        [HttpGet]
+        public async Task<ActionResult> Inventory()
+        {
+            var fillingsTask = Task.Run(() => _inventoryRepository.GetAll<Filling>());
+            var bisquitsTask = Task.Run(() => _inventoryRepository.GetAll<Bisquit>());
+            var creamTask    = Task.Run(() => _inventoryRepository.GetAll<Cream>());
+
+            try
+            {
+                var partsModel = new CakePartsModel
+                {
+                    Fillings = await fillingsTask,
+                    Bisquits = await bisquitsTask,
+                    Creams   = await creamTask
+                };
+
+                return View(partsModel);
+            }
+            catch (Exception ex)
+            {
+                Logger.Error(ex, $"Inventory/Index:{ex.Message}");
+                return View("Error");
+            }
+        }
+
         [HttpPost]
         public async Task<ActionResult> SendHelpRequest(HelpRequestModel model)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                if(this.IsCaptchaValid("Неверная капча!"))
+                if (this.IsCaptchaValid("Неверная капча!"))
                 {
                     HelpRequest request = new HelpRequest()
                     {
@@ -66,7 +96,7 @@ namespace CosmicCakes.Controllers
                         RequestText = model.RequestText
                     };
 
-                    await Task.Run(() => _helpRepository.Add(request));
+                    await Task.Run(() => _inventoryRepository.Add(request));
 
                     return View("SuccessRequest");
                 }
@@ -75,40 +105,6 @@ namespace CosmicCakes.Controllers
             }
 
             return View("Help", model);
-        }
-
-        [HttpGet]
-        public async Task<ActionResult> Blog()
-        {
-            var model = new BlogItemsModel();
-
-            var posts = await Task.Run(() => _blogRepository.GetAllPosts());
-
-            foreach (var post in posts)
-                model.BlogPosts.Add(post);
-
-            return View(model);
-        }
-
-        [HttpGet]
-        public async Task<ActionResult> CakeParts()
-        {
-            try
-            {
-                var partsModel = new CakePartsModel
-                {
-                    Fillings = await Task.Run(() => _fillingRepository.GetAll()),
-                    Bisquits = await Task.Run(() => _bisquitRepository.GetAll()),
-                    Creams   = await Task.Run(() => _creamRepository.GetAll())
-                };
-
-                return View(partsModel);
-            }
-            catch (Exception ex)
-            {
-                Logger.Error(ex, $"CakePart/Index:{ex.Message}");
-                return View("Error");
-            }
         }
     }
 }

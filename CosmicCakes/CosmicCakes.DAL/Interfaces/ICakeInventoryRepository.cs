@@ -1,14 +1,29 @@
-﻿using CosmicCakes.DAL.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Linq.Expressions;
+using CosmicCakes.DAL.Common;
+using CosmicCakes.DAL.Entities;
 
 namespace CosmicCakes.DAL.Interfaces
 {
-    public interface ICakeInventoryRepository : IRepository<Berry>
+    public interface ICakeInventoryRepository  
     {
-        IEnumerable<Berry> GetAll();
+        void Add<T>(T entity) where T : class, IHasIntegerId;
+
+        void Remove<T>(T entity) where T : class, IHasIntegerId;
+
+        T[] GetAll<T>() where T : class, IHasIntegerId;
+
+        TMap[] GetAllWithMapping<T, TMap>(Expression<Func<T, TMap>> mapper)
+        where T : class, IHasIntegerId
+        where TMap : class;
+
+        TMap[] GetAllWithMappingByForeignKey<T, TMap>(int cakeId, Expression<Func<T, TMap>> mapper)
+        where T : class, IHasCakeForeignKey
+        where TMap : class;
+
+        T GetById<T>(int id) where T : class, IHasIntegerId;
+
+        T[] GetActiveItems<T>() where T : class, IHasActiveMark;
     }
 }

@@ -23,9 +23,10 @@ namespace CosmicCakes.Services.EmailService
                 m.Subject = "Заказ";
                 m.Body = message;
 
-                var smtp = new SmtpClient(SmtpServer, SmtpPort);
-                smtp.Credentials = new NetworkCredential("cosmicakesofficial@gmail.com", "nora1996NORA");
-                smtp.UseDefaultCredentials = true;
+                var smtp = new SmtpClient(SmtpServer, SmtpPort)
+                {
+                    Credentials = new NetworkCredential("cosmicakesofficial@gmail.com", "nora1996NORA")
+                };
                 smtp.Send(m);
             }
         }

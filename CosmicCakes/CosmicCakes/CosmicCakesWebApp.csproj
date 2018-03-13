@@ -168,7 +168,6 @@
     <Compile Include="Models\CakesStartPageModel.cs" />
     <Compile Include="Models\FeedbackItemsModel.cs" />
     <Compile Include="Models\HelpRequestModel.cs" />
-    <Compile Include="Models\NewsSubscribeModel.cs" />
     <Compile Include="Models\OrderModel.cs" />
     <Compile Include="Models\UserFeedbackModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -342,7 +341,7 @@
     <Content Include="Views\Cake\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutWithNoMargins.cshtml" />
     <Content Include="Views\Cake\CakeInfo.cshtml" />
-    <Content Include="Views\Home\CakeParts.cshtml" />
+    <Content Include="Views\Home\Inventory.cshtml" />
     <Content Include="Views\Error\PageNotFound.cshtml" />
     <Content Include="Views\Shared\CakeOrder.partial.cshtml" />
     <Content Include="Views\Shared\SuccessOrder.cshtml" />

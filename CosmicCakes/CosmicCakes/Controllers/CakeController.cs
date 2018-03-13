@@ -13,31 +13,12 @@ namespace CosmicCakes.Controllers
 {
     public class CakeController : AppServiceController
     {
-        private readonly ISimpleCakeRepository _simpleCakeRepository;
-        private readonly IImageRepository _imageRepository;
-        private readonly IPriceIncludementRepository _priceIncludementRepository;
-        private readonly IFillingRepository _fillingRepository;
-        private readonly IBisquitRepository _bisquitRepository;
-        private readonly IOrderRepository _orderRepository;
-        private readonly ISimpleCakeRepository _cakeRepository;
         private readonly ICakeInventoryRepository _inventoryRepository;
 
-        private readonly List<CakesStartPageModel> _existingCakes;
-
-        public CakeController(ICakeInventoryRepository inventoryRepository, ISimpleCakeRepository simpleCakeRepository, IImageRepository imageRepository,
-            IPriceIncludementRepository priceIncludementRepository, IFillingRepository fillingRepository,
-            IBisquitRepository bisquitRepository, IOrderRepository orderRepo, ISimpleCakeRepository cakeRepository,
-            IEmailSender emailSender, IAppLogger logger) : base(logger, emailSender)
+        public CakeController(ICakeInventoryRepository inventoryRepository, IEmailSender emailSender, IAppLogger logger)
+            : base(logger, emailSender)
         {
-            _simpleCakeRepository       = simpleCakeRepository;
-            _imageRepository            = imageRepository;
-            _priceIncludementRepository = priceIncludementRepository;
-            _fillingRepository          = fillingRepository;
-            _bisquitRepository          = bisquitRepository;
-            _orderRepository            = orderRepo;
-            _cakeRepository             = cakeRepository;
             _inventoryRepository        = inventoryRepository;
-            _existingCakes              = new List<CakesStartPageModel>();
         }
 
         private string GetStringValueOrEmpty(string value) => value ?? string.Empty;
@@ -65,7 +46,7 @@ namespace CosmicCakes.Controllers
                 Berries                   = GetStringValueOrEmpty(model.SelectedBerries)
             };
 
-            _orderRepository.Add(order);
+            _inventoryRepository.Add(order);
         }
 
         [HttpGet]
@@ -73,11 +54,15 @@ namespace CosmicCakes.Controllers
         {
             try
             {
-                var cakes = await Task.Run(()=>_simpleCakeRepository.GetExistingCakes());
+                var cakes = Task.Run(() => _inventoryRepository.GetActiveItems<SimpleReadyCake>());
 
-                foreach (var cake in cakes)
+                List<CakesStartPageModel> cakesList = new List<CakesStartPageModel>();
+
+                foreach (var cake in await cakes)
                 {
-                    _existingCakes.Add(new CakesStartPageModel
+                    var imageTask = Task.Run(() => _inventoryRepository.GetAllWithMappingByForeignKey<SimpleCakeImage, string>(cake.Id, image => image.Path));
+
+                    cakesList.Add(new CakesStartPageModel
                     {
                         Id                  = cake.Id,
                         Description         = cake.Description,
@@ -86,11 +71,13 @@ namespace CosmicCakes.Controllers
                         MinWeight           = cake.MinWeight,
                         MinPrice            = cake.MinPrice,
                         BackgroundImagePath = cake.BackgroundImagePath,
-                        ImagePaths          = _imageRepository.GetAllImagePathsByCakeId(cake.Id)
+                        ImagePaths          = await imageTask
                     });
+
+                    imageTask.Dispose();
                 }
 
-                return View(_existingCakes);
+                return View(cakesList);
             }
             catch (Exception ex)
             {
@@ -104,14 +91,17 @@ namespace CosmicCakes.Controllers
         {
             try
             {
-                var cakeTask = Task.Run(() => _simpleCakeRepository.GetCakeById(id));
+                var cakeTask = Task.Run(() => _inventoryRepository.GetById<SimpleReadyCake>(id));
 
-                var individualRectangleImagesPaths = Task.Run(() => _imageRepository.GetCakeIndividualRectangleImagesByCakeId(id));
-                var priceIncludements = Task.Run(() => _priceIncludementRepository.GetAllPriceIncludementsById(id));
+                var individualRectangleImagesPaths = Task.Run(() => _inventoryRepository.GetAllWithMappingByForeignKey<CakeIndividualRectangleImage, string>(id, image => image.Path));
 
-                var bisquits = Task.Run(() => _bisquitRepository.GetAllNamesOnly());
-                var fillings = Task.Run(() => _fillingRepository.GetAllNamesOnly());
-                var berries  = await Task.Run(() => _inventoryRepository.GetAll());
+                var priceIncludements = Task.Run(() => _inventoryRepository.GetAllWithMappingByForeignKey<IndividualPriceIncludement, string>(id, includement => includement.IncludementInfo));
+
+                var bisquits = Task.Run(() => _inventoryRepository.GetAllWithMapping<Bisquit, string>(bisquit => bisquit.Type));
+
+                var fillings = Task.Run(() => _inventoryRepository.GetAllWithMapping<Filling, string>(filling => filling.Type));
+
+                var berries  = await Task.Run(() => _inventoryRepository.GetAll<Berry>());
                 
                 var cake = await cakeTask;
 
@@ -134,7 +124,8 @@ namespace CosmicCakes.Controllers
                         IsLevelable = cake.IsLevelable,
                         Bisquits    = await bisquits,
                         Fillings    = await fillings,
-                        Berries     = berries.Select(berry => berry.Name)
+                        Berries     = berries.Select(berry => berry.Name),
+                        CakeName    = cake.Name
                     }
                 };
 
@@ -150,25 +141,22 @@ namespace CosmicCakes.Controllers
         [HttpPost]
         public async Task<ActionResult> MakeOrder(OrderModel model)
         {
-            SimpleReadyCake cake = await Task.Run(() => _simpleCakeRepository.GetCakeById(model.Id));
-
             if (ModelState.IsValid)
             {
-                model.CakeName = cake.Name;
+                model.CakeName = model.CakeName;
 
                 await Task.Run(() => SaveOrder(model));
-                await Task.Run(() => EmailSender.SendEmailOrder(model.ToString()));
+                Task.Run(() => EmailSender.SendEmailOrder(model.ToString()));
 
                 return View("SuccessOrder");
             }
             else
             {
-                var individualRectangleImagesPaths = Task.Run(() => _imageRepository.GetCakeIndividualRectangleImagesByCakeId(model.Id));
-                var priceIncludements = Task.Run(() => _priceIncludementRepository.GetAllPriceIncludementsById(model.Id));
+                SimpleReadyCake cake = await Task.Run(() => _inventoryRepository.GetById<SimpleReadyCake>(model.Id));
 
-                var bisquits = Task.Run(() => _bisquitRepository.GetAllNamesOnly());
-                var fillings = Task.Run(() => _fillingRepository.GetAllNamesOnly());
-                var berries = await Task.Run(() => _inventoryRepository.GetAll());
+                var individualRectangleImagesPaths = Task.Run(() => _inventoryRepository.GetAllWithMappingByForeignKey<CakeIndividualRectangleImage, string>(model.Id, image => image.Path));
+
+                var priceIncludements = Task.Run(() => _inventoryRepository.GetAllWithMappingByForeignKey<IndividualPriceIncludement, string>(model.Id, includement => includement.IncludementInfo));
 
                 var infoModel = new CakeInfoModel
                 {
@@ -183,14 +171,7 @@ namespace CosmicCakes.Controllers
                     IndividualRectangleImagesPaths = await individualRectangleImagesPaths,
                     PriceIncludements              = await priceIncludements,
                     Id                             = cake.Id,
-                    CakeOrderModel = new OrderModel()
-                    {
-                        Id          = cake.Id,
-                        IsLevelable = cake.IsLevelable,
-                        Bisquits    = await bisquits,
-                        Fillings    = await fillings,
-                        Berries = berries.Select(berry => berry.Name)
-                    }
+                    CakeOrderModel = model
                 };
 
                 return View("CakeInfo", infoModel);

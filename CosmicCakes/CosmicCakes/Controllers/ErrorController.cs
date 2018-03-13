@@ -6,11 +6,8 @@ namespace CosmicCakes.Controllers
 {
     public class ErrorController : AppServiceController
     {
-        public IAppLogger Logger { get; set; }
-
         public ErrorController(IAppLogger logger) : base(logger)
         {
-            Logger = logger;
         }
 
         private void LogError(string message)

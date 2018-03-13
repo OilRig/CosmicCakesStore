@@ -18,11 +18,11 @@ namespace CosmicCakes.Controllers
 {
     public class FeedbackController : AppServiceController
     {
-        private readonly IFeedbackRepository _feedbackRepository;
-        public FeedbackController(IFeedbackRepository feedbackRepository, IEmailSender emailSender,IAppLogger logger)
+        private readonly ICakeInventoryRepository _inventoryRepository;
+        public FeedbackController(ICakeInventoryRepository inventoryRepository, IEmailSender emailSender,IAppLogger logger)
             : base(logger, emailSender)
         {
-            _feedbackRepository = feedbackRepository;
+            _inventoryRepository = inventoryRepository;
         }
 
         private string StreamToFile(Stream inputStream, HttpPostedFileBase file)
@@ -52,9 +52,12 @@ namespace CosmicCakes.Controllers
             try
             {
                 var model = new FeedbackItemsModel();
-                var feedbacks = await Task.Run(() => _feedbackRepository.GetAllFeedbacks());
+
+                var feedbacks = await Task.Run(() => _inventoryRepository.GetAll<UserFeedback>());
+
                 foreach (var feedback in feedbacks)
                     model.UserFeedbacks.Add(feedback);
+
                 return View(model);
             }
             catch (Exception ex)
@@ -68,7 +71,7 @@ namespace CosmicCakes.Controllers
         [HttpPost]
         public async Task<ActionResult> SaveFeedback(UserFeedbackModel model)
         {
-            var feedbacks = await Task.Run(() => _feedbackRepository.GetAllFeedbacks());
+            var feedbacks = await Task.Run(() => _inventoryRepository.GetAll<UserFeedback>());
             var infoModel = new FeedbackItemsModel();
 
             if (ModelState.IsValid)
@@ -84,7 +87,7 @@ namespace CosmicCakes.Controllers
                         AttachedImagePath = model.AttachedImage != null ? StreamToFile(model.AttachedImage.InputStream, model.AttachedImage) : null
                     };
 
-                    await Task.Run(() => _feedbackRepository.Add(feedback));
+                    await Task.Run(() => _inventoryRepository.Add(feedback));
 
                     return View();
                 }

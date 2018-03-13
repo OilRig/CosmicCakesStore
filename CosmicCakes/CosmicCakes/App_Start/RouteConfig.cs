@@ -38,7 +38,7 @@ namespace CosmicCakesWebApp
             routes.MapRoute(
                 name: "Inventory",
                 url: "inventory",
-                defaults: new { controller = "Home", action = nameof(HomeController.CakeParts) }
+                defaults: new { controller = "Home", action = nameof(HomeController.Inventory) }
             );
 
             routes.MapRoute(

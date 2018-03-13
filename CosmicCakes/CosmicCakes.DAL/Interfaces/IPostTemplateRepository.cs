@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CosmicCakes.DAL.Interfaces
 {
-    public interface IPostTemplateRepository : IRepository<PostContentTemplate>
+    public interface IPostTemplateRepository 
     {
         IEnumerable<PostContentTemplate> GetAllTemplates();
         PostContentTemplate GetTemplateByName(string name);

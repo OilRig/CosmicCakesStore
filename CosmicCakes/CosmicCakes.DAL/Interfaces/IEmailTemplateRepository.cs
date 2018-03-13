@@ -7,7 +7,7 @@ using CosmicCakes.DAL.Entities;
 
 namespace CosmicCakes.DAL.Interfaces
 {
-    public interface IEmailTemplateRepository:IRepository<EmailTemplate>
+    public interface IEmailTemplateRepository
     {
         EmailTemplate GetTemplateByName(string templateName);
         IEnumerable<string> GetTemplateNamesOnly();
