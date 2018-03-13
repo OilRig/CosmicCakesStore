@@ -11,7 +11,7 @@ namespace CosmicCakes.DAL
             : base("Cakes")
         {
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<CakeContext, Configuration>("Cakes"));
-
+            Configuration.ProxyCreationEnabled = false;
         }
 
         //custom order section

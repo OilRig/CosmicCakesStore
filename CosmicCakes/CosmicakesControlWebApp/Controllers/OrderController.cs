@@ -10,38 +10,37 @@ namespace CosmicakesControlWebApp.Controllers
 {
     public class OrderController : Controller
     {
-        private readonly IOrderRepository _orderRepository;
-        private readonly IEnumerable<Models.Orders.Order> _orders;
-        public OrderController(IOrderRepository orderRepository)
+        private readonly ICakeInventoryRepository _inventoryRepository;
+        public OrderController(ICakeInventoryRepository inventoryRepository)
         {
-            _orderRepository = orderRepository;
-            _orders = new List<Models.Orders.Order>();
+            _inventoryRepository = inventoryRepository;
         }
-        // GET: Order
+
+        [HttpGet]
         public async Task<ActionResult> Index()
         {
-            var orders = await Task.Run(() => _orderRepository.GetAllOrders());
+            var orders = await Task.Run(() => _inventoryRepository.GetAll<CosmicCakes.DAL.Entities.Order>());
 
             var model = orders.Select(ord => new Models.Orders.Order
             {
-                Id = ord.Id,
-                CakeName = ord.CakeName,
-                CakeWeight = ord.CakeWeight,
-                Comments = ord.Comments,
-                CustomerName = ord.CustomerName,
-                CustomerPhoneNumber = ord.CustomerPhoneNumber,
-                DeliveryAdress = ord.DeliveryAdress,
-                DeliveryNeeded = ord.DeliveryNeeded,
-                ExpireDate = ord.ExpireDate,
-                OrderDate = ord.OrderDate,
-                FillingType = ord.FillingType,
-                FirstLevelBisquit = ord.FirstLevelBisquit,
-                SecondLevelBisquit = ord.SecondLevelBisquit,
-                ThirdLevelBisquit = ord.ThirdLevelBisquit,
-                SelectedLevels = ord.SelectedLevels,
+                Id                        = ord.Id,
+                CakeName                  = ord.CakeName,
+                CakeWeight                = ord.CakeWeight,
+                Comments                  = ord.Comments,
+                CustomerName              = ord.CustomerName,
+                CustomerPhoneNumber       = ord.CustomerPhoneNumber,
+                DeliveryAdress            = ord.DeliveryAdress,
+                DeliveryNeeded            = ord.DeliveryNeeded,
+                ExpireDate                = ord.ExpireDate,
+                OrderDate                 = ord.OrderDate,
+                FillingType               = ord.FillingType,
+                FirstLevelBisquit         = ord.FirstLevelBisquit,
+                SecondLevelBisquit        = ord.SecondLevelBisquit,
+                ThirdLevelBisquit         = ord.ThirdLevelBisquit,
+                SelectedLevels            = ord.SelectedLevels,
                 SelectedMultiLevelBisquit = ord.SelectedMultiLevelBisquit,
-                SelectedOneLevelBisquit = ord.SelectedOneLevelBisquit,
-                CustonBisquits = ord.SelectedLevels > 1 && (ord.FirstLevelBisquit != null && ord.SecondLevelBisquit != null && ord.ThirdLevelBisquit != null)
+                SelectedOneLevelBisquit   = ord.SelectedOneLevelBisquit,
+                CustonBisquits            = ord.SelectedLevels > 1 && (ord.FirstLevelBisquit != null && ord.SecondLevelBisquit != null && ord.ThirdLevelBisquit != null)
             });
             
             return View(model);
@@ -49,8 +48,9 @@ namespace CosmicakesControlWebApp.Controllers
 
         public async Task<ActionResult> AjaxDeleteOrder(int id)
         {
-            var order = _orderRepository.GetOrderById(id);
-            await Task.Run(() => _orderRepository.Remove(order));
+            var order = _inventoryRepository.GetById<CosmicCakes.DAL.Entities.Order>(id);
+
+            await Task.Run(() => _inventoryRepository.Remove(order));
 
             return null;
         } 
