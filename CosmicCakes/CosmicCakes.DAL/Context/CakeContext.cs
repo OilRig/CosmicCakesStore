@@ -18,6 +18,7 @@ namespace CosmicCakes.DAL
         public virtual DbSet<Bisquit> Bisquits { get; set; }
         public virtual DbSet<Cream> Cream { get; set; }
         public virtual DbSet<Filling> Fillings { get; set; }
+        public virtual DbSet<Berry> Berries{ get; set; }
         public virtual DbSet<Order> Orders { get; set; }
 
         //ready cake section

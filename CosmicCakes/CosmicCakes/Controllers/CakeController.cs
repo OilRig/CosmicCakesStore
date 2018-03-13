@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Web.Mvc;
+using System.Linq;
 
 namespace CosmicCakes.Controllers
 {
@@ -19,10 +20,11 @@ namespace CosmicCakes.Controllers
         private readonly IBisquitRepository _bisquitRepository;
         private readonly IOrderRepository _orderRepository;
         private readonly ISimpleCakeRepository _cakeRepository;
+        private readonly ICakeInventoryRepository _inventoryRepository;
 
         private readonly List<CakesStartPageModel> _existingCakes;
 
-        public CakeController(ISimpleCakeRepository simpleCakeRepository, IImageRepository imageRepository,
+        public CakeController(ICakeInventoryRepository inventoryRepository, ISimpleCakeRepository simpleCakeRepository, IImageRepository imageRepository,
             IPriceIncludementRepository priceIncludementRepository, IFillingRepository fillingRepository,
             IBisquitRepository bisquitRepository, IOrderRepository orderRepo, ISimpleCakeRepository cakeRepository,
             IEmailSender emailSender, IAppLogger logger) : base(logger, emailSender)
@@ -34,6 +36,7 @@ namespace CosmicCakes.Controllers
             _bisquitRepository          = bisquitRepository;
             _orderRepository            = orderRepo;
             _cakeRepository             = cakeRepository;
+            _inventoryRepository        = inventoryRepository;
             _existingCakes              = new List<CakesStartPageModel>();
         }
 
@@ -58,8 +61,10 @@ namespace CosmicCakes.Controllers
                 SecondLevelBisquit        = GetStringValueOrEmpty(model.SecondLevelBisquit),
                 ThirdLevelBisquit         = GetStringValueOrEmpty(model.ThirdLevelBisquit),
                 SelectedMultiLevelBisquit = GetStringValueOrEmpty(model.SelectedMultiLevelBisquit),
-                SelectedOneLevelBisquit   = GetStringValueOrEmpty(model.SelectedOneLevelBisquit)
+                SelectedOneLevelBisquit   = GetStringValueOrEmpty(model.SelectedOneLevelBisquit),
+                Berries                   = GetStringValueOrEmpty(model.SelectedBerries)
             };
+
             _orderRepository.Add(order);
         }
 
@@ -92,7 +97,6 @@ namespace CosmicCakes.Controllers
                 Logger.Error(ex, $"Cake/Index:{ex.Message}");
                 return View("Error");
             }
-
         }
 
         [HttpGet]
@@ -107,7 +111,8 @@ namespace CosmicCakes.Controllers
 
                 var bisquits = Task.Run(() => _bisquitRepository.GetAllNamesOnly());
                 var fillings = Task.Run(() => _fillingRepository.GetAllNamesOnly());
-
+                var berries  = await Task.Run(() => _inventoryRepository.GetAll());
+                
                 var cake = await cakeTask;
 
                 var infoModel = new CakeInfoModel
@@ -128,7 +133,8 @@ namespace CosmicCakes.Controllers
                         Id          = cake.Id,
                         IsLevelable = cake.IsLevelable,
                         Bisquits    = await bisquits,
-                        Fillings    = await fillings
+                        Fillings    = await fillings,
+                        Berries     = berries.Select(berry => berry.Name)
                     }
                 };
 
@@ -162,6 +168,7 @@ namespace CosmicCakes.Controllers
 
                 var bisquits = Task.Run(() => _bisquitRepository.GetAllNamesOnly());
                 var fillings = Task.Run(() => _fillingRepository.GetAllNamesOnly());
+                var berries = await Task.Run(() => _inventoryRepository.GetAll());
 
                 var infoModel = new CakeInfoModel
                 {
@@ -181,7 +188,8 @@ namespace CosmicCakes.Controllers
                         Id          = cake.Id,
                         IsLevelable = cake.IsLevelable,
                         Bisquits    = await bisquits,
-                        Fillings    = await fillings
+                        Fillings    = await fillings,
+                        Berries = berries.Select(berry => berry.Name)
                     }
                 };
 

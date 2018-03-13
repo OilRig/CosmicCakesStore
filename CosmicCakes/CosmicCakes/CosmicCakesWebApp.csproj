@@ -247,6 +247,10 @@
     <Content Include="Content\Images\Icons\vk-icon.png" />
     <Content Include="Content\Images\Icons\wassap-logo-button.png" />
     <Content Include="Content\Images\Logo.jpg" />
+    <Content Include="Content\Images\Prices\price_4.jpg" />
+    <Content Include="Content\Images\Prices\price_3.jpg" />
+    <Content Include="Content\Images\Prices\price_2.jpg" />
+    <Content Include="Content\Images\Prices\price_1.jpg" />
     <Content Include="Content\Images\StartPage\start_page_cake_1.jpg" />
     <Content Include="Content\Images\StartPage\start_page_cake_2.jpg" />
     <Content Include="Content\Images\StartPage\start_page_cake_2frst.jpg" />

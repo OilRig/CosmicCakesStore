@@ -27,6 +27,7 @@ namespace CosmicCakes.Models
         public bool IsLevelable { get; set; }
         public IEnumerable<string> Bisquits { get; set; }
         public IEnumerable<string> Fillings { get; set; }
+        public IEnumerable<string> Berries { get; set; }
         public string FirstLevelBisquit { get; set; }
         public string SecondLevelBisquit { get; set; }
         public string ThirdLevelBisquit { get; set; }
@@ -36,6 +37,7 @@ namespace CosmicCakes.Models
         public bool DeliveryNeeded { get; set; }
         public string DeliveryAdress { get; set; }
         public string SelectedFilling { get; set; }
+        public string SelectedBerries { get; set; }
         public OrderModel()
         {
             Levels = new List<int>
