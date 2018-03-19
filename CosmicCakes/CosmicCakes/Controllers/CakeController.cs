@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using System.Linq;
+using CosmicCakes.DAL.Entities.Sweets;
 
 namespace CosmicCakes.Controllers
 {
@@ -176,6 +177,38 @@ namespace CosmicCakes.Controllers
 
                 return View("CakeInfo", infoModel);
             }
+        }
+
+        [HttpGet]
+        public async Task<ActionResult> Sweets()
+        {
+            Task<AdditionalSweet[]> sweets = Task.Run(() => _inventoryRepository.GetAll<AdditionalSweet>());
+
+            List<SweetModel> sweetsLoist = new List<SweetModel>();
+
+            foreach(var sweet in await sweets)
+            {
+                sweetsLoist.Add(new SweetModel()
+                {
+                    Id = sweets.Id,
+                    Title = sweet.Title,
+                    Description = sweet.Description,
+                    StartPricePerPcs = sweet.StartPricePerPcs
+                });
+            }
+
+            var model = new SweetsAggregatedModel()
+            {
+                Sweets = sweetsLoist.ToArray()
+            };
+
+            return View(model);
+        }
+
+        [HttpGet]
+        public async Task<ActionResult> Sweet(int sweetId)
+        {
+            return null;
         }
     }
 }

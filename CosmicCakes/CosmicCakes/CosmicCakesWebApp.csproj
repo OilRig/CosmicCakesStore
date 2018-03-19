@@ -169,6 +169,7 @@
     <Compile Include="Models\FeedbackItemsModel.cs" />
     <Compile Include="Models\HelpRequestModel.cs" />
     <Compile Include="Models\OrderModel.cs" />
+    <Compile Include="Models\SweetModel.cs" />
     <Compile Include="Models\UserFeedbackModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -258,6 +259,12 @@
     <Content Include="Content\Images\StartPage\start_page_cake_3.jpg" />
     <Content Include="Content\Images\StartPage\start_page_cake_4.jpg" />
     <Content Include="Content\Images\StartPage\start_page_welcome_img.jpg" />
+    <Content Include="Content\Images\Sweets\2017-06-14-20.20.41.jpg" />
+    <Content Include="Content\Images\Sweets\2017-06-14-20.23.34.jpg" />
+    <Content Include="Content\Images\Sweets\2017-06-29-19.01.07.jpg" />
+    <Content Include="Content\Images\Sweets\2017-07-15-12.22.40-%281%29.jpg" />
+    <Content Include="Content\Images\Sweets\2017-07-15-14.31.23-%281%29.jpg" />
+    <Content Include="Content\Images\Sweets\2017-07-15-14.32.26-%281%29.jpg" />
     <Content Include="Content\Images\ui-icons_444444_256x240.png" />
     <Content Include="Content\Images\ui-icons_555555_256x240.png" />
     <Content Include="Content\Images\ui-icons_777620_256x240.png" />
@@ -355,6 +362,7 @@
     <Content Include="Views\Shared\SubscribeCompleted.cshtml" />
     <Content Include="Views\Shared\SuccessRequest.cshtml" />
     <Content Include="Views\Home\Help.cshtml" />
+    <Content Include="Views\Cake\Sweets.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\Images\Cupcakes\Individual\Rectangle\" />

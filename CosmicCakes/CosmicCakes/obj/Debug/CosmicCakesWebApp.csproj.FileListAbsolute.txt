@@ -126,3 +126,6 @@ G:\Source\CosmicCakes\CosmicCakesStore\CosmicCakes\CosmicCakes\bin\CosmicCakes.S
 G:\Source\CosmicCakes\CosmicCakesStore\CosmicCakes\CosmicCakes\bin\CosmicCakes.Services.pdb
 C:\Users\iborzenko\Source\Repos\CosmicCakesStore\CosmicCakes\CosmicCakes\bin\CosmicCakes.Services.dll
 C:\Users\iborzenko\Source\Repos\CosmicCakesStore\CosmicCakes\CosmicCakes\bin\CosmicCakes.Services.pdb
+G:\Source\CosmicCakes\CosmicCakesStore\CosmicCakes\CosmicCakes\bin\CaptchaMvc.dll
+G:\Source\CosmicCakes\CosmicCakesStore\CosmicCakes\CosmicCakes\bin\CaptchaMvc.pdb
+G:\Source\CosmicCakes\CosmicCakesStore\CosmicCakes\CosmicCakes\bin\CaptchaMvc.xml

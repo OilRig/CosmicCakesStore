@@ -1,4 +1,5 @@
 using CosmicCakes.DAL.Entities;
+using CosmicCakes.DAL.Entities.Sweets;
 using CosmicCakes.DAL.Migrations;
 using System.Data.Entity;
 
@@ -15,33 +16,36 @@ namespace CosmicCakes.DAL
         }
 
         //custom order section
-        public virtual DbSet<Bisquit> Bisquits { get; set; }
-        public virtual DbSet<Cream> Cream { get; set; }
-        public virtual DbSet<Filling> Fillings { get; set; }
-        public virtual DbSet<Berry> Berries{ get; set; }
-        public virtual DbSet<Order> Orders { get; set; }
+        public DbSet<Bisquit> Bisquits { get; set; }
+        public DbSet<Cream> Cream { get; set; }
+        public DbSet<Filling> Fillings { get; set; }
+        public DbSet<Berry> Berries{ get; set; }
+        public DbSet<Order> Orders { get; set; }
 
         //ready cake section
-        public virtual DbSet<SimpleReadyCake> SimpleReadyCakes { get; set; }
+        public DbSet<SimpleReadyCake> SimpleReadyCakes { get; set; }
+
+        public DbSet<AdditionalSweet> AdditionalSweets { get; set; }
+
         //Images section
-        public virtual DbSet<SimpleCakeImage> SimpleCakeImages { get; set; }
-        public virtual DbSet<CakeIndividualRectangleImage> CakeIndividualRectangleImages { get; set; }
+        public  DbSet<SimpleCakeImage> SimpleCakeImages { get; set; }
+        public  DbSet<CakeIndividualRectangleImage> CakeIndividualRectangleImages { get; set; }
 
         //priceIncludements section
-        public virtual DbSet<IndividualPriceIncludement> IndividualCakePriceIncludements { get; set; }
+        public  DbSet<IndividualPriceIncludement> IndividualCakePriceIncludements { get; set; }
 
         //Blog section
-        public virtual DbSet<BlogPost> BlogPosts { get; set; }
-        public virtual DbSet<PostContentTemplate> PostTemplates { get; set; }
+        public  DbSet<BlogPost> BlogPosts { get; set; }
+        public  DbSet<PostContentTemplate> PostTemplates { get; set; }
 
         //Feedbacks
-        public virtual DbSet<UserFeedback> UserFeedbacks { get; set; }
+        public  DbSet<UserFeedback> UserFeedbacks { get; set; }
 
         //Emails
-        public virtual DbSet<EmailTemplate> EmailTemplates { get; set; }
-        public virtual DbSet<EmailLinkedResorce> LinkedResorces { get; set; }
+        public  DbSet<EmailTemplate> EmailTemplates { get; set; }
+        public  DbSet<EmailLinkedResorce> LinkedResorces { get; set; }
 
         //Help
-        public virtual DbSet<HelpRequest> HelpRequests { get; set; }
+        public  DbSet<HelpRequest> HelpRequests { get; set; }
     }
 }
