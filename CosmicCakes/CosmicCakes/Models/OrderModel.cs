@@ -36,6 +36,8 @@ namespace CosmicCakes.Models
         public IEnumerable<string> Bisquits { get; set; }
         public IEnumerable<string> Fillings { get; set; }
         public IEnumerable<string> Berries { get; set; }
+        public string[] Cakes { get; set; }
+        public string SelectedCakeName { get; set; }
 
         public string FirstLevelBisquit { get; set; }
         public string SecondLevelBisquit { get; set; }

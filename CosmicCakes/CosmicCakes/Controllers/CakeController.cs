@@ -210,5 +210,29 @@ namespace CosmicCakes.Controllers
         {
             return null;
         }
+
+        [HttpGet]
+        public async Task<ActionResult> FastOrder()
+        {
+            var cakeTask = Task.Run(() => _inventoryRepository.GetAll<SimpleReadyCake>());
+
+            var bisquits = Task.Run(() => _inventoryRepository.GetAllWithMapping<Bisquit, string>(bisquit => bisquit.Type));
+
+            var fillings = Task.Run(() => _inventoryRepository.GetAllWithMapping<Filling, string>(filling => filling.Type));
+
+            var berries = await Task.Run(() => _inventoryRepository.GetAll<Berry>());
+
+            var cake = await cakeTask;
+
+            Models.OrderModel model = new OrderModel()
+            {
+                Bisquits = await bisquits,
+                Fillings = await fillings,
+                Cakes = cake.Select(c => c.Name).ToArray(),
+                Berries = berries.Select(berry => berry.Name)
+            };
+
+            return View(model);
+        }
     }
 }

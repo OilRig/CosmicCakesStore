@@ -363,6 +363,7 @@
     <Content Include="Views\Shared\SuccessRequest.cshtml" />
     <Content Include="Views\Home\Help.cshtml" />
     <Content Include="Views\Cake\Sweets.cshtml" />
+    <Content Include="Views\Shared\FastOrder.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\Images\Cupcakes\Individual\Rectangle\" />
