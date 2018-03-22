@@ -14,9 +14,11 @@ namespace CosmicCakes.Models
         public int MaxWeight { get; set; }
         public int KgPrice { get; set; }
         public bool IsLevelable { get; set; }
+
         public OrderModel CakeOrderModel { get; set; }
-        public IEnumerable<string> IndividualRectangleImagesPaths { get; set; }
-        public IEnumerable<string> PriceIncludements { get; set; }
+
+        public string[] IndividualRectangleImagesPaths { get; set; }
+        public string[] PriceIncludements { get; set; }
 
     }
 }

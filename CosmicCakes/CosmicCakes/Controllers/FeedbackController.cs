@@ -27,8 +27,8 @@ namespace CosmicCakes.Controllers
 
         private string StreamToFile(Stream inputStream, HttpPostedFileBase file)
         {
-            var guidFileName = (Guid.NewGuid()) + file.FileName;
-            var path = Server.MapPath("/Content/Images/User_Feedback_Images/" + guidFileName);
+            string guidFileName = (Guid.NewGuid()) + file.FileName;
+            string path = Server.MapPath("/Content/Images/User_Feedback_Images/" + guidFileName);
 
             WebImage img = new WebImage(inputStream);
             if (img.Width > 100)
@@ -38,25 +38,17 @@ namespace CosmicCakes.Controllers
             return guidFileName;
         }
 
-        private void FillFeedbacks(IEnumerable<UserFeedback> feedbacks, UserFeedbackModel userFeedback, FeedbackItemsModel model )
-        {
-            foreach (var feedback in feedbacks)
-                model.UserFeedbacks.Add(feedback);
-
-            model.LeftedFeedback = userFeedback;
-        }
-
         [HttpGet]
         public async Task<ActionResult> Index()
         {
             try
             {
-                var model = new FeedbackItemsModel();
+                Task<UserFeedback[]> feedbacks = Task.Run(() => _inventoryRepository.GetAll<UserFeedback>());
 
-                var feedbacks = await Task.Run(() => _inventoryRepository.GetAll<UserFeedback>());
-
-                foreach (var feedback in feedbacks)
-                    model.UserFeedbacks.Add(feedback);
+                FeedbackItemsModel model = new FeedbackItemsModel()
+                {
+                    UserFeedbacks = await feedbacks
+                };
 
                 return View(model);
             }
@@ -71,14 +63,19 @@ namespace CosmicCakes.Controllers
         [HttpPost]
         public async Task<ActionResult> SaveFeedback(UserFeedbackModel model)
         {
-            var feedbacks = await Task.Run(() => _inventoryRepository.GetAll<UserFeedback>());
-            var infoModel = new FeedbackItemsModel();
+            UserFeedback[] feedbacks = await Task.Run(() => _inventoryRepository.GetAll<UserFeedback>());
+
+            FeedbackItemsModel infoModel = new FeedbackItemsModel()
+            {
+                LeftedFeedback = model,
+                UserFeedbacks = feedbacks
+            };
 
             if (ModelState.IsValid)
             {
                 if(this.IsCaptchaValid(string.Empty))
                 {
-                    var feedback = new UserFeedback()
+                    UserFeedback feedback = new UserFeedback()
                     {
                         Author = model.Author,
                         Content = model.Content,
@@ -94,14 +91,10 @@ namespace CosmicCakes.Controllers
 
                 ModelState.AddModelError("CAPTCHA", "Неверная капча!");
 
-                FillFeedbacks(feedbacks, model, infoModel);
-
                 return View("Index", infoModel);
             }
             else
             {
-                FillFeedbacks(feedbacks, model, infoModel);
-
                 return View("Index", infoModel);
             }
             

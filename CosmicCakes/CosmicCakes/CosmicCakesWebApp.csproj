@@ -169,6 +169,7 @@
     <Compile Include="Models\FeedbackItemsModel.cs" />
     <Compile Include="Models\HelpRequestModel.cs" />
     <Compile Include="Models\OrderModel.cs" />
+    <Compile Include="Models\SweetInfoModel.cs" />
     <Compile Include="Models\SweetModel.cs" />
     <Compile Include="Models\UserFeedbackModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -364,6 +365,7 @@
     <Content Include="Views\Home\Help.cshtml" />
     <Content Include="Views\Cake\Sweets.cshtml" />
     <Content Include="Views\Shared\FastOrder.cshtml" />
+    <Content Include="Views\Cake\SweetInfo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\Images\Cupcakes\Individual\Rectangle\" />

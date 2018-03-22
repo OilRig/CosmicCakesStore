@@ -46,12 +46,12 @@ namespace CosmicCakes.Controllers
         [HttpGet]
         public async Task<ActionResult> Blog()
         {
-            var model = new BlogItemsModel();
+            Task<BlogPost[]> posts = Task.Run(() => _inventoryRepository.GetAll<BlogPost>());
 
-            var posts = Task.Run(() => _inventoryRepository.GetAll<BlogPost>());
-
-            foreach (var post in await posts)
-                model.BlogPosts.Add(post);
+            BlogItemsModel model = new BlogItemsModel()
+            {
+                BlogPosts = await posts
+            };
 
             return View(model);
         }
@@ -59,13 +59,13 @@ namespace CosmicCakes.Controllers
         [HttpGet]
         public async Task<ActionResult> Inventory()
         {
-            var fillingsTask = Task.Run(() => _inventoryRepository.GetAll<Filling>());
-            var bisquitsTask = Task.Run(() => _inventoryRepository.GetAll<Bisquit>());
-            var creamTask    = Task.Run(() => _inventoryRepository.GetAll<Cream>());
+            Task<Filling[]> fillingsTask = Task.Run(() => _inventoryRepository.GetAll<Filling>());
+            Task<Bisquit[]> bisquitsTask = Task.Run(() => _inventoryRepository.GetAll<Bisquit>());
+            Task<Cream[]> creamTask      = Task.Run(() => _inventoryRepository.GetAll<Cream>());
 
             try
             {
-                var partsModel = new CakePartsModel
+                CakePartsModel partsModel = new CakePartsModel
                 {
                     Fillings = await fillingsTask,
                     Bisquits = await bisquitsTask,

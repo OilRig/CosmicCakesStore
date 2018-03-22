@@ -31,12 +31,13 @@ namespace CosmicCakes.Models
 
         public DateTime ExpireDate { get; set; }
 
-        public List<int> Levels { get; set; }
+        public int[] Levels { get; set; } = new[] { 1, 2, 3 };
 
-        public IEnumerable<string> Bisquits { get; set; }
-        public IEnumerable<string> Fillings { get; set; }
-        public IEnumerable<string> Berries { get; set; }
+        public string[] Bisquits { get; set; }
+        public string[] Fillings { get; set; }
+        public string[] Berries { get; set; }
         public string[] Cakes { get; set; }
+
         public string SelectedCakeName { get; set; }
 
         public string FirstLevelBisquit { get; set; }
@@ -54,14 +55,6 @@ namespace CosmicCakes.Models
         public string SelectedBerries { get; set; }
         public string SelectedOneLevelBisquit { get; set; }
         public string SelectedMultiLevelBisquit { get; set; }
-
-        public OrderModel()
-        {
-            Levels = new List<int>
-            {
-                1,2,3
-            };
-        }
 
         private double GetWeight(string value)
         {

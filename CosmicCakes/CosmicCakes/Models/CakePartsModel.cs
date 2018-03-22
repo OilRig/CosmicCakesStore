@@ -5,15 +5,8 @@ namespace CosmicCakes.Models
 {
     public class CakePartsModel
     {
-        public IEnumerable<Cream> Creams { get; set; }
-        public IEnumerable<Filling> Fillings { get; set; }
-        public IEnumerable<Bisquit> Bisquits { get; set; }
-
-        public CakePartsModel()
-        {
-            Creams = new List<Cream>();
-            Fillings = new List<Filling>();
-            Bisquits = new List<Bisquit>();
-        }
+        public Cream[] Creams { get; set; }
+        public Filling[] Fillings { get; set; }
+        public Bisquit[] Bisquits { get; set; }
     }
 }

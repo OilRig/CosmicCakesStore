@@ -8,12 +8,7 @@ namespace CosmicCakes.Models
 {
     public class FeedbackItemsModel
     {
-        public List<UserFeedback> UserFeedbacks { get; set; }
-        public UserFeedbackModel LeftedFeedback { get; set; }
-        public FeedbackItemsModel()
-        {
-            UserFeedbacks = new List<UserFeedback>();
-            LeftedFeedback = new UserFeedbackModel();
-        }
+        public UserFeedback[] UserFeedbacks { get; set; }
+        public UserFeedbackModel LeftedFeedback { get; set; } = new UserFeedbackModel();
     }
 }

@@ -26,7 +26,7 @@ namespace CosmicCakes.Controllers
 
         private void SaveOrder(OrderModel model)
         {
-            var order = new Order()
+            Order order = new Order()
             {
                 CakeName                  = GetStringValueOrEmpty(model.CakeName),
                 CakeWeight                = model.CakeWeight,
@@ -61,7 +61,7 @@ namespace CosmicCakes.Controllers
 
                 foreach (var cake in await cakes)
                 {
-                    var imageTask = Task.Run(() => _inventoryRepository.GetAllWithMappingByForeignKey<SimpleCakeImage, string>(cake.Id, image => image.Path));
+                    Task<string[]> imageTask = Task.Run(() => _inventoryRepository.GetAllWithMappingByForeignKey<SimpleCakeImage, string>(cake.Id, image => image.Path));
 
                     cakesList.Add(new CakesStartPageModel
                     {
@@ -92,21 +92,21 @@ namespace CosmicCakes.Controllers
         {
             try
             {
-                var cakeTask = Task.Run(() => _inventoryRepository.GetById<SimpleReadyCake>(id));
+                Task<SimpleReadyCake> cakeTask = Task.Run(() => _inventoryRepository.GetById<SimpleReadyCake>(id));
 
-                var individualRectangleImagesPaths = Task.Run(() => _inventoryRepository.GetAllWithMappingByForeignKey<CakeIndividualRectangleImage, string>(id, image => image.Path));
+                Task<string[]> individualRectangleImagesPaths = Task.Run(() => _inventoryRepository.GetAllWithMappingByForeignKey<CakeIndividualRectangleImage, string>(id, image => image.Path));
 
-                var priceIncludements = Task.Run(() => _inventoryRepository.GetAllWithMappingByForeignKey<IndividualPriceIncludement, string>(id, includement => includement.IncludementInfo));
+                Task<string[]> priceIncludements = Task.Run(() => _inventoryRepository.GetAllWithMappingByForeignKey<IndividualPriceIncludement, string>(id, includement => includement.IncludementInfo));
 
-                var bisquits = Task.Run(() => _inventoryRepository.GetAllWithMapping<Bisquit, string>(bisquit => bisquit.Type));
+                Task<string[]> bisquits = Task.Run(() => _inventoryRepository.GetAllWithMapping<Bisquit, string>(bisquit => bisquit.Type));
 
-                var fillings = Task.Run(() => _inventoryRepository.GetAllWithMapping<Filling, string>(filling => filling.Type));
+                Task<string[]> fillings = Task.Run(() => _inventoryRepository.GetAllWithMapping<Filling, string>(filling => filling.Type));
 
-                var berries  = await Task.Run(() => _inventoryRepository.GetAll<Berry>());
+                Berry[] berries  = await Task.Run(() => _inventoryRepository.GetAll<Berry>());
                 
-                var cake = await cakeTask;
+                SimpleReadyCake cake = await cakeTask;
 
-                var infoModel = new CakeInfoModel
+                CakeInfoModel infoModel = new CakeInfoModel
                 {
                     Name                           = cake.Name,
                     KgPrice                        = cake.KgPrice,
@@ -125,7 +125,7 @@ namespace CosmicCakes.Controllers
                         IsLevelable = cake.IsLevelable,
                         Bisquits    = await bisquits,
                         Fillings    = await fillings,
-                        Berries     = berries.Select(berry => berry.Name),
+                        Berries     = berries.Select(berry => berry.Name).ToArray(),
                         CakeName    = cake.Name
                     }
                 };
@@ -197,7 +197,7 @@ namespace CosmicCakes.Controllers
                 });
             }
 
-            var model = new SweetsAggregatedModel()
+            SweetsAggregatedModel model = new SweetsAggregatedModel()
             {
                 Sweets = sweetsLoist.ToArray()
             };
@@ -214,22 +214,22 @@ namespace CosmicCakes.Controllers
         [HttpGet]
         public async Task<ActionResult> FastOrder()
         {
-            var cakeTask = Task.Run(() => _inventoryRepository.GetAll<SimpleReadyCake>());
+            Task<SimpleReadyCake[]> cakeTask = Task.Run(() => _inventoryRepository.GetAll<SimpleReadyCake>());
 
-            var bisquits = Task.Run(() => _inventoryRepository.GetAllWithMapping<Bisquit, string>(bisquit => bisquit.Type));
+            Task<string[]> bisquits = Task.Run(() => _inventoryRepository.GetAllWithMapping<Bisquit, string>(bisquit => bisquit.Type));
 
-            var fillings = Task.Run(() => _inventoryRepository.GetAllWithMapping<Filling, string>(filling => filling.Type));
+            Task<string[]> fillings = Task.Run(() => _inventoryRepository.GetAllWithMapping<Filling, string>(filling => filling.Type));
 
-            var berries = await Task.Run(() => _inventoryRepository.GetAll<Berry>());
+            Berry[] berries = await Task.Run(() => _inventoryRepository.GetAll<Berry>());
 
-            var cake = await cakeTask;
+            SimpleReadyCake[] cakes = await cakeTask;
 
             Models.OrderModel model = new OrderModel()
             {
                 Bisquits = await bisquits,
                 Fillings = await fillings,
-                Cakes = cake.Select(c => c.Name).ToArray(),
-                Berries = berries.Select(berry => berry.Name)
+                Cakes = cakes.Select(c => c.Name).ToArray(),
+                Berries = berries.Select(berry => berry.Name).ToArray()
             };
 
             return View(model);
