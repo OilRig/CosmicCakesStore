@@ -6,7 +6,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CosmicCakes.DAL.Entities;
-using CosmicCakes.DAL.Entities.Sweets;
 
 namespace CosmicCakes.DAL.Common
 {
@@ -25,5 +24,11 @@ namespace CosmicCakes.DAL.Common
     public interface IHasActiveMark
     {
         bool IsActive { get; set; }
+    }
+
+    public interface ISeparateSweet
+    {
+        bool IsCake { get; set; }
+        bool IsAdditionalSweet { get; set; }
     }
 }

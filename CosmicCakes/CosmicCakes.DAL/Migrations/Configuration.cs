@@ -2,7 +2,7 @@ namespace CosmicCakes.DAL.Migrations
 {
     using System.Data.Entity.Migrations;
 
-    public sealed class Configuration : DbMigrationsConfiguration<CosmicCakes.DAL.CakeContext>
+    public sealed class Configuration : DbMigrationsConfiguration<CakeContext>
     {
         public Configuration()
         {
@@ -10,7 +10,7 @@ namespace CosmicCakes.DAL.Migrations
             AutomaticMigrationDataLossAllowed = false;
         }
 
-        protected override void Seed(CosmicCakes.DAL.CakeContext context)
+        protected override void Seed(CakeContext context)
         {
             //  This method will be called after migrating to the latest version.
 

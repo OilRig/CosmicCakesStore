@@ -3,7 +3,7 @@ namespace CosmicCakes.DAL.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialCreateComplete : DbMigration
+    public partial class CosmicCakes : DbMigration
     {
         public override void Up()
         {
@@ -82,7 +82,7 @@ namespace CosmicCakes.DAL.Migrations
                         MinOrderItemsCount = c.Int(nullable: false),
                         PricePerItem = c.Decimal(nullable: false, precision: 18, scale: 2),
                         MaxWeight = c.Int(nullable: false),
-                        PricePerKilo = c.Int(nullable: false),
+                        PricePerKilo = c.Decimal(nullable: false, precision: 18, scale: 2),
                         IsLevelable = c.Boolean(nullable: false),
                         BackgroundImagePath = c.String(nullable: false, maxLength: 255),
                         IsActive = c.Boolean(nullable: false),

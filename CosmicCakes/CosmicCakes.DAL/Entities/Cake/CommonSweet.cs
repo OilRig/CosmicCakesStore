@@ -4,7 +4,7 @@ using CosmicCakes.DAL.Common;
 
 namespace CosmicCakes.DAL.Entities
 {
-    public class CommonSweet : IHasIntegerId, IHasActiveMark
+    public class CommonSweet : IHasIntegerId, IHasActiveMark, ISeparateSweet
     {
         [Key]
         public int Id { get; set; }

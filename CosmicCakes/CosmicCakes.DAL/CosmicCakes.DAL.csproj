@@ -65,12 +65,11 @@
     <Compile Include="Entities\Order\Order.cs" />
     <Compile Include="Entities\Images\SimpleCakeImage.cs" />
     <Compile Include="Entities\Feedback\UserFeedback.cs" />
-    <Compile Include="Entities\Sweets\AdditionalSweet.cs" />
     <Compile Include="Helpers\AccessLockers.cs" />
     <Compile Include="Interfaces\ICakeInventoryRepository.cs" />
-    <Compile Include="Migrations\201803231544206_InitialCreateComplete.cs" />
-    <Compile Include="Migrations\201803231544206_InitialCreateComplete.Designer.cs">
-      <DependentUpon>201803231544206_InitialCreateComplete.cs</DependentUpon>
+    <Compile Include="Migrations\201803231708206_CosmicCakes.cs" />
+    <Compile Include="Migrations\201803231708206_CosmicCakes.Designer.cs">
+      <DependentUpon>201803231708206_CosmicCakes.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -87,8 +86,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201803231544206_InitialCreateComplete.resx">
-      <DependentUpon>201803231544206_InitialCreateComplete.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201803231708206_CosmicCakes.resx">
+      <DependentUpon>201803231708206_CosmicCakes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

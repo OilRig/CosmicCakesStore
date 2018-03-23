@@ -24,6 +24,8 @@ namespace CosmicCakes.DAL.Interfaces
 
         T GetById<T>(int id) where T : class, IHasIntegerId;
 
-        T[] GetActiveItems<T>() where T : class, IHasActiveMark;
+        T[] GetActiveCakeItems<T>() where T : class, ISeparateSweet, IHasActiveMark;
+
+        T[] GetActiveSweetItems<T>() where T : class, ISeparateSweet, IHasActiveMark;
     }
 }

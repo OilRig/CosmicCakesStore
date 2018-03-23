@@ -3,7 +3,6 @@ using CosmicCakes.DAL.Entities.Images;
 using CosmicCakes.DAL.Entities.Inventory;
 using CosmicCakes.DAL.Entities.Order;
 using CosmicCakes.DAL.Entities.Pricing;
-using CosmicCakes.DAL.Entities.Sweets;
 using CosmicCakes.DAL.Migrations;
 using System.Data.Entity;
 

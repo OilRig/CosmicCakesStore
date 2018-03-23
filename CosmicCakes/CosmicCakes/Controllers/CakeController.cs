@@ -8,7 +8,6 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using System.Linq;
-using CosmicCakes.DAL.Entities.Sweets;
 using CosmicCakes.DAL.Entities.Images;
 using CosmicCakes.DAL.Entities.Pricing;
 using CosmicCakes.DAL.Entities.Inventory;
@@ -55,11 +54,11 @@ namespace CosmicCakes.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult> Index()
+        public async Task<ActionResult> Cakes()
         {
             try
             {
-                var cakes = Task.Run(() => _inventoryRepository.GetActiveItems<CommonSweet>());
+                var cakes = Task.Run(() => _inventoryRepository.GetActiveCakeItems<CommonSweet>());
 
                 List<CakesStartPageModel> cakesList = new List<CakesStartPageModel>();
 
@@ -183,7 +182,7 @@ namespace CosmicCakes.Controllers
         [HttpGet]
         public async Task<ActionResult> Sweets()
         {
-            Task<AdditionalSweet[]> sweets = Task.Run(() => _inventoryRepository.GetAll<AdditionalSweet>());
+            Task<CommonSweet[]> sweets = Task.Run(() => _inventoryRepository.GetActiveSweetItems<CommonSweet>());
 
             List<SweetModel> sweetsLoist = new List<SweetModel>();
 
@@ -192,9 +191,9 @@ namespace CosmicCakes.Controllers
                 sweetsLoist.Add(new SweetModel()
                 {
                     Id = sweets.Id,
-                    Title = sweet.Title,
+                    Title = sweet.Name,
                     Description = sweet.Description,
-                    StartPricePerPcs = sweet.StartPricePerPcs
+                    StartPricePerPcs = sweet.PricePerItem
                 });
             }
 
@@ -207,7 +206,7 @@ namespace CosmicCakes.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult> Sweet(int sweetId)
+        public async Task<ActionResult> SweetInfo(int sweetId)
         {
             return null;
         }

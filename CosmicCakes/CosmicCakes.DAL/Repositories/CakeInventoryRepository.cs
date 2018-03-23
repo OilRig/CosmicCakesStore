@@ -149,15 +149,26 @@ namespace CosmicCakes.DAL.Repositories
             });
         }
 
-        public T[] GetActiveItems<T>() where T: class, IHasActiveMark
+        public T[] GetActiveCakeItems<T>() where T: class, ISeparateSweet, IHasActiveMark
         {
             return ExecuteArrayFetchSecure(() =>
             {
                 using (var context = new DBContextFactory().CreateContext())
                 {
-                    return context.Set<T>().AsNoTracking().Where(entity => entity.IsActive).ToArray();
+                    return context.Set<T>().AsNoTracking().Where(entity => entity.IsActive && entity.IsCake).ToArray();
                 }
             });  
+        }
+
+        public T[] GetActiveSweetItems<T>() where T : class, ISeparateSweet, IHasActiveMark
+        {
+            return ExecuteArrayFetchSecure(() =>
+            {
+                using (var context = new DBContextFactory().CreateContext())
+                {
+                    return context.Set<T>().AsNoTracking().Where(entity => entity.IsActive && entity.IsAdditionalSweet).ToArray();
+                }
+            });
         }
     }
 }

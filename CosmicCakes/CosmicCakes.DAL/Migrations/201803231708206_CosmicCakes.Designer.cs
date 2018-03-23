@@ -7,13 +7,13 @@ namespace CosmicCakes.DAL.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class InitialCreateComplete : IMigrationMetadata
+    public sealed partial class CosmicCakes : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialCreateComplete));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(CosmicCakes));
         
         string IMigrationMetadata.Id
         {
-            get { return "201803231544206_InitialCreateComplete"; }
+            get { return "201803231708206_CosmicCakes"; }
         }
         
         string IMigrationMetadata.Source

@@ -345,7 +345,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Cake\Index.cshtml" />
+    <Content Include="Views\Cake\Cakes.cshtml" />
     <Content Include="Views\Shared\_LayoutWithNoMargins.cshtml" />
     <Content Include="Views\Cake\CakeInfo.cshtml" />
     <Content Include="Views\Home\Inventory.cshtml" />
