@@ -162,6 +162,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\MoneyExtensions.cs" />
     <Compile Include="Models\CakeInfoModel.cs" />
     <Compile Include="Models\CakePartsModel.cs" />
     <Compile Include="Models\CakesStartPageModel.cs" />
