@@ -30,6 +30,7 @@ namespace CosmicCakes.DAL
         //Images section
         public  DbSet<SimpleCakeImage> SimpleCakeImages { get; set; }
         public  DbSet<CakeIndividualRectangleImage> CakeIndividualRectangleImages { get; set; }
+        public DbSet<SweetIndividualRectangleImage> SweetIndividualRectangleImages { get; set; }
 
         //priceIncludements section
         public  DbSet<IndividualPriceIncludement> IndividualCakePriceIncludements { get; set; }

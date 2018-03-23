@@ -6,21 +6,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CosmicCakes.DAL.Entities;
+using CosmicCakes.DAL.Entities.Sweets;
 
 namespace CosmicCakes.DAL.Common
 {
     public interface IHasIntegerId
     {
-        [Key]
         int Id { get; set; }
     }
 
     public interface IHasCakeForeignKey
     {
-        [ForeignKey("SimpleReadyCake")]
         int CakeId { get; set; }
 
         SimpleReadyCake SimpleReadyCake { get; set; }
+    }
+
+    public interface IHasSweetForeignKey
+    {
+        int SweetId { get; set; }
+        AdditionalSweet AdditionalSweet { get; set; }
     }
 
     public interface IHasActiveMark

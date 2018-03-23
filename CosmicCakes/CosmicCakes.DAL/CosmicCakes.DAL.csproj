@@ -55,6 +55,7 @@
     <Compile Include="Common\IHasIntegerId.cs" />
     <Compile Include="Entities\Cake\Berry.cs" />
     <Compile Include="Entities\Blog\BlogPost.cs" />
+    <Compile Include="Entities\Cake\Sweet.cs" />
     <Compile Include="Entities\Images\CakeIndividualImage.cs" />
     <Compile Include="Entities\Cake\Bisquit.cs" />
     <Compile Include="Context\CakeContext.cs" />
@@ -70,6 +71,7 @@
     <Compile Include="Entities\Cake\SimpleCakeImage.cs" />
     <Compile Include="Entities\Cake\SimpleReadyCake.cs" />
     <Compile Include="Entities\Feedback\UserFeedback.cs" />
+    <Compile Include="Entities\Images\SweetIndividualImage.cs" />
     <Compile Include="Entities\Sweets\AdditionalSweet.cs" />
     <Compile Include="Helpers\AccessLockers.cs" />
     <Compile Include="Interfaces\IEmailTemplateRepository.cs" />
