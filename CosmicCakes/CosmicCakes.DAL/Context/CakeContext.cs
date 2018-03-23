@@ -1,4 +1,8 @@
 using CosmicCakes.DAL.Entities;
+using CosmicCakes.DAL.Entities.Images;
+using CosmicCakes.DAL.Entities.Inventory;
+using CosmicCakes.DAL.Entities.Order;
+using CosmicCakes.DAL.Entities.Pricing;
 using CosmicCakes.DAL.Entities.Sweets;
 using CosmicCakes.DAL.Migrations;
 using System.Data.Entity;
@@ -20,31 +24,21 @@ namespace CosmicCakes.DAL
         public DbSet<Cream> Cream { get; set; }
         public DbSet<Filling> Fillings { get; set; }
         public DbSet<Berry> Berries{ get; set; }
+
         public DbSet<Order> Orders { get; set; }
 
         //ready cake section
-        public DbSet<SimpleReadyCake> SimpleReadyCakes { get; set; }
-
-        public DbSet<AdditionalSweet> AdditionalSweets { get; set; }
+        public DbSet<CommonSweet> Sweets { get; set; }
 
         //Images section
-        public  DbSet<SimpleCakeImage> SimpleCakeImages { get; set; }
-        public  DbSet<CakeIndividualRectangleImage> CakeIndividualRectangleImages { get; set; }
-        public DbSet<SweetIndividualRectangleImage> SweetIndividualRectangleImages { get; set; }
+        public  DbSet<SweetImage> SweetsImages { get; set; }
+        public  DbSet<SweetIndividualRectangleImage> SweetsIndividualImages { get; set; }
 
         //priceIncludements section
         public  DbSet<IndividualPriceIncludement> IndividualCakePriceIncludements { get; set; }
 
-        //Blog section
-        public  DbSet<BlogPost> BlogPosts { get; set; }
-        public  DbSet<PostContentTemplate> PostTemplates { get; set; }
-
         //Feedbacks
         public  DbSet<UserFeedback> UserFeedbacks { get; set; }
-
-        //Emails
-        public  DbSet<EmailTemplate> EmailTemplates { get; set; }
-        public  DbSet<EmailLinkedResorce> LinkedResorces { get; set; }
 
         //Help
         public  DbSet<HelpRequest> HelpRequests { get; set; }

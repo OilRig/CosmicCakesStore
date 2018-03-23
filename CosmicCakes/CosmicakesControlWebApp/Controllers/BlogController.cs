@@ -10,12 +10,10 @@ namespace CosmicakesControlWebApp.Controllers
 {
     public class BlogController : Controller
     {
-        private readonly IPostTemplateRepository _postTemplateRepository;
         private readonly ICakeInventoryRepository _inventoryRepository;
-        public BlogController(IPostTemplateRepository postTemplateRepository, ICakeInventoryRepository inventoryRepository)
+        public BlogController( ICakeInventoryRepository inventoryRepository)
         {
             _inventoryRepository    = inventoryRepository;
-            _postTemplateRepository = postTemplateRepository;
         }
 
         [HttpGet]

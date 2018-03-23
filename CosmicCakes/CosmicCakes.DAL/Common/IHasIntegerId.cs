@@ -15,17 +15,11 @@ namespace CosmicCakes.DAL.Common
         int Id { get; set; }
     }
 
-    public interface IHasCakeForeignKey
-    {
-        int CakeId { get; set; }
-
-        SimpleReadyCake SimpleReadyCake { get; set; }
-    }
-
     public interface IHasSweetForeignKey
     {
         int SweetId { get; set; }
-        AdditionalSweet AdditionalSweet { get; set; }
+
+        CommonSweet CommonSweet { get; set; }
     }
 
     public interface IHasActiveMark

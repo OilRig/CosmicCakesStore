@@ -162,7 +162,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\BlogItemsModel.cs" />
     <Compile Include="Models\CakeInfoModel.cs" />
     <Compile Include="Models\CakePartsModel.cs" />
     <Compile Include="Models\CakesStartPageModel.cs" />
@@ -355,7 +354,6 @@
     <Content Include="Views\Shared\SuccessOrder.cshtml" />
     <Content Include="Views\Error\Error500.cshtml" />
     <Content Include="Views\Error\General.cshtml" />
-    <Content Include="Views\Home\Blog.cshtml" />
     <Content Include="Views\Feedback\Index.cshtml" />
     <Content Include="Views\Shared\FeedbackForm.partial.cshtml" />
     <Content Include="Views\Feedback\SaveFeedback.cshtml" />

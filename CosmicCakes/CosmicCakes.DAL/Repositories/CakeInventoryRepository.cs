@@ -137,14 +137,14 @@ namespace CosmicCakes.DAL.Repositories
         }
 
         public TMap[] GetAllWithMappingByForeignKey<T, TMap>(int cakeId, Expression<Func<T, TMap>> mapper)
-        where T : class, IHasCakeForeignKey
+        where T : class, IHasSweetForeignKey
         where TMap : class
         {
             return ExecuteArrayFetchSecure(() =>
             {
                 using (var context = new DBContextFactory().CreateContext())
                 {
-                    return context.Set<T>().AsNoTracking().Where(entity => entity.CakeId == cakeId).Select(mapper).ToArray();
+                    return context.Set<T>().AsNoTracking().Where(entity => entity.SweetId == cakeId).Select(mapper).ToArray();
                 }
             });
         }

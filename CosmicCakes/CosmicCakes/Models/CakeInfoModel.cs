@@ -10,9 +10,9 @@ namespace CosmicCakes.Models
         public string Description { get; set; }
         public string MainInfo { get; set; }
         public double MinWeight { get; set; }
-        public int MinPrice { get; set; }
+        public decimal MinPrice => (decimal)MinWeight * KgPrice;
         public int MaxWeight { get; set; }
-        public int KgPrice { get; set; }
+        public decimal KgPrice { get; set; }
         public bool IsLevelable { get; set; }
 
         public OrderModel CakeOrderModel { get; set; }

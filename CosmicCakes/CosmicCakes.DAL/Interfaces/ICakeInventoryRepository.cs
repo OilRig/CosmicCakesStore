@@ -19,7 +19,7 @@ namespace CosmicCakes.DAL.Interfaces
         where TMap : class;
 
         TMap[] GetAllWithMappingByForeignKey<T, TMap>(int cakeId, Expression<Func<T, TMap>> mapper)
-        where T : class, IHasCakeForeignKey
+        where T : class, IHasSweetForeignKey
         where TMap : class;
 
         T GetById<T>(int id) where T : class, IHasIntegerId;

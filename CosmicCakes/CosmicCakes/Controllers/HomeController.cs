@@ -6,6 +6,7 @@ using System;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using CaptchaMvc.HtmlHelpers;
+using CosmicCakes.DAL.Entities.Inventory;
 
 namespace CosmicCakes.Controllers
 {
@@ -41,19 +42,6 @@ namespace CosmicCakes.Controllers
         public ActionResult Help()
         {
             return View();
-        }
-
-        [HttpGet]
-        public async Task<ActionResult> Blog()
-        {
-            Task<BlogPost[]> posts = Task.Run(() => _inventoryRepository.GetAll<BlogPost>());
-
-            BlogItemsModel model = new BlogItemsModel()
-            {
-                BlogPosts = await posts
-            };
-
-            return View(model);
         }
 
         [HttpGet]

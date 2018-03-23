@@ -1,4 +1,5 @@
 ﻿using CosmicCakes.DAL.Entities;
+using CosmicCakes.DAL.Entities.Inventory;
 using System.Collections.Generic;
 
 namespace CosmicCakes.Models

@@ -9,6 +9,10 @@ using System.Threading.Tasks;
 using System.Web.Mvc;
 using System.Linq;
 using CosmicCakes.DAL.Entities.Sweets;
+using CosmicCakes.DAL.Entities.Images;
+using CosmicCakes.DAL.Entities.Pricing;
+using CosmicCakes.DAL.Entities.Inventory;
+using CosmicCakes.DAL.Entities.Order;
 
 namespace CosmicCakes.Controllers
 {
@@ -55,22 +59,21 @@ namespace CosmicCakes.Controllers
         {
             try
             {
-                var cakes = Task.Run(() => _inventoryRepository.GetActiveItems<SimpleReadyCake>());
+                var cakes = Task.Run(() => _inventoryRepository.GetActiveItems<CommonSweet>());
 
                 List<CakesStartPageModel> cakesList = new List<CakesStartPageModel>();
 
                 foreach (var cake in await cakes)
                 {
-                    Task<string[]> imageTask = Task.Run(() => _inventoryRepository.GetAllWithMappingByForeignKey<SimpleCakeImage, string>(cake.Id, image => image.Path));
+                    Task<string[]> imageTask = Task.Run(() => _inventoryRepository.GetAllWithMappingByForeignKey<SweetImage, string>(cake.Id, image => image.Path));
 
                     cakesList.Add(new CakesStartPageModel
                     {
                         Id                  = cake.Id,
                         Description         = cake.Description,
                         Name                = cake.Name,
-                        KgPrice             = cake.KgPrice,
+                        KgPrice             = cake.PricePerKilo,
                         MinWeight           = cake.MinWeight,
-                        MinPrice            = cake.MinPrice,
                         BackgroundImagePath = cake.BackgroundImagePath,
                         ImagePaths          = await imageTask
                     });
@@ -92,9 +95,9 @@ namespace CosmicCakes.Controllers
         {
             try
             {
-                Task<SimpleReadyCake> cakeTask = Task.Run(() => _inventoryRepository.GetById<SimpleReadyCake>(id));
+                Task<CommonSweet> cakeTask = Task.Run(() => _inventoryRepository.GetById<CommonSweet>(id));
 
-                Task<string[]> individualRectangleImagesPaths = Task.Run(() => _inventoryRepository.GetAllWithMappingByForeignKey<CakeIndividualRectangleImage, string>(id, image => image.Path));
+                Task<string[]> individualRectangleImagesPaths = Task.Run(() => _inventoryRepository.GetAllWithMappingByForeignKey<SweetIndividualRectangleImage, string>(id, image => image.Path));
 
                 Task<string[]> priceIncludements = Task.Run(() => _inventoryRepository.GetAllWithMappingByForeignKey<IndividualPriceIncludement, string>(id, includement => includement.IncludementInfo));
 
@@ -104,14 +107,13 @@ namespace CosmicCakes.Controllers
 
                 Berry[] berries  = await Task.Run(() => _inventoryRepository.GetAll<Berry>());
                 
-                SimpleReadyCake cake = await cakeTask;
+                CommonSweet cake = await cakeTask;
 
                 CakeInfoModel infoModel = new CakeInfoModel
                 {
                     Name                           = cake.Name,
-                    KgPrice                        = cake.KgPrice,
+                    KgPrice                        = cake.PricePerKilo,
                     MinWeight                      = cake.MinWeight,
-                    MinPrice                       = cake.MinPrice,
                     Description                    = cake.Description,
                     MainInfo                       = cake.MainInfo,
                     IsLevelable                    = cake.IsLevelable,
@@ -153,18 +155,17 @@ namespace CosmicCakes.Controllers
             }
             else
             {
-                SimpleReadyCake cake = await Task.Run(() => _inventoryRepository.GetById<SimpleReadyCake>(model.Id));
+                CommonSweet cake = await Task.Run(() => _inventoryRepository.GetById<CommonSweet>(model.Id));
 
-                var individualRectangleImagesPaths = Task.Run(() => _inventoryRepository.GetAllWithMappingByForeignKey<CakeIndividualRectangleImage, string>(model.Id, image => image.Path));
+                var individualRectangleImagesPaths = Task.Run(() => _inventoryRepository.GetAllWithMappingByForeignKey<SweetIndividualRectangleImage, string>(model.Id, image => image.Path));
 
                 var priceIncludements = Task.Run(() => _inventoryRepository.GetAllWithMappingByForeignKey<IndividualPriceIncludement, string>(model.Id, includement => includement.IncludementInfo));
 
                 var infoModel = new CakeInfoModel
                 {
                     Name                           = cake.Name,
-                    KgPrice                        = cake.KgPrice,
+                    KgPrice                        = cake.PricePerKilo,
                     MinWeight                      = cake.MinWeight,
-                    MinPrice                       = cake.MinPrice,
                     Description                    = cake.Description,
                     MainInfo                       = cake.MainInfo,
                     IsLevelable                    = cake.IsLevelable,
@@ -214,7 +215,7 @@ namespace CosmicCakes.Controllers
         [HttpGet]
         public async Task<ActionResult> FastOrder()
         {
-            Task<SimpleReadyCake[]> cakeTask = Task.Run(() => _inventoryRepository.GetAll<SimpleReadyCake>());
+            Task<CommonSweet[]> cakeTask = Task.Run(() => _inventoryRepository.GetAll<CommonSweet>());
 
             Task<string[]> bisquits = Task.Run(() => _inventoryRepository.GetAllWithMapping<Bisquit, string>(bisquit => bisquit.Type));
 
@@ -222,7 +223,7 @@ namespace CosmicCakes.Controllers
 
             Berry[] berries = await Task.Run(() => _inventoryRepository.GetAll<Berry>());
 
-            SimpleReadyCake[] cakes = await cakeTask;
+            CommonSweet[] cakes = await cakeTask;
 
             Models.OrderModel model = new OrderModel()
             {
