@@ -192,7 +192,7 @@ namespace CosmicCakes.Controllers
 
                 sweetsLoist.Add(new SweetModel()
                 {
-                    Id               = sweets.Id,
+                    Id               = sweet.Id,
                     Title            = sweet.Name,
                     Description      = sweet.Description,
                     StartPricePerPcs = sweet.PricePerItem,

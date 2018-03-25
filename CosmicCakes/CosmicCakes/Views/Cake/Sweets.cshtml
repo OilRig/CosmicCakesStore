@@ -80,7 +80,7 @@
             $('#sweets').addClass("active");
             $('a.showSweet').click(function () {
                 var sweetId = $(this).data("sweetid");
-                window.location.href = "/sweet/" + sweetId;
+                window.location.href = "/sweets/" + sweetId;
             });
             if (!Modernizr.touch) {
                 $('div#text-container').css('margin-top', '50px');

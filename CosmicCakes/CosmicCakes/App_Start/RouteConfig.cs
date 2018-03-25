@@ -47,19 +47,19 @@ namespace CosmicCakesWebApp
                 defaults: new { controller = "Cake", action = nameof(CakeController.Cakes) });
 
             routes.MapRoute(
+               name: "Sweets",
+               url: "sweets",
+               defaults: new { controller = "Cake", action = nameof(CakeController.Sweets) });
+
+            routes.MapRoute(
                name: "CakeInfo",
                url: "cake/{id}",
                defaults: new { controller = "Cake", action = nameof(CakeController.CakeInfo), id = UrlParameter.Optional });
 
             routes.MapRoute(
-              name: "SweetInfo",
-              url: "sweet/{id}",
-              defaults: new { controller = "Cake", action = nameof(CakeController.SweetInfo), id = UrlParameter.Optional });
-
-            routes.MapRoute(
-                name: "Sweets",
-                url: "sweets",
-                defaults: new { controller = "Cake", action = nameof(CakeController.Sweets) });
+             name: "SweetInfo",
+             url: "sweets/{sweetId}",
+             defaults: new { controller = "Cake", action = nameof(CakeController.SweetInfo), sweetId = UrlParameter.Optional });
 
             routes.MapRoute(
                 name: "FastOrder",

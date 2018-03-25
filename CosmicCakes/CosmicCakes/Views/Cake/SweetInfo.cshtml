@@ -1,7 +1,7 @@
 ﻿@model CosmicCakes.Models.SweetInfoModel
 @using CosmicCakes.Helpers
 @{
-    ViewBag.Title = "Торт '" + Model.Name + "'";
+    ViewBag.Title = Model.Name;
     ViewBag.MetaKeyWords = "торт,заказ,спб,кондитер,дешево,санкт-петербург,ягода,сладости,cosmicakes,cosmic,cakes,Нора,Голубева,Nora,Golubeva";
     ViewBag.Description = "Торт " + Model.Name;
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -76,7 +76,7 @@
 
             <ul style="margin-bottom:25px;margin-top:15px;">
                 <li style="font-size:1.1em;">@Model.PricePerPcs.ToMoneyString(System.Globalization.CultureInfo.InvariantCulture) р/шт</li>
-                <li style="font-size:1.1em;">минимальный заказ: @Model.MinPcsCount кг</li>
+                <li style="font-size:1.1em;">минимальный заказ: @Model.MinPcsCount шт.</li>
             </ul>
             <strong>В стоимость входит:</strong>
             <div>
