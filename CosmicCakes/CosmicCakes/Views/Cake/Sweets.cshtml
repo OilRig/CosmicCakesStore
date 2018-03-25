@@ -1,4 +1,6 @@
 ﻿@model CosmicCakes.Models.SweetsAggregatedModel
+@using CosmicCakes.Helpers
+@using System.Globalization
 @{
     ViewBag.Title = "Cosmic Cakes - другие сладости";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -13,14 +15,14 @@
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 fader" style="padding-right: 0;padding-left:0;" id="cakeImagesSetEven">
                 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 changing-images-set" style="padding-right: 0;padding-left: 0;">
                     <a class="showSweet" data-sweetid="@sweet.Id">
-                        <img id="cakeImageFirst" src="~/Content/Images/Sweets/2017-06-14-20.20.41.jpg" class="img-responsive" style="display: block;" alt="Выбрать торт от Cosmic Cakes" />
-                        <img id="cakeImageSecond" src="~/Content/Images/Sweets/2017-06-14-20.23.34.jpg" class="img-responsive" alt="Купить торт в Cosmic Cakes" />
+                        <img id="cakeImageFirst" src="@sweet.ImagePaths.ElementAt(0)" class="img-responsive" style="display: block;" alt="Выбрать торт от Cosmic Cakes" />
+                        <img id="cakeImageSecond" src="@sweet.ImagePaths.ElementAt(1)" class="img-responsive" alt="Купить торт в Cosmic Cakes" />
                     </a>
                 </div>
                 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 changing-images-set" style="padding-left: 0; padding-right: 0;">
                     <a class="showSweet" data-sweetid="@sweet.Id">
-                        <img id="cakeImageThird" src="~/Content/Images/Sweets/2017-06-29-19.01.07.jpg" class="img-responsive" style="display: block;" alt="Вкусный торт от Cosmic Cakes" />
-                        <img id="cakeImageFourth" src="~/Content/Images/Sweets/2017-07-15-12.22.40-(1).jpg" class="img-responsive" alt="Отличный торт" />
+                        <img id="cakeImageThird" src="@sweet.ImagePaths.ElementAt(2)" class="img-responsive" style="display: block;" alt="Вкусный торт от Cosmic Cakes" />
+                        <img id="cakeImageFourth" src="@sweet.ImagePaths.ElementAt(3)" class="img-responsive" alt="Отличный торт" />
                     </a>
                 </div>
             </div>
@@ -30,7 +32,7 @@
                     <div id="briefCake">
                         @sweet.Description
                         <br />
-                        <p class="price"> от @sweet.StartPricePerPcs.ToString() р. за штуку</p>
+                        <p class="price"> от @sweet.StartPricePerPcs.ToMoneyString(CultureInfo.InvariantCulture) р. за штуку</p>
                     </div>
                 </div>
                 @*<div class="childBackground" style="background-image: url(@cake.BackgroundImagePath)"></div>*@
@@ -47,7 +49,7 @@
                     <div id="briefCake">
                         @sweet.Description
                         <br />
-                        <p class="price"> от @sweet.StartPricePerPcs.ToString() р. за штуку</p>
+                        <p class="price"> от @sweet.StartPricePerPcs.ToMoneyString(CultureInfo.InvariantCulture) р. за штуку</p>
                     </div>
                 </div>
                 @*<div class="childBackground" style="background-image: url(@cake.BackgroundImagePath)"></div>*@
@@ -56,14 +58,14 @@
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 fader" style="padding-left: 0;padding-right:0;" id="cakeImagesSetOdd">
                 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="padding-right: 0; padding-left: 0;">
                     <a class="showSweet" data-sweetid="@sweet.Id">
-                        <img id="cakeImageFirst" src="~/Content/Images/Sweets/2017-07-15-14.31.23-(1).jpg" class="img-responsive" style="display: block;" alt="Кондитерская cosmicakes.ru" />
-                        <img id="cakeImageSecond" src="~/Content/Images/Sweets/2017-07-15-14.32.26-(1).jpg" height="300" class="img-responsive" alt="Торт в кондитерской" />
+                        <img id="cakeImageFirst" src="@sweet.ImagePaths.ElementAt(0)" class="img-responsive" style="display: block;" alt="Кондитерская cosmicakes.ru" />
+                        <img id="cakeImageSecond" src="@sweet.ImagePaths.ElementAt(1)" height="300" class="img-responsive" alt="Торт в кондитерской" />
                     </a>
                 </div>
                 <div id="changingImagesSet" class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="padding-left: 0; padding-right: 0;">
                     <a class="showSweet" data-sweetid="@sweet.Id">
-                        <img id="cakeImageThird" src="~/Content/Images/Sweets/2017-06-14-20.20.41.jpg" class="img-responsive" style="display: block;" alt="Вкусные начинки,крем и бисквиты" />
-                        <img id="cakeImageFourth" src="~/Content/Images/Sweets/2017-06-14-20.23.34.jpg" class="img-responsive" alt="Добро пожаловать на cosmicakes.ru" />
+                        <img id="cakeImageThird" src="@sweet.ImagePaths.ElementAt(2)" class="img-responsive" style="display: block;" alt="Вкусные начинки,крем и бисквиты" />
+                        <img id="cakeImageFourth" src="@sweet.ImagePaths.ElementAt(3)" class="img-responsive" alt="Добро пожаловать на cosmicakes.ru" />
                     </a>
                 </div>
             </div>
@@ -80,14 +82,13 @@
                 var sweetId = $(this).data("sweetid");
                 window.location.href = "/sweet/" + sweetId;
             });
-            if(!Modernizr.touch)
-            {
+            if (!Modernizr.touch) {
                 $('div#text-container').css('margin-top', '50px');
             }
         });
     })
         (jQuery);
 </script>
-<script src="~/Scripts/cakeNameHoverProcessor.js"> </script>
-<script src="~/Scripts/imageAutomaticSlider.js"> </script>
+<script src="~/Scripts/cakeNameHoverProcessor.js"></script>
+<script src="~/Scripts/imageAutomaticSlider.js"></script>
 

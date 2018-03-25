@@ -8,7 +8,7 @@ namespace CosmicCakes.Models
     public class SweetsAggregatedModel
     {
         public SweetModel[] Sweets { get; set; }
-        ///Пути и тд....
+        
     }
     public class SweetModel
     {
@@ -16,5 +16,6 @@ namespace CosmicCakes.Models
         public string Title { get; set; }
         public string Description { get; set; }
         public decimal StartPricePerPcs { get; set; }
+        public string[] ImagePaths { get; set; }
     }
 }

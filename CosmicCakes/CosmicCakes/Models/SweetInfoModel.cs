@@ -12,6 +12,11 @@ namespace CosmicCakes.Models
         public string ShortDescription { get; set; }
         public string Info { get; set; }
         public decimal PricePerPcs { get; set; }
+        public decimal MinPrice => MinPcsCount * PricePerPcs;
         public int MinPcsCount { get; set; }
+        public string[] IndividualRectangleImagesPaths { get; set; }
+        public string[] PriceIncludements { get; set; }
+
+        public OrderModel CakeOrderModel { get; set; }
     }
 }

@@ -188,12 +188,15 @@ namespace CosmicCakes.Controllers
 
             foreach(var sweet in await sweets)
             {
+                Task<string[]> imageTask = Task.Run(() => _inventoryRepository.GetAllWithMappingByForeignKey<SweetImage, string>(sweet.Id, image => image.Path));
+
                 sweetsLoist.Add(new SweetModel()
                 {
-                    Id = sweets.Id,
-                    Title = sweet.Name,
-                    Description = sweet.Description,
-                    StartPricePerPcs = sweet.PricePerItem
+                    Id               = sweets.Id,
+                    Title            = sweet.Name,
+                    Description      = sweet.Description,
+                    StartPricePerPcs = sweet.PricePerItem,
+                    ImagePaths       = await imageTask
                 });
             }
 
@@ -208,7 +211,49 @@ namespace CosmicCakes.Controllers
         [HttpGet]
         public async Task<ActionResult> SweetInfo(int sweetId)
         {
-            return null;
+            try
+            {
+                Task<CommonSweet> cakeTask = Task.Run(() => _inventoryRepository.GetById<CommonSweet>(sweetId));
+
+                Task<string[]> individualRectangleImagesPaths = Task.Run(() => _inventoryRepository.GetAllWithMappingByForeignKey<SweetIndividualRectangleImage, string>(sweetId, image => image.Path));
+
+                Task<string[]> priceIncludements = Task.Run(() => _inventoryRepository.GetAllWithMappingByForeignKey<IndividualPriceIncludement, string>(sweetId, includement => includement.IncludementInfo));
+
+                Task<string[]> bisquits = Task.Run(() => _inventoryRepository.GetAllWithMapping<Bisquit, string>(bisquit => bisquit.Type));
+
+                Task<string[]> fillings = Task.Run(() => _inventoryRepository.GetAllWithMapping<Filling, string>(filling => filling.Type));
+
+                Berry[] berries = await Task.Run(() => _inventoryRepository.GetAll<Berry>());
+
+                CommonSweet cake = await cakeTask;
+
+                SweetInfoModel infoModel = new SweetInfoModel
+                {
+                    Name = cake.Name,
+                    Info = cake.MainInfo,
+                    IndividualRectangleImagesPaths = await individualRectangleImagesPaths,
+                    PriceIncludements = await priceIncludements,
+                    Id = cake.Id,
+                    CakeOrderModel = new OrderModel()
+                    {
+                        Id = cake.Id,
+                        IsLevelable = cake.IsLevelable,
+                        Bisquits = await bisquits,
+                        Fillings = await fillings,
+                        Berries = berries.Select(berry => berry.Name).ToArray(),
+                        CakeName = cake.Name
+                    },
+                    MinPcsCount = cake.MinOrderItemsCount,
+                    PricePerPcs = cake.PricePerItem
+                };
+
+                return View(infoModel);
+            }
+            catch (Exception ex)
+            {
+                Logger.Error(ex, $"Cake/CakeInfo:Id {sweetId}");
+                return View("Error");
+            }
         }
 
         [HttpGet]
