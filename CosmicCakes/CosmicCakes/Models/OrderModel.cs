@@ -32,7 +32,7 @@ namespace CosmicCakes.Models
         public DateTime ExpireDate { get; set; }
 
         public int[] Levels { get; set; } = new[] { 1, 2, 3 };
-
+        public int[] ItemsPossibleCount { get; set; } = new int[] {6, 9, 12 };
         public string[] Bisquits { get; set; }
         public string[] Fillings { get; set; }
         public string[] Berries { get; set; }
@@ -47,8 +47,11 @@ namespace CosmicCakes.Models
         public bool CustomLevelBisquits { get; set; }
         public bool DeliveryNeeded { get; set; }
         public bool IsLevelable { get; set; }
+        public bool IsCake { get; set; }
+        public bool IsSweet { get; set; }
 
         public int SelectedLevels { get; set; }
+        public int ItemsCount { get; set; }
 
         public string DeliveryAdress { get; set; }
         public string SelectedFilling { get; set; }

@@ -19,10 +19,10 @@
                 }
             },
             messages: {
-                ExpireDateString: "<p style='color:red;'>Кажется,Вы не указали дату для тортика</p>",
+                ExpireDateString: "<p style='color:red;'>Кажется,Вы не указали дату для заказа</p>",
                 CustomerName: "<p style='color:red;'>Как же Вас зовут?</p>",
                 CakeStringWeight: {
-                    required: "<p style='color:red;'>Не указан вес тортика</p>",
+                    required: "<p style='color:red;'>Не указан вес</p>",
                     min: "<p style='color:red;'>Минимальный вес - 1.5 кг</p>",
                     max: "<p style='color:red;'>Больше 20 кг не сможем поместить в холодильник :(</p>"
                 },

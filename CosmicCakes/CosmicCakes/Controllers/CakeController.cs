@@ -236,12 +236,14 @@ namespace CosmicCakes.Controllers
                     Id = cake.Id,
                     CakeOrderModel = new OrderModel()
                     {
-                        Id = cake.Id,
+                        Id          = cake.Id,
                         IsLevelable = cake.IsLevelable,
-                        Bisquits = await bisquits,
-                        Fillings = await fillings,
-                        Berries = berries.Select(berry => berry.Name).ToArray(),
-                        CakeName = cake.Name
+                        Bisquits    = await bisquits,
+                        Fillings    = await fillings,
+                        Berries     = berries.Select(berry => berry.Name).ToArray(),
+                        CakeName    = cake.Name,
+                        IsCake      = cake.IsCake,
+                        IsSweet     = cake.IsAdditionalSweet
                     },
                     MinPcsCount = cake.MinOrderItemsCount,
                     PricePerPcs = cake.PricePerItem

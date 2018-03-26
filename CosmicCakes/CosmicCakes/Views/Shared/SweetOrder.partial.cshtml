@@ -1,0 +1,141 @@
+﻿
+@model CosmicCakes.Models.OrderModel
+@using (Html.BeginForm("MakeOrder", "Cake", new { Id = Model.Id }, FormMethod.Post, htmlAttributes: new { enctype = "multipart/form-data", id = "orderForm" }))
+{
+    <div class="row" style="margin-top:10px;">
+
+        <div class="col-sm-6">
+
+            <div class="col-sm-3">
+                <label>Имя</label>
+            </div>
+
+            <div class="col-sm-9">
+                @Html.TextBoxFor(m => m.CustomerName, htmlAttributes: new { style = "width:100%;margin:0;", placeholder = "Имя", type = "text", @class = "form-control" })
+                <p style="color: red;">@Html.ValidationMessageFor(m => m.CustomerName)</p>
+            </div>
+
+        </div>
+
+        <div class="col-sm-6">
+
+            <div class="col-sm-3">
+                <label>Количество:</label>
+            </div>
+
+            <div class="col-sm-9">
+                @Html.DropDownListFor(m => m.ItemsCount, Model.ItemsPossibleCount.Select(item => new SelectListItem() { Text = item.ToString(), Value = item.ToString() }), htmlAttributes: new { placeholder = "Вес", @class = "form-control" })
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="row" style="margin-top:10px;">
+
+        <div class="col-sm-6">
+
+            <div class="col-sm-3">
+                <label>Телефон</label>
+            </div>
+
+            <div class="col-sm-9">
+                @Html.TextBoxFor(m => m.CustomerPhoneNumber, htmlAttributes: new { type = "tel", @class = "form-control" })
+                <p style="color: red;">@Html.ValidationMessageFor(m => m.CustomerPhoneNumber)</p>
+            </div>
+
+        </div>
+
+        <div class="col-sm-6">
+
+            <div class="col-sm-3">
+                <label>Дата заказа</label>
+            </div>
+
+            <div class="col-sm-9">
+                @Html.TextBoxFor(m => m.ExpireDateString, htmlAttributes: new { placeholder = "Дата", id = "datePicker", type = "text", @class = "form-control" })
+                <p style="color: red;">@Html.ValidationMessageFor(m => m.ExpireDateString)</p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="row" style="margin-top:10px;">
+
+        <div class="col-sm-6">
+
+            <div class="col-sm-3">
+                <label>Доставка</label>
+            </div>
+
+            <div class="col-sm-1">
+                @Html.CheckBoxFor(m => m.DeliveryNeeded, htmlAttributes: new { id = "deliveryNeeded" })
+            </div>
+
+            <div class="col-sm-1" id="deliveryAdress" style="display:none;">
+                <label>Адрес:</label>
+            </div>
+
+            <div class="col-sm-7" id="deliveryAdress" style="display:none;">
+                @Html.TextAreaFor(m => m.DeliveryAdress, htmlAttributes: new { @class = "form-control" })
+                <p id="recomendDelivery" style="color:#fb9494;"></p>
+            </div>
+
+        </div>
+
+        <div class="col-sm-6">
+
+            <div class="col-sm-3">
+                <label>Ягоды:</label>
+            </div>
+
+            <div class="col-sm-9">
+                @Html.DropDownListFor(m => m.SelectedBerries, new SelectList(Model.Berries), htmlAttributes: new { @class = "form-control" })
+            </div>
+
+        </div>
+
+    </div>
+
+    <div style="margin-top:10px;" class="row">
+
+        <div class="col-sm-6">
+
+            <div class="col-sm-3">
+                <label>Комментарий к заказу</label>
+            </div>
+
+            <div class="col-sm-9">
+                @Html.TextAreaFor(m => m.Comments, htmlAttributes: new { placeholder = "Ваш комментарий...", @class = "form-control", rows = "3" })
+            </div>
+
+        </div>
+        
+    </div>
+    @*<div class="row" style="margin-top:10px;">
+        <div class="col-sm-6">
+
+            <div class="col-sm-3">
+                <label>Приблизительная стоимость:</label>
+            </div>
+
+            <div class="col-sm-9">
+                <p class="approximate-price" id="priceHolder">0р.</p>
+            </div>
+
+        </div>
+    </div>*@
+
+    @Html.HiddenFor(m => m.CakeName)
+    <div style="display:none">
+        <input type="text" value="2" name="CakeStringWeight" />
+    </div>
+    
+    <div class="row" style="margin-top:50px;">
+        <div class="col-sm-12 centerd-content">
+            <button class="btn btn-default make-order-button" type="submit">Хочу эти сладости</button>
+        </div>
+    </div>
+}
+
