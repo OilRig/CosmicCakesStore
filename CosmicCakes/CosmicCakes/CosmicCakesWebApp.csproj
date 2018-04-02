@@ -386,6 +386,7 @@
     <Content Include="Views\Cake\Sweets.cshtml" />
     <Content Include="Views\Shared\FastOrder.cshtml" />
     <Content Include="Views\Cake\SweetInfo.cshtml" />
+    <Content Include="Views\Shared\SweetOrder.partial.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

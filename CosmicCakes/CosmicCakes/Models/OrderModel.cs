@@ -5,6 +5,27 @@ using System.Globalization;
 
 namespace CosmicCakes.Models
 {
+    public class FastOrderModel
+    {
+        public string[] CakeNames { get; set; }
+        [Required(ErrorMessage = "Как же Вас зовут?")]
+        public string CustomerName { get; set; }
+
+        [Required(ErrorMessage = "И даже телефончик не оставите?")]
+        public string CustomerPhoneNumber { get; set; }
+
+        public string SweetName { get; set; }
+
+        public string CakeStringWeightOrItemsCount { get; set; }
+
+        public string Comments { get; set; }
+
+        [Required(ErrorMessage = "Кажется,Вы не указали дату для заказа")]
+        public string ExpireDateString { get; set; }
+
+        public DateTime ExpireDate { get; set; }
+    }
+
     public class OrderModel
     {
         public int Id { get; set; }
@@ -26,7 +47,7 @@ namespace CosmicCakes.Models
 
         public string Comments { get; set; }
 
-        [Required(ErrorMessage = "Кажется,Вы не указали дату для тортика")]
+        [Required(ErrorMessage = "Кажется,Вы не указали дату для заказа")]
         public string ExpireDateString { get; set; }
 
         public DateTime ExpireDate { get; set; }
