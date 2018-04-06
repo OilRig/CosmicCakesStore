@@ -21,33 +21,9 @@
 
 </head>
 <body>
-    <div style="height:100px;width:100px;background-color:grey;" id="floatingContainer">lkfsdlfkjsdlkfjlkj</div>
-    <div class="modal fade" id="fastOrderModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLiveLabel">Оставить отзыв</h5>
-                </div>
-                <div class="container">
-                        <div class="modal-body">
-                            @Html.Partial("/Views/Shared/FastOrder.cshtml",(CosmicCakes.Models.OrderModel)ViewBag.OrderModel)
-                        </div>
-                        <div class="modal-footer">
-                            <div class="row centerd-content">
-                                <div class="col-sm-6">
-                                    <button type="submit" class="btn btn-default make-order-button" style="width:200px;">Отправить</button>
-                                </div>
-
-                                <div class="col-sm-6">
-                                    <button type="button" class="btn btn-default make-order-button" data-dismiss="modal" style="width:200px;">Закрыть</button>
-                                </div>
-                            </div>
-                        </div>
-                </div>
-            </div>
-        </div>
+    <div style="position:fixed;left:0;width:50px;height:50px;">
+        <button id="fastOrder">Заказать!</button>
     </div>
-
     <div class="container">
         <div class="row centerd-content" style="margin-top: 50px;">
             <div class="col-md-12 centerd-content"><a name="top" href="/home"><img class="img-responsive img-thumbnail" src="~/Content/Images/Logo.jpg" /></a></div>
@@ -89,7 +65,7 @@
     <div class="container">
         @RenderBody()
 
-        <div class="fast-order-popup-container"></div>
+        <div style="display:none;" class="fast-order-popup-container"></div>
     </div>
     <br /><hr class="style-two" />
     <footer class="grey-footer centerd-content">
@@ -135,6 +111,16 @@
                     duration: 1000,
                     scrollTop: 0
                 }, 700);
+            });
+
+            $('button#fastOrder').click(function () {
+                $.ajax({
+                    type: "GET",
+                    url: "/Cake/GetFastOrderModelHtml",
+                    success: function (data) {
+                        
+                    }
+                });
             });
         });
     </script>

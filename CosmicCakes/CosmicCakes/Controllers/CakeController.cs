@@ -281,5 +281,18 @@ namespace CosmicCakes.Controllers
 
             return View(model);
         }
+
+        [HttpPost]
+        public string GetFastOrderModelHtml()
+        {
+            CommonSweet[] allSweets = _inventoryRepository.GetAll<CommonSweet>();
+
+            FastOrderModel fastOrder = new FastOrderModel()
+            {
+                SweetNames = allSweets.Select(sweet => sweet.Name).ToArray()
+            };
+
+            return PartialViewToString("~/Views/Shared/FastOrder.partial.cshtml", fastOrder);
+        }
     }
 }

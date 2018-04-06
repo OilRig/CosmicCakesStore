@@ -7,14 +7,14 @@ namespace CosmicCakes.Models
 {
     public class FastOrderModel
     {
-        public string[] CakeNames { get; set; }
+        public string[] SweetNames { get; set; }
+        public string SelectedSweetName { get; set; }
+
         [Required(ErrorMessage = "Как же Вас зовут?")]
         public string CustomerName { get; set; }
 
         [Required(ErrorMessage = "И даже телефончик не оставите?")]
         public string CustomerPhoneNumber { get; set; }
-
-        public string SweetName { get; set; }
 
         public string CakeStringWeightOrItemsCount { get; set; }
 
