@@ -588,6 +588,16 @@ p.start-page-info-brief {
     letter-spacing:3px;
     border-radius: 0 !important
 }
+.make-fast-order-button {
+    border-color: black;
+    background-color: white;
+    color: black;
+    width: 280px;
+    height: 50px;
+    font-family: 'Ubuntu Condensed';
+    letter-spacing: 3px;
+    border-radius: 0 !important
+}
 .about-link-container {
     border:solid 1px rgb(51, 51, 51);
     font-size:1em;
@@ -662,5 +672,14 @@ p.leave-comment-text {
 p.approximate-price {
     font-size:2em;
     font-family:'Open Sans',sans-serif;
+}
+
+.floating-popup{
+    position:fixed;
+    z-index:10000;
+    height: 750px !important;
+}
+.ui-dialog-titlebar-close {
+    background-image: url("images/ui-icons_444444_256x240.png");
 }
 

@@ -1,5 +1,6 @@
 ﻿(function ($) {
     $(document).ready(function () {
+       
         $("#orderForm").validate({
             rules:
                 {
@@ -16,7 +17,8 @@
                 CustomerName: "required",
                 CustomerPhoneNumber: {
                     required: true
-                }
+                    },
+                CakeStringWeightOrItemsCount : "required"
             },
             messages: {
                 ExpireDateString: "<p style='color:red;'>Кажется,Вы не указали дату для заказа</p>",
@@ -28,7 +30,8 @@
                 },
                 CustomerPhoneNumber: {
                     required: "<p style='color:red;'>Даже телефончик не оставите?</p>",
-                }
+                },
+                CakeStringWeightOrItemsCount: "<p style='color:red;'>Кажется,Вы не указали количество</p>"
             }
         });
 
@@ -48,6 +51,7 @@
         });
 
         $('select#SelectedLevels').on('change', function () {
+            debugger;
             var name = $('div#cakeName').text();
             if (name != 'Двухъярусный   торт') {
                 var theMessage = '';

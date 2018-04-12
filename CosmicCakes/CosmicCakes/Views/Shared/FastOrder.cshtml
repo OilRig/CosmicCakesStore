@@ -1,64 +1,124 @@
 ﻿@model CosmicCakes.Models.FastOrderModel
+<script src="~/Scripts/mask.js" type="text/javascript" defer></script>
+<script type="text/javascript" src="/Scripts/dateProccessor.js" defer></script>
 
-<div class="row">
-    <div class="col-sm-6">
-        <label>Что готовим?</label>
-    </div>
+<script>
+    (function ($) {
+        
+        $(document).ready(function () {
+            $('[type="tel"]').mask('+7(000)-000-00-00', { placeholder: "+7(___)-___-__-__" });
 
-    <div class="col-sm-6">
-        @Html.DropDownListFor(m => m.SelectedSweetName, Model.SweetNames.Select(item => new SelectListItem() { Text = item, Value = item }), new {@class = "form-control" })
-    </div>
+           
+        });
+    })(jQuery);
+</script>
+
+<div class="container fast-form-container" style="z-index:10000 !important;">
+    @using (Html.BeginRouteForm("SaveFastOrder", FormMethod.Post, new { @class = "fastOrderForm", enctype = "multipart/form-data", id = "orderForm" }))
+    {
+        <div class="row" style="margin-bottom:20px;">
+            <div class="col-sm-6">
+                <label>Что готовим?</label>
+            </div>
+
+            <div class="col-sm-6">
+                @Html.DropDownListFor(m => m.SelectedSweetName, Model.SweetNames.Select(item => new SelectListItem() { Text = item, Value = item }), new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="row" style="margin-bottom:20px;">
+            <div class="col-sm-6">
+                <label>Сколько(шт/кг)?</label>
+            </div>
+
+            <div class="col-sm-6">
+                @Html.TextBoxFor(m => m.CakeStringWeightOrItemsCount, new { placeholder = "кг или шт.", @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.CakeStringWeightOrItemsCount)
+            </div>
+        </div>
+
+        <div class="row" style="margin-bottom:20px;">
+            <div class="col-sm-6">
+                <label>Когда?</label>
+            </div>
+
+            <div class="col-sm-6">
+                @Html.TextBoxFor(m => m.ExpireDateString, htmlAttributes: new { placeholder = "Дата", id = "datePicker", type = "text", @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.ExpireDateString)
+            </div>
+        </div>
+
+        <div class="row" style="margin-bottom:20px;">
+            <div class="col-sm-6">
+                <label>Ваше имя:</label>
+            </div>
+
+            <div class="col-sm-6">
+                @Html.TextBoxFor(m => m.CustomerName, new { placeholder = "Имя", @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.CustomerName)
+            </div>
+        </div>
+
+        <div class="row" style="margin-bottom:20px;">
+            <div class="col-sm-6">
+                <label>Ваш телефон:</label>
+            </div>
+
+            <div class="col-sm-6">
+                @Html.TextBoxFor(m => m.CustomerPhoneNumber, new { type = "tel", @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.CustomerPhoneNumber)
+            </div>
+        </div>
+
+        <div class="row" style="margin-bottom:20px;">
+            <div class="col-sm-6">
+                <label>Комментарий:</label>
+            </div>
+
+            <div class="col-sm-6">
+                @Html.TextAreaFor(m => m.Comments, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12 centerd-content">
+                <button type="submit" class="btn btn-default make-order-button fast-button">Заказать</button>
+            </div>
+        </div>
+
+    }
+    <script>
+        (function ($) {
+            function objectifyForm(formArray) {
+
+                var returnArray = {};
+                for (var i = 0; i < formArray.length; i++) {
+                    returnArray[formArray[i]['name']] = formArray[i]['value'];
+                }
+                return returnArray;
+            }
+            $(document).ready(function () {
+
+                $('.fast-button').click(function () {
+
+                    event.preventDefault();
+                    var data = objectifyForm($('.fastOrderForm').serializeArray());
+
+                    $.ajax({
+                        type: "POST",
+                        url: "/saveFastOrder",
+                        data: data,
+                        success: function (data) {
+                            
+                            $('.fast-form-container').html(data);
+
+                        },
+                        fail: function () { alert('Ошибка!'); }
+                    });
+
+                   
+                })
+            });
+        })(jQuery);
+    </script>
 </div>
-
-<div class="row">
-    <div class="col-sm-6">
-        <label>Сколько(шт/кг)?</label>
-    </div>
-
-    <div class="col-sm-6">
-        @Html.TextBoxFor(m=>m.CakeStringWeightOrItemsCount, new {@class="from-control" })
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-sm-6">
-        <label>Когда?</label>
-    </div>
-
-    <div class="col-sm-6">
-        @Html.TextBoxFor(m => m.ExpireDateString, htmlAttributes: new { placeholder = "Дата", id = "datePicker", type = "text", @class = "form-control" })
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-sm-6">
-        <label>Ваше имя:</label>
-    </div>
-
-    <div class="col-sm-6">
-        @Html.TextBoxFor(m => m.CustomerName, new {placeholder="Имя", @class = "from-control" })
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-sm-6">
-        <label>Ваш телефон:</label>
-    </div>
-
-    <div class="col-sm-6">
-        @Html.TextBoxFor(m => m.CustomerPhoneNumber, new { @class = "from-control" })
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-sm-6">
-        <label>Комментарий:</label>
-    </div>
-
-    <div class="col-sm-6">
-        @Html.TextBoxFor(m => m.Comments, new { @class = "from-control" })
-    </div>
-</div>
-
-
-  

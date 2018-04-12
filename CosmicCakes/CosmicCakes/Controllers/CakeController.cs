@@ -259,30 +259,6 @@ namespace CosmicCakes.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult> FastOrder()
-        {
-            Task<CommonSweet[]> cakeTask = Task.Run(() => _inventoryRepository.GetAll<CommonSweet>());
-
-            Task<string[]> bisquits = Task.Run(() => _inventoryRepository.GetAllWithMapping<Bisquit, string>(bisquit => bisquit.Type));
-
-            Task<string[]> fillings = Task.Run(() => _inventoryRepository.GetAllWithMapping<Filling, string>(filling => filling.Type));
-
-            Berry[] berries = await Task.Run(() => _inventoryRepository.GetAll<Berry>());
-
-            CommonSweet[] cakes = await cakeTask;
-
-            Models.OrderModel model = new OrderModel()
-            {
-                Bisquits = await bisquits,
-                Fillings = await fillings,
-                Cakes = cakes.Select(c => c.Name).ToArray(),
-                Berries = berries.Select(berry => berry.Name).ToArray()
-            };
-
-            return View(model);
-        }
-
-        [HttpPost]
         public string GetFastOrderModelHtml()
         {
             CommonSweet[] allSweets = _inventoryRepository.GetAll<CommonSweet>();
@@ -292,7 +268,23 @@ namespace CosmicCakes.Controllers
                 SweetNames = allSweets.Select(sweet => sweet.Name).ToArray()
             };
 
-            return PartialViewToString("~/Views/Shared/FastOrder.partial.cshtml", fastOrder);
+            return PartialViewToString("FastOrder", fastOrder);
+        }
+
+        [HttpPost]
+        public string SaveFastOrder(FastOrderModel model)
+        {
+            _inventoryRepository.Add(new FastOrder()
+            {
+                CakeStringWeightOrItemsCount = model.CakeStringWeightOrItemsCount,
+                Comments                     = model.Comments,
+                CustomerName                 = model.CustomerName,
+                CustomerPhoneNumber          = model.CustomerPhoneNumber,
+                ExpireDate                   = DateTime.ParseExact(model.ExpireDateString, "MM/dd/yyyy", null),
+                SweetName                    = model.SelectedSweetName
+            });
+
+            return "Заказ принят! Скоро мы с вами свяжемся!";
         }
     }
 }

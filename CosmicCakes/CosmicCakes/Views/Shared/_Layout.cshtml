@@ -14,16 +14,16 @@
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
     <script src="https://vk.com/js/api/openapi.js?144" type="text/javascript"></script>
-
     <script type="text/javascript">
-        VK.init({apiId: 5990858, onlyWidgets: true});
+        VK.init({ apiId: 5990858, onlyWidgets: true });
     </script>
 
 </head>
 <body>
-    <div style="position:fixed;left:0;width:50px;height:50px;">
-        <button id="fastOrder">Заказать!</button>
+    <div style="position:fixed;right:0;bottom:0;z-index:10000;">
+        <button class="make-fast-order-button fastOrderButtom" id="fastOrder">БЫСТРЫЙ ЗАКАЗ!</button>
     </div>
+    <div id="fast-order-content"></div>
     <div class="container">
         <div class="row centerd-content" style="margin-top: 50px;">
             <div class="col-md-12 centerd-content"><a name="top" href="/home"><img class="img-responsive img-thumbnail" src="~/Content/Images/Logo.jpg" /></a></div>
@@ -40,7 +40,7 @@
         </div>
     </div>
     <div class="container main-head-menu" style="margin-top: 10px;">
-        <nav class="navbar navbar-default">
+        <nav class="navbar navbar-default" style=" z-index:20 !important;">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainNavbar">
@@ -104,6 +104,7 @@
         </div>
     </footer>
 
+   
     <script>
         $(document).ready(function () {
             $('a#top').click(function () {
@@ -113,13 +114,34 @@
                 }, 700);
             });
 
-            $('button#fastOrder').click(function () {
+            $('#fastOrder').click(function () {
                 $.ajax({
                     type: "GET",
-                    url: "/Cake/GetFastOrderModelHtml",
+                    url: "/getFastOrderHtml",
                     success: function (data) {
-                        
-                    }
+                        $('#fast-order-content').html(data);
+
+                        $('#fast-order-content').dialog(
+                            {
+                                autoOpen: true,
+                                modal: false,
+                                heght: 1000,
+                                width: 400,
+                                close: function () {
+                                    $('#fast-order-content').html('');
+                                    $('.fastOrderButtom').css('display', 'block');
+                                },
+                                open: function () {
+                                    $('.fastOrderButtom').css('display', 'none');
+                                },
+                                title: "Быстрый заказ",
+                                position: { my: "right bottom", at: "right bottom", of: window },
+                                closeText: "Закрыть",
+                                dialogClass: "floating-popup",
+                                draggable: true
+                            });
+                    },
+                    fail: function () { alert('asdasdasdasd'); }
                 });
             });
         });

@@ -16,6 +16,7 @@ namespace CosmicCakes.Models
         [Required(ErrorMessage = "И даже телефончик не оставите?")]
         public string CustomerPhoneNumber { get; set; }
 
+        [Required(ErrorMessage = "Кажется,Вы не указали количество")]
         public string CakeStringWeightOrItemsCount { get; set; }
 
         public string Comments { get; set; }

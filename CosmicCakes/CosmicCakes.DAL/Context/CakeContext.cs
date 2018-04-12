@@ -25,6 +25,7 @@ namespace CosmicCakes.DAL
         public DbSet<Berry> Berries{ get; set; }
 
         public DbSet<Order> Orders { get; set; }
+        public DbSet<Entities.Order.FastOrder> FastOrders { get; set; }
 
         //ready cake section
         public DbSet<CommonSweet> Sweets { get; set; }

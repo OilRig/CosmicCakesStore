@@ -61,6 +61,7 @@
     <Compile Include="Entities\Inventory\Cream.cs" />
     <Compile Include="Entities\Inventory\Filling.cs" />
     <Compile Include="Entities\Help\HelpRequest.cs" />
+    <Compile Include="Entities\Order\FastOrder.cs" />
     <Compile Include="Entities\Pricing\IndividualPriceIncludement.cs" />
     <Compile Include="Entities\Order\Order.cs" />
     <Compile Include="Entities\Images\SimpleCakeImage.cs" />
@@ -70,6 +71,10 @@
     <Compile Include="Migrations\201803231708206_CosmicCakes.cs" />
     <Compile Include="Migrations\201803231708206_CosmicCakes.Designer.cs">
       <DependentUpon>201803231708206_CosmicCakes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804061351421_FastOrder.cs" />
+    <Compile Include="Migrations\201804061351421_FastOrder.Designer.cs">
+      <DependentUpon>201804061351421_FastOrder.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -88,6 +93,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201803231708206_CosmicCakes.resx">
       <DependentUpon>201803231708206_CosmicCakes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804061351421_FastOrder.resx">
+      <DependentUpon>201804061351421_FastOrder.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
