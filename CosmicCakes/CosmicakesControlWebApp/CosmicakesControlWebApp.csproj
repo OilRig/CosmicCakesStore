@@ -168,7 +168,6 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\DebugController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
@@ -218,14 +217,11 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Blog\Index.cshtml" />
-    <Content Include="Views\Blog\SavePost.cshtml" />
-    <Content Include="Views\News\Index.cshtml" />
-    <Content Include="Views\News\Announce.cshtml" />
     <Content Include="Views\Shared\ErrorTemplate.cshtml" />
     <Content Include="Views\Debug\Index.cshtml" />
     <Content Include="Views\Shared\BestPost.partial.cshtml" />
     <Content Include="Views\Order\Index.cshtml" />
+    <Content Include="Views\Order\FastOrders.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

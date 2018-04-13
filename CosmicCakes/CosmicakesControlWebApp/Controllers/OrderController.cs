@@ -1,4 +1,5 @@
-﻿using CosmicCakes.DAL.Interfaces;
+﻿using CosmicCakes.DAL.Entities.Order;
+using CosmicCakes.DAL.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,9 +18,28 @@ namespace CosmicakesControlWebApp.Controllers
         }
 
         [HttpGet]
+        public async Task<ActionResult> FastOrders()
+        {
+            var orders = await Task.Run(() => _inventoryRepository.GetAll<FastOrder>());
+
+            var model = orders.Select(order => new Models.Orders.FastOrderModel()
+            {
+                Id = order.Id,
+                Comments = order.Comments,
+                CustomerName = order.CustomerName,
+                CustomerPhoneNumber = order.CustomerPhoneNumber,
+                ExpireDate = order.ExpireDate,
+                SweetName = order.SweetName,
+                WeightOrItemsCount = order.CakeStringWeightOrItemsCount
+            });
+
+            return View(model);
+
+        }
+        [HttpGet]
         public async Task<ActionResult> Index()
         {
-            var orders = await Task.Run(() => _inventoryRepository.GetAll<CosmicCakes.DAL.Entities.Order>());
+            var orders = await Task.Run(() => _inventoryRepository.GetAll<Order>());
 
             var model = orders.Select(ord => new Models.Orders.Order
             {
@@ -48,7 +68,7 @@ namespace CosmicakesControlWebApp.Controllers
 
         public async Task<ActionResult> AjaxDeleteOrder(int id)
         {
-            var order = _inventoryRepository.GetById<CosmicCakes.DAL.Entities.Order>(id);
+            var order = _inventoryRepository.GetById<Order>(id);
 
             await Task.Run(() => _inventoryRepository.Remove(order));
 

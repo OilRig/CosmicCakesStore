@@ -199,6 +199,7 @@
     <Content Include="Content\Images\Backgrounds\flower.jpg" />
     <Content Include="Content\Images\Backgrounds\berryhill.jpg" />
     <Content Include="Content\Images\Backgrounds\crown.jpg" />
+    <Content Include="Content\Images\close-512.png" />
     <Content Include="Content\Images\CosmicCake\Individual\Rectangle\csm_cake_rect_1.jpg" />
     <Content Include="Content\Images\CosmicCake\Individual\Rectangle\csm_cake_rect_2.jpg" />
     <Content Include="Content\Images\CosmicCake\Individual\Rectangle\csm_cake_rect_3.jpg" />
