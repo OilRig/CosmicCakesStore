@@ -14,11 +14,9 @@ namespace CosmicCakes.Services.EmailService
 
         public void SendEmailOrder(string message)
         {      
-            using (SmtpClient smtp = new SmtpClient(SmtpServer, 587))
+            using (SmtpClient smtp = new SmtpClient("aspmx.l.google.com", 25))
             {
-                smtp.Credentials = new NetworkCredential("ibrzdnsv@gmail.com", "gbczgjgf234");
-                smtp.EnableSsl = true;
-                using (MailMessage email = new MailMessage("ibrzdnsv@gmail.com", ToEmailAdress))
+                using (MailMessage email = new MailMessage("ibrzdnsv@gmail.com", "cosmicakesofficial@gmail.com"))
                 {
                     email.Subject = "Заказ";
                     email.Body = message;

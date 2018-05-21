@@ -148,7 +148,7 @@ namespace CosmicCakes.Controllers
                 model.CakeName = model.CakeName;
 
                 await Task.Run(() => SaveOrder(model));
-                Task.Run(() => EmailSender.SendEmailOrder(model.ToString()));
+                await Task.Run(() => EmailSender.SendEmailOrder(model.ToString()));
 
                 return View("SuccessOrder");
             }
