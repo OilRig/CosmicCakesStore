@@ -13,21 +13,18 @@ namespace CosmicCakes.Services.EmailService
         private int SmtpPort           => Convert.ToInt32(ConfigurationManager.AppSettings["SMTPServerPort"]);
 
         public void SendEmailOrder(string message)
-        {           
-            var from = new MailAddress(FromEmailAdress, "Заказ");
-
-            var to = new MailAddress(ToEmailAdress);
-
-            using (var m = new MailMessage(from, to))
+        {      
+            using (SmtpClient smtp = new SmtpClient(SmtpServer, 587))
             {
-                m.Subject = "Заказ";
-                m.Body = message;
-
-                var smtp = new SmtpClient(SmtpServer, SmtpPort)
+                smtp.Credentials = new NetworkCredential("ibrzdnsv@gmail.com", "gbczgjgf234");
+                smtp.EnableSsl = true;
+                using (MailMessage email = new MailMessage("ibrzdnsv@gmail.com", ToEmailAdress))
                 {
-                    Credentials = new NetworkCredential("cosmicakesofficial@gmail.com", "nora1996NORA")
-                };
-                smtp.Send(m);
+                    email.Subject = "Заказ";
+                    email.Body = message;
+
+                    smtp.Send(email);
+                }
             }
         }
     }
